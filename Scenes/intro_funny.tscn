@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://t6k2quq1gaa0"]
+
+[ext_resource type="VideoStream" uid="uid://b276yjyufuaex" path="res://Funny_stuff/From_KlickPin_CF_Caballo_lore_Video_en_2025___Imagenes_graciosas_Humor_de_animales_Imagenes_divertid.ogv" id="1_e8l5q"]
+[ext_resource type="Script" uid="uid://dykobm2lxotyu" path="res://Scripts/intro_funny.gd" id="1_t4h2k"]
+
+[node name="intro_funny" type="Node2D" unique_id=51113132]
+script = ExtResource("1_t4h2k")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1718605922]
+offset_left = -957.0
+offset_top = -548.0
+offset_right = 985.0
+offset_bottom = 558.0
+scale = Vector2(8, 5)
+stream = ExtResource("1_e8l5q")
+autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=130683199]

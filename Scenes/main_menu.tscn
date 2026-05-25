@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://b7ov52g1qjtwd"]
 
 [ext_resource type="FontFile" uid="uid://htx0b624ho05" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="1_28flt"]
-[ext_resource type="Script" uid="uid://oa6g6venuygy" path="res://Scripts/main_menu.gd" id="1_48xlc"]
+[ext_resource type="Script" uid="uid://sr2uc4dbameq" path="res://Scripts/main_menu.gd" id="1_48xlc"]
+[ext_resource type="AudioStream" uid="uid://cdh2ticfeqd5h" path="res://Assets/Sound Effects/Retro 8 bit SFX Pack/344314__musiclegends__powerup24.wav" id="3_1ehe0"]
+[ext_resource type="AudioStream" uid="uid://3g1i34p3bj20" path="res://Assets/Music/what's that smell (sugary spire).mp3" id="4_ce3w2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_erv1k"]
 font = ExtResource("1_28flt")
@@ -15,10 +17,6 @@ font_size = 150
 font = ExtResource("1_28flt")
 font_size = 40
 
-[sub_resource type="LabelSettings" id="LabelSettings_1ehe0"]
-font = ExtResource("1_28flt")
-font_size = 45
-
 [node name="MainMenu" type="Node2D" unique_id=1847352958]
 script = ExtResource("1_48xlc")
 
@@ -28,10 +26,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 169.0
-offset_top = 53.0
-offset_right = 1780.0
-offset_bottom = 320.0
+offset_left = 239.0
+offset_top = -20.0
+offset_right = 1733.0
+offset_bottom = 247.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -42,9 +40,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1423070521]
-offset_top = 25.0
-offset_right = 1920.0
-offset_bottom = 1058.0
+offset_top = 44.0
+offset_right = 1952.0
+offset_bottom = 1154.0
 theme = SubResource("Theme_48xlc")
 
 [node name="MainButtons" type="VBoxContainer" parent="CenterContainer" unique_id=1160634604]
@@ -147,12 +145,14 @@ text = "GO BACK"
 [node name="CreditsMenu" type="VBoxContainer" parent="CenterContainer" unique_id=73125226]
 visible = false
 layout_mode = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 120
 
-[node name="Credits" type="Label" parent="CenterContainer/CreditsMenu" unique_id=706812595]
-custom_minimum_size = Vector2(1000, 0)
+[node name="Credits" type="RichTextLabel" parent="CenterContainer/CreditsMenu" unique_id=205238107 groups=["scene_manager_entity_nodes"]]
+custom_minimum_size = Vector2(1000, 450)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/normal_font = ExtResource("1_28flt")
+theme_override_font_sizes/normal_font_size = 50
 text = "Kobayashi's Team!
 
 Bastian Albornoz
@@ -167,12 +167,18 @@ Lead Programer
 Hugo Torrez
 Composer
 -
+Addons used
+Smart Shape
+Limbo AI
+Scene Manager
+Signal Visualizer
+Animated Shape 2D
+-
 Sound effects taken from freesound.org
-
+-
 Thanks for playing!"
-label_settings = SubResource("LabelSettings_1ehe0")
-horizontal_alignment = 1
 autowrap_mode = 2
+horizontal_alignment = 1
 
 [node name="back" type="Button" parent="CenterContainer/CreditsMenu" unique_id=979943316]
 custom_minimum_size = Vector2(353, 0)
@@ -184,10 +190,30 @@ text = "GO BACK"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=622896352]
 z_index = -4096
-offset_right = 1953.0
-offset_bottom = 1116.0
+offset_top = -58.0
+offset_right = 1948.0
+offset_bottom = 1157.0
 mouse_filter = 2
 color = Color(1, 0.39215687, 0.38431373, 1)
+
+[node name="test_sound" type="Button" parent="." unique_id=328017584]
+offset_left = 1590.0
+offset_top = 995.0
+offset_right = 1891.0
+offset_bottom = 1047.0
+theme_override_fonts/font = ExtResource("1_28flt")
+theme_override_font_sizes/font_size = 50
+text = "TEST SOUND"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1958861532]
+position = Vector2(1590, 995)
+stream = ExtResource("3_1ehe0")
+bus = &"Sfx"
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1748622639]
+stream = ExtResource("4_ce3w2")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="CenterContainer/MainButtons/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CenterContainer/MainButtons/settings" to="." method="_on_settings_pressed"]
@@ -199,3 +225,4 @@ color = Color(1, 0.39215687, 0.38431373, 1)
 [connection signal="value_changed" from="CenterContainer/SettingsMenu/sfxvoslider" to="." method="_on_sfxvoslider_value_changed"]
 [connection signal="pressed" from="CenterContainer/SettingsMenu/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="CenterContainer/CreditsMenu/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="test_sound" to="." method="_on_test_sound_pressed"]

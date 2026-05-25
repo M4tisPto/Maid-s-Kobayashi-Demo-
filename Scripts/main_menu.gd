@@ -1,6 +1,7 @@
 extends Node2D
 
 var level: int = 1
+@onready var test_sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func _ready() -> void:
 	$CenterContainer/MainButtons/play.grab_focus()
@@ -35,8 +36,10 @@ func _on_back_pressed() -> void:
 	$CenterContainer/SettingsMenu.visible = false
 
 
+func _on_test_sound_pressed() -> void:
+	test_sfx.play()
 
-
+# this doesn't work... somehow
 func _on_fullscreen_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)

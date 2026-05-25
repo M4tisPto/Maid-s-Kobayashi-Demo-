@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://chojfiu6trog2"]
 
-[ext_resource type="Script" uid="uid://d1lwlkvm28dqr" path="res://Scripts/warning_screen.gd" id="1_5mrn8"]
+[ext_resource type="Script" uid="uid://bjjwydab6kwvj" path="res://Scripts/warning_screen.gd" id="1_5mrn8"]
 [ext_resource type="FontFile" uid="uid://htx0b624ho05" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="1_7e7h7"]
-[ext_resource type="AudioStream" uid="uid://b4hnb8xypfsb6" path="res://Sound Effects/Retro 8 bit SFX Pack/344313__musiclegends__pickup-coin12.wav" id="3_vscbh"]
+[ext_resource type="AudioStream" uid="uid://b4hnb8xypfsb6" path="res://Assets/Sound Effects/Retro 8 bit SFX Pack/344313__musiclegends__pickup-coin12.wav" id="3_vscbh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5mrn8"]
 font = ExtResource("1_7e7h7")
@@ -192,3 +192,4 @@ autoplay = &"fade_out"
 
 [node name="Start_sfx" type="AudioStreamPlayer2D" parent="." unique_id=1276916707]
 stream = ExtResource("3_vscbh")
+bus = &"Sfx"

@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://di4b3fet5cvsw"]
+
+[ext_resource type="Script" uid="uid://cpgf6h8myudkt" path="res://Scripts/player/player.gd" id="1_3smsa"]
+[ext_resource type="PackedScene" uid="uid://bsgtr5x44hma2" path="res://Scenes/state_machine.tscn" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://dvmxjhjmxlbn7" path="res://Scripts/player/states/idle.gd" id="3_x3wgy"]
+[ext_resource type="Script" uid="uid://d2g53dryisxs" path="res://Scripts/player/states/jump.gd" id="4_3smsa"]
+[ext_resource type="Script" uid="uid://dcfnni263ouid" path="res://Scripts/player/states/fall.gd" id="5_8erm5"]
+[ext_resource type="Script" uid="uid://vyjvqeh384dq" path="res://Scripts/player/states/move.gd" id="6_f1ek2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7f80"]
+size = Vector2(32, 120)
+
+[node name="player" type="CharacterBody2D" unique_id=2033633715]
+script = ExtResource("1_3smsa")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1741350484]
+position = Vector2(-2, 4)
+shape = SubResource("RectangleShape2D_f7f80")
+
+[node name="state_machine" parent="." unique_id=286087432 node_paths=PackedStringArray("starting_state") instance=ExtResource("1_v0iea")]
+starting_state = NodePath("idle")
+
+[node name="idle" type="Node" parent="state_machine" unique_id=389988173 node_paths=PackedStringArray("fall_state", "jump_state", "move_state")]
+script = ExtResource("3_x3wgy")
+fall_state = NodePath("../fall")
+jump_state = NodePath("../jump")
+move_state = NodePath("../move")
+
+[node name="jump" type="Node" parent="state_machine" unique_id=1266890664 node_paths=PackedStringArray("fall_state", "idle_state", "move_state")]
+script = ExtResource("4_3smsa")
+fall_state = NodePath("../fall")
+idle_state = NodePath("../idle")
+move_state = NodePath("../move")
+
+[node name="fall" type="Node" parent="state_machine" unique_id=14017587 node_paths=PackedStringArray("idle_state", "move_state")]
+script = ExtResource("5_8erm5")
+idle_state = NodePath("../idle")
+move_state = NodePath("../move")
+
+[node name="move" type="Node" parent="state_machine" unique_id=300475850 node_paths=PackedStringArray("fall_state", "idle_state", "jump_state")]
+script = ExtResource("6_f1ek2")
+fall_state = NodePath("../fall")
+idle_state = NodePath("../idle")
+jump_state = NodePath("../jump")

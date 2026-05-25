@@ -1,3 +1,27 @@
 [gd_scene format=3 uid="uid://kokkvje30y8s"]
 
-[node name="Node2D" type="Node2D" unique_id=81383323]
+[ext_resource type="AudioStream" uid="uid://dknaeqig3pv2g" path="res://Assets/Music/Scooby Doo! Creepy Run theme (HIGH QUALITY).mp3" id="1_b07c4"]
+[ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="2_b07c4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b07c4"]
+size = Vector2(1264, 304)
+
+[node name="test_room" type="Node2D" unique_id=81383323]
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1627681773]
+stream = ExtResource("1_b07c4")
+autoplay = true
+bus = &"Music"
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1778156251]
+
+[node name="player" parent="." unique_id=2033633715 instance=ExtResource("2_b07c4")]
+position = Vector2(902, 438)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1390569982]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1132179390]
+position = Vector2(935, 907)
+shape = SubResource("RectangleShape2D_b07c4")
+
+[editable path="player"]

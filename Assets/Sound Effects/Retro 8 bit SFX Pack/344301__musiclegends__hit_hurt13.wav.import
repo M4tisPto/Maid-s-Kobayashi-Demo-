@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dtg47o6qc6q0"
+path="res://.godot/imported/344301__musiclegends__hit_hurt13.wav-8defaedd2beb1635a36e0d72ee932185.sample"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/Retro 8 bit SFX Pack/344301__musiclegends__hit_hurt13.wav"
+dest_files=["res://.godot/imported/344301__musiclegends__hit_hurt13.wav-8defaedd2beb1635a36e0d72ee932185.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

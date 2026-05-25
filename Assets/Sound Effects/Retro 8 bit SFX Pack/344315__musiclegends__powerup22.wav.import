@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cqy3u3bebemak"
+path="res://.godot/imported/344315__musiclegends__powerup22.wav-05c325a4ff37cf339ac423f5850dc6e4.sample"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/Retro 8 bit SFX Pack/344315__musiclegends__powerup22.wav"
+dest_files=["res://.godot/imported/344315__musiclegends__powerup22.wav-05c325a4ff37cf339ac423f5850dc6e4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
