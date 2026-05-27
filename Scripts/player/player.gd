@@ -1,13 +1,10 @@
 class_name Player
 extends CharacterBody2D
 
-
 @onready
 var state_machine = $state_machine
 
 func _ready() -> void:
-	# Initialize the state machine, passing a reference of the player to the states,
-	# that way they can move and react accordingly
 	state_machine.init(self)
 
 func _unhandled_input(event: InputEvent) -> void:

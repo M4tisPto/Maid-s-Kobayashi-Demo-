@@ -143,6 +143,7 @@ theme_override_font_sizes/font_size = 75
 text = "GO BACK"
 
 [node name="CreditsMenu" type="VBoxContainer" parent="CenterContainer" unique_id=73125226]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 120
 
