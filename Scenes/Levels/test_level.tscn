@@ -20,6 +20,7 @@ bus = &"Music"
 
 [node name="player" parent="." unique_id=2033633715 instance=ExtResource("2_b07c4")]
 position = Vector2(902, 438)
+rotation_speed = null
 
 [node name="Sprite2D" parent="player" index="1" unique_id=1676272654]
 texture = SubResource("ViewportTexture_b07c4")

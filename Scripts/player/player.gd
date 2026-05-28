@@ -7,7 +7,8 @@ var state_machine = $state_machine
 @onready var player_model: Node3D = $SubViewport/Sophia_Model
 var facing_direction := 1
 var jumps_left: int = 0
-const TOTAL_JUMPS: int = 2
+@export
+var TOTAL_JUMPS: int = 2
 
 
 
