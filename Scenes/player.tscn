@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://bfjc20tg53pbo" path="res://Scripts/player/states/jump.gd" id="4_3smsa"]
 [ext_resource type="Script" uid="uid://cdqu4q70g563w" path="res://Scripts/player/states/fall.gd" id="5_8erm5"]
 [ext_resource type="Script" uid="uid://b5pkk4yvwrh78" path="res://Scripts/player/states/move.gd" id="6_f1ek2"]
+[ext_resource type="Script" uid="uid://b8jq1n2crx0d4" path="res://Scripts/player/arm_manager/arm_manager.gd" id="8_8erm5"]
+[ext_resource type="Script" uid="uid://b1yccdqukqhui" path="res://Scripts/player/states/attack.gd" id="8_f1ek2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8erm5"]
 height = 97.0
@@ -74,3 +76,22 @@ fall_state = NodePath("../fall")
 idle_state = NodePath("../idle")
 jump_state = NodePath("../jump")
 move_speed = 350.0
+
+[node name="attack" type="Node" parent="state_machine" unique_id=1378747385 node_paths=PackedStringArray("idle_state", "move_state", "fall_state")]
+script = ExtResource("8_f1ek2")
+idle_state = NodePath("../idle")
+move_state = NodePath("../move")
+fall_state = NodePath("../fall")
+
+[node name="ArmManager" type="Node" parent="." unique_id=721544343]
+script = ExtResource("8_8erm5")
+
+[node name="DefaultArm" type="Node" parent="ArmManager" unique_id=1358064925]
+
+[node name="FeedbackerArm" type="Node" parent="ArmManager" unique_id=1641150266]
+
+[node name="KnuckleblasterArm" type="Node" parent="ArmManager" unique_id=1804096922]
+
+[node name="ChargeArm" type="Node" parent="ArmManager" unique_id=443155191]
+
+[node name="GrapleArm" type="Node" parent="ArmManager" unique_id=1030821620]

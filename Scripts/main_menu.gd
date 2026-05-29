@@ -11,6 +11,7 @@ func _ready() -> void:
 	$CenterContainer/SettingsMenu/musicvoslider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
 	$CenterContainer/SettingsMenu/sfxvoslider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sfx")))
 func _on_play_pressed() -> void:
+	AudioController.stop_music_menu()
 	get_tree().change_scene_to_file("res://Scenes/Levels/test_level.tscn")
 	# get_tree().change_scene_to_file(str("res://Scenes/Levels", level, ".tscn")) 46
 

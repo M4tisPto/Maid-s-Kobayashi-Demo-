@@ -1,25 +1,27 @@
 [gd_scene format=3 uid="uid://kokkvje30y8s"]
 
-[ext_resource type="AudioStream" uid="uid://dknaeqig3pv2g" path="res://Assets/Music/Scooby Doo! Creepy Run theme (HIGH QUALITY).mp3" id="1_b07c4"]
+[ext_resource type="Script" uid="uid://b1taedhr4oysk" path="res://Scenes/Levels/test_level.gd" id="1_b07c4"]
 [ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="2_b07c4"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_b07c4"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b07c4"]
-size = Vector2(1264, 304)
+size = Vector2(2005, 167)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ytpj"]
+size = Vector2(132, 712.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_db73o"]
+size = Vector2(1203.5, 148)
 
 [node name="test_room" type="Node2D" unique_id=81383323]
-
-[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1627681773]
-stream = ExtResource("1_b07c4")
-autoplay = true
-bus = &"Music"
+script = ExtResource("1_b07c4")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1778156251]
 
 [node name="player" parent="." unique_id=2033633715 instance=ExtResource("2_b07c4")]
-position = Vector2(902, 438)
+position = Vector2(176, 885)
 
 [node name="Sprite2D" parent="player" index="1" unique_id=1676272654]
 texture = SubResource("ViewportTexture_b07c4")
@@ -27,10 +29,22 @@ texture = SubResource("ViewportTexture_b07c4")
 [node name="jump" parent="player/state_machine" parent_id_path=PackedInt32Array(2033633715, 286087432) index="1" unique_id=1266890664]
 jump_force = 400.0
 
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=493890255]
+position = Vector2(0, -72)
+zoom = Vector2(2.5, 2.5)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1390569982]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1132179390]
-position = Vector2(935, 907)
+position = Vector2(1002.5, 993.5)
 shape = SubResource("RectangleShape2D_b07c4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=759590223]
+position = Vector2(67, 553.75)
+shape = SubResource("RectangleShape2D_2ytpj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=174095207]
+position = Vector2(1403.25, 836)
+shape = SubResource("RectangleShape2D_db73o")
 
 [editable path="player"]
