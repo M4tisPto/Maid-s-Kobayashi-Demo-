@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://deocrncn1ldv6" path="res://Scripts/audio_controller.gd" id="1_t0xn5"]
 [ext_resource type="AudioStream" uid="uid://dknaeqig3pv2g" path="res://Assets/Music/Scooby Doo! Creepy Run theme (HIGH QUALITY).mp3" id="2_t0xn5"]
 [ext_resource type="AudioStream" uid="uid://3g1i34p3bj20" path="res://Assets/Music/what's that smell (sugary spire).mp3" id="4_nqcbu"]
+[ext_resource type="AudioStream" uid="uid://cdh2ticfeqd5h" path="res://Assets/Sound Effects/Retro 8 bit SFX Pack/344314__musiclegends__powerup24.wav" id="5_ual3u"]
+[ext_resource type="AudioStream" uid="uid://b4ocag1oxyuub" path="res://Assets/Sound Effects/talksound.ogg" id="6_yyma2"]
 
 [node name="AudioController" type="Node" unique_id=53321031]
 script = ExtResource("1_t0xn5")
@@ -23,3 +25,11 @@ bus = &"Music"
 stream = ExtResource("4_nqcbu")
 panning_strength = 0.0
 bus = &"Music"
+
+[node name="test_sound" type="AudioStreamPlayer2D" parent="." unique_id=1542383728]
+stream = ExtResource("5_ual3u")
+bus = &"Sfx"
+
+[node name="talk_test" type="AudioStreamPlayer2D" parent="." unique_id=735363877]
+stream = ExtResource("6_yyma2")
+bus = &"Sfx"

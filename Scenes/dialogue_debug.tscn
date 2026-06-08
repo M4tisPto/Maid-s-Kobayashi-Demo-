@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cnjois2aybvgp"]
+
+[ext_resource type="Script" uid="uid://cf07w0mlvqvly" path="res://Scripts/dialogue.gd" id="1_y27ri"]
+[ext_resource type="AudioStream" uid="uid://b4ocag1oxyuub" path="res://Assets/Sound Effects/talksound.ogg" id="2_ccn44"]
+[ext_resource type="Script" uid="uid://cp5b8ly2fr643" path="res://Scripts/dialogue_voice_test.gd" id="3_64j8q"]
+
+[node name="Dialogue_debug" type="Control" unique_id=1113763745]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -399.0
+offset_top = -74.5
+offset_right = 399.0
+offset_bottom = 74.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_y27ri")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=721824378]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Content" type="RichTextLabel" parent="." unique_id=1665063868]
+layout_mode = 0
+offset_right = 773.0
+offset_bottom = 128.0
+bbcode_enabled = true
+text = "[color=#ff0000]Hi[/color] [wave]I was generated[/wave] for the [rainbow]dialogue[/rainbow] system test for the godot game [shake rate=20 level=10]engine[/shake]"
+
+[node name="TypeTyper" type="Timer" parent="." unique_id=1585067633]
+wait_time = 0.028
+
+[node name="DialogueVoiceTest" type="AudioStreamPlayer" parent="." unique_id=1604589600]
+stream = ExtResource("2_ccn44")
+script = ExtResource("3_64j8q")
+
+[connection signal="timeout" from="TypeTyper" to="." method="_on_type_typer_timeout"]
+[connection signal="finished" from="DialogueVoiceTest" to="." method="_on_dialogue_voice_test_finished"]

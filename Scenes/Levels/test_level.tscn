@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://kokkvje30y8s"]
 
-[ext_resource type="Script" uid="uid://b1taedhr4oysk" path="res://Scenes/Levels/test_level.gd" id="1_b07c4"]
+[ext_resource type="Script" uid="uid://b1taedhr4oysk" path="res://test_level.gd" id="1_b07c4"]
 [ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="2_b07c4"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_b07c4"]

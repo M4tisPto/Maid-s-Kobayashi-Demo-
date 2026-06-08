@@ -1,7 +1,6 @@
 extends Node2D
 
 var level: int = 1
-@onready var test_sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func _ready() -> void:
 	AudioController.play_music_menu()
@@ -16,6 +15,12 @@ func _on_play_pressed() -> void:
 	# get_tree().change_scene_to_file(str("res://Scenes/Levels", level, ".tscn")) 46
 
 
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		print("BUT C PAPU MISTERIOSO TE CIERRA EL JUEGO")
+
+
+
 func _on_settings_pressed() -> void:
 	$CenterContainer/MainButtons.visible = false
 	$CenterContainer/SettingsMenu.visible = true
@@ -28,6 +33,7 @@ func _on_credits_pressed() -> void:
 
 
 func _on_quit_pressed() -> void:
+	print("BUT C PAPU MISTERIOSO TE CIERRA EL JUEGO")
 	get_tree().quit()
 
 
@@ -39,7 +45,7 @@ func _on_back_pressed() -> void:
 
 
 func _on_test_sound_pressed() -> void:
-	test_sfx.play()
+	AudioController.test_sound()
 
 # this doesn't work... somehow
 func _on_fullscreen_toggled(toggled_on: bool) -> void:

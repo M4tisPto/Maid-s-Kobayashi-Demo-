@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://cdqu4q70g563w" path="res://Scripts/player/states/fall.gd" id="5_8erm5"]
 [ext_resource type="Script" uid="uid://b5pkk4yvwrh78" path="res://Scripts/player/states/move.gd" id="6_f1ek2"]
 [ext_resource type="Script" uid="uid://b8jq1n2crx0d4" path="res://Scripts/player/arm_manager/arm_manager.gd" id="8_8erm5"]
-[ext_resource type="Script" uid="uid://b1yccdqukqhui" path="res://Scripts/player/states/attack.gd" id="8_f1ek2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8erm5"]
 height = 97.0
@@ -16,11 +15,14 @@ height = 97.0
 [sub_resource type="ViewportTexture" id="ViewportTexture_f1ek2"]
 viewport_path = NodePath("SubViewport")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8erm5"]
+size = Vector2(16, 62)
+
 [node name="player" type="CharacterBody2D" unique_id=2033633715]
 script = ExtResource("1_3smsa")
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=1741350484]
-position = Vector2(2, -48.5)
+position = Vector2(1, -50)
 shape = SubResource("CapsuleShape2D_8erm5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1676272654]
@@ -77,21 +79,21 @@ idle_state = NodePath("../idle")
 jump_state = NodePath("../jump")
 move_speed = 350.0
 
-[node name="attack" type="Node" parent="state_machine" unique_id=1378747385 node_paths=PackedStringArray("idle_state", "move_state", "fall_state")]
-script = ExtResource("8_f1ek2")
-idle_state = NodePath("../idle")
-move_state = NodePath("../move")
-fall_state = NodePath("../fall")
-
 [node name="ArmManager" type="Node" parent="." unique_id=721544343]
 script = ExtResource("8_8erm5")
 
-[node name="DefaultArm" type="Node" parent="ArmManager" unique_id=1358064925]
+[node name="attack_state_machine" type="Node" parent="ArmManager" unique_id=1309535880]
 
-[node name="FeedbackerArm" type="Node" parent="ArmManager" unique_id=1641150266]
+[node name="arm_idle" type="Node" parent="ArmManager/attack_state_machine" unique_id=62876393]
 
-[node name="KnuckleblasterArm" type="Node" parent="ArmManager" unique_id=1804096922]
+[node name="punch" type="Node" parent="ArmManager/attack_state_machine" unique_id=687620890]
 
-[node name="ChargeArm" type="Node" parent="ArmManager" unique_id=443155191]
+[node name="combo" type="Node" parent="ArmManager/attack_state_machine" unique_id=1715312980]
 
-[node name="GrapleArm" type="Node" parent="ArmManager" unique_id=1030821620]
+[node name="attack_place" type="Node" parent="ArmManager/attack_state_machine" unique_id=55339008]
+
+[node name="hitbox" type="Area2D" parent="ArmManager/attack_state_machine/attack_place" unique_id=1427648781]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmManager/attack_state_machine/attack_place/hitbox" unique_id=1171471745]
+position = Vector2(36, -50)
+shape = SubResource("RectangleShape2D_8erm5")
