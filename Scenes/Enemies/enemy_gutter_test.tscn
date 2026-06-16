@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cjab5y5fghro"]
+
+[ext_resource type="Texture2D" uid="uid://bpar76k112vc3" path="res://Assets/Sprites/osaka-smilin.png" id="1_rm1eh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kuut"]
+size = Vector2(38.5, 32)
+
+[node name="test_gutter_enemy" type="CharacterBody2D" unique_id=790157198]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1601974121]
+position = Vector2(0, -17)
+scale = Vector2(0.086021505, 0.086021505)
+texture = ExtResource("1_rm1eh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=919102949]
+position = Vector2(-0.25, -17)
+shape = SubResource("RectangleShape2D_3kuut")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1195768630]
