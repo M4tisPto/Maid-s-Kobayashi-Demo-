@@ -140,53 +140,6 @@ theme_override_fonts/font = ExtResource("1_28flt")
 theme_override_font_sizes/font_size = 75
 text = "GO BACK"
 
-[node name="CreditsMenu" type="VBoxContainer" parent="CenterContainer" unique_id=73125226]
-visible = false
-layout_mode = 2
-theme_override_constants/separation = 120
-
-[node name="Credits" type="RichTextLabel" parent="CenterContainer/CreditsMenu" unique_id=205238107 groups=["scene_manager_entity_nodes"]]
-custom_minimum_size = Vector2(1000, 450)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/normal_font = ExtResource("1_28flt")
-theme_override_font_sizes/normal_font_size = 50
-text = "Kobayashi's Team!
-
-Bastian Albornoz
-Creative director
--
-Jorge Parra
-Artist and animator
--
-Matias Ramos
-Lead Programer
--
-Hugo Torrez
-Composer
--
-Addons used
-Smart Shape
-Limbo AI
-Scene Manager
-Signal Visualizer
-Animated Shape 2D
--
-Sound effects taken from freesound.org
-Joke level's theme: Usher Scooby Doo Party Break (scooby doo creepy run)
--
-Thanks for playing!"
-autowrap_mode = 2
-horizontal_alignment = 1
-
-[node name="back" type="Button" parent="CenterContainer/CreditsMenu" unique_id=979943316]
-custom_minimum_size = Vector2(353, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_28flt")
-theme_override_font_sizes/font_size = 75
-text = "GO BACK"
-
 [node name="ColorRect" type="ColorRect" parent="." unique_id=622896352]
 z_index = -4096
 offset_top = -58.0
@@ -213,5 +166,4 @@ text = "TEST SOUND"
 [connection signal="value_changed" from="CenterContainer/SettingsMenu/musicvoslider" to="." method="_on_musicvoslider_value_changed"]
 [connection signal="value_changed" from="CenterContainer/SettingsMenu/sfxvoslider" to="." method="_on_sfxvoslider_value_changed"]
 [connection signal="pressed" from="CenterContainer/SettingsMenu/back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="CenterContainer/CreditsMenu/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="test_sound" to="." method="_on_test_sound_pressed"]

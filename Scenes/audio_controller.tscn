@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://deocrncn1ldv6" path="res://Scripts/audio_controller.gd" id="1_t0xn5"]
 [ext_resource type="AudioStream" uid="uid://dknaeqig3pv2g" path="res://Assets/Music/Scooby Doo! Creepy Run theme (HIGH QUALITY).mp3" id="2_t0xn5"]
 [ext_resource type="AudioStream" uid="uid://vnpo20w63kl7" path="res://Assets/Sound Effects/500675__simoneyoh3998__small-jump-for-videogames.wav" id="2_yyma2"]
+[ext_resource type="AudioStream" uid="uid://hxfmjvs83qyp" path="res://Assets/Music/credits.mp3" id="4_ncnt2"]
 [ext_resource type="AudioStream" uid="uid://3g1i34p3bj20" path="res://Assets/Music/what's that smell (sugary spire).mp3" id="4_nqcbu"]
 [ext_resource type="AudioStream" uid="uid://cdh2ticfeqd5h" path="res://Assets/Sound Effects/Retro 8 bit SFX Pack/344314__musiclegends__powerup24.wav" id="5_ual3u"]
 [ext_resource type="AudioStream" uid="uid://b4ocag1oxyuub" path="res://Assets/Sound Effects/talksound.ogg" id="6_yyma2"]
@@ -15,11 +16,18 @@ script = ExtResource("1_t0xn5")
 
 [node name="Music_menu" type="AudioStreamPlayer" parent="Music" unique_id=522707309]
 stream = ExtResource("4_nqcbu")
+volume_db = -16.533
 bus = &"Music"
 
 [node name="Music_lvl_test" type="AudioStreamPlayer" parent="Music" unique_id=1229599020]
 stream = ExtResource("2_t0xn5")
-volume_db = -80.0
+volume_db = -30.4
+mix_target = 2
+bus = &"Music"
+
+[node name="Credits_theme" type="AudioStreamPlayer" parent="Music" unique_id=774658603]
+stream = ExtResource("4_ncnt2")
+volume_db = -16.0
 mix_target = 2
 bus = &"Music"
 

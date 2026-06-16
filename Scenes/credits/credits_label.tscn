@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://bkvapvsvcd4ah"]
+
+[ext_resource type="Script" uid="uid://cc2wtqasev7le" path="res://addons/maaacks_credits_scene/base/nodes/labels/credits_label.gd" id="1_jvyxj"]
+
+[node name="CreditsLabel" type="RichTextLabel" unique_id=445304876]
+custom_minimum_size = Vector2(1280, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_bottom = 276.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+bbcode_enabled = true
+text = "[center]
+[font_size=32][b]Kobayashi's Team![/b][/font_size]
+
+[font_size=22][b]Bastian Albornoz[/b][/font_size]
+[font_size=18][i]Creative director[/i][/font_size]
+
+[color=gray]-[/color]
+
+[font_size=22][b]Jorge Parra[/b][/font_size]
+[font_size=18][i]Artist and animator[/i][/font_size]
+
+[color=gray]-[/color]
+
+[font_size=22][b]Matias Ramos[/b][/font_size]
+[font_size=18][i]Lead Programmer[/i][/font_size]
+
+[color=gray]-[/color]
+
+[font_size=22][b]Hugo Torrez[/b][/font_size]
+[font_size=18][i]Composer[/i][/font_size]
+
+[color=gray]-[/color]
+
+
+[font_size=26][b]Addons used[/b][/font_size]
+
+[font_size=18]
+Smart Shape
+
+Limbo AI
+
+Scene Manager
+
+Signal Visualizer
+
+Animated Shape 2D
+[/font_size]
+
+[color=gray]-[/color]
+
+
+[font_size=22][b]Sound effects[/b][/font_size]
+[font_size=18]Taken from [i]freesound.org[/i][/font_size]
+
+[font_size=18]
+Joke level's theme:
+[i]Usher Scooby Doo Party Break (scooby doo creepy run)[/i]
+[/font_size]
+
+[color=gray]-[/color]
+
+[font_size=28][b]Thanks for playing![/b][/font_size]
+
+[/center]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("1_jvyxj")
+attribution_file_path = "res://Scenes/ATTRIBUTION.md"
+h1_font_size = 64
+h2_font_size = 48
+h3_font_size = 32
+h4_font_size = 24
+h5_font_size = 20
+h6_font_size = 16
+max_image_width = 80
