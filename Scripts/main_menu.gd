@@ -30,7 +30,7 @@ func _on_settings_pressed() -> void:
 
 func _on_credits_pressed() -> void:
 	AudioController.stop_music()
-	get_tree().change_scene_to_file("res://Scenes/credits.tscn")
+	get_tree().change_scene_to_file("res://Scenes/scenes/end_credits/end_credits.tscn")
 
 
 func _on_quit_pressed() -> void:

@@ -54,8 +54,8 @@ func _unhandled_input(event : InputEvent) -> void:
 		else:
 			exit_game()
 
-func _on_exit_button_pressed():
-	exit_game()
+
 
 func _on_menu_button_pressed():
-	load_main_menu()
+	AudioController.stop_music()
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
