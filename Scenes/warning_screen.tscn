@@ -101,6 +101,7 @@ _data = {
 }
 
 [node name="Warning_screen" type="Control" unique_id=1931796547]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5

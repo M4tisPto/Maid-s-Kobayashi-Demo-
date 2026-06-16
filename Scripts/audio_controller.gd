@@ -1,25 +1,46 @@
 extends Node
 
-@export var mute: bool = false
+var sfx := {}
+var music := {}
+
+var current_music: AudioStreamPlayer = null
 
 
-func play_music_test():
-	if not mute:
-		$Music/Music_lvl_test.play()
+func _ready():
+	sfx = {
+		"jump": $Sfx/Jump,
+		"punch": $Sfx/Punch,
+		"test": $Sfx/test_sound
+	}
 
-func stop_music_test():
-	$Music/Music_lvl_test.stop()
+	music = {
+		"menu_music": $Music/Music_menu,
+		"level_test_music": $Music/Music_lvl_test,
+		"credits": $Music/Credits_theme
+	}
 
-func play_menu_music():
-	if not mute:
-		$Music/Music_menu.play()
 
-func stop_menu_music():
-	$Music/Music_menu.stop()
+func play_sound(sound_name: String):
+	if sfx.has(sound_name):
+		sfx[sound_name].play()
 
-func play_jump():
-	if not mute:
-		$Sfx/Jump.play()
 
-func stop_play_jump():
-	$Sfx/Jump.stop()
+func stop_sound(sound_name: String):
+	if sfx.has(sound_name):
+		sfx[sound_name].stop()
+
+
+func play_music(music_name: String):
+	if music.has(music_name):
+		
+		if current_music:
+			current_music.stop()
+
+		current_music = music[music_name]
+		current_music.play()
+
+
+func stop_music():
+	if current_music:
+		current_music.stop()
+		current_music = null

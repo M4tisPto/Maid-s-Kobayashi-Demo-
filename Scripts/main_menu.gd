@@ -1,16 +1,18 @@
 extends Node2D
 
 var level: int = 1
+var fullscreen := false
+
 
 func _ready() -> void:
-	AudioController.play_music_menu()
+	AudioController.play_music("menu_music")
 	$CenterContainer/MainButtons/play.grab_focus()
 	$CenterContainer/SettingsMenu/fullscreen.button_pressed = true if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN else DisplayServer.WINDOW_MODE_WINDOWED
 	$CenterContainer/SettingsMenu/mainvoslider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
 	$CenterContainer/SettingsMenu/musicvoslider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
 	$CenterContainer/SettingsMenu/sfxvoslider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sfx")))
 func _on_play_pressed() -> void:
-	AudioController.stop_music_menu()
+	AudioController.stop_music()
 	get_tree().change_scene_to_file("res://Scenes/Levels/test_level.tscn")
 	# get_tree().change_scene_to_file(str("res://Scenes/Levels", level, ".tscn")) 46
 
@@ -27,9 +29,8 @@ func _on_settings_pressed() -> void:
 
 
 func _on_credits_pressed() -> void:
-	$Title.visible = false
-	$CenterContainer/MainButtons.visible = false
-	$CenterContainer/CreditsMenu.visible = true
+	AudioController.stop_music()
+	get_tree().change_scene_to_file("res://Scenes/scenes/end_credits/end_credits.tscn")
 
 
 func _on_quit_pressed() -> void:
@@ -45,12 +46,14 @@ func _on_back_pressed() -> void:
 
 
 func _on_test_sound_pressed() -> void:
-	AudioController.test_sound()
+	AudioController.play_sound("test")
 
-# this doesn't work... somehow
+
 func _on_fullscreen_toggled(toggled_on: bool) -> void:
-	if toggled_on:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+	fullscreen = toggled_on
+	
+	if fullscreen:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
