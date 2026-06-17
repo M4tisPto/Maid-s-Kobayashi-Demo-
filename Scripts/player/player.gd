@@ -13,6 +13,21 @@ var facing_direction := 1
 var jumps_left: int = 0
 const TOTAL_JUMPS: int = 2
 
+var _is_dead := false
+
+var is_dead: bool:
+	set(value):
+		if _is_dead == value:
+			return
+
+		_is_dead = value
+
+		if _is_dead:
+			await get_tree().create_timer(3).timeout
+			get_tree().reload_current_scene()
+
+	get:
+		return _is_dead
 
 func _ready() -> void:
 	movement_state_machine.init(self)

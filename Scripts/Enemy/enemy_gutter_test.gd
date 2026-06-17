@@ -1,0 +1,2 @@
+class_name GutterEnemy
+extends CharacterBody2D

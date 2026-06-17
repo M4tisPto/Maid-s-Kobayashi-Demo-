@@ -63,6 +63,16 @@ attack={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="StaticColissions"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="PlayerAttack"
+2d_physics/layer_4="EnemyBody"
+2d_physics/layer_5="EnemyArea"
+2d_physics/layer_6="EnemyHurtbox"
+2d_physics/layer_7="PlayerHurtbox"
+
 [maaacks_credits_scene]
 
 disable_update_check=false
