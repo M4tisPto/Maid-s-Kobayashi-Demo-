@@ -1,14 +1,19 @@
 [gd_scene format=3 uid="uid://cjab5y5fghro"]
 
+[ext_resource type="Script" uid="uid://o38grxoqynl4" path="res://Scripts/Enemy/enemy_gutter_test.gd" id="1_3kuut"]
 [ext_resource type="Texture2D" uid="uid://bpar76k112vc3" path="res://Assets/Sprites/osaka-smilin.png" id="1_rm1eh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3kuut"]
 size = Vector2(31.5, 22)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm1eh"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_3kuut"]
+radius = 35.014282
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dilno"]
 size = Vector2(32, 22)
 
 [node name="test_gutter_enemy" type="CharacterBody2D" unique_id=790157198]
+script = ExtResource("1_3kuut")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1601974121]
 position = Vector2(0, -17)
@@ -19,9 +24,24 @@ texture = ExtResource("1_rm1eh")
 position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_3kuut")
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=1195768630]
+[node name="Chasebox" type="Area2D" parent="." unique_id=1195768630]
 
-[node name="collision_hitbox" type="CollisionShape2D" parent="Hitbox" unique_id=1168582649]
-position = Vector2(0, -12)
-shape = SubResource("RectangleShape2D_rm1eh")
+[node name="collision_hitbox" type="CollisionShape2D" parent="Chasebox" unique_id=1168582649]
+position = Vector2(0, -21)
+shape = SubResource("CircleShape2D_3kuut")
 debug_color = Color(1, 0.41546315, 0.68728894, 0.41960785)
+
+[node name="GroundRay" type="RayCast2D" parent="." unique_id=1390019088]
+position = Vector2(0, -3)
+target_position = Vector2(0, 13)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1410076553]
+collision_layer = 128
+collision_mask = 68
+
+[node name="collision_hitbox" type="CollisionShape2D" parent="Hitbox" unique_id=1399985416]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_dilno")
+debug_color = Color(0.89129084, 2.7193873e-06, 5.7756904e-07, 0.41960785)
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

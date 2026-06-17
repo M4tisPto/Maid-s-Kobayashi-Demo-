@@ -1,3 +1,18 @@
 [gd_scene format=3 uid="uid://cfi13rgaak5hw"]
 
+[ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="1_rnac6"]
+
 [node name="Node2D" type="Node2D" unique_id=2134867495]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1973460328]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=435226100]
+position = Vector2(32, -55)
+polygon = PackedVector2Array(-245, -13, 129, 78, 489, -89, 587, -20, 933, -5, 1003, -502, 1045, -220, 1062, -361, 1206, -366, 1218, 13, -2, 198)
+
+[node name="player" parent="." unique_id=2033633715 instance=ExtResource("1_rnac6")]
+position = Vector2(84, -31)
+
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=1846145947]
+position = Vector2(0, -72)
+zoom = Vector2(2.5, 2.5)

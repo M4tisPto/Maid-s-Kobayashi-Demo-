@@ -52,9 +52,6 @@ position = Vector2(973.75, 883.5)
 shape = SubResource("RectangleShape2D_db73o")
 
 [node name="test_gutter_enemy" parent="." unique_id=790157198 instance=ExtResource("3_2ytpj")]
-position = Vector2(285, 825)
-
-[node name="test_gutter_enemy2" parent="." unique_id=29731309 instance=ExtResource("3_2ytpj")]
-position = Vector2(977, 843)
+position = Vector2(1003, 850)
 
 [editable path="player"]

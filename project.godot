@@ -72,6 +72,7 @@ attack={
 2d_physics/layer_5="EnemyArea"
 2d_physics/layer_6="EnemyHurtbox"
 2d_physics/layer_7="PlayerHurtbox"
+2d_physics/layer_8="EnemyHitbox"
 
 [maaacks_credits_scene]
 
