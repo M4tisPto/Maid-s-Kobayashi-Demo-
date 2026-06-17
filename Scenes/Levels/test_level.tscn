@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b1taedhr4oysk" path="res://test_level.gd" id="1_b07c4"]
 [ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="2_b07c4"]
+[ext_resource type="PackedScene" uid="uid://cjab5y5fghro" path="res://Scenes/Enemies/enemy_gutter_test.tscn" id="3_2ytpj"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_b07c4"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_db73o"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b07c4"]
@@ -23,11 +24,8 @@ script = ExtResource("1_b07c4")
 [node name="player" parent="." unique_id=2033633715 instance=ExtResource("2_b07c4")]
 position = Vector2(176, 885)
 
-[node name="collision_hitbox" parent="player/Hitbox" parent_id_path=PackedInt32Array(2033633715, 703470255) index="0" unique_id=105401018]
-position = Vector2(45, -51)
-
 [node name="Sprite2D" parent="player" index="2" unique_id=1676272654]
-texture = SubResource("ViewportTexture_b07c4")
+texture = SubResource("ViewportTexture_db73o")
 
 [node name="jump" parent="player/movement_state_machine" parent_id_path=PackedInt32Array(2033633715, 286087432) index="1" unique_id=1266890664]
 jump_force = 400.0
@@ -53,4 +51,14 @@ shape = SubResource("RectangleShape2D_2ytpj")
 position = Vector2(1403.25, 836)
 shape = SubResource("RectangleShape2D_db73o")
 
+[node name="test_gutter_enemy" parent="." unique_id=790157198 instance=ExtResource("3_2ytpj")]
+position = Vector2(655, 910)
+
+[node name="Hitbox" parent="test_gutter_enemy" index="2" unique_id=1195768630]
+visible = false
+
+[node name="collision_hitbox" parent="test_gutter_enemy/Hitbox" index="0" unique_id=1168582649]
+visible = false
+
 [editable path="player"]
+[editable path="test_gutter_enemy"]
