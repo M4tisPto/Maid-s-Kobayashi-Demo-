@@ -4,7 +4,8 @@ extends CharacterBody2D
 @export var max_hp: int = 100
 @onready var current_hp: int = max_hp
 @onready var movement_state_machine: Node = $movement_state_machine
-@onready var attack_state_machine: Node = $attack_state_machine
+@onready var attack_state_machine: Node = $attack_state_machine 
+
 @onready var collision_hitbox: CollisionShape2D = $Hitbox/collision_hitbox
 @onready var hurtbox: Area2D = $Hurtbox
 @onready var camera_manager: Camera2D = $CameraManager

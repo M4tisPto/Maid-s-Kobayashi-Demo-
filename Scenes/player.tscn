@@ -9,7 +9,12 @@
 [ext_resource type="Script" uid="uid://cdqu4q70g563w" path="res://Scripts/player/states/fall.gd" id="5_8erm5"]
 [ext_resource type="Script" uid="uid://b5pkk4yvwrh78" path="res://Scripts/player/states/move.gd" id="6_f1ek2"]
 [ext_resource type="Script" uid="uid://fmurmdiwhdco" path="res://Scripts/player/states/hurt.gd" id="10_ukyrk"]
+[ext_resource type="Script" uid="uid://b8jq1n2crx0d4" path="res://Scripts/player/arm_manager/arm_manager.gd" id="11_gymyn"]
+[ext_resource type="Script" uid="uid://bpc0j3hy32ggb" path="res://Scripts/state_machine/attack_state_machine/attack_state_machine.gd" id="12_7dp3o"]
 [ext_resource type="Script" uid="uid://d0wb3qjytq0bv" path="res://Scripts/player/camera_shake.gd" id="12_pu2lt"]
+[ext_resource type="Script" uid="uid://88h32guoxi8n" path="res://Scripts/state_machine/attack_state_machine/idle.gd" id="13_h4iuc"]
+[ext_resource type="Script" uid="uid://dhphcnju2oqqi" path="res://Scripts/state_machine/attack_state_machine/attack.gd" id="14_fd4e3"]
+[ext_resource type="Script" uid="uid://dtq4s4fn2pf5m" path="res://Scripts/player/states/attack state machine/spin_jump.gd" id="15_h4iuc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3smsa"]
 size = Vector2(20, 78.5)
@@ -115,7 +120,9 @@ move_speed = 350.0
 script = ExtResource("10_ukyrk")
 idle_state = NodePath("../idle")
 
-[node name="arm_manager" type="Node" parent="." unique_id=1130297036]
+[node name="arm_manager" type="Node2D" parent="." unique_id=1872051784]
+visible = false
+script = ExtResource("11_gymyn")
 
 [node name="hability_container" type="Node" parent="arm_manager" unique_id=445068012]
 
@@ -124,6 +131,25 @@ position = Vector2(-5, -67)
 gizmo_extents = 17.0
 
 [node name="Timer" type="Timer" parent="arm_manager" unique_id=55619329]
+
+[node name="attack_state_machine" type="Node" parent="." unique_id=446655595 node_paths=PackedStringArray("starting_state")]
+script = ExtResource("12_7dp3o")
+starting_state = NodePath("idle")
+
+[node name="idle" type="Node" parent="attack_state_machine" unique_id=1785631595 node_paths=PackedStringArray("neutral_attack", "spín_jump")]
+script = ExtResource("13_h4iuc")
+neutral_attack = NodePath("../neutral_attack")
+"spín_jump" = NodePath("../spin_jump")
+
+[node name="neutral_attack" type="Node" parent="attack_state_machine" unique_id=1992588379 node_paths=PackedStringArray("idle_state", "spin_jump")]
+script = ExtResource("14_fd4e3")
+idle_state = NodePath("../idle")
+spin_jump = NodePath("../spin_jump")
+
+[node name="spin_jump" type="Node" parent="attack_state_machine" unique_id=489328187 node_paths=PackedStringArray("idle_state", "fall_state")]
+script = ExtResource("15_h4iuc")
+idle_state = NodePath("../idle")
+fall_state = NodePath("../../movement_state_machine/fall")
 
 [connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

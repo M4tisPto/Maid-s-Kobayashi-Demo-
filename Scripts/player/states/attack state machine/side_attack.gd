@@ -1,7 +1,7 @@
 extends State
 
 @export var idle_state: State
-@export var spin_jump: State
+
 var timer := 0.0
 
 func enter() -> void:

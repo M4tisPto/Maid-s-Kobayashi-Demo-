@@ -69,6 +69,11 @@ func show_line():
 		show_line()
 		return
 	
+	if block[0] == "stopMusic":
+		AudioController.stop_music()
+		return
+	
+	
 	char_name.text = block[1] if block.size() > 1 else ""
 	update_message(block[0])
 
