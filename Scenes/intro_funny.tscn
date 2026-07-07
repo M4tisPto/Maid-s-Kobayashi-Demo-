@@ -13,10 +13,10 @@ font_color = Color(0, 0, 0, 1)
 script = ExtResource("1_t4h2k")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1718605922]
-offset_left = -957.0
-offset_top = -548.0
-offset_right = 985.0
-offset_bottom = 558.0
+offset_left = 75.0
+offset_top = -143.0
+offset_right = 2017.0
+offset_bottom = 963.0
 scale = Vector2(8, 5)
 stream = ExtResource("1_e8l5q")
 autoplay = true
