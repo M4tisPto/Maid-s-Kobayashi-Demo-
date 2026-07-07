@@ -11,7 +11,10 @@ func enter():
 	print("Fall state enter")
 
 func process_physics(delta: float) -> State:
-	print("Processing Fall")
+	
+	if parent.spin_jump_requested:
+		parent.velocity.y = -400
+		parent.spin_jump_requested = false
 	parent.velocity.y += gravity * delta
 
 	var movement = Input.get_axis("move_left", "move_right") * move_speed

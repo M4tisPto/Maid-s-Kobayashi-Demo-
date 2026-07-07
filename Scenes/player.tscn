@@ -19,6 +19,91 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3smsa"]
 size = Vector2(20, 78.5)
 
+[sub_resource type="Animation" id="Animation_h4iuc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("collision_hitbox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, -51)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("collision_hitbox:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("collision_hitbox:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_fd4e3"]
+resource_name = "spin_attack"
+length = 0.43333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("collision_hitbox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.5),
+"update": 0,
+"values": [Vector2(3, -51)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("collision_hitbox:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666666, 0.23255529, 0.43333334),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(4.26, 1), Vector2(4.26, 1), Vector2(1.045, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("collision_hitbox:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06744471, 0.23333333, 0.43333334),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5),
+"update": 1,
+"values": [true, false, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qqcod"]
+_data = {
+&"RESET": SubResource("Animation_h4iuc"),
+&"spin_attack": SubResource("Animation_fd4e3")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tx1dd"]
 size = Vector2(24, 94)
 
@@ -49,9 +134,12 @@ collision_layer = 4
 collision_mask = 32
 
 [node name="collision_hitbox" type="CollisionShape2D" parent="Hitbox" unique_id=105401018]
-position = Vector2(45, -51)
+position = Vector2(3, -51)
 shape = SubResource("RectangleShape2D_3smsa")
 disabled = true
+
+[node name="spin_attack" type="AnimationPlayer" parent="Hitbox" unique_id=564367950]
+libraries/ = SubResource("AnimationLibrary_qqcod")
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=1741350484]
 position = Vector2(3, -48)
@@ -146,10 +234,11 @@ script = ExtResource("14_fd4e3")
 idle_state = NodePath("../idle")
 spin_jump = NodePath("../spin_jump")
 
-[node name="spin_jump" type="Node" parent="attack_state_machine" unique_id=489328187 node_paths=PackedStringArray("idle_state", "fall_state")]
+[node name="spin_jump" type="Node" parent="attack_state_machine" unique_id=489328187 node_paths=PackedStringArray("idle_state")]
 script = ExtResource("15_h4iuc")
 idle_state = NodePath("../idle")
-fall_state = NodePath("../../movement_state_machine/fall")
+spin_impulse = null
+move_speed = null
 
 [connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

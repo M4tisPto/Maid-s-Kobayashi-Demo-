@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var current_hp: int = max_hp
 @onready var movement_state_machine: Node = $movement_state_machine
 @onready var attack_state_machine: Node = $attack_state_machine 
-
+@onready var spin_attack: AnimationPlayer = $Hitbox/spin_attack
 @onready var collision_hitbox: CollisionShape2D = $Hitbox/collision_hitbox
 @onready var hurtbox: Area2D = $Hurtbox
 @onready var camera_manager: Camera2D = $CameraManager
@@ -13,7 +13,7 @@ extends CharacterBody2D
 @export var invulnerability_duration: float = 0.75
 var invisible:= false
 @export var hurt_state: State 
-
+var spin_jump_requested := false
 @export var rotation_speed = 10.0
 @onready var player_model: Node3D = $SubViewport/Sophia_Model
 var facing_direction := 1
