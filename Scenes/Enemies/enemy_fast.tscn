@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://c7mx6cld80kmw" path="res://Scripts/Enemy/Enemy_fast/enemy_fast.gd" id="1_4x5i0"]
 [ext_resource type="Texture2D" uid="uid://bpar76k112vc3" path="res://Assets/Sprites/osaka-smilin.png" id="1_tun2c"]
-[ext_resource type="Script" uid="uid://cbmkj6ec8s3ep" path="res://Scripts/Enemy/hitbox.gd" id="2_4x5i0"]
 [ext_resource type="Script" uid="uid://c0kri8veeqi1g" path="res://Scripts/Enemy/hurtbox.gd" id="3_3tq4n"]
+[ext_resource type="Script" uid="uid://1rm1ynecrcib" path="res://Scripts/Enemy/hurtbox_enemy.gd" id="3_4x5i0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8y2o5"]
 size = Vector2(10, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e5blm"]
-size = Vector2(36, 22)
+size = Vector2(36, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rpfx"]
 size = Vector2(32, 23)
@@ -17,7 +17,7 @@ size = Vector2(32, 23)
 [sub_resource type="CircleShape2D" id="CircleShape2D_4x5i0"]
 radius = 162.15117
 
-[node name="enemy" type="CharacterBody2D" unique_id=1830024852]
+[node name="enemy_fast" type="CharacterBody2D" unique_id=1830024852]
 collision_layer = 8
 script = ExtResource("1_4x5i0")
 
@@ -34,10 +34,10 @@ shape = SubResource("RectangleShape2D_8y2o5")
 [node name="Hitbox" type="Area2D" parent="." unique_id=402619719]
 collision_layer = 128
 collision_mask = 64
-script = ExtResource("2_4x5i0")
+script = ExtResource("3_4x5i0")
 
 [node name="collision_hitbox" type="CollisionShape2D" parent="Hitbox" unique_id=2081626387]
-position = Vector2(0, -12)
+position = Vector2(0, -14)
 shape = SubResource("RectangleShape2D_e5blm")
 debug_color = Color(0.89129084, 2.7193873e-06, 5.7756904e-07, 0.41960785)
 

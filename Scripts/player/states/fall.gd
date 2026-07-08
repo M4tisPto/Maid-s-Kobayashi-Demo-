@@ -7,13 +7,13 @@ var move_state: State
 @export
 var jump_state: State
 
+var is_spinning = false
 func enter():
 	print("Fall state enter")
 
 func process_physics(delta: float) -> State:
-	
 	if parent.spin_jump_requested:
-		parent.velocity.y = -400
+		parent.velocity.y = -400.0
 		parent.spin_jump_requested = false
 	parent.velocity.y += gravity * delta
 
@@ -24,13 +24,6 @@ func process_physics(delta: float) -> State:
 	elif movement < 0:
 		parent.facing_direction = -1
 		parent.update_attack_hitbox()
-	if movement != 0:
-		var target_rotation = PI/3 if movement > 0 else -PI/3
-		parent.player_model.rotation.y = lerp_angle(
-			parent.player_model.rotation.y,
-			target_rotation,
-			parent.rotation_speed * delta
-		)
 	
 	parent.velocity.x = movement
 	

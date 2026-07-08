@@ -25,13 +25,6 @@ func process_physics(delta: float) -> State:
 		parent.facing_direction = -1
 		parent.update_attack_hitbox()
 
-	if movement != 0:
-		var target_rotation = PI/3 if movement > 0 else -PI/3
-		parent.player_model.rotation.y = lerp_angle(
-			parent.player_model.rotation.y,
-			target_rotation,
-			parent.rotation_speed * delta
-		)
 	if movement == 0:
 		return idle_state
 

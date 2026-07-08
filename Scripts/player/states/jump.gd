@@ -11,6 +11,7 @@ var move_state: State
 @export
 var jump_force: float = 900.0
 
+var is_spinning := false
 
 
 func enter():
@@ -22,7 +23,6 @@ func process_physics(delta: float) -> State:
 	if parent.spin_jump_requested:
 		parent.velocity.y = -400.0
 		parent.spin_jump_requested = false
-	
 	parent.velocity.y += gravity * delta
 	if parent.velocity.y > 0:
 		return fall_state
@@ -34,13 +34,6 @@ func process_physics(delta: float) -> State:
 	elif movement < 0:
 		parent.facing_direction = -1
 		parent.update_attack_hitbox()
-	if movement != 0:
-		var target_rotation = PI/3 if movement > 0 else -PI/3
-		parent.player_model.rotation.y = lerp_angle(
-			parent.player_model.rotation.y,
-			target_rotation,
-			parent.rotation_speed * delta
-		)
 	parent.velocity.x = movement
 	if Input.is_action_just_pressed("jump") and parent.jumps_left > 0:
 		AudioController.play_sound("jump")

@@ -3,37 +3,38 @@
 [ext_resource type="Script" uid="uid://b1taedhr4oysk" path="res://test_level.gd" id="1_b07c4"]
 [ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="2_b07c4"]
 [ext_resource type="PackedScene" uid="uid://cjab5y5fghro" path="res://Scenes/Enemies/enemy_thingi.tscn" id="3_2ytpj"]
-[ext_resource type="PackedScene" uid="uid://rnmh4stoko56" path="res://Scenes/Enemies/enemy_fast.tscn" id="4_db73o"]
-[ext_resource type="PackedScene" uid="uid://ibk8nt6gpkwx" path="res://Scenes/Enemies/enemy_shooter.tscn" id="5_npfmg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b07c4"]
-size = Vector2(2005, 167)
+size = Vector2(2946.0193, 167)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ytpj"]
-size = Vector2(132, 712.5)
+size = Vector2(355.32227, 710.18713)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_db73o"]
 size = Vector2(344.25, 53)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k8g1k"]
-size = Vector2(160, 30.90802)
+size = Vector2(261.44702, 547.7458)
 
 [node name="test_room" type="Node2D" unique_id=81383323]
 scale = Vector2(1.0030484, 1.0059413)
 script = ExtResource("1_b07c4")
 
 [node name="player" parent="." unique_id=2033633715 instance=ExtResource("2_b07c4")]
-position = Vector2(225.31311, 862.87354)
-scale = Vector2(1, 0.9999998)
+position = Vector2(269.17944, 882.7553)
+scale = Vector2(1, 0.9999997)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1390569982]
+scale = Vector2(1, 0.99999994)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1132179390]
-position = Vector2(1002.5, 993.5)
+position = Vector2(1307.0156, 969.2416)
+scale = Vector2(1, 0.99999994)
 shape = SubResource("RectangleShape2D_b07c4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=759590223]
-position = Vector2(67, 553.75)
+position = Vector2(-1.9939218, 546.75165)
+scale = Vector2(1, 0.99999994)
 shape = SubResource("RectangleShape2D_2ytpj")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=174095207]
@@ -45,24 +46,43 @@ position = Vector2(1832.875, 883.5)
 shape = SubResource("RectangleShape2D_db73o")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=103893782]
-position = Vector2(1924.9995, 841.54596)
-scale = Vector2(1, 0.9999998)
+position = Vector2(2676.8398, 589.4977)
+scale = Vector2(1, 0.9999996)
 shape = SubResource("RectangleShape2D_k8g1k")
 
 [node name="Enemie Folder" type="Node2D" parent="." unique_id=426270935]
 
 [node name="Enemy_Thingy" parent="Enemie Folder" unique_id=790157198 instance=ExtResource("3_2ytpj")]
-position = Vector2(1636.9999, 909.99994)
-scale = Vector2(1, 0.99999994)
+position = Vector2(476.54727, 860.88525)
 
-[node name="Enemy_Thingy2" parent="Enemie Folder" unique_id=512595461 instance=ExtResource("3_2ytpj")]
-position = Vector2(1471, 907.99994)
-scale = Vector2(1, 0.99999994)
+[node name="Enemy_Thingy2" parent="Enemie Folder" unique_id=1374927505 instance=ExtResource("3_2ytpj")]
+position = Vector2(476.54727, 860.88525)
 
-[node name="enemy_fast" parent="Enemie Folder" unique_id=1830024852 instance=ExtResource("4_db73o")]
-position = Vector2(748.7176, 888.71985)
-scale = Vector2(1, 0.99999994)
+[node name="Enemy_Thingy9" parent="Enemie Folder" unique_id=1803778493 instance=ExtResource("3_2ytpj")]
+position = Vector2(476.54727, 860.88525)
 
-[node name="enemy_shooter" parent="Enemie Folder" unique_id=1219362557 instance=ExtResource("5_npfmg")]
-position = Vector2(1923.1376, 817.1451)
-scale = Vector2(0.92873853, 0.9287386)
+[node name="Enemy_Thingy10" parent="Enemie Folder" unique_id=394959767 instance=ExtResource("3_2ytpj")]
+position = Vector2(815.5139, 654.1138)
+
+[node name="Enemy_Thingy18" parent="Enemie Folder" unique_id=1182135831 instance=ExtResource("3_2ytpj")]
+position = Vector2(864.365, 757.4995)
+
+[node name="Enemy_Thingy3" parent="Enemie Folder" unique_id=627075878 instance=ExtResource("3_2ytpj")]
+position = Vector2(1378.7968, 738.6117)
+
+[node name="Enemy_Thingy4" parent="Enemie Folder" unique_id=949874057 instance=ExtResource("3_2ytpj")]
+position = Vector2(1686.8577, 767.4404)
+
+[node name="Enemy_Thingy5" parent="Enemie Folder" unique_id=708098970 instance=ExtResource("3_2ytpj")]
+position = Vector2(1312.9974, 774.3991)
+
+[node name="Enemy_Thingy6" parent="Enemie Folder" unique_id=1665178362 instance=ExtResource("3_2ytpj")]
+position = Vector2(895.2708, 774.3991)
+
+[node name="Enemy_Thingy7" parent="Enemie Folder" unique_id=111218298 instance=ExtResource("3_2ytpj")]
+position = Vector2(678.9303, 859.8912)
+
+[node name="Enemy_Thingy8" parent="Enemie Folder" unique_id=1747447117 instance=ExtResource("3_2ytpj")]
+position = Vector2(740.7419, 776.38727)
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1644732284]
