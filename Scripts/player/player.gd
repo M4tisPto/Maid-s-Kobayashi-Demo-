@@ -9,22 +9,18 @@ extends CharacterBody2D
 @onready var hurtbox: Area2D = $Hurtbox
 @onready var camera_manager: Camera2D = $CameraManager
 @onready var health_component: Node2D = $HealthComponent
-@export var invulnerability_duration: float = 0.75
+@export var invulnerability_duration: float = 2.5
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 var invisible:= false
 @export var hurt_state: State 
 var spin_jump_requested := false
 @export var rotation_speed = 10.0
-@onready var player_model: Node3D = $SubViewport/Sophia_Model
 var facing_direction := 1
 var jumps_left: int = 0
 const TOTAL_JUMPS: int = 2
 var knockback_velocity = Vector2.ZERO
-
-
-	
-
 var _is_dead := false
-
 var is_dead: bool:
 	set(value):
 		if _is_dead == value:
@@ -39,14 +35,11 @@ var is_dead: bool:
 
 	get:
 		return _is_dead
-
 func _ready() -> void:
 	add_to_group("player")
 	movement_state_machine.init(self)
 	attack_state_machine.init(self)
 	health_component.died.connect(die)
-
-
 func die():
 	if is_dead:
 		return
@@ -54,13 +47,12 @@ func die():
 	is_dead = true
 	set_physics_process(false)
 
-	print("Jugador muerto")
-
 func start_invulnerability_timer():
+	animation_player.play("blink")
 	await get_tree().create_timer(invulnerability_duration).timeout
-	
 	invisible = false
 	hurtbox.set_deferred("monitoring", true)
+	animation_player.play("RESET")
 	print("u can get hurt again now")
 
 

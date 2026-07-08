@@ -3,7 +3,7 @@ extends State
 @export
 var idle_state: State
 
-const HURT_DURATION: float = 0.25
+const HURT_DURATION: float = 0.15
 var timer: float = 0.0
 var current_gravity = gravity
 

@@ -2,50 +2,54 @@
 
 [ext_resource type="Script" uid="uid://o38grxoqynl4" path="res://Scripts/Enemy/enemy_doo.gd" id="1_3kuut"]
 [ext_resource type="Texture2D" uid="uid://bpar76k112vc3" path="res://Assets/Sprites/osaka-smilin.png" id="1_rm1eh"]
+[ext_resource type="Script" uid="uid://1rm1ynecrcib" path="res://Scripts/Enemy/hurtbox_enemy.gd" id="3_7h4k7"]
 [ext_resource type="Script" uid="uid://c0kri8veeqi1g" path="res://Scripts/Enemy/hurtbox.gd" id="3_dilno"]
-[ext_resource type="Script" uid="uid://cbmkj6ec8s3ep" path="res://Scripts/Enemy/hitbox.gd" id="3_jlbi0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kuut"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ty5pr"]
 size = Vector2(10, 14)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dilno"]
-size = Vector2(36, 22)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xn3dn"]
+size = Vector2(36, 26)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlbi0"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpnwp"]
 size = Vector2(32, 23)
 
-[node name="Enemy_Thingy" type="CharacterBody2D" unique_id=790157198]
+[node name="enemy_stuff" type="CharacterBody2D" unique_id=1803778493]
 collision_layer = 8
 script = ExtResource("1_3kuut")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1601974121]
+[node name="GroundRay" type="RayCast2D" parent="." unique_id=860926023]
+scale = Vector2(1.0000001, 1.0000001)
+target_position = Vector2(0, 30)
+hit_from_inside = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1797301943]
 position = Vector2(0, -17)
 scale = Vector2(0.086021505, 0.086021505)
 texture = ExtResource("1_rm1eh")
 
-[node name="colission" type="CollisionShape2D" parent="." unique_id=919102949]
+[node name="colission" type="CollisionShape2D" parent="." unique_id=1081551511]
 position = Vector2(0, -8)
-shape = SubResource("RectangleShape2D_3kuut")
+shape = SubResource("RectangleShape2D_ty5pr")
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=1410076553]
+[node name="Hitbox" type="Area2D" parent="." unique_id=1128277528]
 collision_layer = 128
 collision_mask = 64
-script = ExtResource("3_jlbi0")
+script = ExtResource("3_7h4k7")
 
-[node name="collision_hitbox" type="CollisionShape2D" parent="Hitbox" unique_id=1399985416]
-position = Vector2(0, -12)
-shape = SubResource("RectangleShape2D_dilno")
+[node name="collision_hitbox" type="CollisionShape2D" parent="Hitbox" unique_id=1135501104]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_xn3dn")
 debug_color = Color(0.89129084, 2.7193873e-06, 5.7756904e-07, 0.41960785)
 
-[node name="Hurtbox" type="Area2D" parent="." unique_id=1707673205]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=386215926]
 collision_layer = 32
 collision_mask = 4
 script = ExtResource("3_dilno")
 
-[node name="collision_hurtbox" type="CollisionShape2D" parent="Hurtbox" unique_id=1413325252]
+[node name="collision_hurtbox" type="CollisionShape2D" parent="Hurtbox" unique_id=1738854853]
 position = Vector2(0, -11.5)
-shape = SubResource("RectangleShape2D_jlbi0")
+shape = SubResource("RectangleShape2D_gpnwp")
 debug_color = Color(0, 1, 0, 0.41960785)
 
-[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]
