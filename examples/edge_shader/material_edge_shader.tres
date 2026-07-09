@@ -1,6 +1,10 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dpec5hjpflmri"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dpec5hjpflmri"]
 
-[ext_resource type="Shader" path="res://examples/edge_shader/edge_shader.gdshader" id="1_akl0v"]
+[ext_resource type="Shader" uid="uid://d2052u0kg4rix" path="res://Assets/shaders/chroma_shaderl.gdshader" id="1_cicae"]
 
 [resource]
-shader = ExtResource("1_akl0v")
+shader = ExtResource("1_cicae")
+shader_parameter/key_color = Color(0, 1, 0, 1)
+shader_parameter/similarity = 0.4
+shader_parameter/smoothness = 0.08
+shader_parameter/spill = 0.1
