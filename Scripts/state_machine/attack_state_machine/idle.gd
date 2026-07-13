@@ -2,7 +2,7 @@ extends State
 
 @export var grab_state: State
 @export var spín_jump_state: State
-
+@export var shoot_state: State
 var can_spin: bool = true
 
 func _process(delta: float):
@@ -15,6 +15,8 @@ func process_input(event: InputEvent) -> State:
 		can_spin = false
 		parent.velocity.y = 0.0
 		return spín_jump_state
-	if Input.is_action_just_pressed("attack"):
-		return grab_state
+#	if Input.is_action_just_pressed("grab"): pa luego
+#		return grab_state
+	if Input.is_action_just_pressed("attack") and Input.is_action_just_pressed("duck_down"):
+		return shoot_state
 	return null

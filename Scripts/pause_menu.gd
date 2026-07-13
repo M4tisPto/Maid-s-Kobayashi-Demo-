@@ -18,6 +18,9 @@ func _input(event: InputEvent) -> void:
 		else: 
 			visible = true
 			get_tree().paused = true
+	if Input.is_action_just_pressed("attack"): #cancel
+		margin_container.visible = true
+		settings_menu.visible = false
 
 func _on_resume_button_pressed() -> void:
 	visible = false
@@ -26,7 +29,8 @@ func _on_resume_button_pressed() -> void:
 
 
 func _on_restart_button_pressed() -> void:
-	label_2.text = "Sorry! placeholder."
+	get_tree().paused = false
+	DoorTransition.reload_scene()
 
 
 func _on_options_button_pressed() -> void:

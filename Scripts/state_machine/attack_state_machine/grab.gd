@@ -11,8 +11,8 @@ func enter() -> void:
 
 func process_physics(_delta: float) -> State:
 	if parent.enemy_grabbed:
-		parent.animation_player.stop()
 		return grabbed_state
+		parent.animation_player.stop()
 	if not parent.animation_player.is_playing():
 		return idle_state
 	return null

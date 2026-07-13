@@ -11,11 +11,12 @@ var remapping_button = null
 var input_actions := {
 	"move_right": "Right",
 	"move_left": "Left",
-	"jump": "Jump",
-	"attack": "Attack/Grab/Cancel",
-	"accept": "Accept",
-	"toggle_settings": "Pause",
 	"up": "Up/Enter door",
+	"jump": "Jump",
+	"attack": "Attack/Shoot/Cancel",
+	"accept": "Accept",
+	"grab": "Grab",
+	"pause": "Pause",
 }
 
 func _ready() -> void:

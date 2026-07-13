@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://0ig4nswo7x1g"]
+
+[ext_resource type="Script" uid="uid://b622r1g1wpbbb" path="res://Scripts/player/bullets.gd" id="1_oduel"]
+[ext_resource type="Texture2D" uid="uid://b4oh5ndshefye" path="res://Assets/Sprites/Icon.ico" id="2_ycag2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6afsh"]
+size = Vector2(56, 10)
+
+[node name="Bullet" type="CharacterBody2D" unique_id=1280010579]
+script = ExtResource("1_oduel")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1833790095]
+position = Vector2(3.8146973e-06, -3.5762787e-07)
+scale = Vector2(1.1666665, 0.16666667)
+texture = ExtResource("2_ycag2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1767007535]
+shape = SubResource("RectangleShape2D_6afsh")
+debug_color = Color(0.53853273, 0.56844616, 0, 0.41960785)

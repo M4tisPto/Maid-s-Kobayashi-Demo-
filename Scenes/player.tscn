@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://b1w6vkvct2vaj" path="res://Scripts/state_machine/attack_state_machine/grabbed.gd" id="13_fd4e3"]
 [ext_resource type="Script" uid="uid://88h32guoxi8n" path="res://Scripts/state_machine/attack_state_machine/idle.gd" id="13_h4iuc"]
 [ext_resource type="Script" uid="uid://dhphcnju2oqqi" path="res://Scripts/state_machine/attack_state_machine/grab.gd" id="14_fd4e3"]
+[ext_resource type="Script" uid="uid://dcllrrh7ts14k" path="res://Scripts/state_machine/attack_state_machine/shoot.gd" id="15_fd4e3"]
 [ext_resource type="Script" uid="uid://dtq4s4fn2pf5m" path="res://Scripts/player/states/attack state machine/spin_jump.gd" id="15_h4iuc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7dp3o"]
@@ -197,6 +198,7 @@ shape = SubResource("CapsuleShape2D_gymyn")
 debug_color = Color(0.9970613, 0, 0.18350968, 0.41960785)
 
 [node name="GrabRange" type="Area2D" parent="." unique_id=303733626 groups=["player_grab"]]
+visible = false
 collision_layer = 512
 collision_mask = 8
 
@@ -247,20 +249,27 @@ idle_state = NodePath("../idle")
 script = ExtResource("12_7dp3o")
 starting_state = NodePath("idle")
 
-[node name="idle" type="Node" parent="attack_state_machine" unique_id=1785631595 node_paths=PackedStringArray("grab_state", "spín_jump_state")]
+[node name="idle" type="Node" parent="attack_state_machine" unique_id=1785631595 node_paths=PackedStringArray("grab_state", "spín_jump_state", "shoot_state")]
 script = ExtResource("13_h4iuc")
 grab_state = NodePath("../grab")
 "spín_jump_state" = NodePath("../spin_jump")
+shoot_state = NodePath("../shoot")
 
-[node name="grab" type="Node" parent="attack_state_machine" unique_id=1992588379 node_paths=PackedStringArray("idle_state")]
+[node name="grab" type="Node" parent="attack_state_machine" unique_id=1992588379 node_paths=PackedStringArray("idle_state", "grabbed_state")]
 script = ExtResource("14_fd4e3")
 idle_state = NodePath("../idle")
+grabbed_state = NodePath("../grabbed")
 
-[node name="grabbed" type="Node" parent="attack_state_machine" unique_id=1023630297]
+[node name="grabbed" type="Node" parent="attack_state_machine" unique_id=1023630297 node_paths=PackedStringArray("idle_state")]
 script = ExtResource("13_fd4e3")
+idle_state = NodePath("../idle")
 
 [node name="spin_jump" type="Node" parent="attack_state_machine" unique_id=489328187 node_paths=PackedStringArray("idle_state")]
 script = ExtResource("15_h4iuc")
+idle_state = NodePath("../idle")
+
+[node name="shoot" type="Node" parent="attack_state_machine" unique_id=275572378 node_paths=PackedStringArray("idle_state")]
+script = ExtResource("15_fd4e3")
 idle_state = NodePath("../idle")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2132639104]
