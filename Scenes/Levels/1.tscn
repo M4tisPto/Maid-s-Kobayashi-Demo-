@@ -1,18 +1,159 @@
 [gd_scene format=3 uid="uid://cfi13rgaak5hw"]
 
 [ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="1_rnac6"]
+[ext_resource type="Texture2D" uid="uid://c1pshqylpeotn" path="res://Assets/Sprites/paralax_bgs/fondo_ciudad_dia1.jpg" id="2_elxuq"]
+[ext_resource type="Shader" uid="uid://d2052u0kg4rix" path="res://Assets/shaders/chroma_shaderl.gdshader" id="3_elxuq"]
+[ext_resource type="Texture2D" uid="uid://baxlnrr35wwta" path="res://Assets/Sprites/paralax_bgs/fondo_ciudad_dia2.jpg" id="4_v3n7g"]
+[ext_resource type="Texture2D" uid="uid://gkap5y1fij5q" path="res://Assets/Sprites/paralax_bgs/fondo_ciudad_dia3.jpg" id="5_5glqf"]
+[ext_resource type="Texture2D" uid="uid://b1y52mqn3pr3h" path="res://Assets/Sprites/paralax_bgs/fondo_ciudad_dia4.jpg" id="6_jbhxb"]
+[ext_resource type="Texture2D" uid="uid://mxtksvdd7wqo" path="res://Assets/Sprites/paralax_bgs/fondo_ciudad_dia5.jpg" id="7_5loy5"]
+[ext_resource type="Texture2D" uid="uid://b7bxwksjciov3" path="res://Assets/Sprites/paralax_bgs/fondo_ciudad_dia6.jpg" id="8_l88yk"]
+[ext_resource type="Texture2D" uid="uid://w2paik51g37v" path="res://Assets/Sprites/paralax_bgs/fondo_ciudad_dia7.jpg" id="9_eg17s"]
+[ext_resource type="Texture2D" uid="uid://0hgs5ovdwi1w" path="res://Assets/Sprites/paralax_bgs/fondo_ciudad_dia8.jpg" id="10_auora"]
+[ext_resource type="Texture2D" uid="uid://bgh35k4oowlq2" path="res://Assets/Sprites/paralax_bgs/fondo_ciudad_dia9.jpg" id="11_haf4b"]
+[ext_resource type="Texture2D" uid="uid://dgetxofepcfd" path="res://Assets/Sprites/paralax_bgs/fondo_ciudad_dia10.jpg" id="12_qbk2e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rnac6"]
+size = Vector2(198238, 402)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ey3io"]
+shader = ExtResource("3_elxuq")
+shader_parameter/key_color = Color(0.46666667, 0.77254903, 0.4745098, 1)
+shader_parameter/similarity = 0.0
+shader_parameter/smoothness = 0.08
+shader_parameter/spill = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ndnyo"]
+shader = ExtResource("3_elxuq")
+shader_parameter/key_color = Color(0, 0.27058825, 0.6666667, 1)
+shader_parameter/similarity = 0.0910000043225
+shader_parameter/smoothness = 0.08
+shader_parameter/spill = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wsqtq"]
+shader = ExtResource("3_elxuq")
+shader_parameter/key_color = Color(0, 0.27058825, 0.6666667, 1)
+shader_parameter/similarity = 0.166000007885
+shader_parameter/smoothness = 0.08
+shader_parameter/spill = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i1o0o"]
+shader = ExtResource("3_elxuq")
+shader_parameter/key_color = Color(0, 1, 0, 1)
+shader_parameter/similarity = 0.4
+shader_parameter/smoothness = 0.08
+shader_parameter/spill = 0.1
 
 [node name="Node2D" type="Node2D" unique_id=2134867495]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1973460328]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=435226100]
-position = Vector2(-293, 2077)
-polygon = PackedVector2Array(-5005, 1811, -6626, -883, -4254, -1, 587, -20, 673, -119, 2620, 30, 2754, 225, 6401, 202, 6735, 2955, 4685, 2681, -1275, 1977)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1825530073]
+position = Vector2(-5, 0)
+shape = SubResource("RectangleShape2D_rnac6")
 
 [node name="player" parent="." unique_id=2033633715 instance=ExtResource("1_rnac6")]
-position = Vector2(84, -31)
+position = Vector2(0, -226)
 
-[node name="Camera2D" type="Camera2D" parent="player" unique_id=1846145947]
-position = Vector2(0, -72)
-zoom = Vector2(2.5, 2.5)
+[node name="Node2D" type="Node2D" parent="." unique_id=2084984301]
+z_index = -4096
+position = Vector2(0, -2.0000002)
+scale = Vector2(0.565, 0.565)
+
+[node name="Parallax2D" type="Parallax2D" parent="Node2D" unique_id=1692165383]
+scale = Vector2(0.705, 0.705)
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(0, -660.177)
+repeat_size = Vector2(4000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D" unique_id=680659934]
+texture = ExtResource("2_elxuq")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Node2D" unique_id=1148834932]
+scale = Vector2(0.705, 0.705)
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(0, -660.177)
+repeat_size = Vector2(4000, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D/Parallax2D2" unique_id=286843508]
+material = SubResource("ShaderMaterial_ey3io")
+texture = ExtResource("4_v3n7g")
+
+[node name="Parallax2D3" type="Parallax2D" parent="Node2D" unique_id=1520895451]
+scale = Vector2(0.705, 0.705)
+scroll_scale = Vector2(0.8, 0.8)
+scroll_offset = Vector2(0, -660.177)
+repeat_size = Vector2(4000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D3" unique_id=1453573622]
+material = SubResource("ShaderMaterial_ndnyo")
+texture = ExtResource("5_5glqf")
+
+[node name="Parallax2D4" type="Parallax2D" parent="Node2D" unique_id=2030240066]
+scale = Vector2(0.705, 0.705)
+scroll_scale = Vector2(0.3, 0.3)
+scroll_offset = Vector2(0, -660.177)
+repeat_size = Vector2(4000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D4" unique_id=1007190707]
+material = SubResource("ShaderMaterial_wsqtq")
+texture = ExtResource("6_jbhxb")
+
+[node name="Parallax2D5" type="Parallax2D" parent="Node2D" unique_id=970687573]
+scale = Vector2(0.705, 0.705)
+scroll_scale = Vector2(1.2, 1.2)
+scroll_offset = Vector2(0, -660.177)
+repeat_size = Vector2(4000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D5" unique_id=772161561]
+material = SubResource("ShaderMaterial_i1o0o")
+texture = ExtResource("7_5loy5")
+
+[node name="Parallax2D6" type="Parallax2D" parent="Node2D" unique_id=625175336]
+scale = Vector2(0.705, 0.705)
+scroll_scale = Vector2(1.4, 1.4)
+scroll_offset = Vector2(0, -660.177)
+repeat_size = Vector2(4000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D6" unique_id=1647468180]
+material = SubResource("ShaderMaterial_i1o0o")
+texture = ExtResource("8_l88yk")
+
+[node name="Parallax2D7" type="Parallax2D" parent="Node2D" unique_id=1888311062]
+scale = Vector2(0.705, 0.705)
+scroll_scale = Vector2(1.5, 1.5)
+scroll_offset = Vector2(0, -660.177)
+repeat_size = Vector2(4000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D7" unique_id=525446402]
+material = SubResource("ShaderMaterial_i1o0o")
+texture = ExtResource("9_eg17s")
+
+[node name="Parallax2D8" type="Parallax2D" parent="Node2D" unique_id=1918069881]
+scale = Vector2(0.705, 0.705)
+scroll_scale = Vector2(0.6, 0.6)
+scroll_offset = Vector2(0, -660.177)
+repeat_size = Vector2(4000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D8" unique_id=159814624]
+material = SubResource("ShaderMaterial_i1o0o")
+texture = ExtResource("10_auora")
+
+[node name="Parallax2D9" type="Parallax2D" parent="Node2D" unique_id=624178156]
+scale = Vector2(0.705, 0.705)
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(0, -660.177)
+repeat_size = Vector2(4000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D9" unique_id=1907578194]
+material = SubResource("ShaderMaterial_i1o0o")
+texture = ExtResource("11_haf4b")
+
+[node name="Parallax2D10" type="Parallax2D" parent="Node2D" unique_id=1692093974]
+scale = Vector2(0.705, 0.705)
+scroll_offset = Vector2(0, -660.177)
+repeat_size = Vector2(4000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D10" unique_id=1861799516]
+material = SubResource("ShaderMaterial_ndnyo")
+texture = ExtResource("12_qbk2e")

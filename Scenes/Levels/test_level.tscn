@@ -17,7 +17,7 @@ size = Vector2(15912.138, 167)
 size = Vector2(355.32227, 769.6308)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_db73o"]
-size = Vector2(344.25, 53)
+size = Vector2(566.25, 390.00034)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7rivk"]
 shader = ExtResource("8_7rivk")
@@ -27,7 +27,6 @@ shader_parameter/smoothness = 0.08
 shader_parameter/spill = 0.1
 
 [node name="test_room" type="Node2D" unique_id=81383323]
-scale = Vector2(0.997, 1)
 script = ExtResource("1_b07c4")
 
 [node name="player" parent="." unique_id=2033633715 instance=ExtResource("2_b07c4")]
@@ -52,7 +51,7 @@ position = Vector2(973.75, 883.5)
 shape = SubResource("RectangleShape2D_db73o")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=886983185]
-position = Vector2(1832.875, 883.5)
+position = Vector2(1951, 995.00006)
 shape = SubResource("RectangleShape2D_db73o")
 
 [node name="Enemie Folder" type="Node2D" parent="." unique_id=426270935]
@@ -63,24 +62,26 @@ position = Vector2(3207.623, 1188)
 
 [node name="Node2D" type="Node2D" parent="." unique_id=720670743]
 z_index = -4096
-position = Vector2(575.7273, 534)
+position = Vector2(798, 0)
 
 [node name="Parallax2D" type="Parallax2D" parent="Node2D" unique_id=1519679529]
-scale = Vector2(0.3, 0.3)
-scroll_scale = Vector2(0.5, 0.5)
-scroll_offset = Vector2(-314.94482, 39.000008)
-repeat_size = Vector2(3995.41, 0)
+scale = Vector2(0.819, 0.819)
+scroll_scale = Vector2(1.1, 1.1)
+scroll_offset = Vector2(311, 519)
+repeat_size = Vector2(4000, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D" unique_id=1700104693]
 texture_filter = 1
+texture_repeat = 3
+position = Vector2(4.944824, -7.6293945e-06)
 texture = ExtResource("4_l7ek2")
 
 [node name="Parallax2D2" type="Parallax2D" parent="Node2D" unique_id=540517957]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.819, 0.819)
 scroll_scale = Vector2(0.3, 0.3)
-scroll_offset = Vector2(-313.94238, 39.000008)
-repeat_size = Vector2(3995.41, 0)
+scroll_offset = Vector2(311, 519)
+repeat_size = Vector2(4000, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D2" unique_id=866749783]
@@ -89,10 +90,10 @@ position = Vector2(-5.015045, 0)
 texture = ExtResource("5_7rivk")
 
 [node name="Parallax2D3" type="Parallax2D" parent="Node2D" unique_id=1087823218]
-scale = Vector2(0.3, 0.3)
-scroll_scale = Vector2(0.3, 0.3)
-scroll_offset = Vector2(-313.94238, 39.000008)
-repeat_size = Vector2(3995.41, 0)
+scale = Vector2(0.819, 0.819)
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(311, 519)
+repeat_size = Vector2(4000, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D3" unique_id=767595050]
@@ -102,10 +103,10 @@ position = Vector2(-5.015045, 0)
 texture = ExtResource("6_hyk2w")
 
 [node name="Parallax2D4" type="Parallax2D" parent="Node2D" unique_id=236409141]
-scale = Vector2(0.3, 0.3)
-scroll_scale = Vector2(0.4, 0.4)
-scroll_offset = Vector2(-313.94238, 39.000008)
-repeat_size = Vector2(3995.41, 0)
+scale = Vector2(0.819, 0.819)
+scroll_scale = Vector2(0.8, 0.8)
+scroll_offset = Vector2(311, 519)
+repeat_size = Vector2(4000, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D4" unique_id=882833209]
@@ -115,10 +116,11 @@ position = Vector2(-5.015045, 0)
 texture = ExtResource("7_mvu5i")
 
 [node name="Parallax2D5" type="Parallax2D" parent="Node2D" unique_id=463274299]
-scale = Vector2(0.3, 0.3)
-scroll_scale = Vector2(0.5, 0.5)
-scroll_offset = Vector2(-312.93933, 39)
-repeat_size = Vector2(3995.41, 0)
+z_index = 4096
+scale = Vector2(0.819, 0.819)
+scroll_scale = Vector2(1.2, 1.2)
+scroll_offset = Vector2(311, 519)
+repeat_size = Vector2(4000, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D5" unique_id=1152499992]

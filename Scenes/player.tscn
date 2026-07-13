@@ -131,8 +131,8 @@ hurt_state = NodePath("movement_state_machine/hurt")
 script = ExtResource("2_pu2lt")
 
 [node name="CameraManager" type="Camera2D" parent="." unique_id=1687298350]
-position = Vector2(-3, -71)
-zoom = Vector2(2.5, 2.5)
+position = Vector2(0, -115)
+zoom = Vector2(2, 2)
 script = ExtResource("12_pu2lt")
 shake_power = 0.7
 
