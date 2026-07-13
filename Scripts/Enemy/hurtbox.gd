@@ -1,12 +1,10 @@
 #enemy hurtbox
 extends Area2D
 var health = 2
-var enemy_parent = get_parent()
+
 func _on_area_entered(area):
 	if area.is_in_group("player_attack"):
 		take_damage(1)
-	if area.is_in_group("player_grab"):
-		print("testing")
 
 func take_damage(ammount: float):
 	health -= ammount
