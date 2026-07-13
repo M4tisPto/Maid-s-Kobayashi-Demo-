@@ -61,6 +61,7 @@ position = Vector2(-1855.5668, -334)
 position = Vector2(3207.623, 1188)
 
 [node name="Node2D" type="Node2D" parent="." unique_id=720670743]
+visible = false
 z_index = -4096
 position = Vector2(798, 0)
 

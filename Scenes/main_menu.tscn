@@ -8,9 +8,17 @@
 [ext_resource type="Texture2D" uid="uid://cjh6usiy8svhv" path="res://Assets/Sprites/paralax_bgs/fondo_caverna3.jpg" id="6_vr1f0"]
 [ext_resource type="Texture2D" uid="uid://d3xk2beaqtu2c" path="res://Assets/Sprites/paralax_bgs/fondo_caverna4.jpg" id="7_t1dhk"]
 [ext_resource type="Texture2D" uid="uid://bnecalaafjmck" path="res://Assets/Sprites/paralax_bgs/fondo_caverna5.jpg" id="8_5egv6"]
+[ext_resource type="PackedScene" uid="uid://dec0n4y7bnwus" path="res://Scenes/settings_menu.tscn" id="9_trj04"]
 
 [sub_resource type="FontVariation" id="FontVariation_48xlc"]
 base_font = ExtResource("1_28flt")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_trj04"]
+shader = ExtResource("5_16hvj")
+shader_parameter/key_color = Color(0, 1, 0, 1)
+shader_parameter/similarity = 0.4
+shader_parameter/smoothness = 0.08
+shader_parameter/spill = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vtepg"]
 shader = ExtResource("5_16hvj")
@@ -125,6 +133,7 @@ repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D2" unique_id=24322286]
 texture_filter = 1
+material = SubResource("ShaderMaterial_trj04")
 position = Vector2(-5.015045, 0)
 texture = ExtResource("4_trj04")
 
@@ -163,3 +172,11 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_vtepg")
 position = Vector2(-5.015045, 0)
 texture = ExtResource("8_5egv6")
+
+[node name="settings_menu" parent="." unique_id=832020221 instance=ExtResource("9_trj04")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="settings_menu/Back_Button" to="." method="_on_back_button_pressed"]
+
+[editable path="settings_menu"]

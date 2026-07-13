@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://v6t7keeclf7r"]
+[gd_scene format=3 uid="uid://b5mah5cwveeqh"]
 
-[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_k0w1u"]
+[ext_resource type="Script" uid="uid://jsmmtcew2csu" path="res://Scripts/pause_menu.gd" id="1_k0w1u"]
 [ext_resource type="FontFile" uid="uid://htx0b624ho05" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="2_1och7"]
-[ext_resource type="Shader" path="res://shaders/blur.gdshader" id="2_bpi0q"]
-[ext_resource type="PackedScene" path="res://Scenes/settings_menu.tscn" id="3_1och7"]
+[ext_resource type="Shader" uid="uid://c1h5wq5skyp8s" path="res://shaders/blur.gdshader" id="2_bpi0q"]
+[ext_resource type="PackedScene" uid="uid://dec0n4y7bnwus" path="res://Scenes/settings_menu.tscn" id="3_1och7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vmyb1"]
 shader = ExtResource("2_bpi0q")

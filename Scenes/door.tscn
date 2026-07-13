@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dpnl5cbcl8r50"]
 
-[ext_resource type="Script" path="res://Scripts/door.gd" id="1_w6aom"]
+[ext_resource type="Script" uid="uid://d37gq3q8pepva" path="res://Scripts/door.gd" id="1_w6aom"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w6aom"]
 radius = 61.0
-height = 252.0
+height = 302.0
 
 [node name="Door" type="Area2D" unique_id=1173476009]
 collision_layer = 256

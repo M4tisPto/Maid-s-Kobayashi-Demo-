@@ -20,17 +20,17 @@ func process_physics(delta: float) -> State:
 	var movement = Input.get_axis("move_left", "move_right") * move_speed
 	if movement > 0:
 		parent.facing_direction = 1
-		parent.update_attack_hitbox()
+		parent.update_grab_hitbox()
 	elif movement < 0:
 		parent.facing_direction = -1
-		parent.update_attack_hitbox()
+		parent.update_grab_hitbox()
 
 	if movement == 0:
 		return idle_state
 
 	parent.velocity.x = movement
-	parent.move_and_slide()
 
+	parent.move_and_slide()
 	if !parent.is_on_floor():
 		return fall_state
 

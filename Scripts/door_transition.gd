@@ -1,6 +1,6 @@
 extends CanvasLayer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
+@onready var color_rect: ColorRect = $ColorRect
 
 func load_scene(target: String) -> void:
 	animation_player.play("door_transition")
