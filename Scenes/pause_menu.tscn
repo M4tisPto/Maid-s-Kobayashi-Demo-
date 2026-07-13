@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://v6t7keeclf7r"]
+
+[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_k0w1u"]
+[ext_resource type="FontFile" uid="uid://htx0b624ho05" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="2_1och7"]
+[ext_resource type="Shader" path="res://shaders/blur.gdshader" id="2_bpi0q"]
+[ext_resource type="PackedScene" path="res://Scenes/settings_menu.tscn" id="3_1och7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vmyb1"]
+shader = ExtResource("2_bpi0q")
+shader_parameter/blur_amount = 1.5
+
+[sub_resource type="FontVariation" id="FontVariation_bpi0q"]
+base_font = ExtResource("2_1och7")
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=249116281]
+process_mode = 3
+script = ExtResource("1_k0w1u")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=771436979]
+material = SubResource("ShaderMaterial_vmyb1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1860218639]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2002505946]
+layout_mode = 2
+theme_override_constants/separation = 120
+
+[node name="Separator" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1935032052]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=224786412]
+layout_mode = 2
+theme_override_constants/outline_size = 24
+theme_override_fonts/font = SubResource("FontVariation_bpi0q")
+theme_override_font_sizes/font_size = 84
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1788155378]
+layout_mode = 2
+theme_override_constants/outline_size = 24
+theme_override_fonts/font = SubResource("FontVariation_bpi0q")
+theme_override_font_sizes/font_size = 65
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=751492783]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=13688538]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Separator" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=858320007]
+layout_mode = 2
+
+[node name="Resume_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1817740287]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1och7")
+theme_override_font_sizes/font_size = 67
+text = "Resume"
+
+[node name="Restart_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1129404751]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1och7")
+theme_override_font_sizes/font_size = 67
+text = "Restart"
+
+[node name="Options_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1329015965]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1och7")
+theme_override_font_sizes/font_size = 67
+text = "Options"
+
+[node name="Exit_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=645526447]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1och7")
+theme_override_font_sizes/font_size = 67
+text = "Back Menu"
+
+[node name="settings_menu" parent="." unique_id=832020221 instance=ExtResource("3_1och7")]
+visible = false
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Resume_Button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Restart_Button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Options_Button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Exit_Button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="settings_menu/Back_Button" to="." method="_on_back_button_pressed"]
+
+[editable path="settings_menu"]

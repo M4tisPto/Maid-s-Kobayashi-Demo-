@@ -1,11 +1,8 @@
 class_name Player
 extends CharacterBody2D
 @export var fall_gravity_multiplier := 2.0
-<<<<<<< HEAD
-=======
 @export var max_hp: int = 100
 @onready var current_hp: int = max_hp
->>>>>>> parent of 1f0ba32 (asdads)
 @onready var movement_state_machine: Node = $movement_state_machine
 @onready var attack_state_machine: Node = $attack_state_machine 
 @onready var collision_hitbox: CollisionShape2D = $Hitbox/collision_hitbox
@@ -14,16 +11,10 @@ extends CharacterBody2D
 @onready var health_component: Node2D = $HealthComponent
 @export var invulnerability_duration: float = 2.5
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-<<<<<<< HEAD
 @export var hurt_state: State 
 @export var rotation_speed = 10.0
-=======
->>>>>>> parent of 1f0ba32 (asdads)
-
 var invisible:= false
-@export var hurt_state: State 
 var spin_jump_requested := false
-@export var rotation_speed = 10.0
 var facing_direction := 1
 var jumps_left: int = 0
 const TOTAL_JUMPS: int = 2
