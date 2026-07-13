@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://u43wn2jyypny"]
+
+[ext_resource type="FontFile" uid="uid://htx0b624ho05" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="1_xnykn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_evr57"]
+font = ExtResource("1_xnykn")
+font_size = 45
+
+[node name="InputButton" type="Button" unique_id=1421497798]
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+focus_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1070244694]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1904587541]
+layout_mode = 2
+
+[node name="LabelAction" type="Label" parent="MarginContainer/HBoxContainer" unique_id=664595915]
+layout_mode = 2
+mouse_filter = 1
+text = "action name"
+label_settings = SubResource("LabelSettings_evr57")
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer" unique_id=1383230946]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LabelInput" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1709019952]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("1_xnykn")
+theme_override_font_sizes/font_size = 45
+text = "action name"

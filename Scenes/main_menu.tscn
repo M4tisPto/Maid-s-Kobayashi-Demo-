@@ -2,11 +2,30 @@
 
 [ext_resource type="FontFile" uid="uid://htx0b624ho05" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="1_28flt"]
 [ext_resource type="Script" uid="uid://sr2uc4dbameq" path="res://Scripts/main_menu.gd" id="1_48xlc"]
-[ext_resource type="Texture2D" uid="uid://crevckpo5q007" path="res://Assets/Sprites/fondo morado.png" id="2_1ehe0"]
-[ext_resource type="PackedScene" uid="uid://oo71w6u63cyo" path="res://Scenes/options_menu.tscn" id="4_ce3w2"]
+[ext_resource type="Texture2D" uid="uid://n5dflao6kocy" path="res://Assets/Sprites/paralax_bgs/fondo_caverna1.jpg" id="3_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://c8ij565o3vi1p" path="res://Assets/Sprites/paralax_bgs/fondo_caverna2.png" id="4_trj04"]
+[ext_resource type="Shader" uid="uid://d2052u0kg4rix" path="res://Assets/shaders/chroma_shaderl.gdshader" id="5_16hvj"]
+[ext_resource type="Texture2D" uid="uid://cjh6usiy8svhv" path="res://Assets/Sprites/paralax_bgs/fondo_caverna3.jpg" id="6_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://d3xk2beaqtu2c" path="res://Assets/Sprites/paralax_bgs/fondo_caverna4.jpg" id="7_t1dhk"]
+[ext_resource type="Texture2D" uid="uid://bnecalaafjmck" path="res://Assets/Sprites/paralax_bgs/fondo_caverna5.jpg" id="8_5egv6"]
+[ext_resource type="PackedScene" uid="uid://dec0n4y7bnwus" path="res://Scenes/settings_menu.tscn" id="9_trj04"]
 
 [sub_resource type="FontVariation" id="FontVariation_48xlc"]
 base_font = ExtResource("1_28flt")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_trj04"]
+shader = ExtResource("5_16hvj")
+shader_parameter/key_color = Color(0, 1, 0, 1)
+shader_parameter/similarity = 0.4
+shader_parameter/smoothness = 0.08
+shader_parameter/spill = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vtepg"]
+shader = ExtResource("5_16hvj")
+shader_parameter/key_color = Color(0, 1, 0, 1)
+shader_parameter/similarity = 0.4830000229425
+shader_parameter/smoothness = 0.08
+shader_parameter/spill = 0.1
 
 [node name="Control" type="Control" unique_id=723497809]
 layout_mode = 3
@@ -16,15 +35,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_48xlc")
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=2030393018]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_1ehe0")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1440449764]
 layout_mode = 1
@@ -102,6 +112,71 @@ theme_override_fonts/font = ExtResource("1_28flt")
 theme_override_font_sizes/font_size = 67
 text = "Exit"
 
-[node name="Options_Menu" parent="." unique_id=1206036651 instance=ExtResource("4_ce3w2")]
+[node name="Node2D" type="Node2D" parent="." unique_id=1798820565]
+z_index = -4096
+position = Vector2(962, 494)
+
+[node name="Parallax2D" type="Parallax2D" parent="Node2D" unique_id=1361622397]
+repeat_size = Vector2(4000, 0)
+autoscroll = Vector2(-150, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D" unique_id=593124128]
+texture_filter = 1
+texture = ExtResource("3_yhxw7")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Node2D" unique_id=1423146640]
+scroll_scale = Vector2(10, 10)
+repeat_size = Vector2(4000, 0)
+autoscroll = Vector2(-150, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D2" unique_id=24322286]
+texture_filter = 1
+material = SubResource("ShaderMaterial_trj04")
+position = Vector2(-5.015045, 0)
+texture = ExtResource("4_trj04")
+
+[node name="Parallax2D3" type="Parallax2D" parent="Node2D" unique_id=1536853461]
+scroll_scale = Vector2(0.2, 0.2)
+repeat_size = Vector2(4000, 0)
+autoscroll = Vector2(-150, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D3" unique_id=1346675351]
+texture_filter = 1
+material = SubResource("ShaderMaterial_vtepg")
+position = Vector2(-5.015045, 0)
+texture = ExtResource("6_vr1f0")
+
+[node name="Parallax2D4" type="Parallax2D" parent="Node2D" unique_id=623353593]
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(4000, 0)
+autoscroll = Vector2(-150, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D4" unique_id=1485299194]
+texture_filter = 1
+material = SubResource("ShaderMaterial_vtepg")
+position = Vector2(-5.015045, 0)
+texture = ExtResource("7_t1dhk")
+
+[node name="Parallax2D5" type="Parallax2D" parent="Node2D" unique_id=1507738246]
+scroll_scale = Vector2(0.8, 0.8)
+repeat_size = Vector2(4000, 0)
+autoscroll = Vector2(-150, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D5" unique_id=1650625685]
+texture_filter = 1
+material = SubResource("ShaderMaterial_vtepg")
+position = Vector2(-5.015045, 0)
+texture = ExtResource("8_5egv6")
+
+[node name="settings_menu" parent="." unique_id=832020221 instance=ExtResource("9_trj04")]
 visible = false
 layout_mode = 1
+
+[connection signal="pressed" from="settings_menu/Back_Button" to="." method="_on_back_button_pressed"]
+
+[editable path="settings_menu"]
