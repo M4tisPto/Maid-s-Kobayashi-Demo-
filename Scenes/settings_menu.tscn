@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://dec0n4y7bnwus"]
+
+[ext_resource type="Script" uid="uid://y0e5h25fg1x3" path="res://Scripts/settings_menu.gd" id="1_7y5a0"]
+[ext_resource type="FontFile" uid="uid://htx0b624ho05" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="1_icv2g"]
+[ext_resource type="PackedScene" uid="uid://u43wn2jyypny" path="res://Scenes/input_button.tscn" id="3_h2y1r"]
+
+[node name="settings_menu" type="Control" unique_id=832020221]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7y5a0")
+
+[node name="settings_title" type="Label" parent="." unique_id=1030521478]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=2024813340]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -905.5
+offset_top = -483.5
+offset_right = 905.5
+offset_bottom = 373.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/tab_separation = 15
+theme_override_fonts/font = ExtResource("1_icv2g")
+theme_override_font_sizes/font_size = 48
+tab_alignment = 1
+current_tab = 0
+
+[node name="Audio" type="TabBar" parent="TabContainer" unique_id=2126431241]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Video" type="TabBar" parent="TabContainer" unique_id=1880844891]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Controls" type="TabBar" parent="TabContainer" unique_id=16715544]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Panel" type="Panel" parent="TabContainer/Controls" unique_id=1650602554]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Controls/Panel" unique_id=973003587]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 333.0
+offset_top = 11.0
+offset_right = -333.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Controls/Panel/MarginContainer" unique_id=1847389176]
+layout_mode = 2
+
+[node name="ActionList" type="VBoxContainer" parent="TabContainer/Controls/Panel/MarginContainer/ScrollContainer" unique_id=1328944727]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 37
+
+[node name="InputButton" parent="TabContainer/Controls/Panel/MarginContainer/ScrollContainer/ActionList" unique_id=1421497798 instance=ExtResource("3_h2y1r")]
+layout_mode = 2
+
+[node name="InputButton2" parent="TabContainer/Controls/Panel/MarginContainer/ScrollContainer/ActionList" unique_id=1806635014 instance=ExtResource("3_h2y1r")]
+layout_mode = 2
+
+[node name="InputButton3" parent="TabContainer/Controls/Panel/MarginContainer/ScrollContainer/ActionList" unique_id=1324507066 instance=ExtResource("3_h2y1r")]
+layout_mode = 2
+
+[node name="InputButton4" parent="TabContainer/Controls/Panel/MarginContainer/ScrollContainer/ActionList" unique_id=95296711 instance=ExtResource("3_h2y1r")]
+layout_mode = 2
+
+[node name="ResetButton" type="Button" parent="TabContainer/Controls/Panel/MarginContainer" unique_id=697401652]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_icv2g")
+theme_override_font_sizes/font_size = 67
+text = "RESET TO DEFAULT"
+
+[node name="Language" type="TabBar" parent="TabContainer" unique_id=1608982596]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Back_Button" type="Button" parent="." unique_id=1827605155]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 561.0
+offset_top = -147.0
+offset_right = -575.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_icv2g")
+theme_override_font_sizes/font_size = 67
+text = "Back"
+
+[connection signal="pressed" from="TabContainer/Controls/Panel/MarginContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="Back_Button" to="." method="_on_back_button_pressed"]

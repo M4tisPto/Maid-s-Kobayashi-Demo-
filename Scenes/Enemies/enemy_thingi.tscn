@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" uid="uid://o38grxoqynl4" path="res://Scripts/Enemy/enemy_doo.gd" id="1_3kuut"]
 [ext_resource type="Texture2D" uid="uid://bpar76k112vc3" path="res://Assets/Sprites/osaka-smilin.png" id="1_rm1eh"]
-[ext_resource type="Script" uid="uid://1rm1ynecrcib" path="res://Scripts/Enemy/hurtbox_enemy.gd" id="3_7h4k7"]
-[ext_resource type="Script" uid="uid://c0kri8veeqi1g" path="res://Scripts/Enemy/hurtbox.gd" id="3_dilno"]
+[ext_resource type="Script" uid="uid://cbmkj6ec8s3ep" path="res://Scripts/Enemy/hitbox.gd" id="3_7h4k7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ty5pr"]
 size = Vector2(10, 14)
@@ -13,6 +12,67 @@ size = Vector2(36, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpnwp"]
 size = Vector2(32, 23)
+
+[sub_resource type="Animation" id="Animation_0uasx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hitbox/collision_hitbox:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7h4k7"]
+resource_name = "enemy_blink_dragged_out"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hitbox/collision_hitbox:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.100000024, 0.26666668, 0.3666667, 0.5333333, 0.6333333, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ty5pr"]
+_data = {
+&"RESET": SubResource("Animation_0uasx"),
+&"enemy_blink_dragged_out": SubResource("Animation_7h4k7")
+}
 
 [node name="enemy_stuff" type="CharacterBody2D" unique_id=1803778493]
 collision_layer = 8
@@ -44,12 +104,15 @@ debug_color = Color(0.89129084, 2.7193873e-06, 5.7756904e-07, 0.41960785)
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=386215926]
 collision_layer = 32
-collision_mask = 4
-script = ExtResource("3_dilno")
+collision_mask = 516
 
 [node name="collision_hurtbox" type="CollisionShape2D" parent="Hurtbox" unique_id=1738854853]
 position = Vector2(0, -11.5)
 shape = SubResource("RectangleShape2D_gpnwp")
 debug_color = Color(0, 1, 0, 0.41960785)
 
-[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1392336244]
+libraries/ = SubResource("AnimationLibrary_ty5pr")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_exited" from="Hurtbox" to="." method="_on_hurtbox_area_exited"]

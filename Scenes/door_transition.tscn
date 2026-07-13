@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://0mg0nqj3uksa"]
+
+[ext_resource type="Shader" uid="uid://ctbtv5vq2b8ly" path="res://shaders/transitions.gdshader" id="1_67c2s"]
+[ext_resource type="Texture2D" uid="uid://di803q2mcyxru" path="res://Assets/Sprites/pixil-frame-0(2).png" id="2_wigxg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ca0ew"]
+shader = ExtResource("1_67c2s")
+
+[node name="Door_transition" type="CanvasLayer" unique_id=1757677113]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=224146428]
+clip_children = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0, 0, 0, 1)
+
+[node name="PixilFrame0(2)" type="Sprite2D" parent="ColorRect" unique_id=11356255]
+z_index = 4096
+texture_filter = 1
+material = SubResource("ShaderMaterial_ca0ew")
+position = Vector2(2419, 547.99994)
+scale = Vector2(11.958334, 11.958334)
+texture = ExtResource("2_wigxg")

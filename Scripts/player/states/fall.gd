@@ -20,10 +20,12 @@ func process_physics(delta: float) -> State:
 	var movement = Input.get_axis("move_left", "move_right") * move_speed
 	if movement > 0:
 		parent.facing_direction = 1
-		parent.update_attack_hitbox()
+
+		parent.update_grab_hitbox()
 	elif movement < 0:
 		parent.facing_direction = -1
-		parent.update_attack_hitbox()
+
+		parent.update_grab_hitbox()
 	
 	parent.velocity.x = movement
 	

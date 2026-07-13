@@ -1,25 +1,29 @@
 class_name Player
 extends CharacterBody2D
 @export var fall_gravity_multiplier := 2.0
+@export var invulnerability_duration: float = 2.5
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@export var hurt_state: State 
+@export var rotation_speed = 10.0
 @export var max_hp: int = 100
 @onready var current_hp: int = max_hp
 @onready var movement_state_machine: Node = $movement_state_machine
 @onready var attack_state_machine: Node = $attack_state_machine 
-@onready var collision_hitbox: CollisionShape2D = $Hitbox/collision_hitbox
+@onready var collision_grab: CollisionShape2D = $GrabRange/collision_grab
 @onready var hurtbox: Area2D = $Hurtbox
 @onready var camera_manager: Camera2D = $CameraManager
 @onready var health_component: Node2D = $HealthComponent
-@export var invulnerability_duration: float = 2.5
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var grab_position: Marker2D = $GrabPosition
 
+
+var enemy_grabbed = false
 var invisible:= false
-@export var hurt_state: State 
 var spin_jump_requested := false
-@export var rotation_speed = 10.0
 var facing_direction := 1
 var jumps_left: int = 0
 const TOTAL_JUMPS: int = 2
 var knockback_velocity = Vector2.ZERO
+var grabbing = false
 var _is_dead := false
 var is_dead: bool:
 	set(value):
@@ -74,12 +78,13 @@ func _process(delta: float) -> void:
 	movement_state_machine.process_frame(delta)
 	attack_state_machine.process_frame(delta)
 
-func update_attack_hitbox():
+func update_grab_hitbox():
 	if facing_direction == 1:
-		collision_hitbox.position.x = 45
+		grab_position.position.x = 45
+		collision_grab.position.x = 45
 	else:
-		collision_hitbox.position.x = -45
-
+		collision_grab.position.x = -45
+		grab_position.position.x = -45
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
