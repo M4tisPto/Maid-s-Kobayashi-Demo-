@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://kpy2usosu2or"]
+
+[ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="1_uu7at"]
+[ext_resource type="PackedScene" uid="uid://cjab5y5fghro" path="res://Scenes/Enemies/enemy_thingi.tscn" id="2_rdtqr"]
+[ext_resource type="PackedScene" uid="uid://d2vepttbubyhn" path="res://Scenes/breakable_block.tscn" id="3_nos6l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rdtqr"]
+size = Vector2(1152, 294.5)
+
+[node name="PlayerLevelTestingRoom" type="Node2D" unique_id=1696997642]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1868562759]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1508527056]
+position = Vector2(1, 147)
+shape = SubResource("RectangleShape2D_rdtqr")
+
+[node name="player" parent="." unique_id=2033633715 instance=ExtResource("1_uu7at")]
+position = Vector2(2, 2)
+
+[node name="enemy_stuff" parent="." unique_id=1803778493 instance=ExtResource("2_rdtqr")]
+position = Vector2(343, -11)
+
+[node name="enemy_stuff2" parent="." unique_id=1625657388 instance=ExtResource("2_rdtqr")]
+position = Vector2(469, -8)
+
+[node name="Breakable_block" parent="." unique_id=1262483326 instance=ExtResource("3_nos6l")]
+position = Vector2(-304, -96)

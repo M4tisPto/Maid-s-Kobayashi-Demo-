@@ -7,15 +7,16 @@
 [ext_resource type="Script" uid="uid://bfjc20tg53pbo" path="res://Scripts/player/states/jump.gd" id="4_3smsa"]
 [ext_resource type="Script" uid="uid://cdqu4q70g563w" path="res://Scripts/player/states/fall.gd" id="5_8erm5"]
 [ext_resource type="Script" uid="uid://b5pkk4yvwrh78" path="res://Scripts/player/states/move.gd" id="6_f1ek2"]
+[ext_resource type="Script" uid="uid://bou6ee8ocepy3" path="res://Scripts/player/states/duck.gd" id="10_fd4e3"]
 [ext_resource type="Script" uid="uid://fmurmdiwhdco" path="res://Scripts/player/states/hurt.gd" id="10_ukyrk"]
 [ext_resource type="Script" uid="uid://bpc0j3hy32ggb" path="res://Scripts/state_machine/attack_state_machine/attack_state_machine.gd" id="12_7dp3o"]
 [ext_resource type="PackedScene" uid="uid://b5mah5cwveeqh" path="res://Scenes/pause_menu.tscn" id="12_h4iuc"]
 [ext_resource type="Script" uid="uid://d0wb3qjytq0bv" path="res://Scripts/player/camera_shake.gd" id="12_pu2lt"]
-[ext_resource type="Script" uid="uid://b1w6vkvct2vaj" path="res://Scripts/state_machine/attack_state_machine/grabbed.gd" id="13_fd4e3"]
 [ext_resource type="Script" uid="uid://88h32guoxi8n" path="res://Scripts/state_machine/attack_state_machine/idle.gd" id="13_h4iuc"]
 [ext_resource type="Script" uid="uid://dhphcnju2oqqi" path="res://Scripts/state_machine/attack_state_machine/grab.gd" id="14_fd4e3"]
 [ext_resource type="Script" uid="uid://dcllrrh7ts14k" path="res://Scripts/state_machine/attack_state_machine/shoot.gd" id="15_fd4e3"]
 [ext_resource type="Script" uid="uid://dtq4s4fn2pf5m" path="res://Scripts/player/states/attack state machine/spin_jump.gd" id="15_h4iuc"]
+[ext_resource type="Script" uid="uid://cfssw617elq80" path="res://Scripts/player/states/attack state machine/combo_attack_1.gd" id="16_qqcod"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7dp3o"]
 radius = 34.0147
@@ -26,9 +27,6 @@ size = Vector2(24, 94)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gymyn"]
 radius = 6.0
 height = 72.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dp3o"]
-size = Vector2(96, 45.5)
 
 [sub_resource type="Animation" id="Animation_h4iuc"]
 length = 0.001
@@ -71,14 +69,62 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("GrabRange/collision_grab:disabled")
+tracks/3/path = NodePath("Hurtbox/collision_hurtbox:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("collision:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Hurtbox/collision_hurtbox:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -47)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("collision:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -47)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Hitbox/collision_spin_hitbox:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -47)]
 }
 
 [sub_resource type="Animation" id="Animation_fd4e3"]
@@ -101,22 +147,86 @@ tracks/0/keys = {
 resource_name = "combo"
 length = 0.24
 
+[sub_resource type="Animation" id="Animation_fs7ks"]
+resource_name = "ducked"
+length = 1.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hitbox/collision_spin_hitbox:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.38)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hurtbox/collision_hurtbox:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.275)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("collision:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.325)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hurtbox/collision_hurtbox:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -15)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("collision:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -15)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Hitbox/collision_spin_hitbox:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -15)]
+}
+
 [sub_resource type="Animation" id="Animation_igrcy"]
 resource_name = "grab"
 length = 0.55
 step = 0.016666668
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GrabRange/collision_grab:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.03333336, 0.06666666, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
 
 [sub_resource type="Animation" id="Animation_7dp3o"]
 resource_name = "spin_attack"
@@ -151,6 +261,7 @@ _data = {
 &"RESET": SubResource("Animation_h4iuc"),
 &"blink": SubResource("Animation_fd4e3"),
 &"combo": SubResource("Animation_qqcod"),
+&"ducked": SubResource("Animation_fs7ks"),
 &"grab": SubResource("Animation_igrcy"),
 &"spin_attack": SubResource("Animation_7dp3o")
 }
@@ -166,17 +277,17 @@ script = ExtResource("2_pu2lt")
 
 [node name="CameraManager" type="Camera2D" parent="." unique_id=1687298350]
 position = Vector2(-3, -71)
-zoom = Vector2(2.5, 2.5)
-position_smoothing_speed = 0.1
+zoom = Vector2(1.35, 1.35)
+position_smoothing_speed = 200.0
 script = ExtResource("12_pu2lt")
 shake_power = 0.7
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=703470255 groups=["player_attack"]]
+[node name="Hitbox" type="Area2D" parent="." unique_id=703470255 groups=["player_spin"]]
 collision_layer = 4
 collision_mask = 32
 
 [node name="collision_spin_hitbox" type="CollisionShape2D" parent="Hitbox" unique_id=1146945489]
-position = Vector2(0, -46)
+position = Vector2(0, -47)
 shape = SubResource("CircleShape2D_7dp3o")
 disabled = true
 
@@ -184,39 +295,25 @@ disabled = true
 position = Vector2(0, -47)
 shape = SubResource("RectangleShape2D_tx1dd")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1676272654]
-position = Vector2(-2.0000038, -48)
-scale = Vector2(0.09434573, 0.09434573)
-
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1680993809]
 collision_layer = 32
 collision_mask = 128
 
 [node name="collision_hurtbox" type="CollisionShape2D" parent="Hurtbox" unique_id=1669722552]
-position = Vector2(0, -46)
+position = Vector2(0, -47)
 shape = SubResource("CapsuleShape2D_gymyn")
 debug_color = Color(0.9970613, 0, 0.18350968, 0.41960785)
-
-[node name="GrabRange" type="Area2D" parent="." unique_id=303733626 groups=["player_grab"]]
-visible = false
-collision_layer = 512
-collision_mask = 8
-
-[node name="collision_grab" type="CollisionShape2D" parent="GrabRange" unique_id=380903616]
-position = Vector2(58, -24.25)
-shape = SubResource("RectangleShape2D_7dp3o")
-disabled = true
-debug_color = Color(0.46420836, 9.8331126e-05, 0.43825063, 0.67058825)
 
 [node name="movement_state_machine" parent="." unique_id=286087432 node_paths=PackedStringArray("starting_state") instance=ExtResource("1_v0iea")]
 starting_state = NodePath("idle")
 
-[node name="idle" type="Node" parent="movement_state_machine" unique_id=389988173 node_paths=PackedStringArray("fall_state", "jump_state", "move_state", "hurt_state")]
+[node name="idle" type="Node" parent="movement_state_machine" unique_id=389988173 node_paths=PackedStringArray("fall_state", "jump_state", "move_state", "hurt_state", "duck_state")]
 script = ExtResource("3_x3wgy")
 fall_state = NodePath("../fall")
 jump_state = NodePath("../jump")
 move_state = NodePath("../move")
 hurt_state = NodePath("../hurt")
+duck_state = NodePath("../duck")
 move_speed = 300.0
 
 [node name="jump" type="Node" parent="movement_state_machine" unique_id=1266890664 node_paths=PackedStringArray("fall_state", "idle_state", "move_state")]
@@ -245,6 +342,10 @@ move_speed = 300.0
 script = ExtResource("10_ukyrk")
 idle_state = NodePath("../idle")
 
+[node name="duck" type="Node" parent="movement_state_machine" unique_id=1073217693 node_paths=PackedStringArray("idle_state")]
+script = ExtResource("10_fd4e3")
+idle_state = NodePath("../idle")
+
 [node name="attack_state_machine" type="Node" parent="." unique_id=446655595 node_paths=PackedStringArray("starting_state")]
 script = ExtResource("12_7dp3o")
 starting_state = NodePath("idle")
@@ -255,13 +356,8 @@ grab_state = NodePath("../grab")
 "spín_jump_state" = NodePath("../spin_jump")
 shoot_state = NodePath("../shoot")
 
-[node name="grab" type="Node" parent="attack_state_machine" unique_id=1992588379 node_paths=PackedStringArray("idle_state", "grabbed_state")]
+[node name="grab" type="Node" parent="attack_state_machine" unique_id=1992588379 node_paths=PackedStringArray("idle_state")]
 script = ExtResource("14_fd4e3")
-idle_state = NodePath("../idle")
-grabbed_state = NodePath("../grabbed")
-
-[node name="grabbed" type="Node" parent="attack_state_machine" unique_id=1023630297 node_paths=PackedStringArray("idle_state")]
-script = ExtResource("13_fd4e3")
 idle_state = NodePath("../idle")
 
 [node name="spin_jump" type="Node" parent="attack_state_machine" unique_id=489328187 node_paths=PackedStringArray("idle_state")]
@@ -272,14 +368,18 @@ idle_state = NodePath("../idle")
 script = ExtResource("15_fd4e3")
 idle_state = NodePath("../idle")
 
+[node name="combo_attack_1" type="Node" parent="attack_state_machine" unique_id=1140758997]
+script = ExtResource("16_qqcod")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2132639104]
 libraries/ = SubResource("AnimationLibrary_qqcod")
 
 [node name="PauseMenu" parent="." unique_id=249116281 instance=ExtResource("12_h4iuc")]
 
-[node name="GrabPosition" type="Marker2D" parent="." unique_id=78427219]
-position = Vector2(58, -24)
-gizmo_extents = 1.0
+[node name="Muzzle" type="Marker2D" parent="." unique_id=78427219]
+position = Vector2(54, -16)
+rotation = -6.2831855
+gizmo_extents = 57.9
 
 [connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

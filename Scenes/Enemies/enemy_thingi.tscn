@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://o38grxoqynl4" path="res://Scripts/Enemy/enemy_doo.gd" id="1_3kuut"]
 [ext_resource type="Texture2D" uid="uid://bpar76k112vc3" path="res://Assets/Sprites/osaka-smilin.png" id="1_rm1eh"]
 [ext_resource type="Script" uid="uid://cbmkj6ec8s3ep" path="res://Scripts/Enemy/hitbox.gd" id="3_7h4k7"]
+[ext_resource type="Script" uid="uid://1rm1ynecrcib" path="res://Scripts/Enemy/hurtbox_enemy.gd" id="4_7h4k7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ty5pr"]
 size = Vector2(10, 14)
@@ -39,6 +40,58 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6.2831855]
+}
+
+[sub_resource type="Animation" id="Animation_xn3dn"]
+resource_name = "another_hit_for_me_exclametion_mark"
+length = 0.695
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(0.5, -0.5),
+"update": 0,
+"values": [-0.5497787143782138, -12.566370614359172]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_7h4k7"]
 resource_name = "enemy_blink_dragged_out"
@@ -68,10 +121,40 @@ tracks/1/keys = {
 "values": [true, false, true, false, true, false, true]
 }
 
+[sub_resource type="Animation" id="Animation_ty5pr"]
+resource_name = "enemy_stunned_or_some_shi"
+length = 1.935
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.3667, 0.56, 0.69),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 0.265), Vector2(0.64, 1.65), Vector2(1.125, 0.825), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3667, 0.53, 0.6, 1.0666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 2.033308578573394, 2.033308578573394, 2.609267231731523]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ty5pr"]
 _data = {
 &"RESET": SubResource("Animation_0uasx"),
-&"enemy_blink_dragged_out": SubResource("Animation_7h4k7")
+&"another_hit_for_me_exclametion_mark": SubResource("Animation_xn3dn"),
+&"enemy_blink_dragged_out": SubResource("Animation_7h4k7"),
+&"enemy_stunned_or_some_shi": SubResource("Animation_ty5pr")
 }
 
 [node name="enemy_stuff" type="CharacterBody2D" unique_id=1803778493]
@@ -85,6 +168,7 @@ hit_from_inside = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1797301943]
 position = Vector2(0, -17)
+rotation = 6.2831855
 scale = Vector2(0.086021505, 0.086021505)
 texture = ExtResource("1_rm1eh")
 
@@ -104,7 +188,8 @@ debug_color = Color(0.89129084, 2.7193873e-06, 5.7756904e-07, 0.41960785)
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=386215926]
 collision_layer = 32
-collision_mask = 516
+collision_mask = 1028
+script = ExtResource("4_7h4k7")
 
 [node name="collision_hurtbox" type="CollisionShape2D" parent="Hurtbox" unique_id=1738854853]
 position = Vector2(0, -11.5)
@@ -115,4 +200,4 @@ debug_color = Color(0, 1, 0, 0.41960785)
 libraries/ = SubResource("AnimationLibrary_ty5pr")
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="area_exited" from="Hurtbox" to="." method="_on_hurtbox_area_exited"]
+[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]

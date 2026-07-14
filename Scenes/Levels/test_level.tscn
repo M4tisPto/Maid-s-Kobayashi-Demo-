@@ -37,11 +37,10 @@ scale = Vector2(1, 0.9999997)
 collision_layer = 2
 collision_mask = 259
 
-[node name="grab" parent="player/attack_state_machine" parent_id_path=PackedInt32Array(2033633715, 446655595) index="1" unique_id=1992588379 node_paths=PackedStringArray("grabbed_state")]
-grabbed_state = NodePath("../grabbed")
-
-[node name="grabbed" parent="player/attack_state_machine" parent_id_path=PackedInt32Array(2033633715, 446655595) index="2" unique_id=1023630297 node_paths=PackedStringArray("idle_state")]
-idle_state = NodePath("../idle")
+[node name="CameraManager" parent="player" index="1" unique_id=1687298350]
+limit_enabled = false
+position_smoothing_enabled = false
+position_smoothing_speed = 100.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1390569982]
 scale = Vector2(1, 0.99999994)
@@ -80,7 +79,6 @@ position = Vector2(2815.4465, 1093)
 position = Vector2(3839.5188, 1082)
 
 [node name="Node2D" type="Node2D" parent="." unique_id=720670743]
-visible = false
 z_index = -4096
 position = Vector2(792.37714, 536)
 
@@ -141,7 +139,7 @@ repeat_size = Vector2(4000, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D5" unique_id=1152499992]
-z_index = 4096
+z_index = -4096
 texture_filter = 1
 material = SubResource("ShaderMaterial_7rivk")
 position = Vector2(-5.015045, 0)

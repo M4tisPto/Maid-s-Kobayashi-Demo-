@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://d2vepttbubyhn"]
+
+[ext_resource type="Script" uid="uid://680m0ublpms5" path="res://Scripts/player/Interactions/breakable_block.gd" id="1_2cmiy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6njcg"]
+size = Vector2(56, 22)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_siljs"]
+radius = 45.01111
+
+[sub_resource type="Animation" id="Animation_op2hc"]
+resource_name = "Destroyed"
+length = 0.5
+
+[sub_resource type="Animation" id="Animation_m6bek"]
+resource_name = "Idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7x1g1"]
+_data = {
+&"Destroyed": SubResource("Animation_op2hc"),
+&"Idle": SubResource("Animation_m6bek")
+}
+
+[node name="Breakable_block" type="StaticBody2D" unique_id=1262483326]
+script = ExtResource("1_2cmiy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=803837819]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=726067543]
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_6njcg")
+debug_color = Color(0.7114401, 0.0017330921, 0.8766763, 0.41960785)
+
+[node name="hitbox" type="Area2D" parent="." unique_id=1579207377]
+collision_layer = 1025
+collision_mask = 1024
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="hitbox" unique_id=1868836438]
+shape = SubResource("CircleShape2D_siljs")
+debug_color = Color(3.9948522e-06, 0.6498475, 0.13927913, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=280350676]
+libraries/ = SubResource("AnimationLibrary_7x1g1")
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

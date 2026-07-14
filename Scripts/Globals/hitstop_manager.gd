@@ -13,11 +13,7 @@ func hit_stop_death():
 	Engine.time_scale = 0
 
 	await get_tree().create_timer(1.5, true, false, true).timeout
-	
-	# 2. Un temblor medio que durará bastante mientras todo va lento (fuerza 0.6, dura 1.5 segundos)
 	PlayerManager.shake_camera(5, 1.5)
-	
-	# El juego se ralentiza a un 30%
 	Engine.time_scale = 0.3
 	
 	AudioController.play_sound("player_death")
@@ -36,3 +32,7 @@ func hit_stop_hurt():
 	await get_tree().create_timer(0.08, true, false, true).timeout
 	
 	Engine.time_scale = previous_time_scale
+
+
+func hit_stop_enemy_hurt():
+		PlayerManager.shake_camera(8.0, 0.5)

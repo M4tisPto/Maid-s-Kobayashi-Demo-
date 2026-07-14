@@ -4,6 +4,8 @@ extends State
 @export var jump_state: State
 @export var move_state: State
 @export var hurt_state: State
+@export var duck_state: State
+
 var current_gravity = gravity
 # Asegúrate de tener definida la gravedad aquí o usar la de Godot
 
@@ -20,12 +22,15 @@ func process_input(event: InputEvent) -> State:
 	if Input.is_action_pressed('move_left') or Input.is_action_pressed('move_right'):
 		return move_state
 		
+	
+	if Input.is_action_pressed("duck_down"):
+		return duck_state
+
 	return null
-
-
 func process_physics(delta: float) -> State:
 	if not parent.is_on_floor():
 		parent.velocity.y += gravity * delta
+
 	else:
 		parent.velocity.y = 0
 		

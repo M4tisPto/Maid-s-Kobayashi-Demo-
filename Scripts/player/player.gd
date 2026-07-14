@@ -1,5 +1,9 @@
 class_name Player
 extends CharacterBody2D
+
+
+var bullet = preload("res://Scenes/bullet.tscn")
+
 @export var fall_gravity_multiplier := 2.0
 @export var invulnerability_duration: float = 2.5
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -9,17 +13,14 @@ extends CharacterBody2D
 @onready var current_hp: int = max_hp
 @onready var movement_state_machine: Node = $movement_state_machine
 @onready var attack_state_machine: Node = $attack_state_machine 
-@onready var collision_grab: CollisionShape2D = $GrabRange/collision_grab
 @onready var hurtbox: Area2D = $Hurtbox
 @onready var camera_manager: Camera2D = $CameraManager
 @onready var health_component: Node2D = $HealthComponent
-@onready var grab_position: Marker2D = $GrabPosition
+@onready var muzzle: Marker2D = $Muzzle
 
-
-var enemy_grabbed = false
+var facing_direction := 1
 var invisible:= false
 var spin_jump_requested := false
-var facing_direction := 1
 var jumps_left: int = 0
 const TOTAL_JUMPS: int = 2
 var knockback_velocity = Vector2.ZERO
@@ -78,13 +79,11 @@ func _process(delta: float) -> void:
 	movement_state_machine.process_frame(delta)
 	attack_state_machine.process_frame(delta)
 
-func update_grab_hitbox():
+func update_muzzle_position():
 	if facing_direction == 1:
-		grab_position.position.x = 45
-		collision_grab.position.x = 45
-	else:
-		collision_grab.position.x = -45
-		grab_position.position.x = -45
+		muzzle.position.x  = abs(muzzle.position.x)
+	elif facing_direction == -1:
+		muzzle.position.x = -abs(muzzle.position.x)
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
