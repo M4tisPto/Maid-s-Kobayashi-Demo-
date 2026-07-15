@@ -17,6 +17,6 @@ func process_input(event: InputEvent) -> State:
 		return spín_jump_state
 #	if Input.is_action_just_pressed("grab"): pa luego
 #		return grab_state
-	if Input.is_action_just_pressed("attack") and Input.is_action_pressed("duck_down") and parent.is_on_floor():
+	if Input.is_action_just_pressed("attack") and Input.is_action_pressed("duck_down") and parent.is_on_floor() and parent.velocity == Vector2.ZERO:
 		return shoot_state
 	return null

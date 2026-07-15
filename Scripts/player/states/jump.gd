@@ -31,9 +31,11 @@ func process_physics(delta: float) -> State:
 	if movement > 0:
 		parent.facing_direction = 1
 		parent.update_muzzle_position()
+		parent.update_knuck_direction()
 	elif movement < 0:
 		parent.facing_direction = -1
 		parent.update_muzzle_position()
+		parent.update_knuck_direction()
 	parent.velocity.x = movement
 	if Input.is_action_just_pressed("jump") and parent.jumps_left > 0:
 		AudioController.play_sound("jump")

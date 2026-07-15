@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b5ren7x1jdp6i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aud02"]
+font_size = 50
+
+[node name="GUI" type="CanvasLayer" unique_id=1859388305]
+
+[node name="Label" type="Label" parent="." unique_id=1706561032]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "current arm: "
+label_settings = SubResource("LabelSettings_aud02")
+horizontal_alignment = 1
+vertical_alignment = 1

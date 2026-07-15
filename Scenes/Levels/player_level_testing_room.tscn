@@ -19,10 +19,19 @@ shape = SubResource("RectangleShape2D_rdtqr")
 position = Vector2(2, 2)
 
 [node name="enemy_stuff" parent="." unique_id=1803778493 instance=ExtResource("2_rdtqr")]
-position = Vector2(343, -11)
+position = Vector2(198, -52)
 
 [node name="enemy_stuff2" parent="." unique_id=1625657388 instance=ExtResource("2_rdtqr")]
-position = Vector2(469, -8)
+position = Vector2(324, -49)
 
 [node name="Breakable_block" parent="." unique_id=1262483326 instance=ExtResource("3_nos6l")]
-position = Vector2(-304, -96)
+position = Vector2(-1134, 16)
+
+[node name="Breakable_block2" parent="." unique_id=358721711 instance=ExtResource("3_nos6l")]
+position = Vector2(-651, -4)
+
+[node name="Breakable_block3" parent="." unique_id=1905858020 instance=ExtResource("3_nos6l")]
+position = Vector2(-916, 5)
+
+[node name="Breakable_block4" parent="." unique_id=1050966928 instance=ExtResource("3_nos6l")]
+position = Vector2(-1328, -5)

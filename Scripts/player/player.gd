@@ -13,10 +13,13 @@ var bullet = preload("res://Scenes/bullet.tscn")
 @onready var current_hp: int = max_hp
 @onready var movement_state_machine: Node = $movement_state_machine
 @onready var attack_state_machine: Node = $attack_state_machine 
+@onready var arm_state_machine: Node = $arm_state_machine
 @onready var hurtbox: Area2D = $Hurtbox
 @onready var camera_manager: Camera2D = $CameraManager
 @onready var health_component: Node2D = $HealthComponent
 @onready var muzzle: Marker2D = $Muzzle
+@onready var gui_arm_text: Label = $GUI/Label
+@onready var collision_kuckleblaster: CollisionShape2D = $shockwave/CollisionShape2D
 
 var facing_direction := 1
 var invisible:= false
@@ -44,6 +47,7 @@ func _ready() -> void:
 	add_to_group("player")
 	movement_state_machine.init(self)
 	attack_state_machine.init(self)
+	arm_state_machine.init(self)
 	health_component.died.connect(die)
 func die():
 	if is_dead:
@@ -64,26 +68,32 @@ func start_invulnerability_timer():
 func _unhandled_input(event: InputEvent) -> void:
 	movement_state_machine.process_input(event)
 	attack_state_machine.process_input(event)
-
+	arm_state_machine.process_input(event)
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("test"):
-		movement_state_machine.change_state(hurt_state)
 	if is_dead:
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
 	movement_state_machine.process_physics(delta)
 	attack_state_machine.process_physics(delta)
+	arm_state_machine.process_physics(delta)
 
 func _process(delta: float) -> void:
 	movement_state_machine.process_frame(delta)
 	attack_state_machine.process_frame(delta)
+	arm_state_machine.process_physics(delta)
 
 func update_muzzle_position():
 	if facing_direction == 1:
 		muzzle.position.x  = abs(muzzle.position.x)
 	elif facing_direction == -1:
 		muzzle.position.x = -abs(muzzle.position.x)
+func update_knuck_direction():
+	if facing_direction == 1:
+		collision_kuckleblaster.position.x  = abs(collision_kuckleblaster.position.x)
+	elif facing_direction == -1:
+		collision_kuckleblaster.position.x = -abs(collision_kuckleblaster.position.x)
+
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b4oh5ndshefye" path="res://Assets/Sprites/Icon.ico" id="2_ycag2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6afsh"]
-size = Vector2(16, 6)
+size = Vector2(30, 8)
 
 [node name="Bullet" type="Area2D" unique_id=1217663716 groups=["bullet"]]
 collision_layer = 1024
@@ -13,7 +13,7 @@ script = ExtResource("1_oduel")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1833790095]
 position = Vector2(3.8146973e-06, -3.5762787e-07)
-scale = Vector2(0.37499988, 0.041666657)
+scale = Vector2(0.7499998, 0.08333334)
 texture = ExtResource("2_ycag2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1767007535]
@@ -21,7 +21,7 @@ shape = SubResource("RectangleShape2D_6afsh")
 debug_color = Color(0.53853273, 0.56844616, 0, 0.41960785)
 
 [node name="Timer" type="Timer" parent="." unique_id=1849489028]
-wait_time = 0.5
+wait_time = 1.5
 one_shot = true
 autostart = true
 

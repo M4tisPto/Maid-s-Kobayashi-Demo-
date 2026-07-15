@@ -10,7 +10,6 @@ func init(parent: Player) -> void:
 		child.parent = parent
 	change_state(starting_state)
 func change_state(new_state: State) -> void:
-	print("CAMBIO:", current_state, " -> ", new_state)
 	if current_state == new_state:
 		return
 	

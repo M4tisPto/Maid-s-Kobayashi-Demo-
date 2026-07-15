@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cpiwob1g7rhpe"]
+
+[ext_resource type="Script" uid="uid://c2i2k5he6qkw7" path="res://Scripts/state_machine/arm_state_machine/knuckleblaster_arm.gd" id="1_ygkqh"]
+
+[node name="knuckleblaster_arm" type="Node2D" unique_id=678069733]
+script = ExtResource("1_ygkqh")

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Sophy_Arms" format=3 uid="uid://ds366osyiwykf"]
+
+[ext_resource type="Script" uid="uid://b8jq1n2crx0d4" path="res://Scripts/player/arm_manager/arm_resource.gd" id="1_3l5gj"]
+
+[resource]
+script = ExtResource("1_3l5gj")
+name = "Default"
+damage = 1.0
+metadata/_custom_type_script = "uid://b8jq1n2crx0d4"

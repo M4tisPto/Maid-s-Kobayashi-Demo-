@@ -1,5 +1,6 @@
 class_name State
 extends Node
+#state
 
 @export
 var move_speed: float = 400

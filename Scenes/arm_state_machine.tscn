@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c4cwytw1n5vd5"]
+
+[ext_resource type="Script" uid="uid://deyh2vc8ij6br" path="res://Scripts/player/arm_manager/arm_state_machine.gd" id="1_vcm66"]
+
+[node name="arm_state_machine" type="Node" unique_id=552109023 node_paths=PackedStringArray("starting_state")]
+script = ExtResource("1_vcm66")
+starting_state = NodePath("")

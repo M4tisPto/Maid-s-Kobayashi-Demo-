@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://usjue1ui4vvy" path="res://Scripts/player/health_component.gd" id="2_pu2lt"]
 [ext_resource type="Script" uid="uid://cfenjjivd2kti" path="res://Scripts/player/states/idle.gd" id="3_x3wgy"]
 [ext_resource type="Script" uid="uid://bfjc20tg53pbo" path="res://Scripts/player/states/jump.gd" id="4_3smsa"]
+[ext_resource type="Script" uid="uid://dx5a1ydoq6k0u" path="res://Scripts/state_machine/arm_state_machine/shockwave_kuckleblaster.gd" id="4_wpjfl"]
 [ext_resource type="Script" uid="uid://cdqu4q70g563w" path="res://Scripts/player/states/fall.gd" id="5_8erm5"]
 [ext_resource type="Script" uid="uid://b5pkk4yvwrh78" path="res://Scripts/player/states/move.gd" id="6_f1ek2"]
 [ext_resource type="Script" uid="uid://bou6ee8ocepy3" path="res://Scripts/player/states/duck.gd" id="10_fd4e3"]
@@ -17,6 +18,75 @@
 [ext_resource type="Script" uid="uid://dcllrrh7ts14k" path="res://Scripts/state_machine/attack_state_machine/shoot.gd" id="15_fd4e3"]
 [ext_resource type="Script" uid="uid://dtq4s4fn2pf5m" path="res://Scripts/player/states/attack state machine/spin_jump.gd" id="15_h4iuc"]
 [ext_resource type="Script" uid="uid://cfssw617elq80" path="res://Scripts/player/states/attack state machine/combo_attack_1.gd" id="16_qqcod"]
+[ext_resource type="Script" uid="uid://deyh2vc8ij6br" path="res://Scripts/player/arm_manager/arm_state_machine.gd" id="18_l6n3p"]
+[ext_resource type="Script" uid="uid://bi21kqsfme3d1" path="res://Scripts/state_machine/arm_state_machine/base.gd" id="19_l6n3p"]
+[ext_resource type="PackedScene" uid="uid://cpiwob1g7rhpe" path="res://Scenes/arms_player/knuckleblaster_arm.tscn" id="19_olqyp"]
+[ext_resource type="PackedScene" uid="uid://b5ren7x1jdp6i" path="res://Scenes/gui.tscn" id="20_l6n3p"]
+[ext_resource type="Script" uid="uid://c4lemi441fiie" path="res://Scripts/state_machine/arm_state_machine/drill_arm.gd" id="21_bi64h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bi64h"]
+radius = 34.0147
+
+[sub_resource type="Animation" id="Animation_ygkqh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shockwave/CollisionShape2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shockwave/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7s1nk"]
+resource_name = "shockwavea_anim"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shockwave/CollisionShape2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.36666667, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(4.075, 4.075), Vector2(1.22, 1.22)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shockwave/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ijsl"]
+_data = {
+&"RESET": SubResource("Animation_ygkqh"),
+&"shockwavea_anim": SubResource("Animation_7s1nk")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7dp3o"]
 radius = 34.0147
@@ -266,6 +336,10 @@ _data = {
 &"spin_attack": SubResource("Animation_7dp3o")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ijsl"]
+radius = 11.0
+height = 54.0
+
 [node name="player" type="CharacterBody2D" unique_id=2033633715 node_paths=PackedStringArray("hurt_state") groups=["player"]]
 collision_layer = 3
 collision_mask = 9
@@ -281,6 +355,21 @@ zoom = Vector2(1.35, 1.35)
 position_smoothing_speed = 200.0
 script = ExtResource("12_pu2lt")
 shake_power = 0.7
+
+[node name="shockwave" type="Area2D" parent="." unique_id=486951698 groups=["shockwave_player"]]
+collision_layer = 2048
+collision_mask = 48
+script = ExtResource("4_wpjfl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shockwave" unique_id=1118730035]
+visible = false
+position = Vector2(54, -49)
+shape = SubResource("CircleShape2D_bi64h")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="shockwave" unique_id=1948453227]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_2ijsl")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=703470255 groups=["player_spin"]]
 collision_layer = 4
@@ -371,6 +460,28 @@ idle_state = NodePath("../idle")
 [node name="combo_attack_1" type="Node" parent="attack_state_machine" unique_id=1140758997]
 script = ExtResource("16_qqcod")
 
+[node name="arm_state_machine" type="Node" parent="." unique_id=517136455 node_paths=PackedStringArray("starting_state")]
+script = ExtResource("18_l6n3p")
+starting_state = NodePath("base")
+
+[node name="base" type="Node" parent="arm_state_machine" unique_id=277578690 node_paths=PackedStringArray("test_change")]
+script = ExtResource("19_l6n3p")
+test_change = NodePath("../knuckleblaster_arm")
+
+[node name="knuckleblaster_arm" parent="arm_state_machine" unique_id=678069733 instance=ExtResource("19_olqyp")]
+position = Vector2(76, -48)
+
+[node name="drill_arm" type="Node2D" parent="arm_state_machine" unique_id=886781427]
+script = ExtResource("21_bi64h")
+
+[node name="neutral" type="Node" parent="arm_state_machine/drill_arm" unique_id=1351449227]
+
+[node name="side" type="Node" parent="arm_state_machine/drill_arm" unique_id=1929080564]
+
+[node name="up" type="Node" parent="arm_state_machine/drill_arm" unique_id=232389491]
+
+[node name="down" type="Node" parent="arm_state_machine/drill_arm" unique_id=1150674972]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2132639104]
 libraries/ = SubResource("AnimationLibrary_qqcod")
 
@@ -381,5 +492,16 @@ position = Vector2(54, -16)
 rotation = -6.2831855
 gizmo_extents = 57.9
 
+[node name="GUI" parent="." unique_id=1859388305 instance=ExtResource("20_l6n3p")]
+
+[node name="drill_attack" type="Area2D" parent="." unique_id=1685830419]
+
+[node name="drill_collision" type="CollisionShape2D" parent="drill_attack" unique_id=702023312]
+position = Vector2(43, -42)
+shape = SubResource("CapsuleShape2D_2ijsl")
+
 [connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+
+[editable path="arm_state_machine/knuckleblaster_arm"]
+[editable path="GUI"]
