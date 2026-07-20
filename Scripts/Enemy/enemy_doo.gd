@@ -10,7 +10,7 @@ class_name Enemy extends CharacterBody2D
 @export var shake_amount = 8.0
 @export var shake_decay = 3.0
 @export var stun_timer: float = 15.0
-@export var force := 2
+@export var force := 3
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var ground_check: RayCast2D = $GroundRay
@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 			sprite.offset = Vector2(randf_range(-current_shake, current_shake), randf_range(-current_shake, current_shake))
 	elif shockwaved:
 		if push_timer > 0.0:
-			velocity.x = -push_shockwaved.x * 100
+			velocity.x = -push_shockwaved.x * 120
 			push_timer -= delta
 		else:
 			if is_on_floor():
@@ -67,13 +67,12 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		stun_timer = stun_duration + 1.5
 		return
 		
-	if area.is_in_group("player_attack") and not is_stunned:
-		is_stunned = true
-		stun_timer = stun_duration
-		animation_player.play("enemy_stunned_or_some_shi")
-		# Attempting combo
+	if area.is_in_group("knuckle_attack_player") and not is_stunned:
+		shockwaved = true
+		
+		push_shockwaved.x = direction * force
+		push_timer = 0.5
 		await get_tree().create_timer(0.2).timeout
-		velocity.y = -jump_stunned
 		
 	if area.is_in_group("shockwave_player"):
 		animation_player.play("another_hit_for_me_exclametion_mark")

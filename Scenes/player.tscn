@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://usjue1ui4vvy" path="res://Scripts/player/health_component.gd" id="2_pu2lt"]
 [ext_resource type="Script" uid="uid://cfenjjivd2kti" path="res://Scripts/player/states/idle.gd" id="3_x3wgy"]
 [ext_resource type="Script" uid="uid://bfjc20tg53pbo" path="res://Scripts/player/states/jump.gd" id="4_3smsa"]
-[ext_resource type="Script" uid="uid://dx5a1ydoq6k0u" path="res://Scripts/state_machine/arm_state_machine/shockwave_kuckleblaster.gd" id="4_wpjfl"]
 [ext_resource type="Script" uid="uid://cdqu4q70g563w" path="res://Scripts/player/states/fall.gd" id="5_8erm5"]
 [ext_resource type="Script" uid="uid://b5pkk4yvwrh78" path="res://Scripts/player/states/move.gd" id="6_f1ek2"]
 [ext_resource type="Script" uid="uid://bou6ee8ocepy3" path="res://Scripts/player/states/duck.gd" id="10_fd4e3"]
@@ -21,18 +20,168 @@
 [ext_resource type="Script" uid="uid://deyh2vc8ij6br" path="res://Scripts/player/arm_manager/arm_state_machine.gd" id="18_l6n3p"]
 [ext_resource type="Script" uid="uid://bi21kqsfme3d1" path="res://Scripts/state_machine/arm_state_machine/base.gd" id="19_l6n3p"]
 [ext_resource type="PackedScene" uid="uid://cpiwob1g7rhpe" path="res://Scenes/arms_player/knuckleblaster_arm.tscn" id="19_olqyp"]
+[ext_resource type="Script" uid="uid://0pk4w6h4uvxb" path="res://Scripts/state_machine/arm_state_machine/arm_sub_states/knuckleblaster/neutral.gd" id="20_bi64h"]
 [ext_resource type="PackedScene" uid="uid://b5ren7x1jdp6i" path="res://Scenes/gui.tscn" id="20_l6n3p"]
+[ext_resource type="Script" uid="uid://lpkb1p0yk3u8" path="res://Scripts/state_machine/arm_state_machine/arm_sub_states/knuckleblaster/side.gd" id="21_0gysh"]
 [ext_resource type="Script" uid="uid://c4lemi441fiie" path="res://Scripts/state_machine/arm_state_machine/drill_arm.gd" id="21_bi64h"]
+[ext_resource type="Script" uid="uid://buf0g5otey7qu" path="res://Scripts/state_machine/arm_state_machine/arm_sub_states/knuckleblaster/up.gd" id="22_vfarp"]
+[ext_resource type="Script" uid="uid://dv1k8faefovrn" path="res://Scripts/state_machine/arm_state_machine/arm_sub_states/knuckleblaster/down.gd" id="23_y6uwr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tx1dd"]
+size = Vector2(24, 94)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gysh"]
+size = Vector2(54.5, 80)
+
+[sub_resource type="Animation" id="Animation_0gysh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("collision_knuckleblaster:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("collision_knuckleblaster:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(33, -45)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("shockwave/collision_shockwave:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(33, -45)]
+}
+
+[sub_resource type="Animation" id="Animation_vfarp"]
+resource_name = "kuck_neutral"
+length = 0.56666666
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("collision_knuckleblaster:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0045378264, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("collision_knuckleblaster:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.43333337),
+"transitions": PackedFloat32Array(0.09473245, 0.09473245),
+"update": 0,
+"values": [Vector2(33, -45), Vector2(54, -45)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("shockwave/collision_shockwave:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.43333337),
+"transitions": PackedFloat32Array(0.09473245, 0.09473245),
+"update": 0,
+"values": [Vector2(33, -45), Vector2(54, -45)]
+}
+
+[sub_resource type="Animation" id="Animation_y6uwr"]
+resource_name = "kuck_side"
+length = 1.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("collision_knuckleblaster:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(33, -45), Vector2(93, -45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shockwave/collision_shockwave:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(33, -45), Vector2(93, -45)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("collision_knuckleblaster:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.033333335, 0.033333335, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y6uwr"]
+_data = {
+&"RESET": SubResource("Animation_0gysh"),
+&"kuck_neutral": SubResource("Animation_vfarp"),
+&"kuck_side": SubResource("Animation_y6uwr")
+}
+
+[sub_resource type="GDScript" id="GDScript_wpjfl"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bi64h"]
-radius = 34.0147
+radius = 19.0
 
 [sub_resource type="Animation" id="Animation_ygkqh"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("shockwave/CollisionShape2D:scale")
+tracks/0/path = NodePath("Flip_container/kuckleblaster/shockwave/collision_shockwave:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -44,7 +193,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("shockwave/CollisionShape2D:disabled")
+tracks/1/path = NodePath("Flip_container/kuckleblaster/shockwave/collision_shockwave:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -53,26 +202,42 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flip_container/kuckleblaster/shockwave/collision_shockwave:shape:radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [19.0]
+}
+
+[sub_resource type="Animation" id="Animation_83xs0"]
+resource_name = "kuckle_side"
+length = 0.39
 
 [sub_resource type="Animation" id="Animation_7s1nk"]
-resource_name = "shockwavea_anim"
+resource_name = "shockwave_anim"
 length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("shockwave/CollisionShape2D:scale")
+tracks/0/path = NodePath("Flip_container/kuckleblaster/shockwave/collision_shockwave:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.19999999, 0.36666667, 0.73333335),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(4.075, 4.075), Vector2(1.22, 1.22)]
+"values": []
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("shockwave/CollisionShape2D:disabled")
+tracks/1/path = NodePath("Flip_container/kuckleblaster/shockwave/collision_shockwave:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -81,22 +246,36 @@ tracks/1/keys = {
 "update": 1,
 "values": [true, false, true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flip_container/kuckleblaster/shockwave/collision_shockwave:shape:radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.4, 0.73333335),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5),
+"update": 0,
+"values": [19.0, 19.0, 65.55, 19.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2ijsl"]
 _data = {
 &"RESET": SubResource("Animation_ygkqh"),
-&"shockwavea_anim": SubResource("Animation_7s1nk")
+&"kuckle_side": SubResource("Animation_83xs0"),
+&"shockwave_anim": SubResource("Animation_7s1nk")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7dp3o"]
 radius = 34.0147
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tx1dd"]
-size = Vector2(24, 94)
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gymyn"]
 radius = 6.0
 height = 72.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ijsl"]
+radius = 11.0
+height = 54.0
 
 [sub_resource type="Animation" id="Animation_h4iuc"]
 length = 0.001
@@ -115,7 +294,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Hitbox/collision_spin_hitbox:disabled")
+tracks/1/path = NodePath("Flip_container/Hitbox/collision_spin_hitbox:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -127,7 +306,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitbox/collision_spin_hitbox:scale")
+tracks/2/path = NodePath("Flip_container/Hitbox/collision_spin_hitbox:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -139,7 +318,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Hurtbox/collision_hurtbox:scale")
+tracks/3/path = NodePath("Flip_container/Hurtbox/collision_hurtbox:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -163,7 +342,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Hurtbox/collision_hurtbox:position")
+tracks/5/path = NodePath("Flip_container/Hurtbox/collision_hurtbox:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -187,7 +366,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Hitbox/collision_spin_hitbox:position")
+tracks/7/path = NodePath("Flip_container/Hitbox/collision_spin_hitbox:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -223,7 +402,7 @@ length = 1.025
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hitbox/collision_spin_hitbox:scale")
+tracks/0/path = NodePath("Flip_container/Hitbox/collision_spin_hitbox:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -235,7 +414,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Hurtbox/collision_hurtbox:scale")
+tracks/1/path = NodePath("Flip_container/Hurtbox/collision_hurtbox:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -259,7 +438,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Hurtbox/collision_hurtbox:position")
+tracks/3/path = NodePath("Flip_container/Hurtbox/collision_hurtbox:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -283,7 +462,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Hitbox/collision_spin_hitbox:position")
+tracks/5/path = NodePath("Flip_container/Hitbox/collision_spin_hitbox:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -304,7 +483,7 @@ length = 0.3533
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hitbox/collision_spin_hitbox:disabled")
+tracks/0/path = NodePath("Flip_container/Hitbox/collision_spin_hitbox:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -316,7 +495,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Hitbox/collision_spin_hitbox:scale")
+tracks/1/path = NodePath("Flip_container/Hitbox/collision_spin_hitbox:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -336,10 +515,6 @@ _data = {
 &"spin_attack": SubResource("Animation_7dp3o")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ijsl"]
-radius = 11.0
-height = 54.0
-
 [node name="player" type="CharacterBody2D" unique_id=2033633715 node_paths=PackedStringArray("hurt_state") groups=["player"]]
 collision_layer = 3
 collision_mask = 9
@@ -356,42 +531,9 @@ position_smoothing_speed = 200.0
 script = ExtResource("12_pu2lt")
 shake_power = 0.7
 
-[node name="shockwave" type="Area2D" parent="." unique_id=486951698 groups=["shockwave_player"]]
-collision_layer = 2048
-collision_mask = 48
-script = ExtResource("4_wpjfl")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="shockwave" unique_id=1118730035]
-visible = false
-position = Vector2(54, -49)
-shape = SubResource("CircleShape2D_bi64h")
-disabled = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="shockwave" unique_id=1948453227]
-root_node = NodePath("../..")
-libraries/ = SubResource("AnimationLibrary_2ijsl")
-
-[node name="Hitbox" type="Area2D" parent="." unique_id=703470255 groups=["player_spin"]]
-collision_layer = 4
-collision_mask = 32
-
-[node name="collision_spin_hitbox" type="CollisionShape2D" parent="Hitbox" unique_id=1146945489]
-position = Vector2(0, -47)
-shape = SubResource("CircleShape2D_7dp3o")
-disabled = true
-
 [node name="collision" type="CollisionShape2D" parent="." unique_id=1741350484]
 position = Vector2(0, -47)
 shape = SubResource("RectangleShape2D_tx1dd")
-
-[node name="Hurtbox" type="Area2D" parent="." unique_id=1680993809]
-collision_layer = 32
-collision_mask = 128
-
-[node name="collision_hurtbox" type="CollisionShape2D" parent="Hurtbox" unique_id=1669722552]
-position = Vector2(0, -47)
-shape = SubResource("CapsuleShape2D_gymyn")
-debug_color = Color(0.9970613, 0, 0.18350968, 0.41960785)
 
 [node name="movement_state_machine" parent="." unique_id=286087432 node_paths=PackedStringArray("starting_state") instance=ExtResource("1_v0iea")]
 starting_state = NodePath("idle")
@@ -468,8 +610,21 @@ starting_state = NodePath("base")
 script = ExtResource("19_l6n3p")
 test_change = NodePath("../knuckleblaster_arm")
 
-[node name="knuckleblaster_arm" parent="arm_state_machine" unique_id=678069733 instance=ExtResource("19_olqyp")]
+[node name="knuckleblaster_arm" parent="arm_state_machine" unique_id=678069733 node_paths=PackedStringArray("test_state") instance=ExtResource("19_olqyp")]
 position = Vector2(76, -48)
+test_state = NodePath("../base")
+
+[node name="neutral" type="Node" parent="arm_state_machine/knuckleblaster_arm" unique_id=2135688030]
+script = ExtResource("20_bi64h")
+
+[node name="side" type="Node" parent="arm_state_machine/knuckleblaster_arm" unique_id=327475645]
+script = ExtResource("21_0gysh")
+
+[node name="up" type="Node" parent="arm_state_machine/knuckleblaster_arm" unique_id=1127195062]
+script = ExtResource("22_vfarp")
+
+[node name="down" type="Node" parent="arm_state_machine/knuckleblaster_arm" unique_id=1745001446]
+script = ExtResource("23_y6uwr")
 
 [node name="drill_arm" type="Node2D" parent="arm_state_machine" unique_id=886781427]
 script = ExtResource("21_bi64h")
@@ -482,26 +637,74 @@ script = ExtResource("21_bi64h")
 
 [node name="down" type="Node" parent="arm_state_machine/drill_arm" unique_id=1150674972]
 
+[node name="Flip_container" type="Node2D" parent="." unique_id=236896316]
+
+[node name="kuckleblaster" type="Area2D" parent="Flip_container" unique_id=1821586056 groups=["knuckle_attack_player"]]
+collision_layer = 4096
+collision_mask = 48
+
+[node name="collision_knuckleblaster" type="CollisionShape2D" parent="Flip_container/kuckleblaster" unique_id=232128400]
+position = Vector2(33, -45)
+shape = SubResource("RectangleShape2D_0gysh")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Flip_container/kuckleblaster" unique_id=1986687838]
+libraries/ = SubResource("AnimationLibrary_y6uwr")
+
+[node name="shockwave" type="Area2D" parent="Flip_container/kuckleblaster" unique_id=486951698 groups=["shockwave_player"]]
+collision_layer = 2048
+collision_mask = 48
+script = SubResource("GDScript_wpjfl")
+
+[node name="collision_shockwave" type="CollisionShape2D" parent="Flip_container/kuckleblaster/shockwave" unique_id=1118730035]
+position = Vector2(33, -45)
+shape = SubResource("CircleShape2D_bi64h")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Flip_container/kuckleblaster/shockwave" unique_id=1948453227]
+root_node = NodePath("../../../..")
+libraries/ = SubResource("AnimationLibrary_2ijsl")
+
+[node name="Hitbox" type="Area2D" parent="Flip_container" unique_id=703470255 groups=["player_spin"]]
+collision_layer = 4
+collision_mask = 32
+
+[node name="collision_spin_hitbox" type="CollisionShape2D" parent="Flip_container/Hitbox" unique_id=1146945489]
+position = Vector2(0, -47)
+shape = SubResource("CircleShape2D_7dp3o")
+disabled = true
+
+[node name="Hurtbox" type="Area2D" parent="Flip_container" unique_id=1680993809]
+collision_layer = 32
+collision_mask = 128
+
+[node name="collision_hurtbox" type="CollisionShape2D" parent="Flip_container/Hurtbox" unique_id=1669722552]
+position = Vector2(0, -47)
+shape = SubResource("CapsuleShape2D_gymyn")
+debug_color = Color(0.9970613, 0, 0.18350968, 0.41960785)
+
+[node name="drill_attack" type="Area2D" parent="Flip_container" unique_id=1685830419]
+visible = false
+
+[node name="drill_collision" type="CollisionShape2D" parent="Flip_container/drill_attack" unique_id=702023312]
+visible = false
+position = Vector2(43, -42)
+shape = SubResource("CapsuleShape2D_2ijsl")
+
+[node name="Muzzle" type="Marker2D" parent="Flip_container" unique_id=78427219]
+position = Vector2(54, -16)
+gizmo_extents = 57.9
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2132639104]
 libraries/ = SubResource("AnimationLibrary_qqcod")
 
 [node name="PauseMenu" parent="." unique_id=249116281 instance=ExtResource("12_h4iuc")]
 
-[node name="Muzzle" type="Marker2D" parent="." unique_id=78427219]
-position = Vector2(54, -16)
-rotation = -6.2831855
-gizmo_extents = 57.9
-
 [node name="GUI" parent="." unique_id=1859388305 instance=ExtResource("20_l6n3p")]
 
-[node name="drill_attack" type="Area2D" parent="." unique_id=1685830419]
-
-[node name="drill_collision" type="CollisionShape2D" parent="drill_attack" unique_id=702023312]
-position = Vector2(43, -42)
-shape = SubResource("CapsuleShape2D_2ijsl")
-
-[connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]
-[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="animation_finished" from="Flip_container/kuckleblaster/AnimationPlayer" to="arm_state_machine/knuckleblaster_arm/neutral" method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="Flip_container/Hitbox" to="Flip_container/Hitbox" method="_on_body_entered"]
+[connection signal="area_entered" from="Flip_container/Hurtbox" to="." method="_on_hurtbox_area_entered"]
 
 [editable path="arm_state_machine/knuckleblaster_arm"]
 [editable path="GUI"]

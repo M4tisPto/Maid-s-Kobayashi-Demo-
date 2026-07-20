@@ -5,7 +5,7 @@ extends State
 func enter() -> void:
 	print("ducked down")
 	parent.animation_player.play("ducked")
-
+	parent.move_and_slide()
 
 func process_input(_event: InputEvent) -> State:
 	if Input.is_action_just_released("duck_down"):

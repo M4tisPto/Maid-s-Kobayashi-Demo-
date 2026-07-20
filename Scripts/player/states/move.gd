@@ -18,21 +18,18 @@ func process_physics(delta: float) -> State:
 	parent.velocity.y += gravity * delta
 
 	var movement = Input.get_axis("move_left", "move_right") * move_speed
-	if movement > 0:
-		parent.facing_direction = 1
-		parent.update_muzzle_position()
-		parent.update_knuck_direction()
-	elif movement < 0:
-		parent.facing_direction = -1
-		parent.update_muzzle_position()
-		parent.update_knuck_direction()
+	if movement != 0:
+		parent.facing_direction = sign(movement)
+		parent.velocity.x = movement
+	else:
+		parent.velocity.x = move_toward(parent.velocity.x, 0, move_speed)
 
 	if movement == 0:
 		return idle_state
 
-	parent.velocity.x = movement
-
 	parent.move_and_slide()
+	
+
 	if !parent.is_on_floor():
 		return fall_state
 

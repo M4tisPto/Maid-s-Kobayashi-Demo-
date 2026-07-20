@@ -14,16 +14,25 @@ var bullet = preload("res://Scenes/bullet.tscn")
 @onready var movement_state_machine: Node = $movement_state_machine
 @onready var attack_state_machine: Node = $attack_state_machine 
 @onready var arm_state_machine: Node = $arm_state_machine
-@onready var hurtbox: Area2D = $Hurtbox
+@onready var hurtbox: Area2D = $Flip_container/Hurtbox
 @onready var camera_manager: Camera2D = $CameraManager
 @onready var health_component: Node2D = $HealthComponent
-@onready var muzzle: Marker2D = $Muzzle
-@onready var gui_arm_text: Label = $GUI/Label
-@onready var collision_kuckleblaster: CollisionShape2D = $shockwave/CollisionShape2D
+@onready var muzzle: Marker2D = $Flip_container/Muzzle
 
-var facing_direction := 1
+@onready var gui_arm_text: Label = $GUI/Label
+@onready var flip_container: Node2D = $Flip_container
+@onready var collision_kuckleblaster: CollisionShape2D = $Flip_container/kuckleblaster/collision_knuckleblaster
+@onready var collision_shockwave: CollisionShape2D = $Flip_container/kuckleblaster/shockwave/collision_shockwave
+@onready var collision_spin_hitbox: CollisionShape2D = $Flip_container/Hitbox/collision_spin_hitbox
+
+var facing_direction := 1:
+	set(value):
+		if value != 0 and value != facing_direction:
+			facing_direction = value
+			flip_container.scale.x = facing_direction
 var invisible:= false
 var spin_jump_requested := false
+var is_wave_boosting = false
 var jumps_left: int = 0
 const TOTAL_JUMPS: int = 2
 var knockback_velocity = Vector2.ZERO
@@ -67,7 +76,8 @@ func start_invulnerability_timer():
 
 func _unhandled_input(event: InputEvent) -> void:
 	movement_state_machine.process_input(event)
-	attack_state_machine.process_input(event)
+	if attack_state_machine.is_processing():
+		attack_state_machine.process_input(event)
 	arm_state_machine.process_input(event)
 func _physics_process(delta: float) -> void:
 	if is_dead:
@@ -81,18 +91,9 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	movement_state_machine.process_frame(delta)
 	attack_state_machine.process_frame(delta)
-	arm_state_machine.process_physics(delta)
+	arm_state_machine.process_frame(delta)
 
-func update_muzzle_position():
-	if facing_direction == 1:
-		muzzle.position.x  = abs(muzzle.position.x)
-	elif facing_direction == -1:
-		muzzle.position.x = -abs(muzzle.position.x)
-func update_knuck_direction():
-	if facing_direction == 1:
-		collision_kuckleblaster.position.x  = abs(collision_kuckleblaster.position.x)
-	elif facing_direction == -1:
-		collision_kuckleblaster.position.x = -abs(collision_kuckleblaster.position.x)
+
 
 
 

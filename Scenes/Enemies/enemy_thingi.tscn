@@ -188,7 +188,7 @@ debug_color = Color(0.89129084, 2.7193873e-06, 5.7756904e-07, 0.41960785)
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=386215926]
 collision_layer = 32
-collision_mask = 3076
+collision_mask = 7172
 script = ExtResource("4_7h4k7")
 
 [node name="collision_hurtbox" type="CollisionShape2D" parent="Hurtbox" unique_id=1738854853]

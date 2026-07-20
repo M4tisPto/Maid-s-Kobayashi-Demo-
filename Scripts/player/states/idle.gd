@@ -1,5 +1,5 @@
 extends State
-
+# movement idle 
 @export var fall_state: State
 @export var jump_state: State
 @export var move_state: State
@@ -7,7 +7,6 @@ extends State
 @export var duck_state: State
 
 var current_gravity = gravity
-# Asegúrate de tener definida la gravedad aquí o usar la de Godot
 
 func enter() -> void:
 	print("Idle state enter")
@@ -28,10 +27,12 @@ func process_input(event: InputEvent) -> State:
 
 	return null
 func process_physics(delta: float) -> State:
+	if parent.velocity.y > 0:
+		parent.is_wave_boosting = false
+
 	if not parent.is_on_floor():
 		parent.velocity.y += gravity * delta
-
-	else:
+	elif not parent.is_wave_boosting:
 		parent.velocity.y = 0
 		
 	parent.move_and_slide()
