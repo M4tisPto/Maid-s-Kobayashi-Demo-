@@ -33,6 +33,7 @@ var facing_direction := 1:
 var invisible:= false
 var spin_jump_requested := false
 var is_wave_boosting = false
+var wave_boost = 1
 var jumps_left: int = 0
 const TOTAL_JUMPS: int = 2
 var knockback_velocity = Vector2.ZERO

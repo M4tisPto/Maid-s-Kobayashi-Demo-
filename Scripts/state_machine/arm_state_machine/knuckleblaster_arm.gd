@@ -94,7 +94,8 @@ func process_physics(delta: float) -> State:
 	# Sub-state transitions (Uncomment and adjust inputs to match your InputMap)
 	#if Input.is_action_pressed("up") and Input.is_action_just_pressed("attack"):
 	#	change_sub_state(up)
-	if Input.is_action_pressed("duck_down") and Input.is_action_just_pressed("attack") and wave_boost >= 0:
+	if Input.is_action_pressed("duck_down") and Input.is_action_just_pressed("attack") and wave_boost > 0:
+			shockwave_charging = false
 			change_sub_state(down)
 			wave_boost -= 1
 	elif Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left"):

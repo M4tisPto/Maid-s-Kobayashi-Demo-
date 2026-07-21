@@ -64,10 +64,13 @@ _data = {
 }
 
 [node name="Door_transition" type="CanvasLayer" unique_id=1757677113]
+process_mode = 3
+layer = 2
 script = ExtResource("1_rdosv")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1247095865]
 z_index = 4096
+y_sort_enabled = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
