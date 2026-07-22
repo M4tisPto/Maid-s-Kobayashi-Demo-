@@ -14,6 +14,7 @@ base_font = ExtResource("2_1och7")
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=249116281]
 process_mode = 3
+layer = 2
 script = ExtResource("1_k0w1u")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=771436979]

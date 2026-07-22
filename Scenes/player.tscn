@@ -26,6 +26,7 @@
 [ext_resource type="Script" uid="uid://c4lemi441fiie" path="res://Scripts/state_machine/arm_state_machine/drill_arm.gd" id="21_bi64h"]
 [ext_resource type="Script" uid="uid://buf0g5otey7qu" path="res://Scripts/state_machine/arm_state_machine/arm_sub_states/knuckleblaster/up.gd" id="22_vfarp"]
 [ext_resource type="Script" uid="uid://dv1k8faefovrn" path="res://Scripts/state_machine/arm_state_machine/arm_sub_states/knuckleblaster/down.gd" id="23_y6uwr"]
+[ext_resource type="PackedScene" uid="uid://t0kgkr6m32ue" path="res://Scenes/screensaver.tscn" id="27_vfarp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tx1dd"]
 size = Vector2(24, 94)
@@ -114,7 +115,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_y6uwr"]
 resource_name = "kuck_side"
-length = 1.125
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -122,7 +123,7 @@ tracks/0/path = NodePath("collision_knuckleblaster:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.033333335),
+"times": PackedFloat32Array(0, 0.06666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(33, -45), Vector2(93, -45)]
@@ -134,7 +135,7 @@ tracks/1/path = NodePath("shockwave/collision_shockwave:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.033333335),
+"times": PackedFloat32Array(0, 0.06666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(33, -45), Vector2(93, -45)]
@@ -146,7 +147,7 @@ tracks/2/path = NodePath("collision_knuckleblaster:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(-0.033333335, 0.033333335, 0.13333334),
+"times": PackedFloat32Array(0, 0.06666667, 0.33333334),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -702,6 +703,8 @@ libraries/ = SubResource("AnimationLibrary_qqcod")
 [node name="PauseMenu" parent="." unique_id=249116281 instance=ExtResource("12_h4iuc")]
 
 [node name="GUI" parent="." unique_id=1859388305 instance=ExtResource("20_l6n3p")]
+
+[node name="screensaver" parent="." unique_id=956775682 instance=ExtResource("27_vfarp")]
 
 [connection signal="animation_finished" from="Flip_container/kuckleblaster/AnimationPlayer" to="arm_state_machine/knuckleblaster_arm/neutral" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Flip_container/Hitbox" to="Flip_container/Hitbox" method="_on_body_entered"]

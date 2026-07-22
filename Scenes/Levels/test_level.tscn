@@ -39,7 +39,6 @@ collision_mask = 259
 
 [node name="CameraManager" parent="player" index="1" unique_id=1687298350]
 limit_enabled = false
-position_smoothing_enabled = false
 position_smoothing_speed = 100.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1390569982]
@@ -80,12 +79,10 @@ position = Vector2(3839.5188, 1082)
 
 [node name="Node2D" type="Node2D" parent="." unique_id=720670743]
 z_index = -4096
-position = Vector2(792.37714, 536)
 
 [node name="Parallax2D" type="Parallax2D" parent="Node2D" unique_id=1519679529]
-scale = Vector2(0.42, 0.42)
 scroll_scale = Vector2(0.5, 0.5)
-scroll_offset = Vector2(-185.55664, 163)
+scroll_offset = Vector2(1819.4585, 600)
 repeat_size = Vector2(4000, 0)
 repeat_times = 2
 
@@ -94,9 +91,8 @@ texture_filter = 1
 texture = ExtResource("4_l7ek2")
 
 [node name="Parallax2D2" type="Parallax2D" parent="Node2D" unique_id=540517957]
-scale = Vector2(0.42, 0.42)
 scroll_scale = Vector2(0.3, 0.3)
-scroll_offset = Vector2(-185.55664, 163)
+scroll_offset = Vector2(1819.4585, 600)
 repeat_size = Vector2(4000, 0)
 repeat_times = 2
 
@@ -106,9 +102,8 @@ position = Vector2(-5.015045, 0)
 texture = ExtResource("5_7rivk")
 
 [node name="Parallax2D3" type="Parallax2D" parent="Node2D" unique_id=1087823218]
-scale = Vector2(0.42, 0.42)
 scroll_scale = Vector2(0.3, 0.3)
-scroll_offset = Vector2(-185.55664, 163)
+scroll_offset = Vector2(1819.4585, 600)
 repeat_size = Vector2(4000, 0)
 repeat_times = 2
 
@@ -119,9 +114,8 @@ position = Vector2(-5.015045, 0)
 texture = ExtResource("6_hyk2w")
 
 [node name="Parallax2D4" type="Parallax2D" parent="Node2D" unique_id=236409141]
-scale = Vector2(0.42, 0.42)
 scroll_scale = Vector2(0.4, 0.4)
-scroll_offset = Vector2(-185.55664, 163)
+scroll_offset = Vector2(1819.4585, 600)
 repeat_size = Vector2(4000, 0)
 repeat_times = 2
 
@@ -132,9 +126,8 @@ position = Vector2(-5.015045, 0)
 texture = ExtResource("7_mvu5i")
 
 [node name="Parallax2D5" type="Parallax2D" parent="Node2D" unique_id=463274299]
-scale = Vector2(0.42, 0.42)
 scroll_scale = Vector2(0.5, 0.5)
-scroll_offset = Vector2(-185.55664, 163)
+scroll_offset = Vector2(1819.4585, 600)
 repeat_size = Vector2(4000, 0)
 repeat_times = 2
 
@@ -150,3 +143,5 @@ position = Vector2(476.4293, 821.00006)
 scale = Vector2(1, 0.9999997)
 
 [editable path="player"]
+[editable path="player/arm_state_machine/knuckleblaster_arm"]
+[editable path="player/GUI"]

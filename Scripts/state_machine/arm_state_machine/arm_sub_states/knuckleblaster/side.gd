@@ -2,7 +2,7 @@ extends State
 var arm_animation_player: AnimationPlayer
 
 var dash_speed := 250.0
-var dash_duration := 0.2
+var dash_duration := 0.5
 var dash_direction: float = 1.0
 var dash_timer: float = 0.0
 func enter() -> void:

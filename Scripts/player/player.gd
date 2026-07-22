@@ -10,6 +10,10 @@ var bullet = preload("res://Scenes/bullet.tscn")
 @export var hurt_state: State 
 @export var rotation_speed = 10.0
 @export var max_hp: int = 100
+@export var idle_time = 0.0
+@export var idle_limit = 60.0
+
+
 @onready var current_hp: int = max_hp
 @onready var movement_state_machine: Node = $movement_state_machine
 @onready var attack_state_machine: Node = $attack_state_machine 
@@ -24,6 +28,10 @@ var bullet = preload("res://Scenes/bullet.tscn")
 @onready var collision_kuckleblaster: CollisionShape2D = $Flip_container/kuckleblaster/collision_knuckleblaster
 @onready var collision_shockwave: CollisionShape2D = $Flip_container/kuckleblaster/shockwave/collision_shockwave
 @onready var collision_spin_hitbox: CollisionShape2D = $Flip_container/Hitbox/collision_spin_hitbox
+@onready var screensaver: CanvasLayer = $screensaver
+
+
+
 
 var facing_direction := 1:
 	set(value):
@@ -59,6 +67,7 @@ func _ready() -> void:
 	attack_state_machine.init(self)
 	arm_state_machine.init(self)
 	health_component.died.connect(die)
+	screensaver.visible = false
 func die():
 	if is_dead:
 		return

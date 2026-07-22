@@ -65,7 +65,7 @@ _data = {
 
 [node name="Door_transition" type="CanvasLayer" unique_id=1757677113]
 process_mode = 3
-layer = 2
+layer = 3
 script = ExtResource("1_rdosv")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1247095865]
