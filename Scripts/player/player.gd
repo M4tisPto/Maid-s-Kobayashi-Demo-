@@ -11,7 +11,7 @@ var bullet = preload("res://Scenes/bullet.tscn")
 @export var rotation_speed = 10.0
 @export var max_hp: int = 100
 @export var idle_time = 0.0
-@export var idle_limit = 60.0
+@export var idle_limit = 5.0
 
 
 @onready var current_hp: int = max_hp

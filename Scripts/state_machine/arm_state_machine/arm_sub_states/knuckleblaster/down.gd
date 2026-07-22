@@ -4,8 +4,11 @@ var arm_animation_player: AnimationPlayer
 var boost_air = 200
 func enter() -> void:
 	print("down")
+	arm_animation_player = get_parent().get("anim_shockwave") if get_parent() else null
+	arm_animation_player.play("shockwave_boost")
 	parent.wave_boost -= 1
 	parent.is_wave_boosting = true
+
 	if parent.is_on_floor():
 		parent.velocity.y = -jump_boost
 	else:
@@ -13,7 +16,9 @@ func enter() -> void:
 	
 	parent.move_and_slide()
 func process_physics(_delta: float) -> State:
-	return get_parent() as State
-
+	if not arm_animation_player.is_playing():
+		arm_animation_player.play("RESET")
+		return get_parent() as State
+	return null
 func exit() -> void:
 	parent.is_wave_boosting = false

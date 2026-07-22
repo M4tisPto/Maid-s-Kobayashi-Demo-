@@ -8,6 +8,7 @@ func enter() -> void:
 	if parent and parent.gui_arm_text:
 		parent.gui_arm_text.text = "current arm: " + self.name
 	parent.collision_kuckleblaster.visible = false
+	parent.collision_shockwave.visible = false
 	parent.collision_spin_hitbox.visible = true
 
 	if internal_attack_machine and internal_attack_machine.has_method("init"):

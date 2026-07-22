@@ -27,6 +27,5 @@ func process_physics(delta: float) -> State:
 	return get_parent() as State 
 
 func exit() -> void:
-	print("bye bye")
-	if arm_animation_player.is_playing():
-		arm_animation_player.stop()
+	if not arm_animation_player.is_playing():
+		arm_animation_player.play("RESET")

@@ -36,7 +36,7 @@ collision_layer = 2147483648
 collision_mask = 2147483648
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=1292455627]
-position = Vector2(0, 535.5)
+position = Vector2(-9, 535.5)
 shape = SubResource("RectangleShape2D_ayjqb")
 
 [node name="Wall2" type="StaticBody2D" parent="." unique_id=1634277654]
@@ -46,7 +46,7 @@ collision_layer = 2147483648
 collision_mask = 2147483648
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2" unique_id=2137493059]
-position = Vector2(0, 535.5)
+position = Vector2(13, 535.5)
 shape = SubResource("RectangleShape2D_ayjqb")
 
 [node name="Wall3" type="StaticBody2D" parent="." unique_id=604754851]
@@ -57,7 +57,7 @@ collision_layer = 2147483648
 collision_mask = 2147483648
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3" unique_id=937067113]
-position = Vector2(-2.989114, 959.4852)
+position = Vector2(-15.89527, 958.97046)
 shape = SubResource("RectangleShape2D_pvlk2")
 
 [node name="Wall4" type="StaticBody2D" parent="." unique_id=861474998]
@@ -68,5 +68,5 @@ collision_layer = 2147483648
 collision_mask = 2147483648
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4" unique_id=1280801516]
-position = Vector2(1083.1016, 961.6317)
+position = Vector2(1091.0631, 981.1582)
 shape = SubResource("RectangleShape2D_pvlk2")

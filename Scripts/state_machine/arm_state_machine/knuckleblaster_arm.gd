@@ -1,7 +1,7 @@
 extends State
-
+# knuckle blaster arm (inside an arm state machine)
 @onready var neutral: State = $neutral
-#@onready var up: State = $up
+@onready var up: State = $up
 @onready var down: State = $down
 @onready var side: State = $side
 @onready var internal_attack_machine: Node = $"../../attack_state_machine"
@@ -31,6 +31,7 @@ func enter() -> void:
 		parent.attack_state_machine.set_physics_process(false)
 		
 	parent.collision_kuckleblaster.visible = true
+	parent.collision_shockwave.visible = true
 	parent.collision_spin_hitbox.visible = false
 	
 	for child in get_children():
@@ -91,15 +92,16 @@ func process_physics(delta: float) -> State:
 			change_sub_state(new_sub)
 		return null
 
-	# Sub-state transitions (Uncomment and adjust inputs to match your InputMap)
-	#if Input.is_action_pressed("up") and Input.is_action_just_pressed("attack"):
-	#	change_sub_state(up)
-	if Input.is_action_pressed("duck_down") and Input.is_action_just_pressed("attack") and wave_boost > 0:
+	if Input.is_action_pressed("up") and Input.is_action_just_pressed("attack"):
+		change_sub_state(up)
+	elif Input.is_action_pressed("duck_down") and Input.is_action_just_pressed("attack") and wave_boost > 0:
+			
 			shockwave_charging = false
 			change_sub_state(down)
 			wave_boost -= 1
 	elif Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left"):
 		if Input.is_action_just_pressed("attack") and parent.is_on_floor():
+			
 			side_dash = true
 			can_dash = false
 			change_sub_state(side)

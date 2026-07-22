@@ -21,7 +21,7 @@ shape = SubResource("RectangleShape2D_6afsh")
 debug_color = Color(0.53853273, 0.56844616, 0, 0.41960785)
 
 [node name="Timer" type="Timer" parent="." unique_id=1849489028]
-wait_time = 1.5
+wait_time = 0.5
 one_shot = true
 autostart = true
 
