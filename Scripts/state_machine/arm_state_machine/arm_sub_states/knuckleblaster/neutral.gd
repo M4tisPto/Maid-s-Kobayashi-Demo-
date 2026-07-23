@@ -1,5 +1,6 @@
 extends State
 var arm_animation_player: AnimationPlayer
+# El neutral empujara al enemigo como en ultrakill, dejandolo quieto por unos momentos antes de seguir su movimiento
 
 func enter() -> void:
 	print("neutral")
