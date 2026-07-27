@@ -26,7 +26,12 @@
 [ext_resource type="Script" uid="uid://c4lemi441fiie" path="res://Scripts/state_machine/arm_state_machine/drill_arm.gd" id="21_bi64h"]
 [ext_resource type="Script" uid="uid://buf0g5otey7qu" path="res://Scripts/state_machine/arm_state_machine/arm_sub_states/knuckleblaster/up.gd" id="22_vfarp"]
 [ext_resource type="Script" uid="uid://dv1k8faefovrn" path="res://Scripts/state_machine/arm_state_machine/arm_sub_states/knuckleblaster/down.gd" id="23_y6uwr"]
+[ext_resource type="Script" uid="uid://cmg8s6ra51kg7" path="res://Scripts/state_machine/arm_state_machine/arm_sub_states/drill/neutral.gd" id="25_xuaoq"]
+[ext_resource type="Script" uid="uid://c7hcnk8o64k2r" path="res://Scripts/state_machine/arm_state_machine/arm_sub_states/drill/side.gd" id="26_wohnl"]
+[ext_resource type="Script" uid="uid://ddhxgs6q75xag" path="res://Scripts/state_machine/arm_state_machine/arm_sub_states/drill/up.gd" id="27_36dho"]
 [ext_resource type="PackedScene" uid="uid://t0kgkr6m32ue" path="res://Scenes/screensaver.tscn" id="27_vfarp"]
+[ext_resource type="Script" uid="uid://bxtvva5gtaaw4" path="res://Scripts/state_machine/arm_state_machine/arm_sub_states/drill/down.gd" id="28_yh6i2"]
+[ext_resource type="PackedScene" uid="uid://dg3uwtugdnyxf" path="res://Scenes/funny/did_you_see_that.tscn" id="32_wohnl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tx1dd"]
 size = Vector2(24, 94)
@@ -647,8 +652,7 @@ _data = {
 }
 
 [node name="player" type="CharacterBody2D" unique_id=2033633715 node_paths=PackedStringArray("hurt_state") groups=["player"]]
-collision_layer = 3
-collision_mask = 9
+collision_layer = 0
 script = ExtResource("1_3smsa")
 hurt_state = NodePath("movement_state_machine/hurt")
 
@@ -761,13 +765,17 @@ script = ExtResource("23_y6uwr")
 [node name="drill_arm" type="Node2D" parent="arm_state_machine" unique_id=886781427]
 script = ExtResource("21_bi64h")
 
-[node name="neutral" type="Node" parent="arm_state_machine/drill_arm" unique_id=1351449227]
+[node name="neutral" type="Node" parent="arm_state_machine/drill_arm" unique_id=1416336804]
+script = ExtResource("25_xuaoq")
 
-[node name="side" type="Node" parent="arm_state_machine/drill_arm" unique_id=1929080564]
+[node name="side" type="Node" parent="arm_state_machine/drill_arm" unique_id=129836489]
+script = ExtResource("26_wohnl")
 
-[node name="up" type="Node" parent="arm_state_machine/drill_arm" unique_id=232389491]
+[node name="up" type="Node" parent="arm_state_machine/drill_arm" unique_id=1747646889]
+script = ExtResource("27_36dho")
 
-[node name="down" type="Node" parent="arm_state_machine/drill_arm" unique_id=1150674972]
+[node name="down" type="Node" parent="arm_state_machine/drill_arm" unique_id=217139406]
+script = ExtResource("28_yh6i2")
 
 [node name="Flip_container" type="Node2D" parent="." unique_id=236896316]
 
@@ -815,9 +823,9 @@ position = Vector2(0, -47)
 shape = SubResource("CapsuleShape2D_gymyn")
 debug_color = Color(0.9970613, 0, 0.18350968, 0.41960785)
 
-[node name="drill_attack" type="Area2D" parent="Flip_container" unique_id=1685830419]
+[node name="drill" type="Area2D" parent="Flip_container" unique_id=1685830419]
 
-[node name="drill_collision" type="CollisionShape2D" parent="Flip_container/drill_attack" unique_id=702023312]
+[node name="drill_collision" type="CollisionShape2D" parent="Flip_container/drill" unique_id=702023312]
 visible = false
 position = Vector2(43, -42)
 shape = SubResource("CapsuleShape2D_2ijsl")
@@ -834,6 +842,8 @@ libraries/ = SubResource("AnimationLibrary_qqcod")
 [node name="GUI" parent="." unique_id=1859388305 instance=ExtResource("20_l6n3p")]
 
 [node name="screensaver" parent="." unique_id=956775682 instance=ExtResource("27_vfarp")]
+
+[node name="AnimatedSprite2D" parent="." unique_id=276828909 instance=ExtResource("32_wohnl")]
 
 [connection signal="animation_finished" from="Flip_container/kuckleblaster/AnimationPlayer" to="arm_state_machine/knuckleblaster_arm/neutral" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Flip_container/Hitbox" to="Flip_container/Hitbox" method="_on_body_entered"]

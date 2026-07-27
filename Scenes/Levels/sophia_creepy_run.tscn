@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://dp2nmqd1765b6"]
+
+[ext_resource type="Script" uid="uid://b4jutka7yl5m3" path="res://Scenes/Levels/sophia_creepy_run.gd" id="1_6ynh7"]
+[ext_resource type="Texture2D" uid="uid://owajcxlkfug1" path="res://Assets/Sprites/ezgif-2326f747b1eabd36.png" id="1_dqjew"]
+[ext_resource type="Script" uid="uid://b8runt7gl2hql" path="res://Scripts/funny/skeleton.gd" id="2_j4bsy"]
+[ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="3_j4bsy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ynh7"]
+size = Vector2(3427.5, 206)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhjgv"]
+atlas = ExtResource("1_dqjew")
+region = Rect2(0, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcfwc"]
+atlas = ExtResource("1_dqjew")
+region = Rect2(112, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60rur"]
+atlas = ExtResource("1_dqjew")
+region = Rect2(224, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_semsf"]
+atlas = ExtResource("1_dqjew")
+region = Rect2(336, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4hpi"]
+atlas = ExtResource("1_dqjew")
+region = Rect2(448, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7l3g"]
+atlas = ExtResource("1_dqjew")
+region = Rect2(0, 112, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sur53"]
+atlas = ExtResource("1_dqjew")
+region = Rect2(112, 112, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyxj7"]
+atlas = ExtResource("1_dqjew")
+region = Rect2(224, 112, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kks5v"]
+atlas = ExtResource("1_dqjew")
+region = Rect2(336, 112, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cu11j"]
+atlas = ExtResource("1_dqjew")
+region = Rect2(448, 112, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsw5n"]
+atlas = ExtResource("1_dqjew")
+region = Rect2(0, 224, 112, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xff3w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhjgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcfwc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60rur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_semsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4hpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7l3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sur53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyxj7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kks5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cu11j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsw5n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="sophia_creepy_run" type="Node2D" unique_id=783641445]
+script = ExtResource("1_6ynh7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=470738134]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1162419642]
+position = Vector2(1714.25, 99)
+shape = SubResource("RectangleShape2D_6ynh7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1256706784]
+position = Vector2(132.91014, -203.40091)
+scale = Vector2(2.7694614, 3.9035552)
+sprite_frames = SubResource("SpriteFrames_xff3w")
+autoplay = "default"
+frame_progress = 0.90042
+script = ExtResource("2_j4bsy")
+
+[node name="player" parent="." unique_id=2033633715 instance=ExtResource("3_j4bsy")]
+position = Vector2(1092, -121)

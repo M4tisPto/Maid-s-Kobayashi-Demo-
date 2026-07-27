@@ -3,7 +3,7 @@ var skip_times = 2
 @onready var skip_warning: Label = $"skip warning"
 
 func _ready() -> void:
-	await get_tree().create_timer(15.5).timeout
+	await $VideoStreamPlayer.finished
 	get_tree().change_scene_to_file("res://Scenes/warning_screen.tscn")
 
 func _unhandled_input(event: InputEvent) -> void:

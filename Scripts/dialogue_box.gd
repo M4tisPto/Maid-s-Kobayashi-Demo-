@@ -9,7 +9,7 @@ var current_line := 0
 var still_typing := false
 @onready var type_timer: Timer = $Base/BG/Timer
 @export var letter_speed := 0.018
-@export var comma_pause := 0.12
+@export var comma_pause := 0.012
 @export var dot_pause := 0.25
 @export var exclamation_pause := 0.15
 var talk_sound_map :={
@@ -107,7 +107,7 @@ func _on_timer_timeout() -> void:
 
 		var last_char := clean_text[char_text.visible_characters - 1]
 		
-		# 1. Calculamos el tiempo según el carácter actual
+
 		match last_char:
 			",":
 				type_timer.wait_time = comma_pause

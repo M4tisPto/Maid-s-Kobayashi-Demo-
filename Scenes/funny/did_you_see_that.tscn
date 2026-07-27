@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://dg3uwtugdnyxf"]
+
+[ext_resource type="Texture2D" uid="uid://owajcxlkfug1" path="res://Assets/Sprites/ezgif-2326f747b1eabd36.png" id="1_amhn2"]
+[ext_resource type="Script" uid="uid://6tlosiw3m4vg" path="res://Scenes/funny/did_you_see_that.gd" id="1_owfox"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owfox"]
+atlas = ExtResource("1_amhn2")
+region = Rect2(0, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpdku"]
+atlas = ExtResource("1_amhn2")
+region = Rect2(112, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0uccv"]
+atlas = ExtResource("1_amhn2")
+region = Rect2(224, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0v65m"]
+atlas = ExtResource("1_amhn2")
+region = Rect2(336, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4vwg"]
+atlas = ExtResource("1_amhn2")
+region = Rect2(448, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dr4kv"]
+atlas = ExtResource("1_amhn2")
+region = Rect2(0, 112, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2aon"]
+atlas = ExtResource("1_amhn2")
+region = Rect2(112, 112, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omtn7"]
+atlas = ExtResource("1_amhn2")
+region = Rect2(224, 112, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v34no"]
+atlas = ExtResource("1_amhn2")
+region = Rect2(336, 112, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmwh2"]
+atlas = ExtResource("1_amhn2")
+region = Rect2(448, 112, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u72g6"]
+atlas = ExtResource("1_amhn2")
+region = Rect2(0, 224, 112, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ygnc8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owfox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpdku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0uccv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0v65m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4vwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dr4kv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2aon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omtn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v34no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmwh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u72g6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 60.0
+}]
+
+[sub_resource type="Animation" id="Animation_vpdku"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-435.00012, 564)]
+}
+
+[sub_resource type="Animation" id="Animation_5d2sa"]
+resource_name = "did_you_see_that"
+length = 0.305
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-435.00012, 564), Vector2(2804.0005, 564)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cgpya"]
+_data = {
+&"RESET": SubResource("Animation_vpdku"),
+&"did_you_see_that": SubResource("Animation_5d2sa")
+}
+
+[node name="AnimatedSprite2D" type="CanvasLayer" unique_id=276828909]
+layer = 4
+script = ExtResource("1_owfox")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1403401741]
+position = Vector2(-435.00012, 564)
+scale = Vector2(6.8303566, 6.8303566)
+sprite_frames = SubResource("SpriteFrames_ygnc8")
+autoplay = "default"
+frame_progress = 0.24226274
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=1161511833]
+libraries/ = SubResource("AnimationLibrary_cgpya")
+
+[node name="Timer" type="Timer" parent="." unique_id=175115349]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://j28jqj4vci4a"
+path="res://.godot/imported/bad-to-the-bone.mp3-687051b87ed1f3cab8938912c025c43f.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/bad-to-the-bone.mp3"
+dest_files=["res://.godot/imported/bad-to-the-bone.mp3-687051b87ed1f3cab8938912c025c43f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

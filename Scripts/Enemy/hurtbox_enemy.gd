@@ -1,6 +1,6 @@
 #enemy hurtbox
 extends Area2D
-@export var health = 16
+@export var health = 99999999
 
 func _on_area_entered(area):
 	if area.is_in_group("bullet"):

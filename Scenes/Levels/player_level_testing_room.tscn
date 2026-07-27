@@ -7,6 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdtqr"]
 size = Vector2(1152, 294.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nos6l"]
+size = Vector2(83, 566)
+
 [node name="PlayerLevelTestingRoom" type="Node2D" unique_id=1696997642]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1868562759]
@@ -15,14 +18,37 @@ size = Vector2(1152, 294.5)
 position = Vector2(1, 147)
 shape = SubResource("RectangleShape2D_rdtqr")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=106318264]
+position = Vector2(551, -273)
+shape = SubResource("RectangleShape2D_nos6l")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=213639496]
+position = Vector2(-540, -273)
+shape = SubResource("RectangleShape2D_nos6l")
+
 [node name="player" parent="." unique_id=2033633715 instance=ExtResource("1_uu7at")]
 position = Vector2(2, 2)
 
 [node name="enemy_stuff" parent="." unique_id=1803778493 instance=ExtResource("2_rdtqr")]
-position = Vector2(198, -52)
+position = Vector2(-271, -27)
 
 [node name="enemy_stuff2" parent="." unique_id=1625657388 instance=ExtResource("2_rdtqr")]
-position = Vector2(324, -49)
+position = Vector2(402, -138)
+
+[node name="enemy_stuff3" parent="." unique_id=1489568323 instance=ExtResource("2_rdtqr")]
+position = Vector2(248, -322)
+
+[node name="enemy_stuff4" parent="." unique_id=1696128999 instance=ExtResource("2_rdtqr")]
+position = Vector2(452, -53)
+
+[node name="enemy_stuff5" parent="." unique_id=746080184 instance=ExtResource("2_rdtqr")]
+position = Vector2(143, -97)
+
+[node name="enemy_stuff6" parent="." unique_id=1351336293 instance=ExtResource("2_rdtqr")]
+position = Vector2(427, -283)
+
+[node name="enemy_stuff7" parent="." unique_id=2112119530 instance=ExtResource("2_rdtqr")]
+position = Vector2(-177, -180)
 
 [node name="Breakable_block" parent="." unique_id=1262483326 instance=ExtResource("3_nos6l")]
 position = Vector2(-1134, 16)

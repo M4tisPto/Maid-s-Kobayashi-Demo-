@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://c1ji652o68v0p" path="res://Assets/Sound Effects/317767__jalastram__sfx_explosion_14.wav" id="10_y5jvc"]
 [ext_resource type="AudioStream" uid="uid://dxvs5dt3oea2a" path="res://Assets/Sound Effects/TalkSounds/sophia_talksound.ogg" id="11_y5jvc"]
 [ext_resource type="AudioStream" uid="uid://bhw3vyds4oxl1" path="res://Assets/Sound Effects/TalkSounds/default_talksound.wav" id="12_40amf"]
+[ext_resource type="AudioStream" uid="uid://j28jqj4vci4a" path="res://Assets/Sound Effects/bad-to-the-bone.mp3" id="13_6o502"]
 
 [node name="AudioController" type="Node" unique_id=53321031]
 script = ExtResource("1_t0xn5")
@@ -76,4 +77,8 @@ stream = ExtResource("6_yyma2")
 
 [node name="Default_talk" type="AudioStreamPlayer" parent="Sfx" unique_id=630655622]
 stream = ExtResource("12_40amf")
+bus = &"Sfx"
+
+[node name="DIDYOUGUYSSEETHAT" type="AudioStreamPlayer" parent="Sfx" unique_id=2146895020]
+stream = ExtResource("13_6o502")
 bus = &"Sfx"

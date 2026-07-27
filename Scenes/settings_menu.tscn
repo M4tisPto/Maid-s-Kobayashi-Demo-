@@ -2,7 +2,17 @@
 
 [ext_resource type="Script" uid="uid://y0e5h25fg1x3" path="res://Scripts/settings_menu.gd" id="1_7y5a0"]
 [ext_resource type="FontFile" uid="uid://htx0b624ho05" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="1_icv2g"]
+[ext_resource type="PackedScene" uid="uid://bc8dklpqa5sg8" path="res://Scenes/volume_slider.tscn" id="3_3etfd"]
 [ext_resource type="PackedScene" uid="uid://u43wn2jyypny" path="res://Scenes/input_button.tscn" id="3_h2y1r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h2y1r"]
+font_size = 75
+
+[sub_resource type="LabelSettings" id="LabelSettings_3etfd"]
+font_size = 75
+
+[sub_resource type="LabelSettings" id="LabelSettings_rahb6"]
+font_size = 75
 
 [sub_resource type="LabelSettings" id="LabelSettings_7y5a0"]
 font = ExtResource("1_icv2g")
@@ -44,6 +54,57 @@ current_tab = 0
 [node name="Audio" type="TabBar" parent="TabContainer" unique_id=2126431241]
 layout_mode = 2
 metadata/_tab_index = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Audio" unique_id=1052409397]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -9.5
+offset_top = -12.0
+offset_right = 9.5
+offset_bottom = -133.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Audio/HBoxContainer" unique_id=2097839729]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="master_label" type="Label" parent="TabContainer/Audio/HBoxContainer/VBoxContainer" unique_id=309247273]
+layout_mode = 2
+text = "Master"
+label_settings = SubResource("LabelSettings_h2y1r")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="volume_slider" parent="TabContainer/Audio/HBoxContainer/VBoxContainer" unique_id=1009520448 instance=ExtResource("3_3etfd")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="music_label" type="Label" parent="TabContainer/Audio/HBoxContainer/VBoxContainer" unique_id=1671659512]
+layout_mode = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_3etfd")
+horizontal_alignment = 1
+
+[node name="volume_slider2" parent="TabContainer/Audio/HBoxContainer/VBoxContainer" unique_id=2127011253 instance=ExtResource("3_3etfd")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="sfx_label" type="Label" parent="TabContainer/Audio/HBoxContainer/VBoxContainer" unique_id=704940389]
+layout_mode = 2
+text = "Sound Effects"
+label_settings = SubResource("LabelSettings_rahb6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="volume_slider3" parent="TabContainer/Audio/HBoxContainer/VBoxContainer" unique_id=1289471235 instance=ExtResource("3_3etfd")]
+layout_mode = 2
+bus_name = "Sfx"
 
 [node name="Video" type="TabBar" parent="TabContainer" unique_id=1880844891]
 visible = false

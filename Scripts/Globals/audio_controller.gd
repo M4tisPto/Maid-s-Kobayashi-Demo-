@@ -14,7 +14,8 @@ func _ready():
 		"talk_test": $Sfx/talk_test,
 		"talk_sophia": $Sfx/Sophia_talk,
 		"talk_default": $Sfx/Default_talk,
-		"talk_matis": $Sfx/Matis_talk 
+		"talk_matis": $Sfx/Matis_talk,
+		"WOAHGUYSDIDYOUSEETHAT":$Sfx/DIDYOUGUYSSEETHAT
 	}
 
 	music = {

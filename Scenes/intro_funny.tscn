@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://t6k2quq1gaa0"]
 
-[ext_resource type="VideoStream" uid="uid://b276yjyufuaex" path="res://Funny_stuff/From_KlickPin_CF_Caballo_lore_Video_en_2025___Imagenes_graciosas_Humor_de_animales_Imagenes_divertid.ogv" id="1_e8l5q"]
 [ext_resource type="Script" uid="uid://dykobm2lxotyu" path="res://Scripts/intro_funny.gd" id="1_t4h2k"]
+[ext_resource type="VideoStream" uid="uid://k5f414g1xws6" path="res://Funny_stuff/ScreenRecording_05-04-2026 15-31-12_1.ogv" id="2_6vpmc"]
 [ext_resource type="FontFile" uid="uid://htx0b624ho05" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="3_6vpmc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lqbnl"]
@@ -12,13 +12,19 @@ font_color = Color(0, 0, 0, 1)
 [node name="intro_funny" type="Node2D" unique_id=51113132]
 script = ExtResource("1_t4h2k")
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1718605922]
-offset_left = 75.0
-offset_top = -143.0
-offset_right = 2017.0
-offset_bottom = 963.0
-scale = Vector2(8, 5)
-stream = ExtResource("1_e8l5q")
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=13024668]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -360.0
+offset_right = 480.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_6vpmc")
 autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=130683199]
