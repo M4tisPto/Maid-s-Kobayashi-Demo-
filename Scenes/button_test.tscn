@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dkn53no2a0pfp"]
+
+[ext_resource type="Script" uid="uid://drbh2eufnjepi" path="res://test/v_box_container.gd" id="1_gij2y"]
+[ext_resource type="Script" uid="uid://ysf5qgulrn64" path="res://test/button.gd" id="2_hpwtp"]
+
+[node name="button_test" type="Control" unique_id=687826891]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="Control" parent="." unique_id=730910851]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -316.5
+offset_top = -75.5
+offset_right = 316.5
+offset_bottom = 75.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("Button")
+focus_neighbor_bottom = NodePath("Button2")
+script = ExtResource("1_gij2y")
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=102556651]
+layout_mode = 0
+offset_left = 4.5
+offset_top = 3.5
+offset_right = 637.5
+offset_bottom = 154.5
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 104
+text = "This is a text"
+flat = true
+script = ExtResource("2_hpwtp")
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=97979718]
+layout_mode = 0
+offset_left = 7.5
+offset_top = 185.5
+offset_right = 640.5
+offset_bottom = 336.5
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 104
+text = "This is a text"
+flat = true
+script = ExtResource("2_hpwtp")

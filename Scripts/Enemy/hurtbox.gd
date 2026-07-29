@@ -1,6 +1,6 @@
 #enemy hurtbox
 extends Area2D
-var health = 2
+var health = 12
 var enemy_parent = get_parent()
 func _on_area_entered(area):
 	if area.is_in_group("player_attack"):

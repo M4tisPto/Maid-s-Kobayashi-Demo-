@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dt3bujmhstsyj"]
+
+[ext_resource type="Script" uid="uid://bo0rympypsoxv" path="res://Scripts/Enemy/enemy_jump/enemy_jump.gd" id="1_3nrp6"]
+[ext_resource type="Texture2D" uid="uid://bpar76k112vc3" path="res://Assets/Sprites/osaka-smilin.png" id="2_xnkk7"]
+[ext_resource type="Script" uid="uid://1rm1ynecrcib" path="res://Scripts/Enemy/hurtbox_enemy.gd" id="3_d4xh2"]
+[ext_resource type="Script" uid="uid://c0kri8veeqi1g" path="res://Scripts/Enemy/hurtbox.gd" id="4_om1s8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_isdoa"]
+size = Vector2(10, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rxql"]
+size = Vector2(36, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4f6u"]
+size = Vector2(32, 23)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q6gsl"]
+radius = 164.00305
+
+[node name="enemy_jump" type="CharacterBody2D" unique_id=1916118437]
+script = ExtResource("1_3nrp6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2114114428]
+modulate = Color(0.65882355, 0, 0, 1)
+position = Vector2(0, -17)
+scale = Vector2(0.086021505, 0.086021505)
+texture = ExtResource("2_xnkk7")
+
+[node name="colission" type="CollisionShape2D" parent="." unique_id=147850397]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_isdoa")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=175247496]
+collision_layer = 128
+collision_mask = 64
+script = ExtResource("3_d4xh2")
+
+[node name="collision_hitbox" type="CollisionShape2D" parent="Hitbox" unique_id=665925720]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_5rxql")
+debug_color = Color(0.89129084, 2.7193873e-06, 5.7756904e-07, 0.41960785)
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1540662575]
+collision_layer = 32
+collision_mask = 4
+script = ExtResource("4_om1s8")
+
+[node name="collision_hurtbox" type="CollisionShape2D" parent="Hurtbox" unique_id=476623447]
+position = Vector2(0, -11.5)
+shape = SubResource("RectangleShape2D_v4f6u")
+debug_color = Color(0, 1, 0, 0.41960785)
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=568580411]
+collision_layer = 16
+collision_mask = 2
+
+[node name="collision" type="CollisionShape2D" parent="DetectionArea" unique_id=2031085146]
+position = Vector2(-1, -11)
+shape = SubResource("CircleShape2D_q6gsl")
+debug_color = Color(0, 0.5803922, 0.9529412, 0.49803922)
+
+[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]
