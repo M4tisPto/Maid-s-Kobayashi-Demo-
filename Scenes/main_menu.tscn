@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://sr2uc4dbameq" path="res://Scripts/main_menu.gd" id="1_48xlc"]
 [ext_resource type="Shader" uid="uid://ek60io4n7eer" path="res://shaders/main_menu_bg.gdshader" id="2_ce3w2"]
 [ext_resource type="Texture2D" uid="uid://ddmihpo53yx62" path="res://Assets/Sprites/maids_kobayashi_logo.png" id="3_n45e2"]
+[ext_resource type="Script" uid="uid://du5dn3r7yvhmk" path="res://Scripts/demo_label.gd" id="5_cp0ys"]
 [ext_resource type="Script" uid="uid://ysf5qgulrn64" path="res://test/button.gd" id="5_opfnp"]
 [ext_resource type="PackedScene" uid="uid://dec0n4y7bnwus" path="res://Scenes/settings_menu.tscn" id="9_trj04"]
 
@@ -11,16 +12,53 @@
 shader = ExtResource("2_ce3w2")
 shader_parameter/color_one = Color(0.27058825, 0.2627451, 0.44705883, 1)
 shader_parameter/color_two = Color(0.3276025, 0.31929266, 0.52914774, 1)
-shader_parameter/angle = 2.09
-shader_parameter/line_count = 0.49
-shader_parameter/line_width = 0.25200001197
-shader_parameter/speed = 0.01
+shader_parameter/angle = 1.25
+shader_parameter/line_count = -1.69
+shader_parameter/line_width = 0.210000009975
+shader_parameter/softness = 0.026000001235
+shader_parameter/speed_lines = 0.05
+shader_parameter/speed_diamonds = 0.2
+shader_parameter/spark_color = Color(1, 1, 1, 0.17254902)
+shader_parameter/spark_density = 6.8950003275125
+shader_parameter/diamond_softness = 0.06100000219898
+shader_parameter/outline_thickness = 0.06400000234148
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n45e2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opfnp"]
+content_margin_left = 50.0
+content_margin_top = 50.0
+content_margin_right = 50.0
+content_margin_bottom = 50.0
+bg_color = Color(0, 0, 0, 1)
+skew = Vector2(-3.445, 0)
+border_width_right = 12
+border_width_bottom = 8
+border_color = Color(0.18142784, 0.14683916, 0.26501706, 1)
+corner_radius_top_left = 933
+corner_radius_bottom_right = 260
+corner_detail = 1
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhxw7"]
 draw_center = false
 
 [sub_resource type="Theme" id="Theme_cp0ys"]
-Button/styles/normal = SubResource("StyleBoxFlat_n45e2")
+Button/styles/normal = SubResource("StyleBoxFlat_opfnp")
+Button/styles/pressed = SubResource("StyleBoxFlat_yhxw7")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trj04"]
+content_margin_left = 50.0
+content_margin_top = 50.0
+content_margin_right = 50.0
+content_margin_bottom = 50.0
+bg_color = Color(0, 0, 0, 1)
+skew = Vector2(-1.61, 0)
+border_width_right = 12
+border_width_bottom = 8
+border_color = Color(0.18142784, 0.14683916, 0.26501706, 1)
+corner_radius_top_left = 1058
+corner_radius_bottom_right = 764
+corner_detail = 1
+anti_aliasing = false
 
 [node name="Control" type="Control" unique_id=723497809]
 layout_mode = 3
@@ -30,28 +68,51 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_48xlc")
+metadata/_edit_horizontal_guides_ = [664.0]
+metadata/_edit_vertical_guides_ = [206.0, 640.0, 1019.0, 1405.0]
 
 [node name="BG" type="ColorRect" parent="." unique_id=1519293544]
 material = SubResource("ShaderMaterial_n45e2")
 layout_mode = 0
-offset_right = 1936.0
-offset_bottom = 1106.0
+offset_left = -12.0
+offset_top = -7.0
+offset_right = 1924.0
+offset_bottom = 1099.0
 color = Color(0.27058825, 0.2627451, 0.44705883, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=503749756]
-position = Vector2(831, 315)
-scale = Vector2(0.8278207, 0.8278207)
+position = Vector2(676, 473.00003)
+scale = Vector2(0.89029926, 0.89029926)
 texture = ExtResource("3_n45e2")
+
+[node name="Demo_Label" type="RichTextLabel" parent="." unique_id=872303616]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.49739584
+anchor_top = 0.15092592
+anchor_right = 0.984375
+anchor_bottom = 0.26944444
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(454, 58)
+theme_override_fonts/normal_font = ExtResource("1_28flt")
+theme_override_font_sizes/normal_font_size = 122
+bbcode_enabled = true
+text = "[rainbow freq = 0.2 sat = 10, val = 20]DEMO 1.0!!![/rainbow]"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_cp0ys")
+metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1440449764]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = 428.0
-offset_right = 15.0
-offset_bottom = 32.0
+offset_left = 709.0
+offset_top = 407.0
+offset_right = -647.0
+offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 12
@@ -59,65 +120,73 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=398677728]
+[node name="VBoxContainer2" type="Control" parent="MarginContainer" unique_id=1753175865]
 layout_mode = 2
-theme_override_constants/separation = 120
+focus_neighbor_top = NodePath("../VBoxContainer/Start_Button")
+focus_neighbor_bottom = NodePath("../VBoxContainer/Exit_Button")
 
-[node name="Separator" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1929940160]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=872578975]
-layout_mode = 2
-alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=2026763171]
-layout_mode = 2
-focus_neighbor_top = NodePath("Start_Button")
-focus_neighbor_bottom = NodePath("Exit_Button")
-theme_override_constants/separation = 62
-alignment = 1
-
-[node name="Separator" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1727397347]
-layout_mode = 2
-
-[node name="Start_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=101865060]
+[node name="Start_Button" type="Button" parent="MarginContainer/VBoxContainer2" unique_id=101865060]
 custom_minimum_size = Vector2(121.89, 32)
-layout_mode = 2
+layout_mode = 0
+offset_left = -509.0
+offset_top = 489.0
+offset_right = 137.0
+offset_bottom = 671.0
+rotation = -0.13962634
+scale = Vector2(0.68311286, 0.68311286)
+offset_transform_enabled = true
 theme = SubResource("Theme_cp0ys")
 theme_override_fonts/font = ExtResource("1_28flt")
-theme_override_font_sizes/font_size = 93
+theme_override_font_sizes/font_size = 49
+theme_override_styles/normal = SubResource("StyleBoxFlat_trj04")
 text = "Start Game"
 script = ExtResource("5_opfnp")
 
-[node name="Options_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=618361224]
-custom_minimum_size = Vector2(120, 32)
-layout_mode = 2
+[node name="Credits_Button" type="Button" parent="MarginContainer/VBoxContainer2" unique_id=139494646]
+custom_minimum_size = Vector2(121.89, 32)
+layout_mode = 0
+offset_left = -104.0
+offset_top = 429.99997
+offset_right = 542.0
+offset_bottom = 612.0
+rotation = -0.13962634
+scale = Vector2(0.68311286, 0.68311286)
+theme = SubResource("Theme_cp0ys")
 theme_override_fonts/font = ExtResource("1_28flt")
-theme_override_font_sizes/font_size = 67
-text = "Options"
-script = ExtResource("5_opfnp")
-
-[node name="Credits_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=350476828]
-custom_minimum_size = Vector2(120, 32)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_28flt")
-theme_override_font_sizes/font_size = 67
+theme_override_font_sizes/font_size = 49
+theme_override_styles/normal = SubResource("StyleBoxFlat_trj04")
 text = "Credits"
 script = ExtResource("5_opfnp")
 
-[node name="Extras_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=520612551]
-custom_minimum_size = Vector2(120, 32)
-layout_mode = 2
+[node name="Options_Button" type="Button" parent="MarginContainer/VBoxContainer2" unique_id=702227286]
+custom_minimum_size = Vector2(121.89, 32)
+layout_mode = 0
+offset_left = 279.0
+offset_top = 360.0
+offset_right = 925.0
+offset_bottom = 542.0
+rotation = -0.13962634
+scale = Vector2(0.68311286, 0.68311286)
+theme = SubResource("Theme_cp0ys")
 theme_override_fonts/font = ExtResource("1_28flt")
-theme_override_font_sizes/font_size = 67
-text = "Extras"
+theme_override_font_sizes/font_size = 49
+theme_override_styles/normal = SubResource("StyleBoxFlat_trj04")
+text = "Options"
 script = ExtResource("5_opfnp")
 
-[node name="Exit_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1348736676]
-custom_minimum_size = Vector2(120, 32)
-layout_mode = 2
+[node name="Exit_Button" type="Button" parent="MarginContainer/VBoxContainer2" unique_id=1282109054]
+custom_minimum_size = Vector2(121.89, 32)
+layout_mode = 0
+offset_left = 663.0
+offset_top = 297.0
+offset_right = 1309.0
+offset_bottom = 479.0
+rotation = -0.13962634
+scale = Vector2(0.68311286, 0.68311286)
+theme = SubResource("Theme_cp0ys")
 theme_override_fonts/font = ExtResource("1_28flt")
-theme_override_font_sizes/font_size = 67
+theme_override_font_sizes/font_size = 49
+theme_override_styles/normal = SubResource("StyleBoxFlat_trj04")
 text = "Exit"
 script = ExtResource("5_opfnp")
 

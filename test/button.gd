@@ -1,51 +1,53 @@
 extends Button
 
+class_name AnimationButton
 
-@export var focus_push_x: float = 10
-@export var focus_scale: float = 1.4
-@export var focus_z : int = 100
-@export var anim_time: float = 0.12
+@export var speed: float = 2.0
+@export var amplitude: float = 8.0
 
-var _base_position: Vector2
-var _base_scale: Vector2
-var _base_rotation: float
-var _tween: Tween 
+const REST_SCALE := Vector2.ONE
+const HOVER_SCALE := Vector2(1.1, 1.1)
+const SQUASH_SCALE := Vector2(1.15, 0.9)
 
+var _tween: Tween = null
+var initial_y: float
+var random_time_offset: float = 0.0
 
+var is_hovered = false
 func _ready() -> void:
-	focus_mode = Control.FOCUS_ALL
-	mouse_entered.connect(grab_focus)
-	focus_entered.connect(_on_focus_entered)
-	focus_exited.connect(_on_focus_exited)
-	
-	_base_position = position
-	_base_scale = scale
-	_base_rotation = rotation_degrees
-	pivot_offset = Vector2(0.0, size.y * 0.5)
-
-func _on_focus_entered() -> void:
-	z_index = focus_z
-	
-	if get_parent():
-		get_parent().move_child(self, -1)
-	
-	_kill_tween()
-	_tween = create_tween().set_parallel().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	_tween.tween_property(self, "position", _base_position + Vector2(focus_push_x, 0.0), anim_time)
-	_tween.tween_property(self, "scale", _base_scale * focus_scale, anim_time)
-	_tween.tween_property(self, "rotation_degrees", 0, anim_time)
+	initial_y = position.y
+	random_time_offset = randf_range(0.0, 100.0)
+	offset_transform_enabled = true
+	mouse_entered.connect(_on_anim_button_mouse_entered)
+	mouse_exited.connect(_on_anim_button_mouse_exited)
+	button_down.connect(_on_anim_button_button_down)
 
 
-func _on_focus_exited() -> void:
-	z_index = 0
-	
-	_kill_tween()
-	_tween = create_tween().set_parallel().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	_tween.tween_property(self, "position", _base_position, anim_time)
-	_tween.tween_property(self, "scale", _base_scale, anim_time)
-	_tween.tween_property(self, "rotation_degrees", _base_rotation, anim_time)
+func _process(delta: float) -> void:
 
+	var time = (Time.get_ticks_msec() / 1000.0) + random_time_offset
+	position.y = initial_y + sin(time * speed) * amplitude
 
-func _kill_tween() -> void:
+func _restart_tween() -> Tween:
 	if _tween and _tween.is_valid():
 		_tween.kill()
+	_tween = create_tween()
+	return _tween
+
+func _on_anim_button_mouse_entered() -> void:
+	if _tween:
+		_tween.kill()
+	_tween = create_tween()
+	_tween.tween_property(self, "offset_transform_scale", HOVER_SCALE, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+
+func _on_anim_button_mouse_exited() -> void:
+	if _tween:
+		_tween.kill()
+	_tween = create_tween()
+	_tween.tween_property(self, "offset_transform_scale", REST_SCALE, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+func _on_anim_button_button_down() -> void:
+	if _tween:
+		_tween.kill()
+	_tween = create_tween()
+	_tween.tween_property(self, "offset_transform_scale", SQUASH_SCALE, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	_tween.tween_property(self, "offset_transform_scale", REST_SCALE, 0.2).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)

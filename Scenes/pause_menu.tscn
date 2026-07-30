@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://htx0b624ho05" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="2_1och7"]
 [ext_resource type="Shader" uid="uid://c1h5wq5skyp8s" path="res://shaders/blur.gdshader" id="2_bpi0q"]
 [ext_resource type="PackedScene" uid="uid://dec0n4y7bnwus" path="res://Scenes/settings_menu.tscn" id="3_1och7"]
+[ext_resource type="Script" uid="uid://ibjtucbblfmd" path="res://Scripts/pause_button.gd" id="4_vmyb1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vmyb1"]
 shader = ExtResource("2_bpi0q")
@@ -78,6 +79,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_1och7")
 theme_override_font_sizes/font_size = 67
 text = "Resume"
+script = ExtResource("4_vmyb1")
 
 [node name="Restart_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1129404751]
 custom_minimum_size = Vector2(120, 32)
