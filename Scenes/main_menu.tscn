@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://sr2uc4dbameq" path="res://Scripts/main_menu.gd" id="1_48xlc"]
 [ext_resource type="Shader" uid="uid://ek60io4n7eer" path="res://shaders/main_menu_bg.gdshader" id="2_ce3w2"]
 [ext_resource type="Texture2D" uid="uid://ddmihpo53yx62" path="res://Assets/Sprites/maids_kobayashi_logo.png" id="3_n45e2"]
+[ext_resource type="Shader" uid="uid://d2052u0kg4rix" path="res://Assets/shaders/chroma_shaderl.gdshader" id="4_trj04"]
+[ext_resource type="Texture2D" uid="uid://cmjsg2mymaghg" path="res://Assets/Sprites/spritesheet(1).png" id="5_16hvj"]
 [ext_resource type="Script" uid="uid://du5dn3r7yvhmk" path="res://Scripts/demo_label.gd" id="5_cp0ys"]
 [ext_resource type="Script" uid="uid://ysf5qgulrn64" path="res://test/button.gd" id="5_opfnp"]
 [ext_resource type="PackedScene" uid="uid://dec0n4y7bnwus" path="res://Scenes/settings_menu.tscn" id="9_trj04"]
@@ -22,6 +24,105 @@ shader_parameter/spark_color = Color(1, 1, 1, 0.17254902)
 shader_parameter/spark_density = 6.8950003275125
 shader_parameter/diamond_softness = 0.06100000219898
 shader_parameter/outline_thickness = 0.06400000234148
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vr1f0"]
+shader = ExtResource("4_trj04")
+shader_parameter/key_color = Color(0, 1, 0, 1)
+shader_parameter/similarity = 0.4
+shader_parameter/smoothness = 0.08
+shader_parameter/spill = 0.1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1dhk"]
+atlas = ExtResource("5_16hvj")
+region = Rect2(0, 0, 2000, 4000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5egv6"]
+atlas = ExtResource("5_16hvj")
+region = Rect2(2000, 0, 2000, 4000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtepg"]
+atlas = ExtResource("5_16hvj")
+region = Rect2(4000, 0, 2000, 4000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dnnj"]
+atlas = ExtResource("5_16hvj")
+region = Rect2(6000, 0, 2000, 4000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3bi6"]
+atlas = ExtResource("5_16hvj")
+region = Rect2(0, 4000, 2000, 4000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyh8j"]
+atlas = ExtResource("5_16hvj")
+region = Rect2(2000, 4000, 2000, 4000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujyyl"]
+atlas = ExtResource("5_16hvj")
+region = Rect2(4000, 4000, 2000, 4000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkpwh"]
+atlas = ExtResource("5_16hvj")
+region = Rect2(6000, 4000, 2000, 4000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nkqq"]
+atlas = ExtResource("5_16hvj")
+region = Rect2(0, 8000, 2000, 4000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehtkc"]
+atlas = ExtResource("5_16hvj")
+region = Rect2(2000, 8000, 2000, 4000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dk6o"]
+atlas = ExtResource("5_16hvj")
+region = Rect2(4000, 8000, 2000, 4000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jr6u5"]
+atlas = ExtResource("5_16hvj")
+region = Rect2(6000, 8000, 2000, 4000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6m47u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1dhk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5egv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtepg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dnnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3bi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyh8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujyyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkpwh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nkqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehtkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dk6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jr6u5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 15.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opfnp"]
 content_margin_left = 50.0
@@ -60,6 +161,10 @@ corner_radius_bottom_right = 764
 corner_detail = 1
 anti_aliasing = false
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cp0ys"]
+bg_color = Color(0.6748146, 0.67481464, 0.6748144, 1)
+skew = Vector2(-0.365, 0)
+
 [node name="Control" type="Control" unique_id=723497809]
 layout_mode = 3
 anchors_preset = 15
@@ -81,27 +186,45 @@ offset_bottom = 1099.0
 color = Color(0.27058825, 0.2627451, 0.44705883, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=503749756]
-position = Vector2(676, 473.00003)
-scale = Vector2(0.89029926, 0.89029926)
+position = Vector2(550, 305)
+rotation = -0.067190275
+scale = Vector2(0.8620373, 0.88383865)
 texture = ExtResource("3_n45e2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=968109295]
+material = SubResource("ShaderMaterial_vr1f0")
+position = Vector2(1497, 664)
+rotation = 0.09430486
+scale = Vector2(0.3474161, 0.34993303)
+sprite_frames = SubResource("SpriteFrames_6m47u")
+autoplay = "default"
+frame_progress = 0.52933383
 
 [node name="Demo_Label" type="RichTextLabel" parent="." unique_id=872303616]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.49739584
-anchor_top = 0.15092592
-anchor_right = 0.984375
-anchor_bottom = 0.26944444
+anchor_left = 0.46025664
+anchor_top = 0.19874446
+anchor_right = 0.7795275
+anchor_bottom = 0.35892966
+offset_left = 4.307251
+offset_top = -15.644028
+offset_right = 4.307251
+offset_bottom = -15.644043
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(454, 58)
+rotation = 0.09934239
+pivot_offset = Vector2(306.5, 86.49999)
+theme_override_colors/default_color = Color(1, 1, 0, 1)
 theme_override_fonts/normal_font = ExtResource("1_28flt")
-theme_override_font_sizes/normal_font_size = 122
+theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
-text = "[rainbow freq = 0.2 sat = 10, val = 20]DEMO 1.0!!![/rainbow]"
+text = "PROTYPE SHOWCASE!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("5_cp0ys")
+speed = null
+amplitude = null
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1440449764]
@@ -128,10 +251,10 @@ focus_neighbor_bottom = NodePath("../VBoxContainer/Exit_Button")
 [node name="Start_Button" type="Button" parent="MarginContainer/VBoxContainer2" unique_id=101865060]
 custom_minimum_size = Vector2(121.89, 32)
 layout_mode = 0
-offset_left = -509.0
-offset_top = 489.0
-offset_right = 137.0
-offset_bottom = 671.0
+offset_left = -657.99994
+offset_top = 223.0
+offset_right = -11.999939
+offset_bottom = 405.0
 rotation = -0.13962634
 scale = Vector2(0.68311286, 0.68311286)
 offset_transform_enabled = true
@@ -139,54 +262,58 @@ theme = SubResource("Theme_cp0ys")
 theme_override_fonts/font = ExtResource("1_28flt")
 theme_override_font_sizes/font_size = 49
 theme_override_styles/normal = SubResource("StyleBoxFlat_trj04")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cp0ys")
 text = "Start Game"
 script = ExtResource("5_opfnp")
 
 [node name="Credits_Button" type="Button" parent="MarginContainer/VBoxContainer2" unique_id=139494646]
 custom_minimum_size = Vector2(121.89, 32)
 layout_mode = 0
-offset_left = -104.0
-offset_top = 429.99997
-offset_right = 542.0
-offset_bottom = 612.0
+offset_left = -65.0
+offset_top = 196.0
+offset_right = 581.0
+offset_bottom = 378.0
 rotation = -0.13962634
 scale = Vector2(0.68311286, 0.68311286)
 theme = SubResource("Theme_cp0ys")
 theme_override_fonts/font = ExtResource("1_28flt")
 theme_override_font_sizes/font_size = 49
 theme_override_styles/normal = SubResource("StyleBoxFlat_trj04")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cp0ys")
 text = "Credits"
 script = ExtResource("5_opfnp")
 
 [node name="Options_Button" type="Button" parent="MarginContainer/VBoxContainer2" unique_id=702227286]
 custom_minimum_size = Vector2(121.89, 32)
 layout_mode = 0
-offset_left = 279.0
-offset_top = 360.0
-offset_right = 925.0
-offset_bottom = 542.0
+offset_left = -633.99994
+offset_top = 482.0
+offset_right = 12.000061
+offset_bottom = 664.0
 rotation = -0.13962634
 scale = Vector2(0.68311286, 0.68311286)
 theme = SubResource("Theme_cp0ys")
 theme_override_fonts/font = ExtResource("1_28flt")
 theme_override_font_sizes/font_size = 49
 theme_override_styles/normal = SubResource("StyleBoxFlat_trj04")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cp0ys")
 text = "Options"
 script = ExtResource("5_opfnp")
 
 [node name="Exit_Button" type="Button" parent="MarginContainer/VBoxContainer2" unique_id=1282109054]
 custom_minimum_size = Vector2(121.89, 32)
 layout_mode = 0
-offset_left = 663.0
-offset_top = 297.0
-offset_right = 1309.0
-offset_bottom = 479.0
+offset_left = -39.0
+offset_top = 465.0
+offset_right = 607.0
+offset_bottom = 647.0
 rotation = -0.13962634
 scale = Vector2(0.68311286, 0.68311286)
 theme = SubResource("Theme_cp0ys")
 theme_override_fonts/font = ExtResource("1_28flt")
 theme_override_font_sizes/font_size = 49
 theme_override_styles/normal = SubResource("StyleBoxFlat_trj04")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cp0ys")
 text = "Exit"
 script = ExtResource("5_opfnp")
 

@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://htx0b624ho05" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="1_icv2g"]
 [ext_resource type="PackedScene" uid="uid://bc8dklpqa5sg8" path="res://Scenes/volume_slider.tscn" id="3_3etfd"]
 [ext_resource type="PackedScene" uid="uid://u43wn2jyypny" path="res://Scenes/input_button.tscn" id="3_h2y1r"]
+[ext_resource type="Script" uid="uid://ysf5qgulrn64" path="res://test/button.gd" id="5_3etfd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h2y1r"]
 font_size = 75
@@ -162,6 +163,7 @@ theme_override_constants/separation = 37
 
 [node name="InputButton" parent="TabContainer/Controls/Panel/MarginContainer/ScrollContainer/ActionList" unique_id=1421497798 instance=ExtResource("3_h2y1r")]
 layout_mode = 2
+script = ExtResource("5_3etfd")
 
 [node name="InputButton2" parent="TabContainer/Controls/Panel/MarginContainer/ScrollContainer/ActionList" unique_id=1806635014 instance=ExtResource("3_h2y1r")]
 layout_mode = 2

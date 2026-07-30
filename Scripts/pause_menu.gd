@@ -4,7 +4,7 @@ extends CanvasLayer
 @onready var margin_container: MarginContainer = $MarginContainer
 @onready var label_2: Label = $MarginContainer/VBoxContainer/Label2
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	visible = false
 	get_tree().paused = false
