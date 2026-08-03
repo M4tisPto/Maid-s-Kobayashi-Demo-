@@ -193,12 +193,13 @@ texture = ExtResource("3_n45e2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=968109295]
 material = SubResource("ShaderMaterial_vr1f0")
-position = Vector2(1497, 664)
+position = Vector2(1537.9999, 698)
 rotation = 0.09430486
 scale = Vector2(0.3474161, 0.34993303)
 sprite_frames = SubResource("SpriteFrames_6m47u")
 autoplay = "default"
-frame_progress = 0.52933383
+frame = 5
+frame_progress = 0.40078732
 
 [node name="Demo_Label" type="RichTextLabel" parent="." unique_id=872303616]
 layout_mode = 1

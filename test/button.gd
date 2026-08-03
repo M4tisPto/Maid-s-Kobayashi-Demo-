@@ -1,6 +1,6 @@
 extends Button
 
-class_name AnimationButton
+class_name AnimatedButton
 
 @export var speed: float = 2.0
 @export var amplitude: float = 8.0

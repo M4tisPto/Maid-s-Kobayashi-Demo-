@@ -13,11 +13,17 @@ func _ready() -> void:
 	handle_connection_signals()
 
 func on_start_pressed() -> void:
+	SceneTransition.load_scene("res://Scenes/Levels/test_level.tscn")
+	var tween = create_tween()
+	tween.tween_property(AudioController.current_music, "volume_db", -50, 0.8)
+	await tween.finished
 	AudioController.stop_music()
 
-	get_tree().change_scene_to_packed(start_level)
 
 func on_options_pressed() -> void:
+	SceneTransition.normal_transition()
+	await get_tree().create_timer(0.8).timeout
+	
 	margin_container.visible =false
 	settings_menu.visible = true
  
@@ -34,6 +40,11 @@ func handle_connection_signals() -> void:
 	exit_button.button_down.connect(on_exit_pressed)
 
 
+
+
+
 func _on_back_button_pressed() -> void:
+	SceneTransition.normal_transition()
+	await get_tree().create_timer(0.8).timeout
 	margin_container.visible =true
 	settings_menu.visible = false

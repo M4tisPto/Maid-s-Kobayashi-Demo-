@@ -50,9 +50,10 @@ theme_override_constants/tab_separation = 15
 theme_override_fonts/font = ExtResource("1_icv2g")
 theme_override_font_sizes/font_size = 48
 tab_alignment = 1
-current_tab = 0
+current_tab = 2
 
 [node name="Audio" type="TabBar" parent="TabContainer" unique_id=2126431241]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -125,7 +126,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Controls" type="TabBar" parent="TabContainer" unique_id=16715544]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -167,12 +167,15 @@ script = ExtResource("5_3etfd")
 
 [node name="InputButton2" parent="TabContainer/Controls/Panel/MarginContainer/ScrollContainer/ActionList" unique_id=1806635014 instance=ExtResource("3_h2y1r")]
 layout_mode = 2
+script = ExtResource("5_3etfd")
 
 [node name="InputButton3" parent="TabContainer/Controls/Panel/MarginContainer/ScrollContainer/ActionList" unique_id=1324507066 instance=ExtResource("3_h2y1r")]
 layout_mode = 2
+script = ExtResource("5_3etfd")
 
 [node name="InputButton4" parent="TabContainer/Controls/Panel/MarginContainer/ScrollContainer/ActionList" unique_id=95296711 instance=ExtResource("3_h2y1r")]
 layout_mode = 2
+script = ExtResource("5_3etfd")
 
 [node name="ResetButton" type="Button" parent="TabContainer/Controls/Panel/MarginContainer" unique_id=697401652]
 layout_mode = 2
@@ -180,6 +183,7 @@ size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("1_icv2g")
 theme_override_font_sizes/font_size = 67
 text = "RESET TO DEFAULT"
+script = ExtResource("5_3etfd")
 
 [node name="Language" type="TabBar" parent="TabContainer" unique_id=1608982596]
 visible = false
@@ -213,6 +217,7 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("1_icv2g")
 theme_override_font_sizes/font_size = 67
 text = "Back"
+script = ExtResource("5_3etfd")
 
 [connection signal="pressed" from="TabContainer/Controls/Panel/MarginContainer/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="Back_Button" to="." method="_on_back_button_pressed"]

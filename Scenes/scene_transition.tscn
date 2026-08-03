@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://cii8ardqmyq26"]
+
+[ext_resource type="Script" uid="uid://cg0t7s1f6dtsw" path="res://Scripts/Globals/scene_transition.gd" id="1_crfs3"]
+
+[sub_resource type="Animation" id="Animation_xs6k6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Polygon2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1067, -1868.9998)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Polygon2D3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2677, -1593.9998)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Polygon2D2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1895, -1799.9998)]
+}
+
+[sub_resource type="Animation" id="Animation_crfs3"]
+resource_name = "transition"
+length = 1.7667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Polygon2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4666667, 1.0666667, 1.6),
+"transitions": PackedFloat32Array(0.659754, 0.659754, 0.659754, 2),
+"update": 0,
+"values": [Vector2(1067, -1868.9998), Vector2(426.00006, -66.000244), Vector2(426.00006, -66.000244), Vector2(-542, 2655.9998)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Polygon2D3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.0666667, 1.7666668),
+"transitions": PackedFloat32Array(0.659754, 0.659754, 0.659754, 2),
+"update": 0,
+"values": [Vector2(2677, -1593.9998), Vector2(1886.0002, 630.9995), Vector2(1886.0002, 630.9995), Vector2(1000.00006, 3124.9998)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Polygon2D2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6666667, 1.0666667, 1.7),
+"transitions": PackedFloat32Array(0.659754, 0.659754, 0.659754, 2),
+"update": 0,
+"values": [Vector2(1895, -1799.9998), Vector2(1089, 468.00003), Vector2(1089, 468.00003), Vector2(236.00018, 2868.9998)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vin40"]
+_data = {
+&"RESET": SubResource("Animation_xs6k6"),
+&"transition": SubResource("Animation_crfs3")
+}
+
+[node name="scene_transition" type="CanvasLayer" unique_id=423461012]
+layer = 6
+script = ExtResource("1_crfs3")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=913012131]
+position = Vector2(1067, -1868.9998)
+rotation = -1.2293234
+scale = Vector2(3.8280237, 2.5509431)
+color = Color(0.54509807, 0.54509807, 0.68235296, 1)
+offset = Vector2(-503.03412, -368.76785)
+polygon = PackedVector2Array(257, 226, 908, 212, 736, 538, 50, 536)
+
+[node name="Polygon2D2" type="Polygon2D" parent="." unique_id=368618735]
+position = Vector2(1895, -1799.9998)
+rotation = -1.2293234
+scale = Vector2(3.8280237, 2.5509431)
+color = Color(0.57254905, 0.8627451, 0.8980392, 1)
+offset = Vector2(-503.03412, -368.76785)
+polygon = PackedVector2Array(254.81696, 223.23642, 908, 212, 736, 538, 50, 536)
+
+[node name="Polygon2D3" type="Polygon2D" parent="." unique_id=2061140902]
+position = Vector2(2677, -1593.9998)
+rotation = -1.2293234
+scale = Vector2(3.8280237, 2.5509431)
+color = Color(0.16078432, 0.2, 0.60784316, 1)
+offset = Vector2(-503.03412, -368.76785)
+polygon = PackedVector2Array(254.81696, 223.23642, 908, 212, 736, 538, 50, 536)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=275418431]
+libraries/ = SubResource("AnimationLibrary_vin40")

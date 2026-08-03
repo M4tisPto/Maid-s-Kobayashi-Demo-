@@ -10,8 +10,8 @@
 shader = ExtResource("2_bpi0q")
 shader_parameter/blur_amount = 1.5
 
-[sub_resource type="FontVariation" id="FontVariation_bpi0q"]
-base_font = ExtResource("2_1och7")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmyb1"]
+draw_center = false
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=249116281]
 process_mode = 3
@@ -26,86 +26,76 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1860218639]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1433188318]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 12
+offset_transform_enabled = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_vmyb1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2002505946]
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer" unique_id=2119566317]
 layout_mode = 2
-theme_override_constants/separation = 120
-
-[node name="Separator" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1935032052]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=224786412]
-layout_mode = 2
-theme_override_constants/outline_size = 24
-theme_override_fonts/font = SubResource("FontVariation_bpi0q")
-theme_override_font_sizes/font_size = 84
-text = "PAUSED"
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -350)
+theme_override_fonts/normal_font = ExtResource("2_1och7")
+theme_override_font_sizes/normal_font_size = 113
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=2.0] GAME PAUSED![/wave]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1788155378]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=13688538]
 layout_mode = 2
-theme_override_constants/outline_size = 24
-theme_override_fonts/font = SubResource("FontVariation_bpi0q")
-theme_override_font_sizes/font_size = 65
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=751492783]
-layout_mode = 2
-alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=13688538]
-layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="Resume_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1817740287]
+[node name="Resume_Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1817740287]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
+offset_transform_enabled = true
 theme_override_fonts/font = ExtResource("2_1och7")
 theme_override_font_sizes/font_size = 67
 text = "Resume"
 script = ExtResource("4_vmyb1")
 
-[node name="Restart_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1129404751]
+[node name="Restart_Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1129404751]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
+offset_transform_enabled = true
 theme_override_fonts/font = ExtResource("2_1och7")
 theme_override_font_sizes/font_size = 67
 text = "Restart"
+script = ExtResource("4_vmyb1")
 
-[node name="Options_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1329015965]
+[node name="Options_Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1329015965]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
+offset_transform_enabled = true
 theme_override_fonts/font = ExtResource("2_1och7")
 theme_override_font_sizes/font_size = 67
 text = "Options"
+script = ExtResource("4_vmyb1")
 
-[node name="Exit_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=645526447]
+[node name="Exit_Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=645526447]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
+offset_transform_enabled = true
 theme_override_fonts/font = ExtResource("2_1och7")
 theme_override_font_sizes/font_size = 67
 text = "Back Menu"
+script = ExtResource("4_vmyb1")
 
 [node name="settings_menu" parent="." unique_id=832020221 instance=ExtResource("3_1och7")]
 visible = false
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Resume_Button" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Restart_Button" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Options_Button" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Exit_Button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Resume_Button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Restart_Button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Options_Button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Exit_Button" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="settings_menu/Back_Button" to="." method="_on_back_button_pressed"]
 
 [editable path="settings_menu"]
