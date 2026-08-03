@@ -1,112 +1,59 @@
-[gd_scene format=3 uid="uid://ugd552efvil0"]
+[gd_scene format=4 uid="uid://ugd552efvil0"]
 
-[ext_resource type="Script" uid="uid://c8e16qdgu40wo" path="res://addons/dialogue_manager/test_scene.gd" id="1_yupoh"]
-[ext_resource type="Shader" uid="uid://d2052u0kg4rix" path="res://Assets/shaders/chroma_shaderl.gdshader" id="2_j7pgr"]
-[ext_resource type="Texture2D" uid="uid://cmjsg2mymaghg" path="res://Assets/Sprites/spritesheet(1).png" id="3_7dg8i"]
+[ext_resource type="Texture2D" uid="uid://dg1hetwtosht8" path="res://Assets/Sprites/tiles/tile_set_maids_kobayashi.png" id="2_j7pgr"]
+[ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="3_7dg8i"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ef7a"]
-shader = ExtResource("2_j7pgr")
-shader_parameter/key_color = Color(0, 1, 0, 1)
-shader_parameter/similarity = 0.4
-shader_parameter/smoothness = 0.08
-shader_parameter/spill = 0.1
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y4mfu"]
+texture = ExtResource("2_j7pgr")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+2:0/size_in_atlas = Vector2i(2, 2)
+2:0/0 = 0
+4:0/size_in_atlas = Vector2i(2, 2)
+4:0/0 = 0
+6:0/size_in_atlas = Vector2i(2, 2)
+6:0/0 = 0
+8:0/size_in_atlas = Vector2i(2, 2)
+8:0/0 = 0
+10:0/size_in_atlas = Vector2i(2, 2)
+10:0/0 = 0
+12:0/size_in_atlas = Vector2i(2, 2)
+12:0/0 = 0
+14:0/size_in_atlas = Vector2i(2, 2)
+14:0/0 = 0
+16:0/size_in_atlas = Vector2i(2, 2)
+16:0/0 = 0
+18:0/size_in_atlas = Vector2i(2, 2)
+18:0/0 = 0
+20:0/size_in_atlas = Vector2i(2, 2)
+20:0/0 = 0
+22:0/size_in_atlas = Vector2i(2, 2)
+22:0/0 = 0
+24:0/size_in_atlas = Vector2i(2, 2)
+24:0/0 = 0
+26:0/size_in_atlas = Vector2i(2, 2)
+26:0/0 = 0
+28:0/size_in_atlas = Vector2i(2, 2)
+28:0/0 = 0
+30:0/size_in_atlas = Vector2i(2, 2)
+30:0/0 = 0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t1dhk"]
-atlas = ExtResource("3_7dg8i")
-region = Rect2(0, 0, 2000, 4000)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5egv6"]
-atlas = ExtResource("3_7dg8i")
-region = Rect2(2000, 0, 2000, 4000)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vtepg"]
-atlas = ExtResource("3_7dg8i")
-region = Rect2(4000, 0, 2000, 4000)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8dnnj"]
-atlas = ExtResource("3_7dg8i")
-region = Rect2(6000, 0, 2000, 4000)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m3bi6"]
-atlas = ExtResource("3_7dg8i")
-region = Rect2(0, 4000, 2000, 4000)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wyh8j"]
-atlas = ExtResource("3_7dg8i")
-region = Rect2(2000, 4000, 2000, 4000)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ujyyl"]
-atlas = ExtResource("3_7dg8i")
-region = Rect2(4000, 4000, 2000, 4000)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mkpwh"]
-atlas = ExtResource("3_7dg8i")
-region = Rect2(6000, 4000, 2000, 4000)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4nkqq"]
-atlas = ExtResource("3_7dg8i")
-region = Rect2(0, 8000, 2000, 4000)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ehtkc"]
-atlas = ExtResource("3_7dg8i")
-region = Rect2(2000, 8000, 2000, 4000)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6dk6o"]
-atlas = ExtResource("3_7dg8i")
-region = Rect2(4000, 8000, 2000, 4000)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jr6u5"]
-atlas = ExtResource("3_7dg8i")
-region = Rect2(6000, 8000, 2000, 4000)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_1o6f2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t1dhk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5egv6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vtepg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8dnnj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m3bi6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wyh8j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ujyyl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mkpwh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4nkqq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ehtkc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6dk6o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jr6u5")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 15.0
-}]
+[sub_resource type="TileSet" id="TileSet_1o6f2"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/0 = SubResource("TileSetAtlasSource_y4mfu")
 
 [node name="TestScene" type="Node2D" unique_id=1249842560]
-script = ExtResource("1_yupoh")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2109392976]
-material = SubResource("ShaderMaterial_0ef7a")
-sprite_frames = SubResource("SpriteFrames_1o6f2")
-frame_progress = 0.67579323
+[node name="tileset" type="Node2D" parent="." unique_id=1609691479]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="tileset" unique_id=1556238073]
+position = Vector2(-133, -115)
+tile_map_data = PackedByteArray("AAD9/wEAAAAGAAAAAAD9/wIAAAAGAAAAAAD9/wgAAAAGAAAAAAD9/wkAAAAGAAAAAAD+/wEAAAAGAAAAAAD+/wMAAAAGAAAAAAD+/wQAAAAGAAAAAAD+/wgAAAAGAAAAAAD+/wkAAAAGAAAAAAD//wEAAAAIAAAAAAD//wMAAAAIAAAAAAD//wQAAAAIAAAAAAD//wkAAAAIAAAAAAAAAAEAAAAIAAAAAAAAAAMAAAAIAAAAAAAAAAkAAAAIAAAAAAABAAEAAAAIAAAAAAABAAMAAAAIAAAAAAABAAQAAAAIAAAAAAABAAkAAAAIAAAAAAACAAEAAAAIAAAAAAACAAMAAAAIAAAAAAACAAQAAAAIAAAAAAACAAkAAAAIAAAAAAADAAEAAAAIAAAAAAADAAMAAAAIAAAAAAADAAQAAAAIAAAAAAADAAkAAAAIAAAAAAAEAAEAAAAIAAAAAAAEAAMAAAAIAAAAAAAEAAUAAAAIAAAAAAAEAAkAAAAIAAAAAAAFAAEAAAAIAAAAAAAFAAMAAAAIAAAAAAAFAAUAAAAIAAAAAAAFAAkAAAAIAAAAAAAGAAEAAAAIAAAAAAAGAAMAAAAIAAAAAAAGAAUAAAAIAAAAAAAGAAkAAAAIAAAAAAAHAAEAAAAIAAAAAAAHAAMAAAAIAAAAAAAHAAUAAAAIAAAAAAAHAAkAAAAIAAAAAAAIAAEAAAAIAAAAAAAIAAMAAAAIAAAAAAAIAAUAAAAIAAAAAAAIAAkAAAAIAAAAAAAJAAEAAAAIAAAAAAAJAAMAAAAIAAAAAAAJAAUAAAAIAAAAAAAJAAkAAAAIAAAAAAAKAAEAAAAIAAAAAAAKAAMAAAAIAAAAAAAKAAUAAAAIAAAAAAAKAAkAAAAIAAAAAAALAAEAAAAIAAAAAAALAAMAAAAIAAAAAAALAAUAAAAIAAAAAAALAAkAAAAIAAAAAAAMAAEAAAAIAAAAAAAMAAMAAAAIAAAAAAAMAAUAAAAIAAAAAAAMAAkAAAAIAAAAAAANAAEAAAAIAAAAAAANAAMAAAAIAAAAAAANAAQAAAAIAAAAAAANAAkAAAAIAAAAAAAOAAIAAAAIAAAAAAAOAAMAAAAIAAAAAAAOAAQAAAAIAAAAAAAOAAgAAAAIAAAAAAAOAAkAAAAIAAAAAAAPAAIAAAAIAAAAAAAPAAMAAAAIAAAAAAAPAAQAAAAIAAAAAAAPAAgAAAAIAAAAAAAPAAkAAAAIAAAAAAAQAAIAAAAIAAAAAAAQAAMAAAAIAAAAAAAQAAQAAAAIAAAAAAAQAAYAAAAIAAAAAAAQAAgAAAAIAAAAAAAQAAkAAAAIAAAAAAARAAIAAAAIAAAAAAARAAMAAAAIAAAAAAARAAQAAAAIAAAAAAARAAYAAAAIAAAAAAARAAgAAAAIAAAAAAARAAkAAAAIAAAAAAASAAIAAAAKAAAAAAASAAMAAAAKAAAAAAASAAQAAAAKAAAAAAASAAUAAAAKAAAAAAASAAYAAAAKAAAAAAASAAgAAAAKAAAAAAASAAkAAAAKAAAAAAD+/woAAAAGAAAAAAD//woAAAAIAAAAAAAAAAoAAAAIAAAAAAABAAoAAAAIAAAAAAACAAoAAAAIAAAAAAADAAoAAAAIAAAAAAAEAAoAAAAIAAAAAAAFAAoAAAAIAAAAAAAGAAoAAAAIAAAAAAAHAAoAAAAIAAAAAAAIAAoAAAAIAAAAAAAJAAoAAAAIAAAAAAAKAAoAAAAIAAAAAAALAAoAAAAIAAAAAAAMAAoAAAAIAAAAAAANAAoAAAAIAAAAAAAOAAoAAAAIAAAAAAAPAAoAAAAIAAAAAAAQAAoAAAAIAAAAAAARAAoAAAAIAAAAAAASAAoAAAAKAAAAAAASAAsAAAAKAAAAAAASAAwAAAAKAAAAAAD9/woAAAAGAAAAAAD9/wsAAAAGAAAAAAD9/wwAAAAGAAAAAAD9/w0AAAAGAAAAAAD9/w4AAAAGAAAAAAD+/wsAAAAGAAAAAAD+/wwAAAAGAAAAAAD+/w0AAAAGAAAAAAD+/w4AAAAGAAAAAAAAAAQAAAAIAAAAAAA=")
+tile_set = SubResource("TileSet_1o6f2")
+
+[node name="player" parent="." unique_id=2033633715 instance=ExtResource("3_7dg8i")]
+position = Vector2(-133, -115)

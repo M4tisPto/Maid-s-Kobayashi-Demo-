@@ -844,6 +844,7 @@ libraries/ = SubResource("AnimationLibrary_qqcod")
 [node name="screensaver" parent="." unique_id=956775682 instance=ExtResource("27_vfarp")]
 
 [node name="AnimatedSprite2D" parent="." unique_id=276828909 instance=ExtResource("32_wohnl")]
+visible = false
 
 [connection signal="animation_finished" from="Flip_container/kuckleblaster/AnimationPlayer" to="arm_state_machine/knuckleblaster_arm/neutral" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Flip_container/Hitbox" to="Flip_container/Hitbox" method="_on_body_entered"]

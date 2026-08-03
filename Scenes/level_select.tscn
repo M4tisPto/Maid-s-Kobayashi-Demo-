@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://da3bh87yh5eug"]
+
+[ext_resource type="Script" uid="uid://cmnakbmwg1kye" path="res://Scripts/level_selector.gd" id="1_nkys2"]
+
+[node name="CarouselContainer" type="Node2D" unique_id=615293127 node_paths=PackedStringArray("position_offset_node")]
+script = ExtResource("1_nkys2")
+position_offset_node = NodePath("")
