@@ -1,3 +1,120 @@
 [gd_scene format=3 uid="uid://bgnmkxr5hxg0"]
 
+[ext_resource type="Script" uid="uid://ep8p4ltwtg33" path="res://Scripts/Globals/carousel_container.gd" id="1_1m0xv"]
+[ext_resource type="Script" uid="uid://lp2074m0sb02" path="res://Scripts/level_selection.gd" id="1_bhq3g"]
+[ext_resource type="FontFile" uid="uid://htx0b624ho05" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="3_6dews"]
+[ext_resource type="Shader" uid="uid://ek60io4n7eer" path="res://shaders/main_menu_bg.gdshader" id="3_j13lr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6dews"]
+shader = ExtResource("3_j13lr")
+shader_parameter/color_one = Color(0.6067072, 0.60650694, 0.8127473, 1)
+shader_parameter/color_two = Color(0.26707092, 0.29993775, 0.6575328, 1)
+shader_parameter/angle = 1.7850000000000001
+shader_parameter/line_count = -1.34
+shader_parameter/line_width = 0.5710000271225
+shader_parameter/softness = 0.0010000000475
+shader_parameter/speed_lines = 0.05
+shader_parameter/speed_diamonds = 0.0
+shader_parameter/spark_color = Color(1, 1, 1, 0.17254902)
+shader_parameter/spark_density = 0.0
+shader_parameter/diamond_softness = 0.06100000219898
+shader_parameter/outline_thickness = 0.06400000234148
+
 [node name="LevelSelection" type="Node2D" unique_id=20262319]
+script = ExtResource("1_bhq3g")
+
+[node name="BG" type="ColorRect" parent="." unique_id=1560542137]
+material = SubResource("ShaderMaterial_6dews")
+offset_left = -12.0
+offset_top = -7.0
+offset_right = 1924.0
+offset_bottom = 1099.0
+color = Color(0.27058825, 0.2627451, 0.44705883, 1)
+
+[node name="SelectLabel" type="RichTextLabel" parent="." unique_id=324875165]
+offset_left = 371.0
+offset_top = -95.0
+offset_right = 1525.0
+offset_bottom = 204.0
+theme_override_fonts/normal_font = ExtResource("3_6dews")
+theme_override_font_sizes/normal_font_size = 114
+bbcode_enabled = true
+text = "[wave amp 50.0 freq = 2] SELECT A LEVEL!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instructions" type="RichTextLabel" parent="." unique_id=222328914]
+offset_left = 205.0
+offset_top = 824.0
+offset_right = 1787.0
+offset_bottom = 1123.0
+theme_override_fonts/normal_font = ExtResource("3_6dews")
+theme_override_font_sizes/normal_font_size = 114
+bbcode_enabled = true
+text = "[wave amp 50.0 freq = 2] Press SPACE to enter"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelName" type="RichTextLabel" parent="." unique_id=691600558]
+offset_left = 442.0
+offset_top = 155.0
+offset_right = 1490.0
+offset_bottom = 268.0
+theme_override_fonts/normal_font = ExtResource("3_6dews")
+theme_override_font_sizes/normal_font_size = 71
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CarouselContainer" type="Node2D" parent="." unique_id=1575782473 node_paths=PackedStringArray("position_offset_node")]
+z_index = 100
+texture_filter = 1
+position = Vector2(968.00006, 575)
+scale = Vector2(9.975, 9.975)
+script = ExtResource("1_1m0xv")
+spacing = 1.16
+wrapedound_radius = 0.0
+wrapadound_height = null
+opacity_strength = 0.0
+scale_strenght = 0.49
+scale_min = 0.19
+smoothing_speed = 6.695
+position_offset_node = NodePath("Control")
+metadata/_custom_type_script = "uid://ep8p4ltwtg33"
+
+[node name="Control" type="Control" parent="CarouselContainer" unique_id=420293110]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = -20.0
+offset_top = -6.988614
+offset_right = 20.0
+offset_bottom = 33.011387
+
+[node name="The Awakening" type="Panel" parent="CarouselContainer/Control" unique_id=2084770431]
+z_index = 1
+layout_mode = 0
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+pivot_offset = Vector2(20, 20)
+
+[node name="Site on City" type="Panel" parent="CarouselContainer/Control" unique_id=1372523624]
+z_index = -1
+layout_mode = 0
+offset_left = 41.16
+offset_top = -20.0
+offset_right = 81.16
+offset_bottom = 20.0
+scale = Vector2(0.51, 0.51)
+pivot_offset = Vector2(20.000002, 20)
+
+[node name="Inferno of Loss" type="Panel" parent="CarouselContainer/Control" unique_id=908800731]
+z_index = -2
+layout_mode = 0
+offset_left = 82.32001
+offset_top = -20.0
+offset_right = 122.32009
+offset_bottom = 20.0
+scale = Vector2(0.19, 0.19)
+pivot_offset = Vector2(20.000042, 20)

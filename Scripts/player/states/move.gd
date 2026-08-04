@@ -1,13 +1,12 @@
 extends State
 
-@export
-var fall_state: State
-@export
-var idle_state: State
-@export
-var jump_state: State
+@export var fall_state: State
+@export var idle_state: State
+@export var jump_state: State
+
 func enter():
-	print("Move state enter")
+	parent.animated_sprite_2d_2.play("run_start")
+
 
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_pressed('jump') and parent.is_on_floor():
@@ -15,22 +14,25 @@ func process_input(event: InputEvent) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
+
 	parent.velocity.y += gravity * delta
 
 	var movement = Input.get_axis("move_left", "move_right") * move_speed
+	
 	if movement != 0:
+		parent.animated_sprite_2d_2.flip_h = movement < 0
 		parent.facing_direction = sign(movement)
 		parent.velocity.x = movement
 	else:
 		parent.velocity.x = move_toward(parent.velocity.x, 0, move_speed)
 
-	if movement == 0:
-		return idle_state
-
 	parent.move_and_slide()
-	
 
-	if !parent.is_on_floor():
+	if not parent.is_on_floor():
 		return fall_state
 
+	if movement == 0 and is_zero_approx(parent.velocity.x):
+		return idle_state
+
 	return null
+	

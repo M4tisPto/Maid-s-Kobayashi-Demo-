@@ -22,6 +22,7 @@ var bullet = preload("res://Scenes/bullet.tscn")
 @onready var camera_manager: Camera2D = $CameraManager
 @onready var health_component: Node2D = $HealthComponent
 @onready var muzzle: Marker2D = $Flip_container/Muzzle
+@onready var animation_tree: AnimationTree = $AnimationTree
 
 @onready var gui_arm_text: Label = $GUI/Label
 @onready var flip_container: Node2D = $Flip_container
@@ -29,6 +30,7 @@ var bullet = preload("res://Scenes/bullet.tscn")
 @onready var collision_shockwave: CollisionShape2D = $Flip_container/kuckleblaster/shockwave/collision_shockwave
 @onready var collision_spin_hitbox: CollisionShape2D = $Flip_container/Hitbox/collision_spin_hitbox
 @onready var screensaver: CanvasLayer = $screensaver
+@onready var animated_sprite_2d_2: AnimatedSprite2D = $AnimatedSprite2D2
 
 
 
@@ -83,6 +85,8 @@ func start_invulnerability_timer():
 	animation_player.play("RESET")
 	print("u can get hurt again now")
 
+func update_animation_parameters():
+		
 
 func _unhandled_input(event: InputEvent) -> void:
 	movement_state_machine.process_input(event)

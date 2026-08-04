@@ -10,6 +10,7 @@ var jump_state: State
 var is_spinning = false
 func enter():
 	print("Fall state enter")
+	parent.animated_sprite_2d_2.play("im_falling")
 
 func process_physics(delta: float) -> State:
 	if parent.spin_jump_requested:

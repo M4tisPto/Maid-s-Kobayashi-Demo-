@@ -10,6 +10,7 @@ var current_gravity = gravity
 
 func enter() -> void:
 	print("Idle state enter")
+	parent.animated_sprite_2d_2.play("idle")
 	parent.jumps_left = parent.TOTAL_JUMPS
 	parent.velocity.x = 0
 

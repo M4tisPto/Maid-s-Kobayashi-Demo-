@@ -16,7 +16,7 @@ var is_spinning := false
 
 func enter():
 	print("Jump state enter")
-	
+	parent.animated_sprite_2d_2.play("jump")
 	parent.velocity.y = -jump_force
 
 func process_physics(delta: float) -> State:
