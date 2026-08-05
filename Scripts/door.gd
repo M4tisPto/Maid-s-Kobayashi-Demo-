@@ -1,8 +1,11 @@
 extends Area2D
-var change_scene = preload("res://Scenes/Levels/level_test_scenes/test_level_second part.tscn")
+
+@export_file("*.tscn") var next_section_path: String
 
 func _input(event):
 	if event.is_action_pressed("up"):
-		print(get_overlapping_bodies().size())
-		if get_overlapping_bodies().size() >= 1:
-			DoorTransition.load_scene("res://Scenes/Levels/level_test_scenes/test_level_second part.tscn")
+		if has_overlapping_bodies():
+			if next_section_path != "":
+				DoorTransition.load_scene(next_section_path)
+			else:
+				print("Error: No se asignó ninguna ruta de escena en el Inspector.")

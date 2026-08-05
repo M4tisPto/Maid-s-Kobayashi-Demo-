@@ -21,12 +21,11 @@ func _process(delta: float):
 func process_input(event: InputEvent) -> State:
 	
 	
-	if Input.is_action_just_pressed("attack") and Input.is_action_pressed("up") and not parent.is_on_floor() and can_spin:
+	if Input.is_action_just_pressed("attack") and Input.is_action_pressed("up") and can_spin:
 		can_spin = false
-		parent.velocity.y = 0.0
 		return spín_jump_state
 #	if Input.is_action_just_pressed("grab"): pa luego
 #		return grab_state
-	if Input.is_action_just_pressed("attack") and Input.is_action_pressed("duck_down") and parent.is_on_floor() and parent.velocity == Vector2.ZERO:
+	if Input.is_action_just_pressed("attack") and Input.is_action_pressed("duck_down") and parent.velocity == Vector2.ZERO:
 		return shoot_state
 	return null

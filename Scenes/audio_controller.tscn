@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://hxfmjvs83qyp" path="res://Assets/Music/credits.mp3" id="4_ncnt2"]
 [ext_resource type="AudioStream" uid="uid://3g1i34p3bj20" path="res://Assets/Music/what's that smell (sugary spire).mp3" id="4_nqcbu"]
 [ext_resource type="AudioStream" uid="uid://cdh2ticfeqd5h" path="res://Assets/Sound Effects/Retro 8 bit SFX Pack/344314__musiclegends__powerup24.wav" id="5_ual3u"]
+[ext_resource type="AudioStream" uid="uid://dwvl6k0sqoyh0" path="res://Assets/Sound Effects/level_select.mp3" id="5_uc8ob"]
 [ext_resource type="AudioStream" uid="uid://b4ocag1oxyuub" path="res://Assets/Sound Effects/TalkSounds/test_talksound.ogg" id="6_yyma2"]
 [ext_resource type="AudioStream" uid="uid://ccyg23t7k47ni" path="res://Assets/Sound Effects/733021__geoff-bremner-audio__whip-6.wav" id="8_xxf2r"]
 [ext_resource type="AudioStream" uid="uid://v627ichvppg5" path="res://Assets/Sound Effects/362423__alphatrooper18__explosion1.wav" id="9_xxf2r"]
@@ -37,6 +38,9 @@ volume_db = -16.0
 mix_target = 2
 bus = &"Music"
 
+[node name="Level_Selector" type="AudioStreamPlayer" parent="Music" unique_id=654260284]
+stream = ExtResource("5_uc8ob")
+
 [node name="Sfx" type="Node" parent="." unique_id=1352491733]
 
 [node name="Jump" type="AudioStreamPlayer" parent="Sfx" unique_id=197486431]
@@ -60,7 +64,7 @@ bus = &"Sfx"
 
 [node name="PlayerHurt" type="AudioStreamPlayer" parent="Sfx" unique_id=1785710565]
 stream = ExtResource("9_xxf2r")
-volume_db = -5.0
+volume_db = -16.0
 bus = &"Sfx"
 
 [node name="PlayerDeath" type="AudioStreamPlayer" parent="Sfx" unique_id=1922425888]

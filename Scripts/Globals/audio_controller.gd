@@ -16,12 +16,14 @@ func _ready():
 		"talk_default": $Sfx/Default_talk,
 		"talk_matis": $Sfx/Matis_talk,
 		"WOAHGUYSDIDYOUSEETHAT":$Sfx/DIDYOUGUYSSEETHAT
+		
 	}
 
 	music = {
 		"menu_music": $Music/Music_menu,
 		"level_test_music": $Music/Music_lvl_test,
-		"credits": $Music/Credits_theme
+		"credits": $Music/Credits_theme,
+		"level_selector": $Music/Level_Selector
 	}
 	
 func play_sound(sound_name: String):

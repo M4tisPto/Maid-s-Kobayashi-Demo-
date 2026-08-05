@@ -10,7 +10,7 @@ var current_gravity = gravity
 
 func enter() -> void:
 	print("Idle state enter")
-	parent.animated_sprite_2d_2.play("idle")
+	parent.sophia_animations.play("idle")
 	parent.jumps_left = parent.TOTAL_JUMPS
 	parent.velocity.x = 0
 
@@ -30,7 +30,8 @@ func process_input(event: InputEvent) -> State:
 func process_physics(delta: float) -> State:
 	if parent.velocity.y > 0:
 		parent.is_wave_boosting = false
-
+	if parent.spin_jump_requested:
+		parent.velocity.y = -800
 	if not parent.is_on_floor():
 		parent.velocity.y += gravity * delta
 	elif not parent.is_wave_boosting:

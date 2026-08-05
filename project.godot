@@ -24,7 +24,6 @@ config/icon="res://icon.svg"
 
 Signal_Debugger="*uid://c0ayiwdm0sk6p"
 AudioController="*uid://du5eqkft84xqn"
-DialogueManager="*uid://c3rodes2l3gxb"
 HitstopManager="*uid://dk3lrw80u56tj"
 PlayerManager="*uid://bikmae12j11la"
 Global="*uid://v2s3d6ij645w"
@@ -125,6 +124,7 @@ copy_path="res://Scenes/Credits_example/"
 [physics]
 
 3d/physics_engine="Jolt Physics"
+2d/default_gravity=1200.0
 
 [rendering]
 

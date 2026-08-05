@@ -16,7 +16,7 @@ var is_spinning := false
 
 func enter():
 	print("Jump state enter")
-	parent.animated_sprite_2d_2.play("jump")
+	parent.sophia_animations.play("jump")
 	parent.velocity.y = -jump_force
 
 func process_physics(delta: float) -> State:
@@ -29,6 +29,7 @@ func process_physics(delta: float) -> State:
 	
 	var movement = Input.get_axis("move_left", "move_right") * move_speed
 	if movement != 0:
+		parent.sophia_animations.flip_h = movement < 0
 		parent.facing_direction = sign(movement)
 		parent.velocity.x = movement
 	else:

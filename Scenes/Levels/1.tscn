@@ -1,18 +1,235 @@
 [gd_scene format=3 uid="uid://cfi13rgaak5hw"]
 
 [ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="1_rnac6"]
+[ext_resource type="PackedScene" uid="uid://d2vepttbubyhn" path="res://Scenes/breakable_block.tscn" id="2_4o7x7"]
+[ext_resource type="PackedScene" uid="uid://361vd8oymiyk" path="res://Scenes/door.tscn" id="3_elxuq"]
+[ext_resource type="PackedScene" uid="uid://cjab5y5fghro" path="res://Scenes/Enemies/enemy_thingi.tscn" id="5_jbhxb"]
+[ext_resource type="Texture2D" uid="uid://n5dflao6kocy" path="res://Assets/Sprites/paralax_bgs/fondo_caverna1.jpg" id="6_5loy5"]
+[ext_resource type="Texture2D" uid="uid://c8ij565o3vi1p" path="res://Assets/Sprites/paralax_bgs/fondo_caverna2.png" id="7_l88yk"]
+[ext_resource type="Shader" uid="uid://d2052u0kg4rix" path="res://Assets/shaders/chroma_shaderl.gdshader" id="8_eg17s"]
+[ext_resource type="Texture2D" uid="uid://cjh6usiy8svhv" path="res://Assets/Sprites/paralax_bgs/fondo_caverna3.jpg" id="9_auora"]
+[ext_resource type="Texture2D" uid="uid://d3xk2beaqtu2c" path="res://Assets/Sprites/paralax_bgs/fondo_caverna4.jpg" id="10_haf4b"]
+[ext_resource type="Texture2D" uid="uid://bnecalaafjmck" path="res://Assets/Sprites/paralax_bgs/fondo_caverna5.jpg" id="11_qbk2e"]
 
-[node name="Node2D" type="Node2D" unique_id=2134867495]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rnac6"]
+size = Vector2(1577, 366)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1973460328]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oynen"]
+size = Vector2(483.25, 372)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=435226100]
-position = Vector2(-293, 2077)
-polygon = PackedVector2Array(-5005, 1811, -6626, -883, -4254, -1, 587, -20, 673, -119, 2620, 30, 2754, 225, 6401, 202, 6735, 2955, 4685, 2681, -1275, 1977)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5glqf"]
+size = Vector2(1847.625, 183)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1o6f2"]
+size = Vector2(1118, 535)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3n7g"]
+size = Vector2(1364, 581.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ey3io"]
+size = Vector2(1364, 1052.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aftih"]
+size = Vector2(79, 55)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3md8o"]
+radius = 62.201286
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qrysc"]
+radius = 60.0
+height = 222.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wla3b"]
+shader = ExtResource("8_eg17s")
+shader_parameter/key_color = Color(0, 1, 0, 1)
+shader_parameter/similarity = 0.4830000229425
+shader_parameter/smoothness = 0.08
+shader_parameter/spill = 0.1
+
+[node name="First_Level" type="Node2D" unique_id=2134867495]
 
 [node name="player" parent="." unique_id=2033633715 instance=ExtResource("1_rnac6")]
 position = Vector2(84, -31)
 
-[node name="Camera2D" type="Camera2D" parent="player" unique_id=1846145947]
-position = Vector2(0, -72)
-zoom = Vector2(2.5, 2.5)
+[node name="Collisions" type="StaticBody2D" parent="." unique_id=1923530669]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions" unique_id=2102660289]
+position = Vector2(788.5, 184)
+shape = SubResource("RectangleShape2D_rnac6")
+debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions" unique_id=1666806851]
+position = Vector2(2257.375, 187)
+shape = SubResource("RectangleShape2D_oynen")
+debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Collisions" unique_id=386972423]
+position = Vector2(4541.1875, 289.5)
+shape = SubResource("RectangleShape2D_5glqf")
+debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Collisions" unique_id=1977095187]
+position = Vector2(3058, 114.5)
+shape = SubResource("RectangleShape2D_1o6f2")
+debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Collisions" unique_id=1168204764]
+position = Vector2(4774, -389.25)
+shape = SubResource("RectangleShape2D_v3n7g")
+debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Collisions" unique_id=51377633]
+position = Vector2(6146, -140.625)
+shape = SubResource("RectangleShape2D_ey3io")
+debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
+
+[node name="breakable_blocks" type="Node2D" parent="." unique_id=981958417]
+
+[node name="Breakable_block" parent="breakable_blocks" unique_id=1262483326 instance=ExtResource("2_4o7x7")]
+position = Vector2(3646, -153)
+
+[node name="CollisionShape2D" parent="breakable_blocks/Breakable_block" index="1" unique_id=726067543]
+position = Vector2(11.5, 27.5)
+shape = SubResource("RectangleShape2D_aftih")
+
+[node name="CollisionShape2D2" parent="breakable_blocks/Breakable_block/hitbox" parent_id_path=PackedInt32Array(1262483326, 1579207377) index="0" unique_id=1868836438]
+position = Vector2(12, 28)
+shape = SubResource("CircleShape2D_3md8o")
+
+[node name="Breakable_block2" parent="breakable_blocks" unique_id=2019372658 instance=ExtResource("2_4o7x7")]
+position = Vector2(3725, -153)
+
+[node name="CollisionShape2D" parent="breakable_blocks/Breakable_block2" index="1" unique_id=726067543]
+position = Vector2(11.5, 27.5)
+shape = SubResource("RectangleShape2D_aftih")
+
+[node name="CollisionShape2D2" parent="breakable_blocks/Breakable_block2/hitbox" parent_id_path=PackedInt32Array(2019372658, 1579207377) index="0" unique_id=1868836438]
+position = Vector2(12, 28)
+shape = SubResource("CircleShape2D_3md8o")
+
+[node name="Breakable_block3" parent="breakable_blocks" unique_id=954018861 instance=ExtResource("2_4o7x7")]
+position = Vector2(3803, -153)
+
+[node name="CollisionShape2D" parent="breakable_blocks/Breakable_block3" index="1" unique_id=726067543]
+position = Vector2(11.5, 27.5)
+shape = SubResource("RectangleShape2D_aftih")
+
+[node name="CollisionShape2D2" parent="breakable_blocks/Breakable_block3/hitbox" parent_id_path=PackedInt32Array(954018861, 1579207377) index="0" unique_id=1868836438]
+position = Vector2(12, 28)
+shape = SubResource("CircleShape2D_3md8o")
+
+[node name="Breakable_block4" parent="breakable_blocks" unique_id=1698757495 instance=ExtResource("2_4o7x7")]
+position = Vector2(3882, -153)
+
+[node name="CollisionShape2D" parent="breakable_blocks/Breakable_block4" index="1" unique_id=726067543]
+position = Vector2(11.5, 27.5)
+shape = SubResource("RectangleShape2D_aftih")
+
+[node name="CollisionShape2D2" parent="breakable_blocks/Breakable_block4/hitbox" parent_id_path=PackedInt32Array(1698757495, 1579207377) index="0" unique_id=1868836438]
+position = Vector2(12, 28)
+shape = SubResource("CircleShape2D_3md8o")
+
+[node name="Breakable_block5" parent="breakable_blocks" unique_id=476837273 instance=ExtResource("2_4o7x7")]
+position = Vector2(3960, -153)
+
+[node name="CollisionShape2D" parent="breakable_blocks/Breakable_block5" index="1" unique_id=726067543]
+position = Vector2(11.5, 27.5)
+shape = SubResource("RectangleShape2D_aftih")
+
+[node name="CollisionShape2D2" parent="breakable_blocks/Breakable_block5/hitbox" parent_id_path=PackedInt32Array(476837273, 1579207377) index="0" unique_id=1868836438]
+position = Vector2(12, 28)
+shape = SubResource("CircleShape2D_3md8o")
+
+[node name="Breakable_block6" parent="breakable_blocks" unique_id=839964637 instance=ExtResource("2_4o7x7")]
+position = Vector2(4041, -153)
+
+[node name="CollisionShape2D" parent="breakable_blocks/Breakable_block6" index="1" unique_id=726067543]
+position = Vector2(11.5, 27.5)
+shape = SubResource("RectangleShape2D_aftih")
+
+[node name="CollisionShape2D2" parent="breakable_blocks/Breakable_block6/hitbox" parent_id_path=PackedInt32Array(839964637, 1579207377) index="0" unique_id=1868836438]
+position = Vector2(12, 28)
+shape = SubResource("CircleShape2D_3md8o")
+
+[node name="Door" parent="." unique_id=1173476009 instance=ExtResource("3_elxuq")]
+position = Vector2(5338, 167)
+collision_layer = 258
+collision_mask = 258
+next_section_path = "uid://60kxpgbn4ilo"
+
+[node name="CollisionShape2D" parent="Door" index="0" unique_id=1025923969]
+position = Vector2(1, -75)
+shape = SubResource("CapsuleShape2D_qrysc")
+
+[node name="enemy_stuff" parent="." unique_id=1803778493 instance=ExtResource("5_jbhxb")]
+position = Vector2(4506, 197)
+
+[node name="Cave_Paralax" type="Node2D" parent="." unique_id=6651115]
+z_index = -4096
+position = Vector2(0, -733)
+
+[node name="Parallax2D" type="Parallax2D" parent="Cave_Paralax" unique_id=1313730844]
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(1819.4585, 600)
+repeat_size = Vector2(4000, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Cave_Paralax/Parallax2D" unique_id=1647878292]
+texture_filter = 1
+texture = ExtResource("6_5loy5")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Cave_Paralax" unique_id=106745876]
+scroll_scale = Vector2(0.3, 0.3)
+scroll_offset = Vector2(1819.4585, 600)
+repeat_size = Vector2(4000, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Cave_Paralax/Parallax2D2" unique_id=1771813157]
+texture_filter = 1
+position = Vector2(-5.015045, 0)
+texture = ExtResource("7_l88yk")
+
+[node name="Parallax2D3" type="Parallax2D" parent="Cave_Paralax" unique_id=1118474224]
+scroll_scale = Vector2(0.3, 0.3)
+scroll_offset = Vector2(1819.4585, 600)
+repeat_size = Vector2(4000, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Cave_Paralax/Parallax2D3" unique_id=1400214508]
+texture_filter = 1
+material = SubResource("ShaderMaterial_wla3b")
+position = Vector2(-5.015045, 0)
+texture = ExtResource("9_auora")
+
+[node name="Parallax2D4" type="Parallax2D" parent="Cave_Paralax" unique_id=1468734563]
+scroll_scale = Vector2(0.4, 0.4)
+scroll_offset = Vector2(1819.4585, 600)
+repeat_size = Vector2(4000, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Cave_Paralax/Parallax2D4" unique_id=1995431422]
+texture_filter = 1
+material = SubResource("ShaderMaterial_wla3b")
+position = Vector2(-5.015045, 0)
+texture = ExtResource("10_haf4b")
+
+[node name="Parallax2D5" type="Parallax2D" parent="Cave_Paralax" unique_id=181980557]
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(1819.4585, 600)
+repeat_size = Vector2(4000, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Cave_Paralax/Parallax2D5" unique_id=784163312]
+z_index = -4096
+texture_filter = 1
+material = SubResource("ShaderMaterial_wla3b")
+position = Vector2(-5.015045, 0)
+texture = ExtResource("11_qbk2e")
+
+[editable path="breakable_blocks/Breakable_block"]
+[editable path="breakable_blocks/Breakable_block2"]
+[editable path="breakable_blocks/Breakable_block3"]
+[editable path="breakable_blocks/Breakable_block4"]
+[editable path="breakable_blocks/Breakable_block5"]
+[editable path="breakable_blocks/Breakable_block6"]
+[editable path="Door"]

@@ -13,9 +13,9 @@ func _ready() -> void:
 	handle_connection_signals()
 
 func on_start_pressed() -> void:
-	SceneTransition.load_scene("res://Scenes/Levels/test_level.tscn")
+	SceneTransition.load_scene("res://Scenes/level_selection.tscn")
 	var tween = create_tween()
-	tween.tween_property(AudioController.current_music, "volume_db", -50, 0.8)
+	tween.tween_property(AudioController.current_music, "volume_db", -80, 0.8)
 	await tween.finished
 	AudioController.stop_music()
 

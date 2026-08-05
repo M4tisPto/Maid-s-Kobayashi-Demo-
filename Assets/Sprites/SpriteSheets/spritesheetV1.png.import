@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwy58p3pgrrhp"
-path="res://.godot/imported/sophia_sprite_sheet.png-c30b3f792718b2bc324e3ec0ed7ec8ae.ctex"
+uid="uid://ul2alwcuk2ut"
+path="res://.godot/imported/spritesheetV1.png-4f9d7be35e944a404b4104c49c7b732f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/SpriteSheets/sophia_sprite_sheet.png"
-dest_files=["res://.godot/imported/sophia_sprite_sheet.png-c30b3f792718b2bc324e3ec0ed7ec8ae.ctex"]
+source_file="res://Assets/Sprites/SpriteSheets/spritesheetV1.png"
+dest_files=["res://.godot/imported/spritesheetV1.png-4f9d7be35e944a404b4104c49c7b732f.ctex"]
 
 [params]
 

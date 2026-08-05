@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://60kxpgbn4ilo"]
+
+[ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="1_y5jhd"]
+[ext_resource type="PackedScene" uid="uid://361vd8oymiyk" path="res://Scenes/door.tscn" id="2_g0g1d"]
+[ext_resource type="PackedScene" uid="uid://cjab5y5fghro" path="res://Scenes/Enemies/enemy_thingi.tscn" id="3_atqnh"]
+[ext_resource type="PackedScene" uid="uid://rnmh4stoko56" path="res://Scenes/Enemies/enemy_fast.tscn" id="3_g0g1d"]
+[ext_resource type="PackedScene" uid="uid://dvx7gcsqp77te" path="res://Scenes/next_section.tscn" id="5_atqnh"]
+[ext_resource type="Texture2D" uid="uid://n5dflao6kocy" path="res://Assets/Sprites/paralax_bgs/fondo_caverna1.jpg" id="6_l4viv"]
+[ext_resource type="Texture2D" uid="uid://c8ij565o3vi1p" path="res://Assets/Sprites/paralax_bgs/fondo_caverna2.png" id="7_hs7b6"]
+[ext_resource type="Shader" uid="uid://d2052u0kg4rix" path="res://Assets/shaders/chroma_shaderl.gdshader" id="8_yr5kx"]
+[ext_resource type="Texture2D" uid="uid://cjh6usiy8svhv" path="res://Assets/Sprites/paralax_bgs/fondo_caverna3.jpg" id="9_s5t6n"]
+[ext_resource type="Texture2D" uid="uid://d3xk2beaqtu2c" path="res://Assets/Sprites/paralax_bgs/fondo_caverna4.jpg" id="10_8sxg1"]
+[ext_resource type="Texture2D" uid="uid://bnecalaafjmck" path="res://Assets/Sprites/paralax_bgs/fondo_caverna5.jpg" id="11_cigbp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3so4f"]
+size = Vector2(4726, 512)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atqnh"]
+size = Vector2(1507, 91)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0sed"]
+size = Vector2(484, 1160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdr7v"]
+size = Vector2(4683, 535)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dokbh"]
+size = Vector2(736, 689)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qsfsn"]
+shader = ExtResource("8_yr5kx")
+shader_parameter/key_color = Color(0, 1, 0, 1)
+shader_parameter/similarity = 0.4830000229425
+shader_parameter/smoothness = 0.08
+shader_parameter/spill = 0.1
+
+[node name="First_Level_Section_Two" type="Node2D" unique_id=585922420]
+
+[node name="player" parent="." unique_id=2033633715 instance=ExtResource("1_y5jhd")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1558429666]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=351032753]
+position = Vector2(1588, 255)
+shape = SubResource("RectangleShape2D_3so4f")
+debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=455330477]
+position = Vector2(1206.5, -226.5)
+shape = SubResource("RectangleShape2D_atqnh")
+debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=416079011]
+position = Vector2(-533, -582)
+shape = SubResource("RectangleShape2D_x0sed")
+debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1300674119]
+position = Vector2(1566.5, -894.5)
+shape = SubResource("RectangleShape2D_mdr7v")
+debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=654598797]
+
+[node name="enemy_stuff" parent="Enemies" unique_id=1803778493 instance=ExtResource("3_atqnh")]
+position = Vector2(1120, -12)
+
+[node name="enemy_stuff2" parent="Enemies" unique_id=986492306 instance=ExtResource("3_atqnh")]
+position = Vector2(830, 0)
+
+[node name="enemy_stuff3" parent="Enemies" unique_id=2112163350 instance=ExtResource("3_atqnh")]
+position = Vector2(1043, -398)
+
+[node name="enemy_stuff4" parent="Enemies" unique_id=1918334825 instance=ExtResource("3_atqnh")]
+position = Vector2(1549, -413)
+
+[node name="enemy_fast" parent="Enemies" unique_id=1830024852 instance=ExtResource("3_g0g1d")]
+position = Vector2(1920, -15)
+
+[node name="Door" parent="." unique_id=1173476009 instance=ExtResource("2_g0g1d")]
+position = Vector2(0, -51)
+collision_layer = 258
+collision_mask = 258
+next_section_path = "uid://cfi13rgaak5hw"
+
+[node name="next_section" parent="." unique_id=98758675 instance=ExtResource("5_atqnh")]
+position = Vector2(6529, -130)
+next_section_path = "uid://b7ov52g1qjtwd"
+
+[node name="CollisionShape2D" parent="next_section" index="0" unique_id=1769846237]
+position = Vector2(-3384, -185.5)
+shape = SubResource("RectangleShape2D_dokbh")
+
+[node name="Cave_Paralax" type="Node2D" parent="." unique_id=2112391694]
+z_index = -4096
+position = Vector2(0, -733)
+
+[node name="Parallax2D" type="Parallax2D" parent="Cave_Paralax" unique_id=1212924441]
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(1819.4585, 600)
+repeat_size = Vector2(4000, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Cave_Paralax/Parallax2D" unique_id=1880829211]
+texture_filter = 1
+texture = ExtResource("6_l4viv")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Cave_Paralax" unique_id=303000766]
+scroll_scale = Vector2(0.3, 0.3)
+scroll_offset = Vector2(1819.4585, 600)
+repeat_size = Vector2(4000, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Cave_Paralax/Parallax2D2" unique_id=254744518]
+texture_filter = 1
+position = Vector2(-5.015045, 0)
+texture = ExtResource("7_hs7b6")
+
+[node name="Parallax2D3" type="Parallax2D" parent="Cave_Paralax" unique_id=601306303]
+scroll_scale = Vector2(0.3, 0.3)
+scroll_offset = Vector2(1819.4585, 600)
+repeat_size = Vector2(4000, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Cave_Paralax/Parallax2D3" unique_id=1399144184]
+texture_filter = 1
+material = SubResource("ShaderMaterial_qsfsn")
+position = Vector2(-5.015045, 0)
+texture = ExtResource("9_s5t6n")
+
+[node name="Parallax2D4" type="Parallax2D" parent="Cave_Paralax" unique_id=593864709]
+scroll_scale = Vector2(0.4, 0.4)
+scroll_offset = Vector2(1819.4585, 600)
+repeat_size = Vector2(4000, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Cave_Paralax/Parallax2D4" unique_id=1018952691]
+texture_filter = 1
+material = SubResource("ShaderMaterial_qsfsn")
+position = Vector2(-5.015045, 0)
+texture = ExtResource("10_8sxg1")
+
+[node name="Parallax2D5" type="Parallax2D" parent="Cave_Paralax" unique_id=1062930673]
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(1819.4585, 600)
+repeat_size = Vector2(4000, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Cave_Paralax/Parallax2D5" unique_id=1380134784]
+z_index = -4096
+texture_filter = 1
+material = SubResource("ShaderMaterial_qsfsn")
+position = Vector2(-5.015045, 0)
+texture = ExtResource("11_cigbp")
+
+[editable path="next_section"]

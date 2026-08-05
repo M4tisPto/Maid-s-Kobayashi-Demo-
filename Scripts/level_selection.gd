@@ -1,15 +1,19 @@
 extends Node2D
 @onready var control: Control = $CarouselContainer/Control
 
+
+
+
 var levels = []
 @onready var level_name: RichTextLabel = $LevelName
 
 func _ready() -> void:
 	levels.append($CarouselContainer.selected_index)
+	AudioController.play_music("level_selector")
 	update_label()
 
 
-	
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("move_left"):
@@ -23,7 +27,11 @@ func _input(event: InputEvent) -> void:
 		var current_index = $CarouselContainer.selected_index
 		match current_index:
 			0:
-				SceneTransition.load_scene("res://Scenes/Levels/player_level_testing_room.tscn")
+				SceneTransition.load_scene("res://Scenes/Levels/1.tscn")
+				var tween = create_tween()
+				tween.tween_property(AudioController.current_music, "volume_db", -80, 0.8)
+				await tween.finished
+				AudioController.stop_music()
 			1:
 				print("second leval")
 			2:

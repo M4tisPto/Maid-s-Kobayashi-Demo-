@@ -1,5 +1,5 @@
 extends CanvasLayer
-
+# door transition script (global)
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
@@ -13,6 +13,7 @@ func load_scene(target: String) -> void:
 	animation_player.play_backwards("door_transition")
 	get_tree().paused = false
 	await animation_player.animation_finished
+	target = ""
 	$ColorRect.visible = false
 
 func reload_scene() -> void:
