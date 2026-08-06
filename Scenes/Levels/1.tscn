@@ -156,6 +156,8 @@ position = Vector2(5338, 167)
 collision_layer = 258
 collision_mask = 258
 next_section_path = "uid://60kxpgbn4ilo"
+door_id = "door_level1_a"
+target_door_id = "door_level1_b"
 
 [node name="CollisionShape2D" parent="Door" index="0" unique_id=1025923969]
 position = Vector2(1, -75)

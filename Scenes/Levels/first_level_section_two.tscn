@@ -82,6 +82,8 @@ position = Vector2(0, -51)
 collision_layer = 258
 collision_mask = 258
 next_section_path = "uid://cfi13rgaak5hw"
+door_id = "door_level1_b"
+target_door_id = "door_level1_a"
 
 [node name="next_section" parent="." unique_id=98758675 instance=ExtResource("5_atqnh")]
 position = Vector2(6529, -130)

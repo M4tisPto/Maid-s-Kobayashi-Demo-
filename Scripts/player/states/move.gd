@@ -7,14 +7,23 @@ extends State
 
 
 func enter() -> void:
-	# this animation will be there for now, ok? ok.
-	# i'll figure out how to transition betweeen animations.
-	parent.sophia_animations.play("run_loop")
+
+	parent.sophia_animations.animation_finished.connect(_on_animation_finished, CONNECT_ONE_SHOT)
+	parent.sophia_animations.play("run_start")
+
+func exit() -> void:
+	if parent.sophia_animations.animation_finished.is_connected(_on_animation_finished):
+		parent.sophia_animations.animation_finished.disconnect(_on_animation_finished)
 
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_pressed('jump') and parent.is_on_floor():
 		return jump_state
 	return null
+
+func _on_animation_finished() -> void:
+	if parent.sophia_animations.animation == "run_start":
+		parent.sophia_animations.play("run_loop")
+
 
 func process_physics(delta: float) -> State:
 

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dr2lawefte1os" path="res://Scripts/player/player.gd" id="1_3smsa"]
 [ext_resource type="PackedScene" uid="uid://bsgtr5x44hma2" path="res://Scenes/state_machine.tscn" id="1_v0iea"]
 [ext_resource type="Script" uid="uid://usjue1ui4vvy" path="res://Scripts/player/health_component.gd" id="2_pu2lt"]
+[ext_resource type="PackedScene" uid="uid://x1hd24jw4nrd" path="res://Scenes/camera_player.tscn" id="2_yh6i2"]
 [ext_resource type="Script" uid="uid://cfenjjivd2kti" path="res://Scripts/player/states/idle.gd" id="3_x3wgy"]
 [ext_resource type="Shader" uid="uid://d2052u0kg4rix" path="res://Assets/shaders/chroma_shaderl.gdshader" id="3_yh6i2"]
 [ext_resource type="Script" uid="uid://bfjc20tg53pbo" path="res://Scripts/player/states/jump.gd" id="4_3smsa"]
@@ -13,7 +14,6 @@
 [ext_resource type="Script" uid="uid://fmurmdiwhdco" path="res://Scripts/player/states/hurt.gd" id="10_ukyrk"]
 [ext_resource type="Script" uid="uid://bpc0j3hy32ggb" path="res://Scripts/state_machine/attack_state_machine/attack_state_machine.gd" id="12_7dp3o"]
 [ext_resource type="PackedScene" uid="uid://b5mah5cwveeqh" path="res://Scenes/pause_menu.tscn" id="12_h4iuc"]
-[ext_resource type="Script" uid="uid://d0wb3qjytq0bv" path="res://Scripts/player/camera_shake.gd" id="12_pu2lt"]
 [ext_resource type="Script" uid="uid://88h32guoxi8n" path="res://Scripts/state_machine/attack_state_machine/idle.gd" id="13_h4iuc"]
 [ext_resource type="Script" uid="uid://dhphcnju2oqqi" path="res://Scripts/state_machine/attack_state_machine/grab.gd" id="14_fd4e3"]
 [ext_resource type="Script" uid="uid://dcllrrh7ts14k" path="res://Scripts/state_machine/attack_state_machine/shoot.gd" id="15_fd4e3"]
@@ -254,7 +254,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nj1g2")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"run_start",
 "speed": 10.0
 }]
@@ -883,6 +883,8 @@ collision_mask = 257
 script = ExtResource("1_3smsa")
 hurt_state = NodePath("movement_state_machine/hurt")
 
+[node name="CameraManager" parent="." unique_id=148450751 instance=ExtResource("2_yh6i2")]
+
 [node name="HealthComponent" type="Node2D" parent="." unique_id=1784562371]
 script = ExtResource("2_pu2lt")
 
@@ -892,15 +894,8 @@ material = SubResource("ShaderMaterial_1o6f2")
 position = Vector2(0, -40.715)
 scale = Vector2(1.2727273, 1.2727273)
 sprite_frames = SubResource("SpriteFrames_oynen")
-animation = &"idle"
+animation = &"run_start"
 autoplay = "idle"
-
-[node name="CameraManager" type="Camera2D" parent="." unique_id=1687298350]
-position = Vector2(-3, -71)
-zoom = Vector2(1.895, 1.895)
-position_smoothing_speed = 200.0
-script = ExtResource("12_pu2lt")
-shake_power = 0.7
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=1741350484]
 position = Vector2(0, -47)
@@ -959,9 +954,10 @@ shoot_state = NodePath("../shoot")
 script = ExtResource("14_fd4e3")
 idle_state = NodePath("../idle")
 
-[node name="spin_jump" type="Node" parent="attack_state_machine" unique_id=489328187 node_paths=PackedStringArray("idle_state")]
+[node name="spin_jump" type="Node" parent="attack_state_machine" unique_id=489328187 node_paths=PackedStringArray("idle_state", "jump_state")]
 script = ExtResource("15_h4iuc")
 idle_state = NodePath("../idle")
+jump_state = NodePath("../../movement_state_machine/jump")
 
 [node name="shoot" type="Node" parent="attack_state_machine" unique_id=275572378 node_paths=PackedStringArray("idle_state")]
 script = ExtResource("15_fd4e3")
