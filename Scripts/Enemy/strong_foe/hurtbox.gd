@@ -1,11 +1,10 @@
 #enemy hurtbox
 extends Area2D
-@export var health = 1.5
-
+@export var health = 4
 func _on_area_entered(area):
 	if area.is_in_group("bullet"):
 		HitstopManager.hit_stop_enemy_hurt() 
-		take_damage(2)
+		take_damage(0.5)
 		area.queue_free()
 	elif area.is_in_group("player_spin"):
 		HitstopManager.hit_stop_enemy_hurt() 

@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var knockback_force := 300.0
 @export var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-@onready var collision_hitbox: CollisionShape2D = $Hitbox/collision_hitbox
+@onready var collision_hitbox: CollisionShape2D = $Hitbox/CollisionShape2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var direction := 1

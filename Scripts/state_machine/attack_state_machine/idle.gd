@@ -1,5 +1,5 @@
 extends State
-# idle state
+# idle state (Attack SM)
 @export var grab_state: State
 @export var spín_jump_state: State
 @export var shoot_state: State
@@ -17,15 +17,12 @@ func _process(delta: float):
 	if parent.is_on_floor():
 		can_spin = true
 
-
 func process_input(event: InputEvent) -> State:
-	
-	
 	if Input.is_action_just_pressed("attack") and Input.is_action_pressed("up") and can_spin:
 		can_spin = false
+		parent.spin_jump_requested = true 
 		return spín_jump_state
-#	if Input.is_action_just_pressed("grab"): pa luego
-#		return grab_state
+		
 	if Input.is_action_just_pressed("attack") and Input.is_action_pressed("duck_down") and parent.velocity == Vector2.ZERO:
 		return shoot_state
 	return null

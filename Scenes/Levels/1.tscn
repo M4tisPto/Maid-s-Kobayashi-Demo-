@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="1_rnac6"]
 [ext_resource type="PackedScene" uid="uid://d2vepttbubyhn" path="res://Scenes/breakable_block.tscn" id="2_4o7x7"]
+[ext_resource type="PackedScene" uid="uid://x1hd24jw4nrd" path="res://Scenes/camera_player.tscn" id="2_wla3b"]
 [ext_resource type="PackedScene" uid="uid://361vd8oymiyk" path="res://Scenes/door.tscn" id="3_elxuq"]
 [ext_resource type="PackedScene" uid="uid://cjab5y5fghro" path="res://Scenes/Enemies/enemy_thingi.tscn" id="5_jbhxb"]
 [ext_resource type="Texture2D" uid="uid://n5dflao6kocy" path="res://Assets/Sprites/paralax_bgs/fondo_caverna1.jpg" id="6_5loy5"]
@@ -10,9 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://cjh6usiy8svhv" path="res://Assets/Sprites/paralax_bgs/fondo_caverna3.jpg" id="9_auora"]
 [ext_resource type="Texture2D" uid="uid://d3xk2beaqtu2c" path="res://Assets/Sprites/paralax_bgs/fondo_caverna4.jpg" id="10_haf4b"]
 [ext_resource type="Texture2D" uid="uid://bnecalaafjmck" path="res://Assets/Sprites/paralax_bgs/fondo_caverna5.jpg" id="11_qbk2e"]
+[ext_resource type="Script" uid="uid://c8bbl6uw2wk5j" path="res://Scenes/Levels/kill_zone.gd" id="12_jbhxb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rnac6"]
 size = Vector2(1577, 366)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wla3b"]
+size = Vector2(492, 1388)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oynen"]
 size = Vector2(483.25, 372)
@@ -46,16 +51,31 @@ shader_parameter/similarity = 0.4830000229425
 shader_parameter/smoothness = 0.08
 shader_parameter/spill = 0.1
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oynen"]
+distance = 32.994926
+
 [node name="First_Level" type="Node2D" unique_id=2134867495]
 
 [node name="player" parent="." unique_id=2033633715 instance=ExtResource("1_rnac6")]
 position = Vector2(84, -31)
+
+[node name="CameraPlayer" parent="player" unique_id=148450751 instance=ExtResource("2_wla3b")]
+position = Vector2(0, -38)
+limit_left = -100
+limit_top = -500
+limit_right = 6000
+limit_bottom = 369
 
 [node name="Collisions" type="StaticBody2D" parent="." unique_id=1923530669]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions" unique_id=2102660289]
 position = Vector2(788.5, 184)
 shape = SubResource("RectangleShape2D_rnac6")
+debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Collisions" unique_id=1977706749]
+position = Vector2(-246, -328)
+shape = SubResource("RectangleShape2D_wla3b")
 debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions" unique_id=1666806851]
@@ -156,8 +176,6 @@ position = Vector2(5338, 167)
 collision_layer = 258
 collision_mask = 258
 next_section_path = "uid://60kxpgbn4ilo"
-door_id = "door_level1_a"
-target_door_id = "door_level1_b"
 
 [node name="CollisionShape2D" parent="Door" index="0" unique_id=1025923969]
 position = Vector2(1, -75)
@@ -227,6 +245,16 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_wla3b")
 position = Vector2(-5.015045, 0)
 texture = ExtResource("11_qbk2e")
+
+[node name="KillZone" type="Area2D" parent="." unique_id=460182581]
+script = ExtResource("12_jbhxb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=632939269]
+position = Vector2(1797, 631)
+scale = Vector2(23.05, 7.88)
+shape = SubResource("WorldBoundaryShape2D_oynen")
+
+[connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
 
 [editable path="breakable_blocks/Breakable_block"]
 [editable path="breakable_blocks/Breakable_block2"]

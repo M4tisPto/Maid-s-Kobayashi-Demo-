@@ -1,13 +1,11 @@
 extends State
+# movement move
 
 @export var fall_state: State
 @export var idle_state: State
 @export var jump_state: State
 
-
-
 func enter() -> void:
-
 	parent.sophia_animations.animation_finished.connect(_on_animation_finished, CONNECT_ONE_SHOT)
 	parent.sophia_animations.play("run_start")
 
@@ -24,8 +22,10 @@ func _on_animation_finished() -> void:
 	if parent.sophia_animations.animation == "run_start":
 		parent.sophia_animations.play("run_loop")
 
-
 func process_physics(delta: float) -> State:
+
+	if parent.spin_jump_requested:
+		return jump_state
 
 	parent.velocity.y += gravity * delta
 
@@ -47,4 +47,3 @@ func process_physics(delta: float) -> State:
 		return idle_state
 
 	return null
-	

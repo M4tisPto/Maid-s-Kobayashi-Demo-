@@ -1,5 +1,5 @@
 extends Node2D
-
+# health omponent
 signal died
 
 @export var MAX_HEALTH := 8.0

@@ -14,7 +14,6 @@ func enter() -> void:
 	parent.jumps_left = parent.TOTAL_JUMPS
 	parent.velocity.x = 0
 
-
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_pressed('jump') and parent.is_on_floor():
 		return jump_state
@@ -22,20 +21,23 @@ func process_input(event: InputEvent) -> State:
 	if Input.is_action_pressed('move_left') or Input.is_action_pressed('move_right'):
 		return move_state
 		
-	
 	if Input.is_action_pressed("duck_down"):
 		return duck_state
 
 	return null
+
 func process_physics(delta: float) -> State:
 	if parent.velocity.y > 0:
 		parent.is_wave_boosting = false
-	if parent.spin_jump_requested:
-		parent.velocity.y = -800
+		
 	if not parent.is_on_floor():
 		parent.velocity.y += gravity * delta
 	elif not parent.is_wave_boosting:
 		parent.velocity.y = 0
+		
+
+	if parent.spin_jump_requested:
+		return jump_state
 		
 	parent.move_and_slide()
 	

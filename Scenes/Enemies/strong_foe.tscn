@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://buyx5pdlcx0k8"]
+
+[ext_resource type="Script" uid="uid://drdpxa2ljxd3n" path="res://Scripts/Enemy/strong_foe/strong_foe.gd" id="1_efgu8"]
+[ext_resource type="Texture2D" uid="uid://ttq56tbeq6bp" path="res://Assets/Sprites/image(7).png" id="2_l6wl3"]
+[ext_resource type="Script" uid="uid://b8ybb1luq2s5b" path="res://Scripts/Enemy/strong_foe/hitbox.gd" id="3_frv48"]
+[ext_resource type="Script" uid="uid://cj1bnxcflcsss" path="res://Scripts/Enemy/strong_foe/hurtbox.gd" id="3_l6wl3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oynen"]
+size = Vector2(97, 53)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oynen"]
+radius = 83.0542
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1o6f2"]
+size = Vector2(105, 202)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frv48"]
+size = Vector2(86, 218)
+
+[node name="strong_foe" type="CharacterBody2D" unique_id=2010698601]
+collision_layer = 8
+script = ExtResource("1_efgu8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=210852806]
+position = Vector2(0, -117.5)
+scale = Vector2(0.18437499, 0.5328638)
+texture = ExtResource("2_l6wl3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=871731973]
+position = Vector2(1.5, -27.5)
+shape = SubResource("RectangleShape2D_oynen")
+
+[node name="DetectArea" type="Area2D" parent="." unique_id=763129333]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea" unique_id=366677013]
+position = Vector2(0, -69)
+shape = SubResource("CircleShape2D_oynen")
+debug_color = Color(0.6315403, 0.529416, 5.7756904e-07, 0.41960785)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1634915203]
+collision_layer = 128
+collision_mask = 64
+script = ExtResource("3_frv48")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1234980922]
+position = Vector2(-0.5, -108)
+shape = SubResource("RectangleShape2D_1o6f2")
+disabled = true
+debug_color = Color(0.930019, 0, 0.14360401, 0.41960785)
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1448140426]
+collision_layer = 32
+collision_mask = 7172
+script = ExtResource("3_l6wl3")
+
+[node name="collision_hurtbox" type="CollisionShape2D" parent="Hurtbox" unique_id=695468875]
+position = Vector2(0, -114)
+shape = SubResource("RectangleShape2D_frv48")
+debug_color = Color(0, 1, 0, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1700543138]
+
+[connection signal="body_entered" from="DetectArea" to="." method="_on_detect_area_body_entered"]
+[connection signal="body_exited" from="DetectArea" to="." method="_on_detect_area_body_exited"]
+[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]

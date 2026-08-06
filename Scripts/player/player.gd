@@ -19,7 +19,6 @@ var bullet = preload("res://Scenes/bullet.tscn")
 @onready var attack_state_machine: Node = $attack_state_machine 
 @onready var arm_state_machine: Node = $arm_state_machine
 @onready var hurtbox: Area2D = $Flip_container/Hurtbox
-@onready var camera_manager: Camera2D = $CameraManager
 @onready var health_component: Node2D = $HealthComponent
 @onready var muzzle: Marker2D = $Flip_container/Muzzle
 
@@ -62,12 +61,6 @@ var is_dead: bool:
 	get:
 		return _is_dead
 func _ready() -> void:
-	if DoorTransition.target_door_id != "":
-		var doors = get_tree().get_nodes_in_group("doors")
-		for door in doors:
-			if door.door_id == DoorTransition.target_door_id:
-				global_position = door.global_position
-				break
 	add_to_group("player")
 	movement_state_machine.init(self)
 	attack_state_machine.init(self)

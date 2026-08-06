@@ -2,8 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="1_y5jhd"]
 [ext_resource type="PackedScene" uid="uid://361vd8oymiyk" path="res://Scenes/door.tscn" id="2_g0g1d"]
+[ext_resource type="PackedScene" uid="uid://x1hd24jw4nrd" path="res://Scenes/camera_player.tscn" id="2_hs7b6"]
 [ext_resource type="PackedScene" uid="uid://cjab5y5fghro" path="res://Scenes/Enemies/enemy_thingi.tscn" id="3_atqnh"]
-[ext_resource type="PackedScene" uid="uid://rnmh4stoko56" path="res://Scenes/Enemies/enemy_fast.tscn" id="3_g0g1d"]
+[ext_resource type="PackedScene" uid="uid://buyx5pdlcx0k8" path="res://Scenes/Enemies/strong_foe.tscn" id="4_hs7b6"]
 [ext_resource type="PackedScene" uid="uid://dvx7gcsqp77te" path="res://Scenes/next_section.tscn" id="5_atqnh"]
 [ext_resource type="Texture2D" uid="uid://n5dflao6kocy" path="res://Assets/Sprites/paralax_bgs/fondo_caverna1.jpg" id="6_l4viv"]
 [ext_resource type="Texture2D" uid="uid://c8ij565o3vi1p" path="res://Assets/Sprites/paralax_bgs/fondo_caverna2.png" id="7_hs7b6"]
@@ -24,6 +25,9 @@ size = Vector2(484, 1160)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdr7v"]
 size = Vector2(4683, 535)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4viv"]
+size = Vector2(209, 21)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dokbh"]
 size = Vector2(736, 689)
 
@@ -38,35 +42,44 @@ shader_parameter/spill = 0.1
 
 [node name="player" parent="." unique_id=2033633715 instance=ExtResource("1_y5jhd")]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1558429666]
+[node name="CameraPlayer" parent="player" unique_id=148450751 instance=ExtResource("2_hs7b6")]
+position = Vector2(0, -38)
+limit_left = -617
+limit_top = -823
+limit_right = 3492
+limit_bottom = 369
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=351032753]
+[node name="Collisions" type="StaticBody2D" parent="." unique_id=1558429666]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions" unique_id=351032753]
 position = Vector2(1588, 255)
 shape = SubResource("RectangleShape2D_3so4f")
 debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=455330477]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Collisions" unique_id=455330477]
 position = Vector2(1206.5, -226.5)
 shape = SubResource("RectangleShape2D_atqnh")
 debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=416079011]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions" unique_id=416079011]
 position = Vector2(-533, -582)
 shape = SubResource("RectangleShape2D_x0sed")
 debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1300674119]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Collisions" unique_id=1300674119]
 position = Vector2(1566.5, -894.5)
 shape = SubResource("RectangleShape2D_mdr7v")
 debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
 
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Collisions" unique_id=2127487597]
+position = Vector2(273, -119)
+shape = SubResource("RectangleShape2D_l4viv")
+debug_color = Color(0, 0.571523, 0.8424357, 0.41960785)
+
 [node name="Enemies" type="Node2D" parent="." unique_id=654598797]
 
 [node name="enemy_stuff" parent="Enemies" unique_id=1803778493 instance=ExtResource("3_atqnh")]
-position = Vector2(1120, -12)
-
-[node name="enemy_stuff2" parent="Enemies" unique_id=986492306 instance=ExtResource("3_atqnh")]
-position = Vector2(830, 0)
+position = Vector2(1243, -363)
 
 [node name="enemy_stuff3" parent="Enemies" unique_id=2112163350 instance=ExtResource("3_atqnh")]
 position = Vector2(1043, -398)
@@ -74,23 +87,21 @@ position = Vector2(1043, -398)
 [node name="enemy_stuff4" parent="Enemies" unique_id=1918334825 instance=ExtResource("3_atqnh")]
 position = Vector2(1549, -413)
 
-[node name="enemy_fast" parent="Enemies" unique_id=1830024852 instance=ExtResource("3_g0g1d")]
-position = Vector2(1920, -15)
+[node name="strong_foe" parent="Enemies" unique_id=2010698601 instance=ExtResource("4_hs7b6")]
+position = Vector2(1646, 6)
 
 [node name="Door" parent="." unique_id=1173476009 instance=ExtResource("2_g0g1d")]
 position = Vector2(0, -51)
 collision_layer = 258
 collision_mask = 258
 next_section_path = "uid://cfi13rgaak5hw"
-door_id = "door_level1_b"
-target_door_id = "door_level1_a"
 
 [node name="next_section" parent="." unique_id=98758675 instance=ExtResource("5_atqnh")]
 position = Vector2(6529, -130)
 next_section_path = "uid://b7ov52g1qjtwd"
 
 [node name="CollisionShape2D" parent="next_section" index="0" unique_id=1769846237]
-position = Vector2(-3384, -185.5)
+position = Vector2(-2672, -185.5)
 shape = SubResource("RectangleShape2D_dokbh")
 
 [node name="Cave_Paralax" type="Node2D" parent="." unique_id=2112391694]
