@@ -60,7 +60,7 @@ distance = 32.994926
 position = Vector2(84, -31)
 
 [node name="CameraPlayer" parent="player" unique_id=148450751 instance=ExtResource("2_wla3b")]
-position = Vector2(0, -38)
+position = Vector2(-57, -40)
 limit_left = -100
 limit_top = -500
 limit_right = 6000
@@ -183,6 +183,12 @@ shape = SubResource("CapsuleShape2D_qrysc")
 
 [node name="enemy_stuff" parent="." unique_id=1803778493 instance=ExtResource("5_jbhxb")]
 position = Vector2(4506, 197)
+
+[node name="enemy_stuff2" parent="." unique_id=733085863 instance=ExtResource("5_jbhxb")]
+position = Vector2(3266, -193)
+
+[node name="enemy_stuff3" parent="." unique_id=1975246636 instance=ExtResource("5_jbhxb")]
+position = Vector2(2940, -198)
 
 [node name="Cave_Paralax" type="Node2D" parent="." unique_id=6651115]
 z_index = -4096

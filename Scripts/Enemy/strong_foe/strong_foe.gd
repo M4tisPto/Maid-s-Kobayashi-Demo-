@@ -33,6 +33,7 @@ func _on_detect_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player = body
 		is_chasing = true
+		$Hitbox/collision_hurtbox.set_deferred("disabled", false)
 	await get_tree().create_timer(3.5).timeout
 	print("chasing player!")
 
@@ -41,6 +42,7 @@ func _on_detect_area_body_exited(body: Node2D) -> void:
 	if body == player:
 		player = null
 		is_chasing = false
+		$Hitbox/collision_hurtbox.set_deferred("disabled", true)
 
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:

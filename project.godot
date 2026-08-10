@@ -101,7 +101,7 @@ duck_down={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://Traduction/game_traduction.es.translation", "res://Traduction/game_traduction.en.translation")
+locale/translations=PackedStringArray("res://Traduction/game_traduction.en.translation", "res://Traduction/game_traduction.es.translation")
 
 [layer_names]
 

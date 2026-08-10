@@ -1,13 +1,13 @@
 extends OptionButton
 var languages = {
-	0: "en",
-	1: "es"
+	0: "es",
+	1: "en"
 }
 
 func _ready() -> void:
 	clear()
-	add_item("English")
 	add_item("Spanish")
+	add_item("English")
 
 
 func _on_item_selected(index: int) -> void:

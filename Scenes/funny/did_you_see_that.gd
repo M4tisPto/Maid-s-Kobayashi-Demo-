@@ -10,6 +10,6 @@ func _ready() -> void:
 	chance_timer.timeout.connect(_on_chance_timer_timeout)
 
 func _on_chance_timer_timeout() -> void:
-	if randi_range(1, 10000) == 1:
+	if randi_range(1, 500) == 1:
 		AudioController.play_sound("WOAHGUYSDIDYOUSEETHAT")
 		$AnimatedSprite2D/AnimationPlayer.play("did_you_see_that")
