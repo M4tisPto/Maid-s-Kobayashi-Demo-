@@ -99,6 +99,10 @@ duck_down={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://Traduction/game_traduction.es.translation", "res://Traduction/game_traduction.en.translation")
+
 [layer_names]
 
 2d_physics/layer_1="StaticColissions"

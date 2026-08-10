@@ -16,7 +16,7 @@ var hover_color: Color = Color.WHITE
 var _tween: Tween = null
 var initial_y: float
 var random_time_offset: float = 0.0
-var scale_ratio := 1.2
+var scale_ratio := 0.5
 
 var is_hovered = false
 func _ready() -> void:

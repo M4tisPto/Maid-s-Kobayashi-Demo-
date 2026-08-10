@@ -29,10 +29,6 @@ func _ready() -> void:
 	button_down.connect(_on_anim_button_button_down)
 
 
-func _process(delta: float) -> void:
-
-	var time = (Time.get_ticks_msec() / 1000.0) + random_time_offset
-	position.y = initial_y + sin(time * speed) * amplitude
 
 func _restart_tween() -> Tween:
 	if _tween and _tween.is_valid():
