@@ -18,9 +18,9 @@ func _physics_process(delta: float) -> void:
 		shake()
 	if player.velocity.x > 0:
 		var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR)
-		tween.tween_property(self, "position", Vector2(130, -40.0), 1.0)
-		tween.parallel().tween_property(self, "zoom", Vector2(1.5, 1.5), 1.0)
-	
+		tween.tween_property(self, "position", Vector2(130, -40.0), 0.5)
+		tween.parallel().tween_property(self, "zoom", Vector2(1.5, 1.5), 0.5)
+
 
 
 func add_camera_shake(intensity: float, duration: float = 0.5) -> void:
