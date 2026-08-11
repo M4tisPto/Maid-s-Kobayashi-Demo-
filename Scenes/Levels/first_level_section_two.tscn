@@ -35,7 +35,7 @@ size = Vector2(209, 21)
 size = Vector2(350.5, 58)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dokbh"]
-size = Vector2(356, 302)
+size = Vector2(356, 226)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qsfsn"]
 shader = ExtResource("8_yr5kx")
@@ -113,11 +113,11 @@ collision_mask = 258
 next_section_path = "uid://cfi13rgaak5hw"
 
 [node name="next_section" parent="." unique_id=98758675 instance=ExtResource("5_atqnh")]
-position = Vector2(6529, -130)
-next_section_path = "uid://b7ov52g1qjtwd"
+position = Vector2(6533, -130)
+next_section_path = "uid://bh61i7618jnc0"
 
 [node name="CollisionShape2D" parent="next_section" index="0" unique_id=1769846237]
-position = Vector2(-2777, -346)
+position = Vector2(-2777, -340)
 shape = SubResource("RectangleShape2D_dokbh")
 
 [node name="Cave_Paralax" type="Node2D" parent="." unique_id=2112391694]
