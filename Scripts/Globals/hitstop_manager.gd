@@ -20,6 +20,14 @@ func hit_stop_death():
 
 	await get_tree().create_timer(3.0, true, false, true).timeout
 
+func new_arm_stop():
+	Engine.time_scale = 0
+	
+	await get_tree().create_timer(0.96, true, false, true).timeout
+	
+	Engine.time_scale = 1
+	
+	
 
 func hit_stop_hurt():
 	AudioController.play_sound("player_hurt")

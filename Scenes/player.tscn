@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://dtq4s4fn2pf5m" path="res://Scripts/player/states/attack state machine/spin_jump.gd" id="15_h4iuc"]
 [ext_resource type="Script" uid="uid://cfssw617elq80" path="res://Scripts/player/states/attack state machine/combo_attack_1.gd" id="16_qqcod"]
 [ext_resource type="Script" uid="uid://deyh2vc8ij6br" path="res://Scripts/player/arm_manager/arm_state_machine.gd" id="18_l6n3p"]
+[ext_resource type="Script" uid="uid://b6icj62dmsr63" path="res://Scripts/state_machine/attack_state_machine/copy_arm.gd" id="18_yh6i2"]
 [ext_resource type="Script" uid="uid://bi21kqsfme3d1" path="res://Scripts/state_machine/arm_state_machine/base.gd" id="19_l6n3p"]
 [ext_resource type="PackedScene" uid="uid://cpiwob1g7rhpe" path="res://Scenes/arms_player/knuckleblaster_arm.tscn" id="19_olqyp"]
 [ext_resource type="Script" uid="uid://0pk4w6h4uvxb" path="res://Scripts/state_machine/arm_state_machine/arm_sub_states/knuckleblaster/neutral.gd" id="20_bi64h"]
@@ -961,6 +962,9 @@ idle_state = NodePath("../idle")
 
 [node name="combo_attack_1" type="Node" parent="attack_state_machine" unique_id=1140758997]
 script = ExtResource("16_qqcod")
+
+[node name="copy_arm" type="Node" parent="attack_state_machine" unique_id=613151767]
+script = ExtResource("18_yh6i2")
 
 [node name="arm_state_machine" type="Node" parent="." unique_id=517136455 node_paths=PackedStringArray("starting_state")]
 script = ExtResource("18_l6n3p")
