@@ -1,0 +1,166 @@
+[gd_scene format=3 uid="uid://k58uo0died6v"]
+
+[ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="1_p5w3q"]
+[ext_resource type="PackedScene" uid="uid://361vd8oymiyk" path="res://Scenes/door.tscn" id="2_vnxsu"]
+[ext_resource type="PackedScene" uid="uid://x1hd24jw4nrd" path="res://Scenes/camera_player.tscn" id="3_vnxsu"]
+[ext_resource type="Texture2D" uid="uid://c8ij565o3vi1p" path="res://Assets/Sprites/paralax_bgs/fondo_caverna2.png" id="4_r3i4j"]
+[ext_resource type="Shader" uid="uid://d2052u0kg4rix" path="res://Assets/shaders/chroma_shaderl.gdshader" id="5_3d475"]
+[ext_resource type="Texture2D" uid="uid://cjh6usiy8svhv" path="res://Assets/Sprites/paralax_bgs/fondo_caverna3.jpg" id="6_yil42"]
+[ext_resource type="Texture2D" uid="uid://d3xk2beaqtu2c" path="res://Assets/Sprites/paralax_bgs/fondo_caverna4.jpg" id="7_ey1je"]
+[ext_resource type="Texture2D" uid="uid://bnecalaafjmck" path="res://Assets/Sprites/paralax_bgs/fondo_caverna5.jpg" id="8_fqjxb"]
+[ext_resource type="PackedScene" uid="uid://cjab5y5fghro" path="res://Scenes/Enemies/enemy_thingi.tscn" id="9_3d475"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tavne"]
+size = Vector2(2270, 602)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jatdr"]
+size = Vector2(1501, 324)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnxsu"]
+size = Vector2(991, 660)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3i4j"]
+size = Vector2(3568, 660)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fgqqy"]
+size = Vector2(353, 47.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_27inl"]
+size = Vector2(1297.375, 622)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r3i4j"]
+radius = 78.0
+height = 308.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1huta"]
+load_path = "res://.godot/imported/fondo_caverna1.jpg-64ed9a65966a05dae31abcb7e31495ce.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yoxjh"]
+shader = ExtResource("5_3d475")
+shader_parameter/key_color = Color(0, 1, 0, 1)
+shader_parameter/similarity = 0.4830000229425
+shader_parameter/smoothness = 0.08
+shader_parameter/spill = 0.1
+
+[node name="first_level_section_final" type="Node2D" unique_id=1832514321]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=547954590]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=975110342]
+position = Vector2(561, 483)
+shape = SubResource("RectangleShape2D_tavne")
+debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1715599060]
+position = Vector2(2238.5, 26)
+shape = SubResource("RectangleShape2D_jatdr")
+debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=2120081779]
+position = Vector2(2493.5, -399)
+shape = SubResource("RectangleShape2D_vnxsu")
+debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=623891470]
+position = Vector2(1205, -1046)
+shape = SubResource("RectangleShape2D_r3i4j")
+debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1883247039]
+position = Vector2(1254, 0)
+shape = SubResource("RectangleShape2D_fgqqy")
+debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1653978331]
+position = Vector2(2340.3125, 481)
+shape = SubResource("RectangleShape2D_27inl")
+debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
+
+[node name="player" parent="." unique_id=2033633715 instance=ExtResource("1_p5w3q")]
+position = Vector2(-126, 160)
+
+[node name="CameraPlayer" parent="player" unique_id=148450751 instance=ExtResource("3_vnxsu")]
+limit_left = 92
+limit_top = -1109
+limit_right = 2748
+limit_bottom = 472
+
+[node name="Door" parent="." unique_id=1173476009 instance=ExtResource("2_vnxsu")]
+position = Vector2(2268, -510)
+next_section_path = "uid://bgnmkxr5hxg0"
+
+[node name="CollisionShape2D" parent="Door" index="0" unique_id=1025923969]
+position = Vector2(-481, 276)
+shape = SubResource("CapsuleShape2D_r3i4j")
+
+[node name="Outside_parallax" type="Node2D" parent="." unique_id=386771650]
+z_index = -4096
+position = Vector2(0, -733)
+
+[node name="Parallax2D" type="Parallax2D" parent="Outside_parallax" unique_id=21346528]
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(1819.4585, 600)
+repeat_size = Vector2(4000, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Outside_parallax/Parallax2D" unique_id=2083235431]
+texture_filter = 1
+texture = SubResource("CompressedTexture2D_1huta")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Outside_parallax" unique_id=614916635]
+scroll_scale = Vector2(0.3, 0.3)
+scroll_offset = Vector2(1819.4585, 600)
+repeat_size = Vector2(4000, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Outside_parallax/Parallax2D2" unique_id=729052470]
+texture_filter = 1
+position = Vector2(-5.015045, 0)
+texture = ExtResource("4_r3i4j")
+
+[node name="Parallax2D3" type="Parallax2D" parent="Outside_parallax" unique_id=400673612]
+scroll_scale = Vector2(0.3, 0.3)
+scroll_offset = Vector2(1819.4585, 600)
+repeat_size = Vector2(4000, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Outside_parallax/Parallax2D3" unique_id=1904624535]
+texture_filter = 1
+material = SubResource("ShaderMaterial_yoxjh")
+position = Vector2(-5.015045, 0)
+texture = ExtResource("6_yil42")
+
+[node name="Parallax2D4" type="Parallax2D" parent="Outside_parallax" unique_id=1667262132]
+scroll_scale = Vector2(0.4, 0.4)
+scroll_offset = Vector2(1819.4585, 600)
+repeat_size = Vector2(4000, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Outside_parallax/Parallax2D4" unique_id=567409173]
+texture_filter = 1
+material = SubResource("ShaderMaterial_yoxjh")
+position = Vector2(-5.015045, 0)
+texture = ExtResource("7_ey1je")
+
+[node name="Parallax2D5" type="Parallax2D" parent="Outside_parallax" unique_id=43767006]
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(1819.4585, 600)
+repeat_size = Vector2(4000, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Outside_parallax/Parallax2D5" unique_id=36298383]
+z_index = -4096
+texture_filter = 1
+material = SubResource("ShaderMaterial_yoxjh")
+position = Vector2(-5.015045, 0)
+texture = ExtResource("8_fqjxb")
+
+[node name="Enemies" type="Node2D" parent="." unique_id=177662481]
+
+[node name="enemy_stuff" parent="Enemies" unique_id=1803778493 instance=ExtResource("9_3d475")]
+position = Vector2(1244, -51)
+
+[node name="enemy_stuff2" parent="Enemies" unique_id=449325639 instance=ExtResource("9_3d475")]
+position = Vector2(1248, 161)
+
+[editable path="Door"]

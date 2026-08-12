@@ -42,7 +42,7 @@ offset_transform_position = Vector2(0, -350)
 theme_override_fonts/normal_font = ExtResource("2_1och7")
 theme_override_font_sizes/normal_font_size = 113
 bbcode_enabled = true
-text = "[wave amp=50.0 freq=2.0] GAME PAUSED![/wave]"
+text = "label_game_paused"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -59,7 +59,7 @@ layout_mode = 2
 offset_transform_enabled = true
 theme_override_fonts/font = ExtResource("2_1och7")
 theme_override_font_sizes/font_size = 67
-text = "Resume"
+text = "pause_btn_resume"
 script = ExtResource("4_vmyb1")
 
 [node name="Restart_Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1129404751]
@@ -68,7 +68,7 @@ layout_mode = 2
 offset_transform_enabled = true
 theme_override_fonts/font = ExtResource("2_1och7")
 theme_override_font_sizes/font_size = 67
-text = "Restart"
+text = "pause_btn_restart"
 script = ExtResource("4_vmyb1")
 
 [node name="Options_Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1329015965]
@@ -77,7 +77,7 @@ layout_mode = 2
 offset_transform_enabled = true
 theme_override_fonts/font = ExtResource("2_1och7")
 theme_override_font_sizes/font_size = 67
-text = "Options"
+text = "pause_btn_options"
 script = ExtResource("4_vmyb1")
 
 [node name="Exit_Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=645526447]
@@ -86,7 +86,7 @@ layout_mode = 2
 offset_transform_enabled = true
 theme_override_fonts/font = ExtResource("2_1och7")
 theme_override_font_sizes/font_size = 67
-text = "Back Menu"
+text = "pause_btn_menu"
 script = ExtResource("4_vmyb1")
 
 [node name="settings_menu" parent="." unique_id=832020221 instance=ExtResource("3_1och7")]

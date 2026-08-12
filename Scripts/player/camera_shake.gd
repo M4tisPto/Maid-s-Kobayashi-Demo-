@@ -1,5 +1,6 @@
 class_name PlayerCamera extends Camera2D
 
+@onready var player: Player = $".."
 
 @export_range(0, 1, 0.05, "or_greator") var shake_power: float = 0.5 # Overall Strengtk of shake
 @export var shake_max_offset: float = 5.0 # Maximun shake in pixels
@@ -12,10 +13,13 @@ func _ready() -> void:
 	PlayerManager.camera_shook.connect( add_camera_shake )
 
 func _physics_process(delta: float) -> void:
-	var player = Player
 	if shake_trauma > 0:
 		shake_trauma = max( shake_trauma - shake_decay * delta, 0)
 		shake()
+	if player.velocity.x > 0:
+		var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR)
+		tween.tween_property(self, "position", Vector2(130, -40.0), 0.5)
+		tween.parallel().tween_property(self, "zoom", Vector2(1.5, 1.5), 0.5)
 
 
 

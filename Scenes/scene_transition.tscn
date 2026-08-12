@@ -105,7 +105,7 @@ rotation = -1.2293234
 scale = Vector2(3.8280237, 2.5509431)
 color = Color(0, 0, 0, 1)
 offset = Vector2(-503.03412, -368.76785)
-polygon = PackedVector2Array(254.81696, 223.23642, 908, 212, 736, 538, 50, 536)
+polygon = PackedVector2Array(253.01855, 212.13065, 908, 212, 736, 538, 50, 536)
 
 [node name="Polygon2D3" type="Polygon2D" parent="." unique_id=2061140902]
 position = Vector2(2677, -1593.9998)
@@ -113,7 +113,7 @@ rotation = -1.2293234
 scale = Vector2(3.8280237, 2.5509431)
 color = Color(0, 0, 0, 1)
 offset = Vector2(-503.03412, -368.76785)
-polygon = PackedVector2Array(254.81696, 223.23642, 908, 212, 736, 538, 50, 536)
+polygon = PackedVector2Array(253.13245, 220.80649, 908, 212, 736, 538, 50, 536)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=275418431]
 libraries/ = SubResource("AnimationLibrary_vin40")

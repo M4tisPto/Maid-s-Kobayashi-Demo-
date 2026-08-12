@@ -13,6 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://bnecalaafjmck" path="res://Assets/Sprites/paralax_bgs/fondo_caverna5.jpg" id="11_qbk2e"]
 [ext_resource type="Script" uid="uid://c8bbl6uw2wk5j" path="res://Scenes/Levels/kill_zone.gd" id="12_jbhxb"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wla3b"]
+shader = ExtResource("8_eg17s")
+shader_parameter/key_color = Color(0, 1, 0, 1)
+shader_parameter/similarity = 0.4830000229425
+shader_parameter/smoothness = 0.08
+shader_parameter/spill = 0.1
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rnac6"]
 size = Vector2(1577, 366)
 
@@ -44,23 +51,89 @@ radius = 62.201286
 radius = 60.0
 height = 222.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wla3b"]
-shader = ExtResource("8_eg17s")
-shader_parameter/key_color = Color(0, 1, 0, 1)
-shader_parameter/similarity = 0.4830000229425
-shader_parameter/smoothness = 0.08
-shader_parameter/spill = 0.1
-
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oynen"]
 distance = 32.994926
 
 [node name="First_Level" type="Node2D" unique_id=2134867495]
 
+[node name="Cave_Paralax" type="Node2D" parent="." unique_id=6651115]
+z_index = -4096
+position = Vector2(0, -733)
+
+[node name="Parallax2D" type="Parallax2D" parent="Cave_Paralax" unique_id=1313730844]
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(1819.4585, 600)
+repeat_size = Vector2(4000, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Cave_Paralax/Parallax2D" unique_id=1647878292]
+texture_filter = 1
+texture = ExtResource("6_5loy5")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Cave_Paralax" unique_id=106745876]
+scroll_scale = Vector2(0.3, 0.3)
+scroll_offset = Vector2(1819.4585, 600)
+repeat_size = Vector2(4000, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Cave_Paralax/Parallax2D2" unique_id=1771813157]
+texture_filter = 1
+position = Vector2(-5.015045, 0)
+texture = ExtResource("7_l88yk")
+
+[node name="Parallax2D3" type="Parallax2D" parent="Cave_Paralax" unique_id=1118474224]
+scroll_scale = Vector2(0.3, 0.3)
+scroll_offset = Vector2(1819.4585, 600)
+repeat_size = Vector2(4000, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Cave_Paralax/Parallax2D3" unique_id=1400214508]
+texture_filter = 1
+material = SubResource("ShaderMaterial_wla3b")
+position = Vector2(-5.015045, 0)
+texture = ExtResource("9_auora")
+
+[node name="Parallax2D4" type="Parallax2D" parent="Cave_Paralax" unique_id=1468734563]
+scroll_scale = Vector2(0.4, 0.4)
+scroll_offset = Vector2(1819.4585, 600)
+repeat_size = Vector2(4000, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Cave_Paralax/Parallax2D4" unique_id=1995431422]
+texture_filter = 1
+material = SubResource("ShaderMaterial_wla3b")
+position = Vector2(-5.015045, 0)
+texture = ExtResource("10_haf4b")
+
+[node name="Parallax2D5" type="Parallax2D" parent="Cave_Paralax" unique_id=181980557]
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(1819.4585, 600)
+repeat_size = Vector2(4000, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Cave_Paralax/Parallax2D5" unique_id=784163312]
+z_index = -4096
+texture_filter = 1
+material = SubResource("ShaderMaterial_wla3b")
+position = Vector2(-5.015045, 0)
+texture = ExtResource("11_qbk2e")
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1055688645]
+
+[node name="enemy_stuff" parent="Enemies" unique_id=1803778493 instance=ExtResource("5_jbhxb")]
+position = Vector2(4506, 197)
+
+[node name="enemy_stuff2" parent="Enemies" unique_id=733085863 instance=ExtResource("5_jbhxb")]
+position = Vector2(3266, -193)
+
+[node name="enemy_stuff3" parent="Enemies" unique_id=1975246636 instance=ExtResource("5_jbhxb")]
+position = Vector2(2940, -198)
+
 [node name="player" parent="." unique_id=2033633715 instance=ExtResource("1_rnac6")]
 position = Vector2(84, -31)
 
 [node name="CameraPlayer" parent="player" unique_id=148450751 instance=ExtResource("2_wla3b")]
-position = Vector2(0, -38)
+position = Vector2(-57, -40)
 limit_left = -100
 limit_top = -500
 limit_right = 6000
@@ -180,71 +253,6 @@ next_section_path = "uid://60kxpgbn4ilo"
 [node name="CollisionShape2D" parent="Door" index="0" unique_id=1025923969]
 position = Vector2(1, -75)
 shape = SubResource("CapsuleShape2D_qrysc")
-
-[node name="enemy_stuff" parent="." unique_id=1803778493 instance=ExtResource("5_jbhxb")]
-position = Vector2(4506, 197)
-
-[node name="Cave_Paralax" type="Node2D" parent="." unique_id=6651115]
-z_index = -4096
-position = Vector2(0, -733)
-
-[node name="Parallax2D" type="Parallax2D" parent="Cave_Paralax" unique_id=1313730844]
-scroll_scale = Vector2(0.5, 0.5)
-scroll_offset = Vector2(1819.4585, 600)
-repeat_size = Vector2(4000, 0)
-repeat_times = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Cave_Paralax/Parallax2D" unique_id=1647878292]
-texture_filter = 1
-texture = ExtResource("6_5loy5")
-
-[node name="Parallax2D2" type="Parallax2D" parent="Cave_Paralax" unique_id=106745876]
-scroll_scale = Vector2(0.3, 0.3)
-scroll_offset = Vector2(1819.4585, 600)
-repeat_size = Vector2(4000, 0)
-repeat_times = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Cave_Paralax/Parallax2D2" unique_id=1771813157]
-texture_filter = 1
-position = Vector2(-5.015045, 0)
-texture = ExtResource("7_l88yk")
-
-[node name="Parallax2D3" type="Parallax2D" parent="Cave_Paralax" unique_id=1118474224]
-scroll_scale = Vector2(0.3, 0.3)
-scroll_offset = Vector2(1819.4585, 600)
-repeat_size = Vector2(4000, 0)
-repeat_times = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Cave_Paralax/Parallax2D3" unique_id=1400214508]
-texture_filter = 1
-material = SubResource("ShaderMaterial_wla3b")
-position = Vector2(-5.015045, 0)
-texture = ExtResource("9_auora")
-
-[node name="Parallax2D4" type="Parallax2D" parent="Cave_Paralax" unique_id=1468734563]
-scroll_scale = Vector2(0.4, 0.4)
-scroll_offset = Vector2(1819.4585, 600)
-repeat_size = Vector2(4000, 0)
-repeat_times = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Cave_Paralax/Parallax2D4" unique_id=1995431422]
-texture_filter = 1
-material = SubResource("ShaderMaterial_wla3b")
-position = Vector2(-5.015045, 0)
-texture = ExtResource("10_haf4b")
-
-[node name="Parallax2D5" type="Parallax2D" parent="Cave_Paralax" unique_id=181980557]
-scroll_scale = Vector2(0.5, 0.5)
-scroll_offset = Vector2(1819.4585, 600)
-repeat_size = Vector2(4000, 0)
-repeat_times = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Cave_Paralax/Parallax2D5" unique_id=784163312]
-z_index = -4096
-texture_filter = 1
-material = SubResource("ShaderMaterial_wla3b")
-position = Vector2(-5.015045, 0)
-texture = ExtResource("11_qbk2e")
 
 [node name="KillZone" type="Area2D" parent="." unique_id=460182581]
 script = ExtResource("12_jbhxb")

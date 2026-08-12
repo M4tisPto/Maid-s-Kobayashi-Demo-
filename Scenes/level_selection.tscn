@@ -33,26 +33,33 @@ offset_bottom = 1099.0
 color = Color(0.27058825, 0.2627451, 0.44705883, 1)
 
 [node name="SelectLabel" type="RichTextLabel" parent="." unique_id=324875165]
-offset_left = 371.0
-offset_top = -95.0
-offset_right = 1525.0
-offset_bottom = 204.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 223.0
+offset_top = -98.0
+offset_right = 1743.0
+offset_bottom = 201.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("3_6dews")
 theme_override_font_sizes/normal_font_size = 114
 bbcode_enabled = true
-text = "[wave amp 50.0 freq = 2] SELECT A LEVEL!"
+text = "label_level_select"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Instructions" type="RichTextLabel" parent="." unique_id=222328914]
-offset_left = 205.0
+offset_left = -18.0
 offset_top = 824.0
-offset_right = 1787.0
+offset_right = 1958.0
 offset_bottom = 1123.0
 theme_override_fonts/normal_font = ExtResource("3_6dews")
-theme_override_font_sizes/normal_font_size = 114
+theme_override_font_sizes/normal_font_size = 91
 bbcode_enabled = true
-text = "[wave amp 50.0 freq = 2] Press SPACE to enter"
+text = "label_tip_level_select"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -43,14 +43,13 @@ theme_override_constants/tab_separation = 15
 theme_override_fonts/font = ExtResource("1_icv2g")
 theme_override_font_sizes/font_size = 48
 tab_alignment = 1
-current_tab = 3
+current_tab = 0
 
-[node name="Audio" type="TabBar" parent="TabContainer" unique_id=2126431241]
-visible = false
+[node name="options_tabbar_audio" type="TabBar" parent="TabContainer" unique_id=2126431241]
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Audio" unique_id=1052409397]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/options_tabbar_audio" unique_id=1052409397]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,64 +62,64 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Audio/HBoxContainer" unique_id=2097839729]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/options_tabbar_audio/HBoxContainer" unique_id=2097839729]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 25
 alignment = 1
 
-[node name="master_label" type="RichTextLabel" parent="TabContainer/Audio/HBoxContainer/VBoxContainer" unique_id=1002939759]
+[node name="master_label" type="RichTextLabel" parent="TabContainer/options_tabbar_audio/HBoxContainer/VBoxContainer" unique_id=1002939759]
 custom_maximum_size = Vector2(500, -1)
 layout_mode = 2
 theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/normal_font = ExtResource("1_icv2g")
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
-text = "[wave amp=25.0 freq=4.0 connected=1]Master"
+text = "options_audio_master"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="volume_slider" parent="TabContainer/Audio/HBoxContainer/VBoxContainer" unique_id=1009520448 instance=ExtResource("3_3etfd")]
+[node name="volume_slider" parent="TabContainer/options_tabbar_audio/HBoxContainer/VBoxContainer" unique_id=1009520448 instance=ExtResource("3_3etfd")]
 layout_mode = 2
 bus_name = "Master"
 
-[node name="music_label" type="RichTextLabel" parent="TabContainer/Audio/HBoxContainer/VBoxContainer" unique_id=1869360216]
+[node name="music_label" type="RichTextLabel" parent="TabContainer/options_tabbar_audio/HBoxContainer/VBoxContainer" unique_id=1869360216]
 custom_maximum_size = Vector2(500, -1)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_icv2g")
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
-text = "[wave amp=25.0 freq=4.0 connected=1]Music"
+text = "options_audio_music"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="volume_slider2" parent="TabContainer/Audio/HBoxContainer/VBoxContainer" unique_id=2127011253 instance=ExtResource("3_3etfd")]
+[node name="volume_slider2" parent="TabContainer/options_tabbar_audio/HBoxContainer/VBoxContainer" unique_id=2127011253 instance=ExtResource("3_3etfd")]
 layout_mode = 2
 bus_name = "Music"
 
-[node name="sfx_label" type="RichTextLabel" parent="TabContainer/Audio/HBoxContainer/VBoxContainer" unique_id=371804165]
+[node name="sfx_label" type="RichTextLabel" parent="TabContainer/options_tabbar_audio/HBoxContainer/VBoxContainer" unique_id=371804165]
 custom_maximum_size = Vector2(500, -1)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_icv2g")
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
-text = "[wave amp=25.0 freq=4.0 connected=1]Sound Effects"
+text = "options_audio_sfx"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="volume_slider3" parent="TabContainer/Audio/HBoxContainer/VBoxContainer" unique_id=1289471235 instance=ExtResource("3_3etfd")]
+[node name="volume_slider3" parent="TabContainer/options_tabbar_audio/HBoxContainer/VBoxContainer" unique_id=1289471235 instance=ExtResource("3_3etfd")]
 custom_maximum_size = Vector2(500, -1)
 layout_mode = 2
 bus_name = "Sfx"
 
-[node name="Video" type="TabBar" parent="TabContainer" unique_id=1880844891]
+[node name="options_tabbar_video" type="TabBar" parent="TabContainer" unique_id=1880844891]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="Label" type="Label" parent="TabContainer/Video" unique_id=615112277]
+[node name="Label" type="Label" parent="TabContainer/options_tabbar_video" unique_id=615112277]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -132,12 +131,12 @@ label_settings = SubResource("LabelSettings_7y5a0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Controls" type="TabBar" parent="TabContainer" unique_id=16715544]
+[node name="oprions_tabbar_controls" type="TabBar" parent="TabContainer" unique_id=16715544]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="Panel" type="Panel" parent="TabContainer/Controls" unique_id=1650602554]
+[node name="Panel" type="Panel" parent="TabContainer/oprions_tabbar_controls" unique_id=1650602554]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -145,7 +144,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Controls/Panel" unique_id=973003587]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/oprions_tabbar_controls/Panel" unique_id=973003587]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -161,32 +160,33 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Controls/Panel/MarginContainer" unique_id=1847389176]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/oprions_tabbar_controls/Panel/MarginContainer" unique_id=1847389176]
 layout_mode = 2
 
-[node name="ActionList" type="VBoxContainer" parent="TabContainer/Controls/Panel/MarginContainer/ScrollContainer" unique_id=1328944727]
+[node name="ActionList" type="VBoxContainer" parent="TabContainer/oprions_tabbar_controls/Panel/MarginContainer/ScrollContainer" unique_id=1328944727]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 37
 
-[node name="InputButton" parent="TabContainer/Controls/Panel/MarginContainer/ScrollContainer/ActionList" unique_id=1421497798 instance=ExtResource("3_h2y1r")]
+[node name="InputButton" parent="TabContainer/oprions_tabbar_controls/Panel/MarginContainer/ScrollContainer/ActionList" unique_id=1421497798 instance=ExtResource("3_h2y1r")]
 layout_mode = 2
 script = ExtResource("5_3etfd")
 
-[node name="ResetButton" type="Button" parent="TabContainer/Controls/Panel/MarginContainer" unique_id=697401652]
+[node name="ResetButton" type="Button" parent="TabContainer/oprions_tabbar_controls/Panel/MarginContainer" unique_id=697401652]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("1_icv2g")
 theme_override_font_sizes/font_size = 67
-text = "RESET TO DEFAULT"
+text = "options_btn_reset_default"
 script = ExtResource("6_rahb6")
 
-[node name="Language" type="TabBar" parent="TabContainer" unique_id=1608982596]
+[node name="options_tabbar_language" type="TabBar" parent="TabContainer" unique_id=1608982596]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
-[node name="OptionButton" type="OptionButton" parent="TabContainer/Language" unique_id=926164551]
+[node name="OptionButton" type="OptionButton" parent="TabContainer/options_tabbar_language" unique_id=926164551]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -194,14 +194,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -552.0
-offset_top = -69.25
+offset_top = -28.75
 offset_right = 552.0
-offset_bottom = 69.25
+offset_bottom = 28.75
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_icv2g")
+theme_override_font_sizes/font_size = 75
 script = ExtResource("7_fe37x")
 
-[node name="Label" type="Label" parent="TabContainer/Language" unique_id=525522405]
+[node name="Label" type="Label" parent="TabContainer/options_tabbar_language" unique_id=525522405]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -233,9 +235,9 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("1_icv2g")
 theme_override_font_sizes/font_size = 67
-text = "Back"
+text = "options_btn_back"
 script = ExtResource("5_3etfd")
 
-[connection signal="pressed" from="TabContainer/Controls/Panel/MarginContainer/ResetButton" to="." method="_on_reset_button_pressed"]
-[connection signal="item_selected" from="TabContainer/Language/OptionButton" to="TabContainer/Language/OptionButton" method="_on_item_selected"]
+[connection signal="pressed" from="TabContainer/oprions_tabbar_controls/Panel/MarginContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="item_selected" from="TabContainer/options_tabbar_language/OptionButton" to="TabContainer/options_tabbar_language/OptionButton" method="_on_item_selected"]
 [connection signal="pressed" from="Back_Button" to="." method="_on_back_button_pressed"]
