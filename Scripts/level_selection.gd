@@ -35,7 +35,8 @@ func _input(event: InputEvent) -> void:
 			1:
 				print("second leval")
 			2:
-				print("third leval")
+				get_tree().change_scene_to_file("res://Scenes/you_are_not_supposed_to_be_here.tscn")
+				AudioController.stop_music()
 			_:
 				print("no level encountered")
 

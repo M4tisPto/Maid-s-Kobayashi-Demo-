@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bfkghagp0l60c"]
 
 [ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="1_mgs5w"]
+[ext_resource type="PackedScene" uid="uid://cjab5y5fghro" path="res://Scenes/Enemies/enemy_thingi.tscn" id="2_hemm3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hemm3"]
 size = Vector2(15912.138, 167)
@@ -34,3 +35,6 @@ shape = SubResource("RectangleShape2D_5tcv6")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=394680908]
 position = Vector2(2523, 844.00006)
 shape = SubResource("RectangleShape2D_y54gq")
+
+[node name="enemy_stuff" parent="." unique_id=1803778493 instance=ExtResource("2_hemm3")]
+position = Vector2(1241, 892)

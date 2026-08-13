@@ -129,7 +129,11 @@ position = Vector2(3266, -193)
 [node name="enemy_stuff3" parent="Enemies" unique_id=1975246636 instance=ExtResource("5_jbhxb")]
 position = Vector2(2940, -198)
 
+[node name="enemy_stuff4" parent="Enemies" unique_id=156476351 instance=ExtResource("5_jbhxb")]
+position = Vector2(737, -23)
+
 [node name="player" parent="." unique_id=2033633715 instance=ExtResource("1_rnac6")]
+visibility_layer = 33
 position = Vector2(84, -31)
 
 [node name="CameraPlayer" parent="player" unique_id=148450751 instance=ExtResource("2_wla3b")]

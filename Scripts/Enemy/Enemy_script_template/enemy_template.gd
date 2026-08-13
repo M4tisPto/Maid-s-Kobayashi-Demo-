@@ -13,4 +13,3 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		if is_on_wall():
 			direction *= -1
-	

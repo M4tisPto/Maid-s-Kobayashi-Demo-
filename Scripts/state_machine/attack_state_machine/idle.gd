@@ -1,8 +1,9 @@
 extends State
 # idle state (Attack SM)
-@export var grab_state: State
+
 @export var spín_jump_state: State
 @export var shoot_state: State
+
 var can_spin: bool = true
 
 func _process(delta: float):
@@ -22,7 +23,7 @@ func process_input(event: InputEvent) -> State:
 		can_spin = false
 		parent.spin_jump_requested = true 
 		return spín_jump_state
-		
+
 	if Input.is_action_just_pressed("attack") and Input.is_action_pressed("duck_down") and parent.velocity == Vector2.ZERO:
 		return shoot_state
 	return null

@@ -1,7 +1,6 @@
 extends State
-@export var test_change: State
-
 @onready var internal_attack_machine: Node = $"../../attack_state_machine"
+@export var copy_state: State
 
 
 func enter() -> void: 
@@ -21,11 +20,8 @@ func exit() -> void:
 	pass
 
 func process_input(event: InputEvent) -> State:
-	if Input.is_action_just_pressed("test"):
-		if test_change:
-			return test_change
-		else:
-			return null
+	if Input.is_action_just_pressed("copy_arm"):
+		return copy_state
 			
 	if internal_attack_machine and internal_attack_machine.has_method("process_input"):
 		internal_attack_machine.process_input(event)

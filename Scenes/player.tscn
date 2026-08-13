@@ -14,7 +14,6 @@
 [ext_resource type="Script" uid="uid://bpc0j3hy32ggb" path="res://Scripts/state_machine/attack_state_machine/attack_state_machine.gd" id="12_7dp3o"]
 [ext_resource type="PackedScene" uid="uid://b5mah5cwveeqh" path="res://Scenes/pause_menu.tscn" id="12_h4iuc"]
 [ext_resource type="Script" uid="uid://88h32guoxi8n" path="res://Scripts/state_machine/attack_state_machine/idle.gd" id="13_h4iuc"]
-[ext_resource type="Script" uid="uid://dhphcnju2oqqi" path="res://Scripts/state_machine/attack_state_machine/grab.gd" id="14_fd4e3"]
 [ext_resource type="Script" uid="uid://dcllrrh7ts14k" path="res://Scripts/state_machine/attack_state_machine/shoot.gd" id="15_fd4e3"]
 [ext_resource type="Script" uid="uid://dtq4s4fn2pf5m" path="res://Scripts/player/states/attack state machine/spin_jump.gd" id="15_h4iuc"]
 [ext_resource type="Script" uid="uid://cfssw617elq80" path="res://Scripts/player/states/attack state machine/combo_attack_1.gd" id="16_qqcod"]
@@ -639,6 +638,9 @@ height = 68.0
 radius = 11.0
 height = 54.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oynen"]
+size = Vector2(62, 60)
+
 [sub_resource type="Animation" id="Animation_h4iuc"]
 length = 0.001
 tracks/0/type = "value"
@@ -942,15 +944,10 @@ fall_state = NodePath("../fall")
 script = ExtResource("12_7dp3o")
 starting_state = NodePath("idle")
 
-[node name="idle" type="Node" parent="attack_state_machine" unique_id=1785631595 node_paths=PackedStringArray("grab_state", "spín_jump_state", "shoot_state")]
+[node name="idle" type="Node" parent="attack_state_machine" unique_id=1785631595 node_paths=PackedStringArray("spín_jump_state", "shoot_state")]
 script = ExtResource("13_h4iuc")
-grab_state = NodePath("../grab")
 "spín_jump_state" = NodePath("../spin_jump")
 shoot_state = NodePath("../shoot")
-
-[node name="grab" type="Node" parent="attack_state_machine" unique_id=1992588379 node_paths=PackedStringArray("idle_state")]
-script = ExtResource("14_fd4e3")
-idle_state = NodePath("../idle")
 
 [node name="spin_jump" type="Node" parent="attack_state_machine" unique_id=489328187 node_paths=PackedStringArray("idle_state")]
 script = ExtResource("15_h4iuc")
@@ -963,16 +960,18 @@ idle_state = NodePath("../idle")
 [node name="combo_attack_1" type="Node" parent="attack_state_machine" unique_id=1140758997]
 script = ExtResource("16_qqcod")
 
-[node name="copy_arm" type="Node" parent="attack_state_machine" unique_id=613151767]
-script = ExtResource("18_yh6i2")
-
 [node name="arm_state_machine" type="Node" parent="." unique_id=517136455 node_paths=PackedStringArray("starting_state")]
 script = ExtResource("18_l6n3p")
 starting_state = NodePath("base")
 
-[node name="base" type="Node" parent="arm_state_machine" unique_id=277578690 node_paths=PackedStringArray("test_change")]
+[node name="base" type="Node" parent="arm_state_machine" unique_id=277578690 node_paths=PackedStringArray("copy_state")]
 script = ExtResource("19_l6n3p")
-test_change = NodePath("../knuckleblaster_arm")
+copy_state = NodePath("../copy_arm")
+
+[node name="copy_arm" type="Node" parent="arm_state_machine" unique_id=613151767 node_paths=PackedStringArray("base_state", "knuckleblaster_state")]
+script = ExtResource("18_yh6i2")
+base_state = NodePath("../base")
+knuckleblaster_state = NodePath("../knuckleblaster_arm")
 
 [node name="knuckleblaster_arm" parent="arm_state_machine" unique_id=678069733 node_paths=PackedStringArray("test_state") instance=ExtResource("19_olqyp")]
 position = Vector2(76, -48)
@@ -1062,6 +1061,15 @@ shape = SubResource("CapsuleShape2D_2ijsl")
 position = Vector2(54, -16)
 gizmo_extents = 57.9
 
+[node name="CopyArea" type="Area2D" parent="Flip_container" unique_id=1331201659]
+collision_layer = 4
+collision_mask = 48
+
+[node name="collision_copy" type="CollisionShape2D" parent="Flip_container/CopyArea" unique_id=1027058635]
+position = Vector2(80, -30)
+shape = SubResource("RectangleShape2D_oynen")
+disabled = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2132639104]
 libraries/ = SubResource("AnimationLibrary_qqcod")
 
@@ -1075,9 +1083,22 @@ visible = false
 [node name="AnimatedSprite2D" parent="." unique_id=276828909 instance=ExtResource("32_wohnl")]
 visible = false
 
+[node name="Copy_trans" type="CanvasLayer" parent="." unique_id=486901580]
+layer = -1
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Copy_trans" unique_id=397897130]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5176471)
+
 [connection signal="animation_finished" from="Flip_container/kuckleblaster/AnimationPlayer" to="arm_state_machine/knuckleblaster_arm/neutral" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Flip_container/Hitbox" to="Flip_container/Hitbox" method="_on_body_entered"]
 [connection signal="area_entered" from="Flip_container/Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_entered" from="Flip_container/CopyArea" to="arm_state_machine/copy_arm" method="_on_copy_area_area_entered"]
 
 [editable path="arm_state_machine/knuckleblaster_arm"]
 [editable path="GUI"]

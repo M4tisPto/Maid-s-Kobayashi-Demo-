@@ -1,28 +1,23 @@
 extends State
-# idle state (Attack SM)
-@export var grab_state: State
-@export var spín_jump_state: State
-@export var shoot_state: State
-var can_spin: bool = true
-
-func _process(delta: float):
-	if parent.velocity == Vector2.ZERO:
-		parent.idle_time += delta
-	else:
-		parent.idle_time = 0.0
-		parent.screensaver.visible = false
+@export var base_state: State
+@export var knuckleblaster_state: State
+var timer = 0
+func enter() -> void:
+	timer = 0.1
+	print("copy state entered")
 	
-	if parent.idle_time >= parent.idle_limit:
-		parent.screensaver.visible = true
-	if parent.is_on_floor():
-		can_spin = true
+	parent.collision_copy.set_deferred("disabled", false)
 
-func process_input(event: InputEvent) -> State:
-	if Input.is_action_just_pressed("attack") and Input.is_action_pressed("up") and can_spin:
-		can_spin = false
-		parent.spin_jump_requested = true 
-		return spín_jump_state
-		
-	if Input.is_action_just_pressed("attack") and Input.is_action_pressed("duck_down") and parent.velocity == Vector2.ZERO:
-		return shoot_state
+func process_physics(delta: float) -> State:
+	timer -= delta
+	if parent.copy_area.get_overlapping_areas().is_empty():
+		parent.collision_copy.set_deferred("disabled", true)
+		return base_state
 	return null
+
+func _on_copy_area_area_entered(area: Area2D):
+
+	print("Collision detected with: ", area.name)
+	if area.name == "Hurtbox":
+		return knuckleblaster_state
+		

@@ -128,3 +128,12 @@ offset_bottom = 20.0
 scale = Vector2(0.19, 0.19)
 pivot_offset = Vector2(20.000042, 20)
 script = ExtResource("5_0ac8u")
+
+[node name="ColorRect" type="ColorRect" parent="CarouselContainer/Control/Inferno of Loss" unique_id=1145484779]
+layout_mode = 0
+offset_left = -13.843845
+offset_top = -4.798849
+offset_right = -4.874058
+offset_bottom = 73.05631
+rotation = -0.8391386
+color = Color(1, 1, 0, 1)

@@ -21,6 +21,9 @@ var bullet = preload("res://Scenes/bullet.tscn")
 @onready var hurtbox: Area2D = $Flip_container/Hurtbox
 @onready var health_component: Node2D = $HealthComponent
 @onready var muzzle: Marker2D = $Flip_container/Muzzle
+@onready var collision_copy: CollisionShape2D = $Flip_container/CopyArea/collision_copy
+@onready var copy_area: Area2D = $Flip_container/CopyArea
+
 
 @onready var gui_arm_text: Label = $GUI/Label
 @onready var flip_container: Node2D = $Flip_container
