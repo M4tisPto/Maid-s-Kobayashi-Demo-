@@ -118,6 +118,7 @@ locale/translations=PackedStringArray("res://Traduction/game_traduction.en.trans
 2d_physics/layer_11="Bullet"
 2d_physics/layer_12="ShockwaveHitbox"
 2d_physics/layer_13="KnuckHitbox"
+2d_physics/layer_14="PlayerCopyAbility"
 
 [maaacks_credits_scene]
 

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://d2mvcger531yi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgyga"]
+size = Vector2(172, 138)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gtvn1"]
+radius = 150.21318
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7wxo"]
+size = Vector2(506, 492)
+
+[node name="enemy_knuckleblaster" type="CharacterBody2D" unique_id=491960886]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1520962313]
+shape = SubResource("RectangleShape2D_kgyga")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=172481653]
+collision_layer = 32
+collision_mask = 7168
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=2088335279]
+shape = SubResource("CircleShape2D_gtvn1")
+disabled = true
+
+[node name="CopyArea" type="Area2D" parent="." unique_id=1734433936]
+collision_layer = 16
+collision_mask = 8192
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CopyArea" unique_id=1596321049]
+shape = SubResource("RectangleShape2D_e7wxo")
