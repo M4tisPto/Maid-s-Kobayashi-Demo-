@@ -64,7 +64,7 @@ bus = &"Sfx"
 
 [node name="PlayerHurt" type="AudioStreamPlayer" parent="Sfx" unique_id=1785710565]
 stream = ExtResource("9_xxf2r")
-volume_db = -16.0
+volume_db = -45.0
 bus = &"Sfx"
 
 [node name="PlayerDeath" type="AudioStreamPlayer" parent="Sfx" unique_id=1922425888]

@@ -79,7 +79,7 @@ func side_hit(player_dir: int) -> void:
 func shockwave_hit(player_dir: int) -> void:
 	is_stunned = true
 	velocity.y = -650
-	velocity.x = player_dir * 250 # i'll figure out how to make the player direction works in the opisite way too
+	velocity.x = player_dir * 250
 	animation_player.play("enemy_stunned_or_some_shi")
 	collision_hitbox.set_deferred("disabled", true) 
 	

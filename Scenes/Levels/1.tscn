@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cjab5y5fghro" path="res://Scenes/Enemies/enemy_thingi.tscn" id="5_jbhxb"]
 [ext_resource type="Texture2D" uid="uid://n5dflao6kocy" path="res://Assets/Sprites/paralax_bgs/fondo_caverna1.jpg" id="6_5loy5"]
 [ext_resource type="Texture2D" uid="uid://c8ij565o3vi1p" path="res://Assets/Sprites/paralax_bgs/fondo_caverna2.png" id="7_l88yk"]
-[ext_resource type="PackedScene" uid="uid://d2mvcger531yi" path="res://Scenes/enemy_knuckleblaster.tscn" id="8_5loy5"]
 [ext_resource type="Shader" uid="uid://d2052u0kg4rix" path="res://Assets/shaders/chroma_shaderl.gdshader" id="8_eg17s"]
 [ext_resource type="Texture2D" uid="uid://cjh6usiy8svhv" path="res://Assets/Sprites/paralax_bgs/fondo_caverna3.jpg" id="9_auora"]
 [ext_resource type="Texture2D" uid="uid://d3xk2beaqtu2c" path="res://Assets/Sprites/paralax_bgs/fondo_caverna4.jpg" id="10_haf4b"]
@@ -119,6 +118,17 @@ material = SubResource("ShaderMaterial_wla3b")
 position = Vector2(-5.015045, 0)
 texture = ExtResource("11_qbk2e")
 
+[node name="player" parent="." unique_id=2033633715 instance=ExtResource("1_rnac6")]
+visibility_layer = 33
+position = Vector2(84, -23)
+
+[node name="CameraPlayer" parent="player" unique_id=148450751 instance=ExtResource("2_wla3b")]
+position = Vector2(-57, -40)
+limit_left = -100
+limit_top = -500
+limit_right = 6000
+limit_bottom = 369
+
 [node name="Enemies" type="Node2D" parent="." unique_id=1055688645]
 
 [node name="enemy_stuff" parent="Enemies" unique_id=1803778493 instance=ExtResource("5_jbhxb")]
@@ -132,20 +142,6 @@ position = Vector2(2940, -198)
 
 [node name="enemy_stuff4" parent="Enemies" unique_id=156476351 instance=ExtResource("5_jbhxb")]
 position = Vector2(2463, -268)
-
-[node name="enemy_knuckleblaster" parent="Enemies" unique_id=491960886 instance=ExtResource("8_5loy5")]
-position = Vector2(790, -240)
-
-[node name="player" parent="." unique_id=2033633715 instance=ExtResource("1_rnac6")]
-visibility_layer = 33
-position = Vector2(84, -31)
-
-[node name="CameraPlayer" parent="player" unique_id=148450751 instance=ExtResource("2_wla3b")]
-position = Vector2(-57, -40)
-limit_left = -100
-limit_top = -500
-limit_right = 6000
-limit_bottom = 369
 
 [node name="Collisions" type="StaticBody2D" parent="." unique_id=1923530669]
 
@@ -263,6 +259,8 @@ position = Vector2(1, -75)
 shape = SubResource("CapsuleShape2D_qrysc")
 
 [node name="KillZone" type="Area2D" parent="." unique_id=460182581]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("12_jbhxb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=632939269]
@@ -270,6 +268,7 @@ position = Vector2(1797, 631)
 scale = Vector2(23.05, 7.88)
 shape = SubResource("WorldBoundaryShape2D_oynen")
 
+[connection signal="area_entered" from="KillZone" to="KillZone" method="_on_area_entered"]
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
 
 [editable path="breakable_blocks/Breakable_block"]

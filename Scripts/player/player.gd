@@ -10,8 +10,8 @@ var bullet = preload("res://Scenes/bullet.tscn")
 @export var hurt_state: State 
 @export var rotation_speed = 10.0
 @export var max_hp: int = 100
-@export var idle_time = 0.0
-@export var idle_limit = 5.0
+@export var idle_time: float = 0.0
+@export var idle_limit: float = 5.0
 
 @onready var sophia_animations: AnimatedSprite2D = $AnimatedSprite2D2
 @onready var current_hp: int = max_hp
@@ -23,6 +23,7 @@ var bullet = preload("res://Scenes/bullet.tscn")
 @onready var muzzle: Marker2D = $Flip_container/Muzzle
 @onready var collision_copy: CollisionShape2D = $Flip_container/CopyArea/collision_copy
 @onready var copy_area: Area2D = $Flip_container/CopyArea
+@onready var health_gui: Label = $GUI/Label2
 
 
 @onready var gui_arm_text: Label = $GUI/Label
@@ -31,6 +32,7 @@ var bullet = preload("res://Scenes/bullet.tscn")
 @onready var collision_shockwave: CollisionShape2D = $Flip_container/kuckleblaster/shockwave/collision_shockwave
 @onready var collision_spin_hitbox: CollisionShape2D = $Flip_container/Hitbox/collision_spin_hitbox
 @onready var screensaver: CanvasLayer = $screensaver
+@onready var collision_combo: CollisionShape2D = $Flip_container/ComboAttack/collision_combo
 
 
 
@@ -65,11 +67,15 @@ var is_dead: bool:
 		return _is_dead
 func _ready() -> void:
 	add_to_group("player")
+
 	movement_state_machine.init(self)
 	attack_state_machine.init(self)
 	arm_state_machine.init(self)
+
 	health_component.died.connect(die)
+
 	screensaver.visible = false
+	GameManager.load_player(self)
 func die():
 	if is_dead:
 		return

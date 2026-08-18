@@ -3,8 +3,12 @@ extends State
 
 @export var spín_jump_state: State
 @export var shoot_state: State
+@export var combo_attack: State
 
 var can_spin: bool = true
+func enter() -> void:
+	parent.collision_combo.visible = false
+	parent.collision_spin_hitbox.visible = false
 
 func _process(delta: float):
 	if parent.velocity == Vector2.ZERO:
@@ -22,8 +26,14 @@ func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_pressed("attack") and Input.is_action_pressed("up") and can_spin:
 		can_spin = false
 		parent.spin_jump_requested = true 
+		
 		return spín_jump_state
-
+	
+	if Input.is_action_just_pressed("attack") and (Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left")):
+		return combo_attack
+	
 	if Input.is_action_just_pressed("attack") and Input.is_action_pressed("duck_down") and parent.velocity == Vector2.ZERO:
+		
 		return shoot_state
+
 	return null

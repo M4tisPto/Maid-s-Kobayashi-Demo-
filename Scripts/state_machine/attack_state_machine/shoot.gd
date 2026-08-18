@@ -6,6 +6,7 @@ var timer = 0.0 # temp
 func enter() -> void:
 	timer = 0.5
 	print("imma shootin'")
+	parent.sophia_animations.play("shoot")
 	var bullet_instance = parent.bullet.instantiate() as Node2D
 	bullet_instance.direction = parent.facing_direction
 	bullet_instance.global_position = parent.muzzle.global_position

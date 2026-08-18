@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d3xk2beaqtu2c" path="res://Assets/Sprites/paralax_bgs/fondo_caverna4.jpg" id="8_av1h3"]
 [ext_resource type="PackedScene" uid="uid://cjab5y5fghro" path="res://Scenes/Enemies/enemy_thingi.tscn" id="9_e5jsy"]
 [ext_resource type="Texture2D" uid="uid://bnecalaafjmck" path="res://Assets/Sprites/paralax_bgs/fondo_caverna5.jpg" id="9_v68v6"]
+[ext_resource type="PackedScene" uid="uid://d2mvcger531yi" path="res://Scenes/enemy_knuckleblaster.tscn" id="10_xmoud"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wdmji"]
 size = Vector2(2165, 602)
@@ -146,6 +147,8 @@ position = Vector2(-5.015045, 0)
 texture = ExtResource("9_v68v6")
 
 [node name="next_section" parent="." unique_id=98758675 instance=ExtResource("3_6tw4r")]
+collision_layer = 2
+collision_mask = 2
 next_section_path = "uid://k58uo0died6v"
 
 [node name="CollisionShape2D" parent="next_section" index="0" unique_id=1769846237]
@@ -162,5 +165,8 @@ position = Vector2(1455, -197)
 
 [node name="enemy_stuff3" parent="Enemies" unique_id=1077874088 instance=ExtResource("9_e5jsy")]
 position = Vector2(1762, -195)
+
+[node name="enemy_knuckleblaster" parent="Enemies" unique_id=491960886 instance=ExtResource("10_xmoud")]
+position = Vector2(2314, -17)
 
 [editable path="next_section"]

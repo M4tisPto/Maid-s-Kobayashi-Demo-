@@ -33,6 +33,7 @@ func enter() -> void:
 	parent.collision_kuckleblaster.visible = true
 	parent.collision_shockwave.visible = true
 	parent.collision_spin_hitbox.visible = false
+	parent.collision_copy.visible = false
 	
 	for child in get_children():
 		if child is State:

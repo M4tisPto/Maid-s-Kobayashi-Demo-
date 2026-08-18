@@ -5,12 +5,15 @@ extends State
 func enter() -> void:
 	print("ducked down")
 	parent.animation_player.play("ducked")
+	parent.sophia_animations.play("duck_down")
 
 func process_input(_event: InputEvent) -> State:
 	if Input.is_action_just_released("duck_down"):
+		Input.action_release("duck_down")
 		parent.animation_player.play("RESET")
 		return idle_state
 	return null
+
 
 func process_physics(delta: float) -> State:
 	if parent.velocity.y > 0:

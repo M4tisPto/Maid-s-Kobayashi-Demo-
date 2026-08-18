@@ -1,5 +1,5 @@
 extends State
-
+# copy arms
 @export var base_state: State
 @export var knuckleblaster_state: State
 
@@ -10,7 +10,7 @@ var next_state: State = null
 func enter() -> void:
 	timer = 0.5
 	next_state = null
-
+	parent.collision_copy.visible = true
 	print("copy state entered")
 
 	parent.collision_copy.set_deferred("disabled", false)
@@ -32,5 +32,8 @@ func process_physics(delta: float) -> State:
 
 
 func _on_copy_area_area_entered(area: Area2D) -> void:
-	if area.name == "CopyArea":
+	if area.is_in_group("knuckle_enemy"):
+		HitstopManager.new_arm_stop()
+		# todo se detendra para una "animacion" de transformacion o algo asi para luego cambiar de brazo
+		# el pedo es que el jugador puede seguir cambiando de direcion
 		next_state = knuckleblaster_state

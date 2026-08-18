@@ -27,6 +27,7 @@ func _input(event: InputEvent) -> void:
 		var current_index = $CarouselContainer.selected_index
 		match current_index:
 			0:
+				GameManager.reset_player_data()
 				SceneTransition.load_scene("res://Scenes/Levels/1.tscn")
 				var tween = create_tween()
 				tween.tween_property(AudioController.current_music, "volume_db", -80, 0.8)
@@ -35,6 +36,7 @@ func _input(event: InputEvent) -> void:
 			1:
 				print("second leval")
 			2:
+				
 				get_tree().change_scene_to_file("res://Scenes/you_are_not_supposed_to_be_here.tscn")
 				AudioController.stop_music()
 			_:

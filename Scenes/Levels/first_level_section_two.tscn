@@ -114,6 +114,8 @@ next_section_path = "uid://cfi13rgaak5hw"
 
 [node name="next_section" parent="." unique_id=98758675 instance=ExtResource("5_atqnh")]
 position = Vector2(6533, -130)
+collision_layer = 2
+collision_mask = 2
 next_section_path = "uid://bh61i7618jnc0"
 
 [node name="CollisionShape2D" parent="next_section" index="0" unique_id=1769846237]
