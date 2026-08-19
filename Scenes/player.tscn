@@ -989,7 +989,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_qqcod"]
 resource_name = "combo"
 length = 1.5000100223518908
-loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1210,6 +1209,7 @@ script = ExtResource("6_f1ek2")
 fall_state = NodePath("../fall")
 idle_state = NodePath("../idle")
 jump_state = NodePath("../jump")
+move_speed = 200.0
 
 [node name="hurt" type="Node" parent="movement_state_machine" unique_id=1771181796 node_paths=PackedStringArray("idle_state")]
 script = ExtResource("10_ukyrk")
@@ -1389,6 +1389,7 @@ color = Color(0, 0, 0, 0.5176471)
 [connection signal="body_entered" from="Flip_container/Hitbox" to="Flip_container/Hitbox" method="_on_body_entered"]
 [connection signal="area_entered" from="Flip_container/Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_entered" from="Flip_container/CopyArea" to="arm_state_machine/copy_arm" method="_on_copy_area_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="attack_state_machine/combo_attack_1" method="_on_animation_player_animation_finished"]
 
 [editable path="arm_state_machine/knuckleblaster_arm"]
 [editable path="GUI"]

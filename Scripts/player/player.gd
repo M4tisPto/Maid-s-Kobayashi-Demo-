@@ -33,7 +33,7 @@ var bullet = preload("res://Scenes/bullet.tscn")
 @onready var collision_spin_hitbox: CollisionShape2D = $Flip_container/Hitbox/collision_spin_hitbox
 @onready var screensaver: CanvasLayer = $screensaver
 @onready var collision_combo: CollisionShape2D = $Flip_container/ComboAttack/collision_combo
-
+var movement_locked := false
 
 
 
@@ -94,19 +94,23 @@ func start_invulnerability_timer():
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	movement_state_machine.process_input(event)
+	if not movement_locked:
+		movement_state_machine.process_input(event)
+
 	if attack_state_machine.is_processing():
 		attack_state_machine.process_input(event)
+
 	arm_state_machine.process_input(event)
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
-	movement_state_machine.process_physics(delta)
-	attack_state_machine.process_physics(delta)
-	arm_state_machine.process_physics(delta)
 
+	if not movement_locked:
+		movement_state_machine.process_physics(delta)
+
+	attack_state_machine.process_physics(delta)
 func _process(delta: float) -> void:
 	movement_state_machine.process_frame(delta)
 	attack_state_machine.process_frame(delta)
