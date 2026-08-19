@@ -12,28 +12,24 @@ func enter() -> void:
 	next_state = null
 	parent.collision_copy.visible = true
 	print("copy state entered")
-
 	parent.collision_copy.set_deferred("disabled", false)
 
 
 func exit() -> void:
+	parent.collision_copy.visible = false
 	parent.collision_copy.set_deferred("disabled", true)
 
 
 func process_physics(delta: float) -> State:
 	timer -= delta
-
 	if next_state:
 		return next_state
 	if timer <= 0:
 		return base_state
-
 	return null
 
 
 func _on_copy_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("knuckle_enemy"):
 		HitstopManager.new_arm_stop()
-		# todo se detendra para una "animacion" de transformacion o algo asi para luego cambiar de brazo
-		# el pedo es que el jugador puede seguir cambiando de direcion
 		next_state = knuckleblaster_state

@@ -14,7 +14,8 @@ func _on_area_entered(area):
 		take_damage(3)
 	elif area.is_in_group("shockwave_player"):
 		take_damage(2)
-
+	elif area.is_in_group("player_attack_combo"):
+		take_damage(3)
 
 func take_damage(ammount: float):
 	health -= ammount

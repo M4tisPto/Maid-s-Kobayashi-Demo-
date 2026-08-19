@@ -1,7 +1,6 @@
 extends State
 
 @export var idle_state: State
-@export var attack_combo_2: State
 var animation_finished := false
 
 
@@ -14,7 +13,7 @@ func enter() -> void:
 	parent.velocity = Vector2.ZERO
 
 	parent.collision_combo.visible = true
-	parent.sophia_animations.play("attack_combo_1")
+	parent.sophia_animations.play("attack_combo_3")
 
 
 func exit() -> void:
@@ -32,10 +31,6 @@ func process_frame(delta: float) -> State:
 
 	return null
 
-func process_input(event: InputEvent) -> State:
-	if Input.is_action_pressed("attack"):
-		return attack_combo_2
-	return null
 
 
 

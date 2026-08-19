@@ -28,7 +28,6 @@ func process_physics(delta: float) -> State:
 		return jump_state
 
 	parent.velocity.y += gravity * delta
-	print("velocity:", parent.velocity.x)
 	var movement = Input.get_axis("move_left", "move_right") * move_speed
 	
 	if movement != 0:
