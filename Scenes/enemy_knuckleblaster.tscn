@@ -1,8 +1,86 @@
 [gd_scene format=3 uid="uid://d2mvcger531yi"]
 
 [ext_resource type="Script" uid="uid://1j7g1a1x6nbv" path="res://Scripts/Enemy/enemy_knuckle/enemy_knuckleblaster.gd" id="1_ift32"]
+[ext_resource type="Shader" uid="uid://d2052u0kg4rix" path="res://Assets/shaders/chroma_shaderl.gdshader" id="2_76j2w"]
 [ext_resource type="Script" uid="uid://caegefw6oor8q" path="res://Scripts/Enemy/knuckle_hitbox.gd" id="2_et347"]
 [ext_resource type="Script" uid="uid://crg7mdayxxheb" path="res://Scripts/Enemy/enemy_knuckle/hurtbox.gd" id="2_tdekl"]
+[ext_resource type="Texture2D" uid="uid://ceetwexcbcy4w" path="res://Assets/Sprites/sprite_sheet_5.png" id="3_fq3b5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gtvn1"]
+shader = ExtResource("2_76j2w")
+shader_parameter/key_color = Color(0, 1, 0, 1)
+shader_parameter/similarity = 0.4
+shader_parameter/smoothness = 0.08
+shader_parameter/spill = 0.1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76j2w"]
+atlas = ExtResource("3_fq3b5")
+region = Rect2(0, 126, 60, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq3b5"]
+atlas = ExtResource("3_fq3b5")
+region = Rect2(60, 126, 60, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6bdy"]
+atlas = ExtResource("3_fq3b5")
+region = Rect2(120, 126, 60, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkv7j"]
+atlas = ExtResource("3_fq3b5")
+region = Rect2(180, 126, 60, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1my5k"]
+atlas = ExtResource("3_fq3b5")
+region = Rect2(0, 0, 60, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtw4x"]
+atlas = ExtResource("3_fq3b5")
+region = Rect2(60, 0, 60, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tbqc"]
+atlas = ExtResource("3_fq3b5")
+region = Rect2(120, 0, 60, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajnay"]
+atlas = ExtResource("3_fq3b5")
+region = Rect2(180, 0, 60, 62)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kgyga"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76j2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq3b5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6bdy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkv7j")
+}],
+"loop": 0,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1my5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtw4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tbqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajnay")
+}],
+"loop": 1,
+"name": &"walking",
+"speed": 3.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgyga"]
 size = Vector2(134, 138)
@@ -54,10 +132,46 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../AnimatedSprite2D:sprite_frames")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_kgyga")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../AnimatedSprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../AnimatedSprite2D:animation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"attack"]
+}
 
 [sub_resource type="Animation" id="Animation_et347"]
 resource_name = "knuck_attack"
-length = 1.295
+length = 0.765
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -65,10 +179,10 @@ tracks/0/path = NodePath("CollisionShape2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.19999999, 0.5, 0.73333335, 1.0333333),
-"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5),
+"times": PackedFloat32Array(0.06666667, 0.10000001, 0.16666667, 0.2, 0.26666668, 0.5, 0.53333336, 0.6, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-7.6293945e-06, 0), Vector2(-112.000015, 0), Vector2(-112.000015, 0), Vector2(-7.6293945e-06, 0)]
+"values": [Vector2(16, 52.999996), Vector2(51.000008, 32.999992), Vector2(51.000008, 32.999992), Vector2(50.999996, 20.999998), Vector2(49.999996, 18), Vector2(49.999996, 18), Vector2(49.999996, 18), Vector2(49.999996, 28), Vector2(17.999992, 49)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -77,10 +191,10 @@ tracks/1/path = NodePath("CollisionShape2D:shape:size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.19999999, 0.5, 0.73333335, 1.0333333),
-"transitions": PackedFloat32Array(1, 0.5, 0.5, 0.5, 0.5),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.26666668, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(62, 148), Vector2(62, 148), Vector2(145.811, 148), Vector2(145.811, 148), Vector2(62, 148)]
+"values": [Vector2(149.91129, 70.092606), Vector2(149.91129, 70.092606), Vector2(149.91129, 70.092606), Vector2(149.91129, 70.092606), Vector2(149.91129, 70.092606)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -89,10 +203,46 @@ tracks/2/path = NodePath("CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.73333335),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.23333335, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [false, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../AnimatedSprite2D:sprite_frames")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_kgyga")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../AnimatedSprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.2, 0.26666668, 0.5, 0.53333336, 0.59999996, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 3, 2, 1, 0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../AnimatedSprite2D:animation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"attack"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tdekl"]
@@ -107,6 +257,15 @@ size = Vector2(178, 77)
 [node name="enemy_knuckleblaster" type="CharacterBody2D" unique_id=491960886]
 collision_layer = 8
 script = ExtResource("1_ift32")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=500811027]
+texture_filter = 1
+material = SubResource("ShaderMaterial_gtvn1")
+position = Vector2(6, 33)
+scale = Vector2(2.2333333, 2.233333)
+sprite_frames = SubResource("SpriteFrames_kgyga")
+animation = &"attack"
+autoplay = "walking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1520962313]
 position = Vector2(0, 67.99999)

@@ -3,6 +3,7 @@ extends Node
 var player: Player
 var player_health: int = 25
 var current_arm: String = "base"
+var is_collisions_checked: bool = false
 
 func save_player(player: Player) -> void:
 	if not player:
@@ -52,6 +53,9 @@ func load_arm(player: Player) -> void:
 
 		_:
 			print("Unknown arm: ", current_arm)
+
+
+
 func reset_player_data() -> void:
 	player_health = 25
 	current_arm = "base"

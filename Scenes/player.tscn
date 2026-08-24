@@ -1175,6 +1175,7 @@ scale = Vector2(1.2727273, 1.2727273)
 sprite_frames = SubResource("SpriteFrames_oynen")
 animation = &"attack_combo"
 autoplay = "idle"
+frame = 3
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=1741350484]
 position = Vector2(0, -47)
@@ -1209,7 +1210,6 @@ script = ExtResource("6_f1ek2")
 fall_state = NodePath("../fall")
 idle_state = NodePath("../idle")
 jump_state = NodePath("../jump")
-move_speed = 200.0
 
 [node name="hurt" type="Node" parent="movement_state_machine" unique_id=1771181796 node_paths=PackedStringArray("idle_state")]
 script = ExtResource("10_ukyrk")

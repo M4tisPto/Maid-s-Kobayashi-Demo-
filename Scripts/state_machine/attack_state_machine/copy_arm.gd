@@ -10,22 +10,29 @@ var next_state: State = null
 func enter() -> void:
 	timer = 0.5
 	next_state = null
-	parent.collision_copy.visible = true
+	if GameManager.is_collisions_checked:
+		parent.collision_copy.visible = true
 	print("copy state entered")
 
 	parent.collision_copy.set_deferred("disabled", false)
 
 
 func exit() -> void:
+	parent.collision_copy.visible = false
 	parent.collision_copy.set_deferred("disabled", true)
 
 
 func process_physics(delta: float) -> State:
 	timer -= delta
 
+	print("COPY TIMER:", timer)
+
 	if next_state:
+		print("COPY -> KNUCKLE")
 		return next_state
+
 	if timer <= 0:
+		print("COPY -> BASE")
 		return base_state
 
 	return null

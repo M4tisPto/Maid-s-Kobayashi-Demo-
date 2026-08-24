@@ -601,4 +601,3 @@ func _on_delete_button_pressed():
 		remove_shape_frame()
 		update()
 		emit_changed()
-

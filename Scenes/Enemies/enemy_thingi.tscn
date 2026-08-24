@@ -1,9 +1,45 @@
 [gd_scene format=3 uid="uid://cjab5y5fghro"]
 
 [ext_resource type="Script" uid="uid://o38grxoqynl4" path="res://Scripts/Enemy/enemy_doo.gd" id="1_3kuut"]
-[ext_resource type="Texture2D" uid="uid://bpar76k112vc3" path="res://Assets/Sprites/osaka-smilin.png" id="1_rm1eh"]
+[ext_resource type="Texture2D" uid="uid://bmcmamheb1w3w" path="res://Assets/Sprites/sprite_sheet_3.png" id="2_7h4k7"]
 [ext_resource type="Script" uid="uid://cbmkj6ec8s3ep" path="res://Scripts/Enemy/hitbox.gd" id="3_7h4k7"]
 [ext_resource type="Script" uid="uid://1rm1ynecrcib" path="res://Scripts/Enemy/hurtbox_enemy.gd" id="4_7h4k7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty5pr"]
+atlas = ExtResource("2_7h4k7")
+region = Rect2(0, 72, 64, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xn3dn"]
+atlas = ExtResource("2_7h4k7")
+region = Rect2(64, 72, 64, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpnwp"]
+atlas = ExtResource("2_7h4k7")
+region = Rect2(128, 72, 64, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2aunj"]
+atlas = ExtResource("2_7h4k7")
+region = Rect2(192, 72, 64, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kgyga"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ty5pr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xn3dn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpnwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2aunj")
+}],
+"loop": 1,
+"name": &"walkin",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ty5pr"]
 size = Vector2(10, 14)
@@ -166,11 +202,16 @@ scale = Vector2(1.0000001, 1.0000001)
 target_position = Vector2(0, 30)
 hit_from_inside = true
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1797301943]
-position = Vector2(0, -17)
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1599192752]
+texture_filter = 1
+position = Vector2(-1.0000001, -26)
 rotation = 6.2831855
-scale = Vector2(0.086021505, 0.086021505)
-texture = ExtResource("1_rm1eh")
+scale = Vector2(0.701, 0.701)
+sprite_frames = SubResource("SpriteFrames_kgyga")
+animation = &"walkin"
+autoplay = "walkin"
+frame = 1
+frame_progress = 0.28192395
 
 [node name="colission" type="CollisionShape2D" parent="." unique_id=1081551511]
 position = Vector2(0, -8)
