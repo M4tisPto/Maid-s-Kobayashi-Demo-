@@ -8,39 +8,38 @@ var next_state: State = null
 
 
 func enter() -> void:
-	timer = 0.5
 	next_state = null
-	if GameManager.is_collisions_checked:
-		parent.collision_copy.visible = true
+	timer = 1
 	print("copy state entered")
-
-	parent.collision_copy.set_deferred("disabled", false)
-
+	parent.velocity = Vector2.ZERO
+	parent.sophia_animations.animation_finished.connect(_on_animation_finished, CONNECT_ONE_SHOT)
+	parent.sophia_animations.play("copy_start")
+	
 
 func exit() -> void:
+	if parent.sophia_animations.animation_finished.is_connected(_on_animation_finished):
+		parent.sophia_animations.animation_finished.disconnect(_on_animation_finished)
 	parent.collision_copy.visible = false
+	parent.sophia_animations.play_backwards("copy_start")
 	parent.collision_copy.set_deferred("disabled", true)
 
+func _on_animation_finished():
+	
+	parent.sophia_animations.play("copy_loop")
+	parent.collision_copy.visible = true
+	parent.collision_copy.set_deferred("disabled", false)
 
 func process_physics(delta: float) -> State:
 	timer -= delta
-
-	print("COPY TIMER:", timer)
-
+	print(timer)
 	if next_state:
-		print("COPY -> KNUCKLE")
 		return next_state
-
 	if timer <= 0:
-		print("COPY -> BASE")
 		return base_state
-
 	return null
 
 
 func _on_copy_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("knuckle_enemy"):
 		HitstopManager.new_arm_stop()
-		# todo se detendra para una "animacion" de transformacion o algo asi para luego cambiar de brazo
-		# el pedo es que el jugador puede seguir cambiando de direcion
 		next_state = knuckleblaster_state

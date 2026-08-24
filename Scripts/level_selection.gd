@@ -34,7 +34,8 @@ func _input(event: InputEvent) -> void:
 				await tween.finished
 				AudioController.stop_music()
 			1:
-				print("second leval")
+				get_tree().change_scene_to_file("res://Scenes/you_are_not_supposed_to_be_here.tscn")
+				AudioController.stop_music()
 			2:
 				
 				get_tree().change_scene_to_file("res://Scenes/you_are_not_supposed_to_be_here.tscn")

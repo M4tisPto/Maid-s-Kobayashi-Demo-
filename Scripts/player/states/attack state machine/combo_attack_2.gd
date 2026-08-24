@@ -1,7 +1,7 @@
 extends State
 
 @export var idle_state: State
-@export var attack_combo_2: State
+@export var attack_combo_3: State
 var animation_finished := false
 var dash_speed = 50
 
@@ -13,7 +13,7 @@ func enter() -> void:
 	parent.movement_locked = true
 	if GameManager.is_collisions_checked:
 		parent.collision_combo.visible = true
-	parent.sophia_animations.play("attack_combo_1")
+	parent.sophia_animations.play("attack_combo_2")
 
 
 func exit() -> void:
@@ -33,7 +33,7 @@ func process_frame(delta: float) -> State:
 
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_pressed("attack"):
-		return attack_combo_2
+		return attack_combo_3
 	return null
 
 func process_physics(delta: float) -> State:

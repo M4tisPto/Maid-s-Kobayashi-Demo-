@@ -14,9 +14,7 @@ func enter() -> void:
 		internal_attack_machine.init(parent)
 	elif internal_attack_machine:
 		internal_attack_machine.parent = parent
-func exit() -> void:
 
-	pass
 
 func process_input(event: InputEvent) -> State:
 	var is_moving_vertical = Input.is_action_pressed("up") or Input.is_action_pressed("duck_down") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")
@@ -24,10 +22,10 @@ func process_input(event: InputEvent) -> State:
 	if internal_attack_machine and internal_attack_machine.has_method("process_input"):
 		var new_attack_state = internal_attack_machine.process_input(event)
 		if new_attack_state != null:
-			return null 
+			return null
 
 	if Input.is_action_just_pressed("attack") and is_on_air and not is_moving_vertical:
-		# si pulso el boton de ataque y esta quieto (no se mueve ni en el aire) y no se esta moviendo en movimientos verticales (evita que no se ejecute el spin_jump y shoot)
+		
 		return copy_state
 			
 	return null

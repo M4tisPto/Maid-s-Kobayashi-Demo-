@@ -18,8 +18,10 @@
 [ext_resource type="Script" uid="uid://dcllrrh7ts14k" path="res://Scripts/state_machine/attack_state_machine/shoot.gd" id="15_fd4e3"]
 [ext_resource type="Script" uid="uid://dtq4s4fn2pf5m" path="res://Scripts/player/states/attack state machine/spin_jump.gd" id="15_h4iuc"]
 [ext_resource type="Script" uid="uid://cfssw617elq80" path="res://Scripts/player/states/attack state machine/combo_attack_1.gd" id="16_qqcod"]
+[ext_resource type="Script" uid="uid://dcq71cxhslb1f" path="res://Scripts/player/states/attack state machine/combo_attack_2.gd" id="18_8gxox"]
 [ext_resource type="Script" uid="uid://deyh2vc8ij6br" path="res://Scripts/player/arm_manager/arm_state_machine.gd" id="18_l6n3p"]
 [ext_resource type="Script" uid="uid://b6icj62dmsr63" path="res://Scripts/state_machine/attack_state_machine/copy_arm.gd" id="18_yh6i2"]
+[ext_resource type="Script" uid="uid://dngk045juho6i" path="res://Scripts/player/states/attack state machine/combo_attack_3.gd" id="19_11gg7"]
 [ext_resource type="Script" uid="uid://bi21kqsfme3d1" path="res://Scripts/state_machine/arm_state_machine/base.gd" id="19_l6n3p"]
 [ext_resource type="PackedScene" uid="uid://cpiwob1g7rhpe" path="res://Scenes/arms_player/knuckleblaster_arm.tscn" id="19_olqyp"]
 [ext_resource type="Script" uid="uid://0pk4w6h4uvxb" path="res://Scripts/state_machine/arm_state_machine/arm_sub_states/knuckleblaster/neutral.gd" id="20_bi64h"]
@@ -37,8 +39,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1o6f2"]
 shader = ExtResource("3_yh6i2")
-shader_parameter/key_color = Color(0, 1, 0, 1)
-shader_parameter/similarity = 0.4
+shader_parameter/key_color = Color(0.53333336, 0.7529412, 0.44313726, 1)
+shader_parameter/similarity = 0.0
 shader_parameter/smoothness = 0.08
 shader_parameter/spill = 0.1
 
@@ -68,39 +70,67 @@ region = Rect2(320, 258, 60, 60)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pg0gw"]
 atlas = ExtResource("5_yh6i2")
-region = Rect2(384, 258, 60, 60)
+region = Rect2(378, 256, 62, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qavoy"]
 atlas = ExtResource("5_yh6i2")
-region = Rect2(448, 258, 60, 60)
+region = Rect2(441, 256, 62, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w4w4b"]
 atlas = ExtResource("5_yh6i2")
-region = Rect2(512, 258, 60, 60)
+region = Rect2(504, 256, 62, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h5cax"]
 atlas = ExtResource("5_yh6i2")
-region = Rect2(576, 258, 60, 60)
+region = Rect2(567, 256, 62, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dj0x0"]
 atlas = ExtResource("5_yh6i2")
-region = Rect2(640, 258, 60, 60)
+region = Rect2(642, 256, 62, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f1uaf"]
 atlas = ExtResource("5_yh6i2")
-region = Rect2(704, 258, 60, 60)
+region = Rect2(705, 256, 62, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6hq81"]
 atlas = ExtResource("5_yh6i2")
-region = Rect2(768, 258, 60, 60)
+region = Rect2(768, 256, 62, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5cld6"]
 atlas = ExtResource("5_yh6i2")
-region = Rect2(832, 258, 60, 60)
+region = Rect2(831, 256, 62, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o736f"]
 atlas = ExtResource("5_yh6i2")
-region = Rect2(896, 258, 60, 60)
+region = Rect2(894, 256, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ketbw"]
+atlas = ExtResource("5_yh6i2")
+region = Rect2(177, 446, 59, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4grkl"]
+atlas = ExtResource("5_yh6i2")
+region = Rect2(241, 446, 59, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yrdb"]
+atlas = ExtResource("5_yh6i2")
+region = Rect2(305, 446, 59, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ue0p1"]
+atlas = ExtResource("5_yh6i2")
+region = Rect2(369, 446, 59, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_142e3"]
+atlas = ExtResource("5_yh6i2")
+region = Rect2(0, 447, 63, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts2c8"]
+atlas = ExtResource("5_yh6i2")
+region = Rect2(63, 447, 63, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcgbs"]
+atlas = ExtResource("5_yh6i2")
+region = Rect2(126, 447, 63, 63)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bqbau"]
 atlas = ExtResource("5_yh6i2")
@@ -274,7 +304,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jsob3")
+}],
+"loop": 0,
+"name": &"attack_combo_1",
+"speed": 15.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pg0gw")
 }, {
@@ -286,7 +321,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h5cax")
+}],
+"loop": 0,
+"name": &"attack_combo_2",
+"speed": 15.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dj0x0")
 }, {
@@ -303,8 +343,39 @@ animations = [{
 "texture": SubResource("AtlasTexture_o736f")
 }],
 "loop": 0,
-"name": &"attack_combo",
-"speed": 10.0
+"name": &"attack_combo_3",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ketbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4grkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yrdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ue0p1")
+}],
+"loop": 1,
+"name": &"copy_loop",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_142e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts2c8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcgbs")
+}],
+"loop": 0,
+"name": &"copy_start",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -835,13 +906,19 @@ radius = 27.073973
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gymyn"]
 radius = 6.0
-height = 68.0
+height = 49.440002
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ijsl"]
 radius = 11.0
 height = 54.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgyga"]
+size = Vector2(24, 76.00001)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gxox"]
+size = Vector2(24, 76.00001)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11gg7"]
 size = Vector2(24, 76.00001)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oynen"]
@@ -948,7 +1025,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Flip_container/ComboAttack/collision_combo:disabled")
+tracks/8/path = NodePath("Flip_container/attack_1/collision_combo_1:disabled")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -960,7 +1037,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Flip_container/ComboAttack/collision_combo:position")
+tracks/9/path = NodePath("Flip_container/attack_1/collision_combo_1:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -984,59 +1061,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [true, false, true, false, true, false, true, false, true, false, true]
-}
-
-[sub_resource type="Animation" id="Animation_qqcod"]
-resource_name = "combo"
-length = 1.5000100223518908
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D2:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"attack_combo"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D2:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004, 1, 1.1, 1.2, 1.3000001, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Flip_container/ComboAttack/collision_combo:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.8, 1.2, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [false, true, false, true, false, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Flip_container/ComboAttack/collision_combo:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(33.999992, -44.999992)]
 }
 
 [sub_resource type="Animation" id="Animation_fs7ks"]
@@ -1152,7 +1176,6 @@ tracks/1/keys = {
 _data = {
 &"RESET": SubResource("Animation_h4iuc"),
 &"blink": SubResource("Animation_fd4e3"),
-&"combo": SubResource("Animation_qqcod"),
 &"ducked": SubResource("Animation_fs7ks"),
 &"grab": SubResource("Animation_igrcy"),
 &"spin_attack": SubResource("Animation_7dp3o")
@@ -1173,9 +1196,8 @@ material = SubResource("ShaderMaterial_1o6f2")
 position = Vector2(2.9999998, -40.715)
 scale = Vector2(1.2727273, 1.2727273)
 sprite_frames = SubResource("SpriteFrames_oynen")
-animation = &"attack_combo"
+animation = &"copy_start"
 autoplay = "idle"
-frame = 3
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=1741350484]
 position = Vector2(0, -47)
@@ -1238,8 +1260,18 @@ idle_state = NodePath("../idle")
 script = ExtResource("15_fd4e3")
 idle_state = NodePath("../idle")
 
-[node name="combo_attack_1" type="Node" parent="attack_state_machine" unique_id=1140758997 node_paths=PackedStringArray("idle_state")]
+[node name="combo_attack_1" type="Node" parent="attack_state_machine" unique_id=1140758997 node_paths=PackedStringArray("idle_state", "attack_combo_2")]
 script = ExtResource("16_qqcod")
+idle_state = NodePath("../idle")
+attack_combo_2 = NodePath("../combo_attack_2")
+
+[node name="combo_attack_2" type="Node" parent="attack_state_machine" unique_id=120730396 node_paths=PackedStringArray("idle_state", "attack_combo_3")]
+script = ExtResource("18_8gxox")
+idle_state = NodePath("../idle")
+attack_combo_3 = NodePath("../combo_attack_3")
+
+[node name="combo_attack_3" type="Node" parent="attack_state_machine" unique_id=194265038 node_paths=PackedStringArray("idle_state")]
+script = ExtResource("19_11gg7")
 idle_state = NodePath("../idle")
 
 [node name="arm_state_machine" type="Node" parent="." unique_id=517136455 node_paths=PackedStringArray("starting_state")]
@@ -1343,17 +1375,41 @@ shape = SubResource("CapsuleShape2D_2ijsl")
 position = Vector2(54, -16)
 gizmo_extents = 57.9
 
-[node name="ComboAttack" type="Area2D" parent="Flip_container" unique_id=1071137977]
+[node name="attack_1" type="Area2D" parent="Flip_container" unique_id=1071137977 groups=["player_attack_combo_1"]]
 scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 4
+collision_mask = 32
 
-[node name="collision_combo" type="CollisionShape2D" parent="Flip_container/ComboAttack" unique_id=889571797]
+[node name="collision_combo_1" type="CollisionShape2D" parent="Flip_container/attack_1" unique_id=889571797]
 position = Vector2(33.999992, -44.999992)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_kgyga")
 
+[node name="attack_2" type="Area2D" parent="Flip_container" unique_id=2946222 groups=["player_attack_combo_2"]]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 4
+collision_mask = 32
+
+[node name="collision_combo_2" type="CollisionShape2D" parent="Flip_container/attack_2" unique_id=287053814]
+position = Vector2(33.999992, -44.999992)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_8gxox")
+disabled = true
+
+[node name="attack_3" type="Area2D" parent="Flip_container" unique_id=572558253 groups=["player_attack_combo_3"]]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 4
+collision_mask = 32
+
+[node name="collision_combo_3" type="CollisionShape2D" parent="Flip_container/attack_3" unique_id=1066883444]
+position = Vector2(33.999992, -44.999992)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_11gg7")
+disabled = true
+
 [node name="CopyArea" type="Area2D" parent="Flip_container" unique_id=1331201659]
 collision_layer = 4
-collision_mask = 48
+collision_mask = 16
 
 [node name="collision_copy" type="CollisionShape2D" parent="Flip_container/CopyArea" unique_id=1027058635]
 position = Vector2(80, -30)
@@ -1385,6 +1441,9 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5176471)
 
+[connection signal="animation_finished" from="AnimatedSprite2D2" to="attack_state_machine/combo_attack_1" method="_on_animated_sprite_2d_2_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D2" to="attack_state_machine/combo_attack_2" method="_on_animated_sprite_2d_2_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D2" to="attack_state_machine/combo_attack_3" method="_on_animated_sprite_2d_2_animation_finished"]
 [connection signal="animation_finished" from="Flip_container/kuckleblaster/AnimationPlayer" to="arm_state_machine/knuckleblaster_arm/neutral" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Flip_container/Hitbox" to="Flip_container/Hitbox" method="_on_body_entered"]
 [connection signal="area_entered" from="Flip_container/Hurtbox" to="." method="_on_hurtbox_area_entered"]
