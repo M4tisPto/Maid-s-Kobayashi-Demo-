@@ -32,7 +32,12 @@ var bullet = preload("res://Scenes/bullet.tscn")
 @onready var collision_shockwave: CollisionShape2D = $Flip_container/kuckleblaster/shockwave/collision_shockwave
 @onready var collision_spin_hitbox: CollisionShape2D = $Flip_container/Hitbox/collision_spin_hitbox
 @onready var screensaver: CanvasLayer = $screensaver
-@onready var collision_combo: CollisionShape2D = $Flip_container/ComboAttack/collision_combo
+@onready var collision_combo_1: CollisionShape2D = $Flip_container/attack_1/collision_combo_1
+@onready var collision_combo_2: CollisionShape2D = $Flip_container/attack_2/collision_combo_2
+@onready var collision_combo_3: CollisionShape2D = $Flip_container/attack_3/collision_combo_3
+
+
+
 var movement_locked := false
 
 

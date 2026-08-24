@@ -915,6 +915,12 @@ height = 54.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgyga"]
 size = Vector2(24, 76.00001)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gxox"]
+size = Vector2(24, 76.00001)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11gg7"]
+size = Vector2(24, 76.00001)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oynen"]
 size = Vector2(62, 60)
 
@@ -1019,7 +1025,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Flip_container/ComboAttack/collision_combo:disabled")
+tracks/8/path = NodePath("Flip_container/attack_1/collision_combo_1:disabled")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -1031,7 +1037,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Flip_container/ComboAttack/collision_combo:position")
+tracks/9/path = NodePath("Flip_container/attack_1/collision_combo_1:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -1369,15 +1375,37 @@ shape = SubResource("CapsuleShape2D_2ijsl")
 position = Vector2(54, -16)
 gizmo_extents = 57.9
 
-[node name="ComboAttack" type="Area2D" parent="Flip_container" unique_id=1071137977 groups=["player_attack_combo"]]
+[node name="attack_1" type="Area2D" parent="Flip_container" unique_id=1071137977 groups=["player_attack_combo_1"]]
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 4
 collision_mask = 32
 
-[node name="collision_combo" type="CollisionShape2D" parent="Flip_container/ComboAttack" unique_id=889571797]
+[node name="collision_combo_1" type="CollisionShape2D" parent="Flip_container/attack_1" unique_id=889571797]
 position = Vector2(33.999992, -44.999992)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_kgyga")
+
+[node name="attack_2" type="Area2D" parent="Flip_container" unique_id=2946222 groups=["player_attack_combo_2"]]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 4
+collision_mask = 32
+
+[node name="collision_combo_2" type="CollisionShape2D" parent="Flip_container/attack_2" unique_id=287053814]
+position = Vector2(33.999992, -44.999992)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_8gxox")
+disabled = true
+
+[node name="attack_3" type="Area2D" parent="Flip_container" unique_id=572558253 groups=["player_attack_combo_3"]]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 4
+collision_mask = 32
+
+[node name="collision_combo_3" type="CollisionShape2D" parent="Flip_container/attack_3" unique_id=1066883444]
+position = Vector2(33.999992, -44.999992)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_11gg7")
+disabled = true
 
 [node name="CopyArea" type="Area2D" parent="Flip_container" unique_id=1331201659]
 collision_layer = 4

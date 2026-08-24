@@ -69,7 +69,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		else:
 			shockwave_hit(player.facing_direction)
 	if area.is_in_group("player_attack_combo"):
-		pass
+		velocity.y = -200
 func neutral_hit(player_dir: int) -> void:
 	is_stunned = true
 	velocity.x = player_dir * 550
