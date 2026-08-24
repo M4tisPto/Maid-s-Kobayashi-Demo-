@@ -2,7 +2,7 @@ extends State
 
 @export var idle_state: State
 var animation_finished := false
-
+var dash_speed = 50
 
 func enter() -> void:
 	print("entering combo state")
@@ -12,7 +12,8 @@ func enter() -> void:
 	parent.movement_locked = true
 	parent.velocity = Vector2.ZERO
 
-	parent.collision_combo.visible = true
+	if GameManager.is_collisions_checked:
+		parent.collision_combo.visible = true
 	parent.sophia_animations.play("attack_combo_3")
 
 
@@ -30,7 +31,12 @@ func process_frame(delta: float) -> State:
 		return idle_state
 
 	return null
-
+func process_physics(delta: float) -> State:
+	var movement = Input.get_axis("move_left", "move_right")
+	parent.velocity.x = movement * -dash_speed
+	print(parent.velocity.x)
+	parent.move_and_slide()
+	return null
 
 
 

@@ -110,7 +110,6 @@ func _physics_process(delta: float) -> void:
 	if not movement_locked:
 		movement_state_machine.process_physics(delta)
 	arm_state_machine.process_physics(delta)
-
 	attack_state_machine.process_physics(delta)
 func _process(delta: float) -> void:
 	if GameManager.is_collisions_checked:

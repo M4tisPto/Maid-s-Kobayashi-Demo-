@@ -39,8 +39,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1o6f2"]
 shader = ExtResource("3_yh6i2")
-shader_parameter/key_color = Color(0, 1, 0, 1)
-shader_parameter/similarity = 0.4
+shader_parameter/key_color = Color(0.53333336, 0.7529412, 0.44313726, 1)
+shader_parameter/similarity = 0.0
 shader_parameter/smoothness = 0.08
 shader_parameter/spill = 0.1
 
@@ -103,6 +103,34 @@ region = Rect2(831, 256, 62, 62)
 [sub_resource type="AtlasTexture" id="AtlasTexture_o736f"]
 atlas = ExtResource("5_yh6i2")
 region = Rect2(894, 256, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ketbw"]
+atlas = ExtResource("5_yh6i2")
+region = Rect2(177, 446, 59, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4grkl"]
+atlas = ExtResource("5_yh6i2")
+region = Rect2(241, 446, 59, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yrdb"]
+atlas = ExtResource("5_yh6i2")
+region = Rect2(305, 446, 59, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ue0p1"]
+atlas = ExtResource("5_yh6i2")
+region = Rect2(369, 446, 59, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_142e3"]
+atlas = ExtResource("5_yh6i2")
+region = Rect2(0, 447, 63, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts2c8"]
+atlas = ExtResource("5_yh6i2")
+region = Rect2(63, 447, 63, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcgbs"]
+atlas = ExtResource("5_yh6i2")
+region = Rect2(126, 447, 63, 63)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bqbau"]
 atlas = ExtResource("5_yh6i2")
@@ -317,6 +345,37 @@ animations = [{
 "loop": 0,
 "name": &"attack_combo_3",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ketbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4grkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yrdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ue0p1")
+}],
+"loop": 1,
+"name": &"copy_loop",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_142e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts2c8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcgbs")
+}],
+"loop": 0,
+"name": &"copy_start",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -847,7 +906,7 @@ radius = 27.073973
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gymyn"]
 radius = 6.0
-height = 68.0
+height = 49.440002
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ijsl"]
 radius = 11.0
@@ -1131,9 +1190,8 @@ material = SubResource("ShaderMaterial_1o6f2")
 position = Vector2(2.9999998, -40.715)
 scale = Vector2(1.2727273, 1.2727273)
 sprite_frames = SubResource("SpriteFrames_oynen")
-animation = &"attack_combo_3"
+animation = &"copy_start"
 autoplay = "idle"
-frame = 3
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=1741350484]
 position = Vector2(0, -47)

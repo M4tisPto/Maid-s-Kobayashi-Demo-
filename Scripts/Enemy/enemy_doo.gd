@@ -12,10 +12,19 @@ class_name Enemy extends CharacterBody2D
 
 var direction = 1
 var is_stunned = false
-
 func _ready() -> void:
 	update_raycast_direction()
 func _physics_process(delta: float) -> void:
+	if GameManager.is_collisions_checked:
+		$colission.visible = true
+		$Hitbox/collision_hitbox.visible = true
+		$Hurtbox/collision_hurtbox.visible = true
+		$GroundRay.visible = true
+	else:
+		$colission.visible = false
+		$Hitbox/collision_hitbox.visible = false
+		$Hurtbox/collision_hurtbox.visible = false
+		$GroundRay.visible = false
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	if not is_stunned:
@@ -46,6 +55,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 					print("side?")
 					side_hit(player.facing_direction)
 	if area.is_in_group("shockwave_player"):
+
 		var player = area.owner
 		var kb_arm = player.get_node_or_null("arm_state_machine/knuckleblaster_arm")
 		if kb_arm and kb_arm.current_sub_state:
@@ -58,6 +68,8 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 					down_hit(player.facing_direction)
 		else:
 			shockwave_hit(player.facing_direction)
+	if area.is_in_group("player_attack_combo"):
+		pass
 func neutral_hit(player_dir: int) -> void:
 	is_stunned = true
 	velocity.x = player_dir * 550

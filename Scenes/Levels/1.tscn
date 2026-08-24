@@ -145,7 +145,7 @@ position = Vector2(2940, -198)
 position = Vector2(2463, -268)
 
 [node name="enemy_knuckleblaster" parent="Enemies" unique_id=491960886 instance=ExtResource("10_5loy5")]
-position = Vector2(348, -127)
+position = Vector2(364, -102)
 
 [node name="Collisions" type="StaticBody2D" parent="." unique_id=1923530669]
 

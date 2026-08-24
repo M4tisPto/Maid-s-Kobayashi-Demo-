@@ -8,20 +8,30 @@ var next_state: State = null
 
 
 func enter() -> void:
-	timer = 0.5
 	next_state = null
-	parent.collision_copy.visible = true
+	timer = 1
 	print("copy state entered")
-	parent.collision_copy.set_deferred("disabled", false)
-
+	parent.velocity = Vector2.ZERO
+	parent.sophia_animations.animation_finished.connect(_on_animation_finished, CONNECT_ONE_SHOT)
+	parent.sophia_animations.play("copy_start")
+	
 
 func exit() -> void:
+	if parent.sophia_animations.animation_finished.is_connected(_on_animation_finished):
+		parent.sophia_animations.animation_finished.disconnect(_on_animation_finished)
 	parent.collision_copy.visible = false
+	parent.sophia_animations.play_backwards("copy_start")
 	parent.collision_copy.set_deferred("disabled", true)
 
+func _on_animation_finished():
+	
+	parent.sophia_animations.play("copy_loop")
+	parent.collision_copy.visible = true
+	parent.collision_copy.set_deferred("disabled", false)
 
 func process_physics(delta: float) -> State:
 	timer -= delta
+	print(timer)
 	if next_state:
 		return next_state
 	if timer <= 0:

@@ -50,8 +50,12 @@ func _physics_process(delta: float) -> void:
 
 func knuck_attacking() -> void:
 	gotta_attack = true
+	sprite.play("charging")
+	await  get_tree().create_timer(0.50).timeout
 	attack_knuc.play("knuck_attack")
-	await  get_tree().create_timer(0.765).timeout
+	await  get_tree().create_timer(0.305).timeout
+	$flip_area/Hitbox/shockwave/AnimationPlayer.play("shockwave")
+	await get_tree().create_timer(0.636).timeout
 	sprite.play("walking")
 	gotta_attack = false
 
@@ -68,7 +72,3 @@ func _on_detect_area_body_exited(body: Node2D) -> void:
 	if body == player:
 		is_player_near = false
 		print("not anymore")
-
-
-
-	
