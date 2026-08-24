@@ -315,4 +315,3 @@ func _on_shift_left_button_pressed():
 
 func _on_shift_right_button_pressed():
 	shift_frames_from_selected(1)
-

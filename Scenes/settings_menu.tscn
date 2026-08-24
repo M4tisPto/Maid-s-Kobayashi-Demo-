@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://ysf5qgulrn64" path="res://test/button.gd" id="5_3etfd"]
 [ext_resource type="Script" uid="uid://ibjtucbblfmd" path="res://Scripts/pause_button.gd" id="6_rahb6"]
 [ext_resource type="Script" uid="uid://cdtajdvt1ybgd" path="res://Scripts/option_button_language.gd" id="7_fe37x"]
+[ext_resource type="Script" uid="uid://c8iqpc5yarpxa" path="res://Scenes/check_button.gd" id="8_jjs6x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7y5a0"]
 font = ExtResource("1_icv2g")
@@ -43,9 +44,10 @@ theme_override_constants/tab_separation = 15
 theme_override_fonts/font = ExtResource("1_icv2g")
 theme_override_font_sizes/font_size = 48
 tab_alignment = 1
-current_tab = 0
+current_tab = 4
 
 [node name="options_tabbar_audio" type="TabBar" parent="TabContainer" unique_id=2126431241]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -221,6 +223,38 @@ label_settings = SubResource("LabelSettings_7y5a0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Extra" type="TabBar" parent="TabContainer" unique_id=1936755896]
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="Label" type="Label" parent="TabContainer/Extra" unique_id=1865985262]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -592.0
+offset_top = -269.25
+offset_right = 609.0
+offset_bottom = -196.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "Show Player's collisions?"
+label_settings = SubResource("LabelSettings_7y5a0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="TabContainer/Extra" unique_id=1204555995]
+texture_filter = 1
+layout_mode = 0
+offset_left = 786.5
+offset_top = 400.5
+offset_right = 830.5
+offset_bottom = 424.5
+scale = Vector2(6.47, 6.47)
+script = ExtResource("8_jjs6x")
+
 [node name="Back_Button" type="Button" parent="." unique_id=1827605155]
 layout_mode = 1
 anchors_preset = 12
@@ -240,4 +274,5 @@ script = ExtResource("5_3etfd")
 
 [connection signal="pressed" from="TabContainer/oprions_tabbar_controls/Panel/MarginContainer/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="item_selected" from="TabContainer/options_tabbar_language/OptionButton" to="TabContainer/options_tabbar_language/OptionButton" method="_on_item_selected"]
+[connection signal="toggled" from="TabContainer/Extra/CheckButton" to="TabContainer/Extra/CheckButton" method="_on_toggled"]
 [connection signal="pressed" from="Back_Button" to="." method="_on_back_button_pressed"]

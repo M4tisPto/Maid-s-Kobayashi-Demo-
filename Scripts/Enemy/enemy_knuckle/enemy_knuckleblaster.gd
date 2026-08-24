@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var flip_area: Node2D = $flip_area
 @export var close_distance = 45.0
 @onready var player: Player = $"../../player"
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 
 @onready var attack_knuc: AnimationPlayer = $flip_area/Hitbox/AnimationPlayer
@@ -21,9 +22,11 @@ var facing_direction := 1:
 	set(value):
 		if value != 0 and value != facing_direction:
 			facing_direction = value
-			flip_area.scale.x = -facing_direction
+			flip_area.scale.x = facing_direction
+			sprite.flip_h = facing_direction == -1
 
 func _ready() -> void:
+	
 	ground_check.add_exception(self)
 
 func _physics_process(delta: float) -> void:
@@ -48,7 +51,8 @@ func _physics_process(delta: float) -> void:
 func knuck_attacking() -> void:
 	gotta_attack = true
 	attack_knuc.play("knuck_attack")
-	await  get_tree().create_timer(0.7).timeout
+	await  get_tree().create_timer(0.765).timeout
+	sprite.play("walking")
 	gotta_attack = false
 
 

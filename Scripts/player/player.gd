@@ -109,9 +109,16 @@ func _physics_process(delta: float) -> void:
 
 	if not movement_locked:
 		movement_state_machine.process_physics(delta)
+	arm_state_machine.process_physics(delta)
 
 	attack_state_machine.process_physics(delta)
 func _process(delta: float) -> void:
+	if GameManager.is_collisions_checked:
+		$collision.visible = true
+		$Flip_container/Hurtbox/collision_hurtbox.visible = true
+	else:
+		$collision.visible = false
+		$Flip_container/Hurtbox/collision_hurtbox.visible = false
 	movement_state_machine.process_frame(delta)
 	attack_state_machine.process_frame(delta)
 	arm_state_machine.process_frame(delta)

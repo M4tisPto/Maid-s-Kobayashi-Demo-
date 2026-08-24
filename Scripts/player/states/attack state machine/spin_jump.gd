@@ -4,7 +4,8 @@ extends State
 
 func enter():
 	print("le spin")
-	parent.collision_spin_hitbox.visible = true
+	if GameManager.is_collisions_checked:
+		parent.collision_spin_hitbox.visible = true
 	parent.sophia_animations.play("spin_jump")
 	parent.animation_player.play("spin_attack")
 

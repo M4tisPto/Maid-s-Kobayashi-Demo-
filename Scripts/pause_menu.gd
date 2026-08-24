@@ -18,6 +18,7 @@ var is_on_options = false
 
 # silly animation
 func _ready() -> void:
+	process_mode = PROCESS_MODE_ALWAYS
 	for child in v_box_container.get_children():
 		if child is AnimatedButtonPause:
 			_buttons.append(child)
@@ -75,8 +76,16 @@ func _input(event: InputEvent) -> void:
 
 func toggle_pause() -> void:
 	var current_state: bool = !get_tree().paused
+	
 	get_tree().paused = current_state
 	visible = current_state
+	
+	if current_state:
+		_open = true
+		_toggle(true)
+	else:
+		_open = false
+		_toggle(false)
 
 func _on_resume_button_pressed() -> void:
 	toggle_pause()

@@ -1133,6 +1133,7 @@ scale = Vector2(1.2727273, 1.2727273)
 sprite_frames = SubResource("SpriteFrames_oynen")
 animation = &"attack_combo_3"
 autoplay = "idle"
+frame = 3
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=1741350484]
 position = Vector2(0, -47)
