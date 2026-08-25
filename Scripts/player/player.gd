@@ -39,7 +39,7 @@ var bullet = preload("res://Scenes/bullet.tscn")
 
 
 var movement_locked := false
-
+var is_copying = false
 
 
 var facing_direction := 1:

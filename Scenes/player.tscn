@@ -375,7 +375,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"copy_start",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -913,13 +913,13 @@ radius = 11.0
 height = 54.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgyga"]
-size = Vector2(24, 76.00001)
+size = Vector2(36.00002, 76.00001)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gxox"]
-size = Vector2(24, 76.00001)
+size = Vector2(36.000015, 76.00001)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11gg7"]
-size = Vector2(24, 76.00001)
+size = Vector2(36.000015, 76.00001)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oynen"]
 size = Vector2(62, 60)
@@ -1196,7 +1196,7 @@ material = SubResource("ShaderMaterial_1o6f2")
 position = Vector2(2.9999998, -40.715)
 scale = Vector2(1.2727273, 1.2727273)
 sprite_frames = SubResource("SpriteFrames_oynen")
-animation = &"copy_start"
+animation = &"run_start"
 autoplay = "idle"
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=1741350484]
@@ -1232,6 +1232,7 @@ script = ExtResource("6_f1ek2")
 fall_state = NodePath("../fall")
 idle_state = NodePath("../idle")
 jump_state = NodePath("../jump")
+move_speed = 200.0
 
 [node name="hurt" type="Node" parent="movement_state_machine" unique_id=1771181796 node_paths=PackedStringArray("idle_state")]
 script = ExtResource("10_ukyrk")
@@ -1365,11 +1366,12 @@ shape = SubResource("CapsuleShape2D_gymyn")
 debug_color = Color(0.9970613, 0, 0.18350968, 0.41960785)
 
 [node name="drill" type="Area2D" parent="Flip_container" unique_id=1685830419]
+visible = false
 
 [node name="drill_collision" type="CollisionShape2D" parent="Flip_container/drill" unique_id=702023312]
-visible = false
 position = Vector2(43, -42)
 shape = SubResource("CapsuleShape2D_2ijsl")
+disabled = true
 
 [node name="Muzzle" type="Marker2D" parent="Flip_container" unique_id=78427219]
 position = Vector2(54, -16)
@@ -1382,7 +1384,7 @@ collision_mask = 32
 
 [node name="collision_combo_1" type="CollisionShape2D" parent="Flip_container/attack_1" unique_id=889571797]
 position = Vector2(33.999992, -44.999992)
-scale = Vector2(0.99999994, 0.99999994)
+scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_kgyga")
 
 [node name="attack_2" type="Area2D" parent="Flip_container" unique_id=2946222 groups=["player_attack_combo_2"]]
@@ -1391,8 +1393,9 @@ collision_layer = 4
 collision_mask = 32
 
 [node name="collision_combo_2" type="CollisionShape2D" parent="Flip_container/attack_2" unique_id=287053814]
-position = Vector2(33.999992, -44.999992)
-scale = Vector2(0.99999994, 0.99999994)
+visible = false
+position = Vector2(39.999992, -44.999985)
+scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_8gxox")
 disabled = true
 
@@ -1402,8 +1405,9 @@ collision_layer = 4
 collision_mask = 32
 
 [node name="collision_combo_3" type="CollisionShape2D" parent="Flip_container/attack_3" unique_id=1066883444]
-position = Vector2(33.999992, -44.999992)
-scale = Vector2(0.99999994, 0.99999994)
+visible = false
+position = Vector2(39.999992, -44.999985)
+scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_11gg7")
 disabled = true
 

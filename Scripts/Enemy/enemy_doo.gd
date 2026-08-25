@@ -9,6 +9,7 @@ class_name Enemy extends CharacterBody2D
 @onready var collision_hitbox: CollisionShape2D = $Hitbox/collision_hitbox
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: AnimatedSprite2D = $Sprite2D
+@onready var collision_hurtbox: CollisionShape2D = $Hurtbox/collision_hurtbox
 
 var direction = 1
 var is_stunned = false
@@ -28,9 +29,12 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	if not is_stunned:
+		sprite.play("walkin")
 		velocity.x = direction * speed
 	else:
+		sprite.play("hurt")
 		if is_on_floor():
+			$Hitbox/collision_hitbox.set_deferred("disabled", true)
 			velocity.x = move_toward(velocity.x, 0, speed * delta * 51)
 
 	move_and_slide()
@@ -68,10 +72,27 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 					down_hit(player.facing_direction)
 		else:
 			shockwave_hit(player.facing_direction)
-	if area.is_in_group("player_attack_combo"):
-		velocity.y = -200
+	if area.is_in_group("player_attack_combo_1"):
+		HitstopManager.hit_stop_enemy_comboed()
+		if not is_stunned:
+			velocity.y = -370
+		is_stunned = true
+	if area.is_in_group("player_attack_combo_2"):
+		HitstopManager.hit_stop_enemy_comboed()
+		velocity.y = 200
+		await get_tree().create_timer(2.5).timeout
+		is_stunned = false
+
+	if area.is_in_group("player_attack_combo_3"):
+		HitstopManager.hit_stop_enemy_comboed()
+		var player = area.owner
+		velocity.x = player.facing_direction * 800 
+		await get_tree().create_timer(3.5).timeout
+		is_stunned = false
+
 func neutral_hit(player_dir: int) -> void:
 	is_stunned = true
+	
 	velocity.x = player_dir * 550
 	velocity.y = -150
 	collision_hitbox.set_deferred("disabled", true)
@@ -81,9 +102,10 @@ func neutral_hit(player_dir: int) -> void:
 	collision_hitbox.set_deferred("disabled", false)
 	is_stunned = false
 func side_hit(player_dir: int) -> void:
+	if not is_stunned:
+		velocity.y = -250
+		velocity.x = player_dir * 900
 	is_stunned = true
-	velocity.y = -250
-	velocity.x = player_dir * 900
 	collision_hitbox.set_deferred("disabled", true)
 	await get_tree().create_timer(0.15).timeout
 	velocity = Vector2.ZERO

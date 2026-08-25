@@ -21,11 +21,11 @@ func hit_stop_death():
 	await get_tree().create_timer(3.0, true, false, true).timeout
 
 func new_arm_stop():
-	Engine.time_scale = 0
+	get_tree().paused = true
 	
-	await get_tree().create_timer(0.96, true, false, true).timeout
+	await get_tree().create_timer(0.96, true, true, true).timeout
 	
-	Engine.time_scale = 1
+	get_tree().paused = false
 	
 	
 
@@ -43,4 +43,7 @@ func hit_stop_hurt():
 
 
 func hit_stop_enemy_hurt():
-		PlayerManager.shake_camera(8.0, 0.5)
+	PlayerManager.shake_camera(8.0, 1.5)
+		
+func hit_stop_enemy_comboed():
+	PlayerManager.shake_camera(8.0, 1.5)

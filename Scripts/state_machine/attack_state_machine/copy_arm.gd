@@ -10,8 +10,9 @@ var next_state: State = null
 func enter() -> void:
 	next_state = null
 	timer = 1
+	parent.sophia_animations.process_mode = Node.PROCESS_MODE_ALWAYS
 	print("copy state entered")
-	parent.velocity = Vector2.ZERO
+	parent.movement_locked = true
 	parent.sophia_animations.animation_finished.connect(_on_animation_finished, CONNECT_ONE_SHOT)
 	parent.sophia_animations.play("copy_start")
 	
@@ -22,10 +23,10 @@ func exit() -> void:
 	parent.collision_copy.visible = false
 	parent.sophia_animations.play_backwards("copy_start")
 	parent.collision_copy.set_deferred("disabled", true)
-
+	parent.movement_locked = false
 func _on_animation_finished():
 	
-	parent.sophia_animations.play("copy_loop")
+	parent.sophia_animations.play("copy_loop", )
 	parent.collision_copy.visible = true
 	parent.collision_copy.set_deferred("disabled", false)
 
@@ -41,5 +42,7 @@ func process_physics(delta: float) -> State:
 
 func _on_copy_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("knuckle_enemy"):
+		parent.is_copying = true
 		HitstopManager.new_arm_stop()
 		next_state = knuckleblaster_state
+		parent.is_copying = false

@@ -14,12 +14,14 @@ func enter() -> void:
 	if GameManager.is_collisions_checked:
 		parent.collision_combo_3.visible = true
 	parent.sophia_animations.play("attack_combo_3")
+	parent.collision_combo_3.set_deferred("disabled", false)
 
 
 func exit() -> void:
 	parent.movement_locked = false
 	parent.velocity = Vector2.ZERO
 	parent.collision_combo_3.visible = false
+	parent.collision_combo_3.set_deferred("disabled", true)
 
 
 func process_frame(delta: float) -> State:
@@ -33,7 +35,6 @@ func process_frame(delta: float) -> State:
 func process_physics(delta: float) -> State:
 	var movement = Input.get_axis("move_left", "move_right")
 	parent.velocity.x = movement * -dash_speed
-	print(parent.velocity.x)
 	parent.move_and_slide()
 	return null
 
