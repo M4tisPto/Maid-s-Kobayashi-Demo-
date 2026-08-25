@@ -7,7 +7,7 @@ extends State
 
 var can_spin: bool = true
 func enter() -> void:
-	parent.collision_combo.visible = false
+	parent.collision_combo_1.visible = false
 	parent.collision_spin_hitbox.visible = false
 
 func _process(delta: float):

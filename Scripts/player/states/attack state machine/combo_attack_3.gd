@@ -11,16 +11,15 @@ func enter() -> void:
 
 	parent.movement_locked = true
 	parent.velocity = Vector2.ZERO
-
 	if GameManager.is_collisions_checked:
-		parent.collision_combo.visible = true
+		parent.collision_combo_3.visible = true
 	parent.sophia_animations.play("attack_combo_3")
 
 
 func exit() -> void:
 	parent.movement_locked = false
 	parent.velocity = Vector2.ZERO
-	parent.collision_combo.visible = false
+	parent.collision_combo_3.visible = false
 
 
 func process_frame(delta: float) -> State:
