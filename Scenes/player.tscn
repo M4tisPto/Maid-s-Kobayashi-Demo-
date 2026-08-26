@@ -1232,7 +1232,6 @@ script = ExtResource("6_f1ek2")
 fall_state = NodePath("../fall")
 idle_state = NodePath("../idle")
 jump_state = NodePath("../jump")
-move_speed = 200.0
 
 [node name="hurt" type="Node" parent="movement_state_machine" unique_id=1771181796 node_paths=PackedStringArray("idle_state")]
 script = ExtResource("10_ukyrk")
@@ -1444,6 +1443,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5176471)
+
+[node name="CoyoteTimer" type="Timer" parent="." unique_id=1070884147]
+wait_time = 0.12
+one_shot = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D2" to="attack_state_machine/combo_attack_1" method="_on_animated_sprite_2d_2_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D2" to="attack_state_machine/combo_attack_2" method="_on_animated_sprite_2d_2_animation_finished"]

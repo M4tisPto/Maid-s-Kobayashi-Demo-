@@ -130,7 +130,7 @@ animations = [{
 size = Vector2(134, 138)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5p6s0"]
-size = Vector2(154, 323.86108)
+size = Vector2(153.76459, 313.67975)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7wxo"]
 size = Vector2(130, 281.73364)
@@ -430,11 +430,11 @@ shape = SubResource("RectangleShape2D_kgyga")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=172481653]
 collision_layer = 32
-collision_mask = 7168
+collision_mask = 7172
 script = ExtResource("2_tdekl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=2088335279]
-position = Vector2(0, 21.983017)
+position = Vector2(0.5000029, 27.500002)
 scale = Vector2(0.48775864, 0.48775864)
 shape = SubResource("RectangleShape2D_5p6s0")
 
@@ -468,6 +468,7 @@ libraries/ = SubResource("AnimationLibrary_tdekl")
 [node name="shockwave" type="Area2D" parent="flip_area/Hitbox" unique_id=1200420912 groups=["shockwave_player"]]
 collision_layer = 128
 collision_mask = 64
+script = ExtResource("2_et347")
 
 [node name="collision_shockwave" type="CollisionShape2D" parent="flip_area/Hitbox/shockwave" unique_id=1291711889]
 position = Vector2(89, 21)

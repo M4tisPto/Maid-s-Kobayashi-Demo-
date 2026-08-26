@@ -77,6 +77,8 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		if not is_stunned:
 			velocity.y = -370
 		is_stunned = true
+		await get_tree().create_timer(2.5).timeout
+		is_stunned = false
 	if area.is_in_group("player_attack_combo_2"):
 		HitstopManager.hit_stop_enemy_comboed()
 		velocity.y = 200

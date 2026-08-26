@@ -10,6 +10,7 @@
 [ext_resource type="Shader" uid="uid://d2052u0kg4rix" path="res://Assets/shaders/chroma_shaderl.gdshader" id="8_eg17s"]
 [ext_resource type="Texture2D" uid="uid://cjh6usiy8svhv" path="res://Assets/Sprites/paralax_bgs/fondo_caverna3.jpg" id="9_auora"]
 [ext_resource type="Texture2D" uid="uid://d3xk2beaqtu2c" path="res://Assets/Sprites/paralax_bgs/fondo_caverna4.jpg" id="10_haf4b"]
+[ext_resource type="PackedScene" uid="uid://d2mvcger531yi" path="res://Scenes/enemy_knuckleblaster.tscn" id="10_l88yk"]
 [ext_resource type="Texture2D" uid="uid://bnecalaafjmck" path="res://Assets/Sprites/paralax_bgs/fondo_caverna5.jpg" id="11_qbk2e"]
 [ext_resource type="Script" uid="uid://c8bbl6uw2wk5j" path="res://Scenes/Levels/kill_zone.gd" id="12_jbhxb"]
 [ext_resource type="Texture2D" uid="uid://bwwdf25wufdlw" path="res://Assets/Sprites/tile_set_maids_kobayashi.png" id="13_5loy5"]
@@ -20,6 +21,15 @@ shader_parameter/key_color = Color(0, 1, 0, 1)
 shader_parameter/similarity = 0.4830000229425
 shader_parameter/smoothness = 0.08
 shader_parameter/spill = 0.1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l88yk"]
+size = Vector2(36.00002, 76.00001)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eg17s"]
+size = Vector2(36.000015, 76.00001)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_auora"]
+size = Vector2(36.000015, 76.00001)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rnac6"]
 size = Vector2(1577, 366)
@@ -145,7 +155,16 @@ texture = ExtResource("11_qbk2e")
 
 [node name="player" parent="." unique_id=2033633715 instance=ExtResource("1_rnac6")]
 visibility_layer = 33
-position = Vector2(84, -23)
+position = Vector2(86, 6)
+
+[node name="collision_combo_1" parent="player/Flip_container/attack_1" parent_id_path=PackedInt32Array(2033633715, 1071137977) index="0" unique_id=889571797]
+shape = SubResource("RectangleShape2D_l88yk")
+
+[node name="collision_combo_2" parent="player/Flip_container/attack_2" parent_id_path=PackedInt32Array(2033633715, 2946222) index="0" unique_id=287053814]
+shape = SubResource("RectangleShape2D_eg17s")
+
+[node name="collision_combo_3" parent="player/Flip_container/attack_3" parent_id_path=PackedInt32Array(2033633715, 572558253) index="0" unique_id=1066883444]
+shape = SubResource("RectangleShape2D_auora")
 
 [node name="CameraPlayer" parent="player" unique_id=148450751 instance=ExtResource("2_wla3b")]
 position = Vector2(-57, -40)
@@ -170,6 +189,9 @@ position = Vector2(2463, -268)
 
 [node name="enemy_stuff5" parent="Enemies" unique_id=1543400228 instance=ExtResource("5_jbhxb")]
 position = Vector2(624, -26)
+
+[node name="enemy_knuckleblaster" parent="Enemies" unique_id=491960886 instance=ExtResource("10_l88yk")]
+position = Vector2(870, -141)
 
 [node name="Collisions" type="StaticBody2D" parent="." unique_id=1923530669]
 
@@ -304,6 +326,9 @@ layer_0/tile_data = PackedInt32Array(0, 65536, 0, 1, 65536, 0, 2, 65536, 0, 3, 6
 [connection signal="area_entered" from="KillZone" to="KillZone" method="_on_area_entered"]
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
 
+[editable path="player"]
+[editable path="player/arm_state_machine/knuckleblaster_arm"]
+[editable path="player/GUI"]
 [editable path="breakable_blocks/Breakable_block"]
 [editable path="breakable_blocks/Breakable_block2"]
 [editable path="breakable_blocks/Breakable_block3"]

@@ -20,7 +20,7 @@ extends CharacterBody2D
 
 var is_player_near = false
 var gotta_attack = false
-
+var is_stunned = false
 var facing_direction := 1:
 	set(value):
 		if value != 0 and value != facing_direction:
@@ -35,20 +35,20 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	if is_player_near and not gotta_attack:
-		knuck_attacking()
 	if not gotta_attack:
-		if (is_on_floor() and not ground_check.is_colliding()) or is_on_wall():
-			facing_direction = facing_direction
-			ground_check.target_position = Vector2(facing_direction * 20, 20)
-
-		if player.global_position.x > global_position.x:
-			facing_direction = 1
+		if not is_stunned:
+			if (is_on_floor() and not ground_check.is_colliding()) or is_on_wall():
+				facing_direction = facing_direction
+				ground_check.target_position = Vector2(facing_direction * 20, 20)
+			if player.global_position.x > global_position.x:
+				facing_direction = 1
+			else:
+				facing_direction = -1
+			velocity.x = facing_direction * speed
+		elif is_player_near and not gotta_attack:
+			knuck_attacking()
 		else:
-			facing_direction = -1
-		velocity.x = facing_direction * speed
-	else:
-		velocity.x = 0
+			velocity.x = move_toward(velocity.x, 0, speed * delta * 51)
 	move_and_slide()
 
 func knuck_attacking() -> void:
@@ -89,8 +89,12 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 				"side":
 					print("side?")
 					side_hit(player.facing_direction)
-
-
+	if area.is_in_group("player_attack_combo_1"):
+		is_stunned = true
+		var player = area.owner
+		velocity.x = player.facing_direction * 50
+		await get_tree().create_timer(0.7).timeout
+		is_stunned = false
 func neutral_hit(player_dir: int) -> void:
 	sprite.play("hurt")
 	velocity.x = player_dir * 550
