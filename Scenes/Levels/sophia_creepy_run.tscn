@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://owajcxlkfug1" path="res://Assets/Sprites/ezgif-2326f747b1eabd36.png" id="1_dqjew"]
 [ext_resource type="Script" uid="uid://b8runt7gl2hql" path="res://Scripts/funny/skeleton.gd" id="2_j4bsy"]
 [ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="3_j4bsy"]
+[ext_resource type="PackedScene" uid="uid://x1hd24jw4nrd" path="res://Scenes/camera_player.tscn" id="5_yhjgv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ynh7"]
 size = Vector2(3427.5, 206)
@@ -88,7 +89,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xsw5n")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 12.0
 }]
@@ -112,3 +113,5 @@ script = ExtResource("2_j4bsy")
 
 [node name="player" parent="." unique_id=2033633715 instance=ExtResource("3_j4bsy")]
 position = Vector2(1092, -121)
+
+[node name="CameraPlayer" parent="player" unique_id=148450751 instance=ExtResource("5_yhjgv")]

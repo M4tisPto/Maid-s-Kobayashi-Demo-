@@ -1,14 +1,22 @@
 extends Control
 
-@export var scroll_speed: float = 200.0
+@export var scroll_speed: float = 100.0
+const MAX_SCROLL_LIMIT: float = -3995.0
 
 func _ready() -> void:
 	AudioController.play_music("credits")
+	$Label.visible = false
 
 func _process(delta: float) -> void:
-	$VBoxContainer.position.y -= scroll_speed * delta
+	var current_speed = scroll_speed
 	if Input.is_action_pressed("accept"):
-		$VBoxContainer.position.y -= (scroll_speed * 2) * delta
+		current_speed *= 3.0 
+		
+	$VBoxContainer.position.y -= current_speed * delta
+	print($VBoxContainer.position.y)
+	if $VBoxContainer.position.y <= MAX_SCROLL_LIMIT:
+		$Label.visible = true
+		$VBoxContainer.position.y = MAX_SCROLL_LIMIT 
 	
 	if Input.is_action_just_pressed("ui_cancel"):
 		finish_credits()

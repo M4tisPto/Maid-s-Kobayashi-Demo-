@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://m0sourjnqrum"]
+
+[ext_resource type="PackedScene" uid="uid://d2vepttbubyhn" path="res://Scenes/breakable_block.tscn" id="1_6fv0g"]
+[ext_resource type="PackedScene" uid="uid://361vd8oymiyk" path="res://Scenes/door.tscn" id="2_b7p3o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oynen"]
+size = Vector2(810, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fou6e"]
+size = Vector2(264, 586)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbhvf"]
+size = Vector2(519, 218)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bphjj"]
+size = Vector2(518, 602)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8bb8"]
+size = Vector2(79, 598)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mn6w3"]
+size = Vector2(395, 449)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msx4c"]
+size = Vector2(171, 263)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nq5t5"]
+size = Vector2(432.5, 1090)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s20a8"]
+size = Vector2(2867, 308.5)
+
+[node name="SecondLevelSectionTwo" type="Node2D" unique_id=821136293]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=64350015]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=468308873]
+position = Vector2(34, 75)
+shape = SubResource("RectangleShape2D_oynen")
+debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=1337364408]
+position = Vector2(-240, -291)
+shape = SubResource("RectangleShape2D_fou6e")
+debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=207025375]
+position = Vector2(697.5, 41)
+shape = SubResource("RectangleShape2D_tbhvf")
+debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1894421303]
+position = Vector2(1218, 155)
+shape = SubResource("RectangleShape2D_bphjj")
+debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1138943571]
+position = Vector2(1684.5, 153)
+shape = SubResource("RectangleShape2D_i8bb8")
+debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=817213519]
+position = Vector2(1923.5, 225.5)
+shape = SubResource("RectangleShape2D_mn6w3")
+debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D" unique_id=138552074]
+position = Vector2(1558.5, 314.5)
+shape = SubResource("RectangleShape2D_msx4c")
+debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1727100823]
+position = Vector2(2301.25, -90)
+shape = SubResource("RectangleShape2D_nq5t5")
+debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=1830673557]
+position = Vector2(1070.5, -738.25)
+shape = SubResource("RectangleShape2D_s20a8")
+debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
+
+[node name="Breakable_block" parent="StaticBody2D" unique_id=1262483326 instance=ExtResource("1_6fv0g")]
+position = Vector2(929, -90)
+
+[node name="Breakable_block2" parent="StaticBody2D" unique_id=536669980 instance=ExtResource("1_6fv0g")]
+position = Vector2(1505, -146)
+
+[node name="Breakable_block3" parent="StaticBody2D" unique_id=1072839170 instance=ExtResource("1_6fv0g")]
+position = Vector2(1561, -146)
+
+[node name="Breakable_block4" parent="StaticBody2D" unique_id=1062273940 instance=ExtResource("1_6fv0g")]
+position = Vector2(1617, -146)
+
+[node name="Door" parent="." unique_id=1173476009 instance=ExtResource("2_b7p3o")]
+position = Vector2(1998, -56)

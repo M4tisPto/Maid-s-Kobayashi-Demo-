@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://pxc6u37syq5o"]
+
+[ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="1_rf0rw"]
+[ext_resource type="PackedScene" uid="uid://x1hd24jw4nrd" path="res://Scenes/camera_player.tscn" id="2_xutwq"]
+[ext_resource type="Script" uid="uid://c8bbl6uw2wk5j" path="res://Scenes/Levels/kill_zone.gd" id="3_x46c0"]
+[ext_resource type="PackedScene" uid="uid://361vd8oymiyk" path="res://Scenes/door.tscn" id="4_35h6i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oynen"]
+size = Vector2(1504, 380)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5n78s"]
+size = Vector2(2728, 2232)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gloo"]
+size = Vector2(1700.5, 605)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1wlq"]
+size = Vector2(1051.75, 622)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1fly"]
+size = Vector2(1949, 624)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8kunu"]
+size = Vector2(1425, 2646.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycra8"]
+size = Vector2(234, 46)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oynen"]
+distance = 32.994926
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c1fly"]
+radius = 51.0
+height = 176.0
+
+[node name="SecondLevelSectionOne" type="Node2D" unique_id=1462047561]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1040770322]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=575641364]
+position = Vector2(144, 191)
+shape = SubResource("RectangleShape2D_oynen")
+debug_color = Color(0.8791077, 0.0003800404, 0.82704955, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1407107517]
+position = Vector2(-1512, -671)
+shape = SubResource("RectangleShape2D_5n78s")
+debug_color = Color(0.8791077, 0.0003800404, 0.82704955, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=946864980]
+position = Vector2(1731.75, 124)
+shape = SubResource("RectangleShape2D_5gloo")
+debug_color = Color(0.8791077, 0.0003800404, 0.82704955, 0.41960785)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=617929680]
+position = Vector2(3683.125, 136)
+shape = SubResource("RectangleShape2D_s1wlq")
+debug_color = Color(0.8791077, 0.0003800404, 0.82704955, 0.41960785)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=292342990]
+position = Vector2(5706.5, 132)
+shape = SubResource("RectangleShape2D_c1fly")
+debug_color = Color(0.8791077, 0.0003800404, 0.82704955, 0.41960785)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=638855172]
+position = Vector2(5929.5, -1447.125)
+shape = SubResource("RectangleShape2D_8kunu")
+debug_color = Color(0.8791077, 0.0003800404, 0.82704955, 0.41960785)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=1202954416]
+position = Vector2(4478, -179)
+shape = SubResource("RectangleShape2D_ycra8")
+debug_color = Color(0.8791077, 0.0003800404, 0.82704955, 0.41960785)
+
+[node name="player" parent="." unique_id=2033633715 instance=ExtResource("1_rf0rw")]
+position = Vector2(195, -134)
+
+[node name="CameraPlayer" parent="player" unique_id=148450751 instance=ExtResource("2_xutwq")]
+position = Vector2(0, -80)
+
+[node name="KillZone" type="Area2D" parent="." unique_id=1584437774]
+position = Vector2(2869, 0)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_x46c0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=1170741348]
+position = Vector2(12, 709)
+scale = Vector2(23.05, 7.88)
+shape = SubResource("WorldBoundaryShape2D_oynen")
+
+[node name="Door" parent="." unique_id=1173476009 instance=ExtResource("4_35h6i")]
+position = Vector2(4994, -365.25)
+next_section_path = "uid://m0sourjnqrum"
+
+[node name="CollisionShape2D" parent="Door" index="0" unique_id=1025923969]
+position = Vector2(-516, 118.25)
+shape = SubResource("CapsuleShape2D_c1fly")
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1934419148]
+
+[connection signal="area_entered" from="KillZone" to="KillZone" method="_on_area_entered"]
+[connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
+
+[editable path="Door"]

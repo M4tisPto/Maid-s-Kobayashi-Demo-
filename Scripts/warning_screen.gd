@@ -4,9 +4,9 @@ extends Control
 
 # es el codigo mas simple xd
 func _ready() -> void:
+	$ColorRect/Instruccion_continue.visible = false
 	await get_tree().create_timer(0.5).timeout
 	start_sfx.play()
-
 
 func _process(delta: float) -> void:
 	await get_tree().create_timer(2.5).timeout
