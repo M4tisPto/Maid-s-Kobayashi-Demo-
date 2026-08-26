@@ -4,7 +4,7 @@ extends State
 @export var fall_state: State
 @export var idle_state: State
 @export var move_state: State
-@export var jump_force: float = 900.0
+@export var jump_force: float = 500.0
 var spin_jump_boost = 600.0
 
 func enter():
@@ -14,7 +14,7 @@ func enter():
 		parent.velocity.y = -spin_jump_boost
 		parent.spin_jump_requested = false
 	elif parent.spin_jump_requested and not parent.is_on_floor():
-		parent.velocity.y = -spin_jump_boost / 1.5
+		parent.velocity.y = -spin_jump_boost
 		parent.spin_jump_requested = false
 	else:
 		parent.sophia_animations.play("jump")
