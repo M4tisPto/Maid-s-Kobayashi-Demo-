@@ -154,7 +154,7 @@ anchor_bottom = 0.5
 offset_left = -885.25
 offset_top = -428.0
 offset_right = 885.25
-offset_bottom = 284.0
+offset_bottom = 327.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("1_7e7h7")
@@ -162,6 +162,7 @@ theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true
 text = "[center]ENG:
 This prototype of Maid's Kobayashi was made for the event of \"Feria Técnico Profesional 2026 AML\". So every feature seen here is subject to change if is thought on continue this proyect.
+(...I hope)
 -------------------------------------------------
 ESP:
 Este es un prototypo de Maid's Kobayashi hecho para el evento de Feria Técnico Profesional 2026 AML. Así que cualquier aspecto visto en este prototipo puede cambiar en un futuro si se tiene[center] pensado en continuar en este proyecto.
@@ -175,9 +176,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -468.0
-offset_top = -259.5
+offset_top = -216.5
 offset_right = 468.0
-offset_bottom = -46.5
+offset_bottom = -3.5
 grow_horizontal = 2
 grow_vertical = 0
 text = "Press space to continue.

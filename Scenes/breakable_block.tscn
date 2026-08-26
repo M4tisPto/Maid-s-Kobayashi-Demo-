@@ -6,7 +6,7 @@
 size = Vector2(56, 22)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_siljs"]
-radius = 45.01111
+radius = 49.010204
 
 [sub_resource type="Animation" id="Animation_op2hc"]
 resource_name = "Destroyed"
@@ -36,6 +36,7 @@ collision_layer = 1025
 collision_mask = 1024
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="hitbox" unique_id=1868836438]
+position = Vector2(0, -14)
 shape = SubResource("CircleShape2D_siljs")
 debug_color = Color(3.9948522e-06, 0.6498475, 0.13927913, 0.41960785)
 

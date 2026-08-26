@@ -39,19 +39,27 @@ var facing_direction := 1:
 
 
 func _ready() -> void:
+	if GameManager.is_collisions_checked:
+		$CollisionShape2D.visible = true
+		$Hurtbox/CollisionShape2D.visible = true
+		$CopyArea/CollisionShape2D.visible = true
+		$flip_area/Hitbox/CollisionShape2D.visible = true
+		$flip_area/Hitbox/shockwave/collision_shockwave.visible = true
+	else:
+		$CollisionShape2D.visible = false
+		$Hurtbox/CollisionShape2D.visible = false
+		$CopyArea/CollisionShape2D.visible = false
+		$flip_area/Hitbox/CollisionShape2D.visible = false
+		$flip_area/Hitbox/shockwave/collision_shockwave.visible = false
 	ground_check.add_exception(self)
 
 
 func _physics_process(delta: float) -> void:
 
-	# Gravedad
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
 
-	# ==========================================
-	# STUN - TIENE PRIORIDAD ABSOLUTA
-	# ==========================================
 
 	if is_stunned:
 		# No puede moverse normalmente
@@ -65,18 +73,12 @@ func _physics_process(delta: float) -> void:
 		return
 
 
-	# ==========================================
-	# ATAQUE
-	# ==========================================
 
 	if gotta_attack:
 		move_and_slide()
 		return
 
 
-	# ==========================================
-	# DETECTAR SI PUEDE ATACAR
-	# ==========================================
 
 	if is_player_near:
 		knuck_attacking()
@@ -84,9 +86,6 @@ func _physics_process(delta: float) -> void:
 		return
 
 
-	# ==========================================
-	# MOVIMIENTO NORMAL
-	# ==========================================
 
 	if (is_on_floor() and not ground_check.is_colliding()) or is_on_wall():
 		ground_check.target_position = Vector2(
@@ -103,11 +102,6 @@ func _physics_process(delta: float) -> void:
 	velocity.x = facing_direction * speed
 
 	move_and_slide()
-
-
-# =========================================================
-# ATAQUE
-# =========================================================
 
 func knuck_attacking() -> void:
 

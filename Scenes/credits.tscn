@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://bb7nxubjmtjua" path="res://Scripts/credits.gd" id="1_gryuy"]
 [ext_resource type="FontFile" uid="uid://htx0b624ho05" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="2_ccovl"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_oynen"]
+font = ExtResource("2_ccovl")
+font_size = 66
+
 [node name="Credits" type="Control" unique_id=47883041]
 layout_mode = 3
 anchors_preset = 15
@@ -13,7 +17,6 @@ offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gryuy")
-scroll_speed = null
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1719716165]
 layout_mode = 1
@@ -31,9 +34,9 @@ anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -644.0
-offset_top = 1122.0
+offset_top = 1071.0
 offset_right = 644.0
-offset_bottom = 4182.0
+offset_bottom = 4131.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -72,13 +75,36 @@ freesound.org
 
 ---------
 
-Toda música con los derechos reservados de los autores
+Music
+
+---------
+
+Ecco the Dolphin Sega CD
+Meatophobia - Pizza Tower
+Crises - Honkai: star rail
+Quiz! - Deltarune
+Charjoined - Deltarune
+Digtal Roots - Deltarune
 
 ---------
 ¡Gracias por jugar!
 
 
-Y por fin... a descanzar."
+Ahora... Sigues Tú.
+
+Crea algo para ti, por ti...
+
+Y continua siendo un@ creativ@!"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=984803338]
+visible = false
+layout_mode = 0
+offset_left = 402.0
+offset_top = 480.0
+offset_right = 1523.0
+offset_bottom = 539.0
+text = "Pulsa ESC para volver al menu."
+label_settings = SubResource("LabelSettings_oynen")

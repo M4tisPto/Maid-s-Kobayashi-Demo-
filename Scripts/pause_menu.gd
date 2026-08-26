@@ -8,7 +8,7 @@ const STAGGER := 0.06
 @onready var v_box_container: VBoxContainer = $PanelContainer/VBoxContainer
 @onready var settings_menu: Control = $settings_menu
 
-var current_level: int = 1
+var current_level: int = 2
 
 var _buttons: Array[AnimatedButtonPause] = []
 var _tween: Tween = null
