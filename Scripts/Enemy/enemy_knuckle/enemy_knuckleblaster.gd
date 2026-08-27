@@ -45,12 +45,16 @@ func _ready() -> void:
 		$CopyArea/CollisionShape2D.visible = true
 		$flip_area/Hitbox/CollisionShape2D.visible = true
 		$flip_area/Hitbox/shockwave/collision_shockwave.visible = true
+		$DetectArea/CollisionShape2D.visible = true
+		$GroundRay.visible = true
 	else:
 		$CollisionShape2D.visible = false
 		$Hurtbox/CollisionShape2D.visible = false
 		$CopyArea/CollisionShape2D.visible = false
 		$flip_area/Hitbox/CollisionShape2D.visible = false
 		$flip_area/Hitbox/shockwave/collision_shockwave.visible = false
+		$DetectArea/CollisionShape2D.visible = false
+		$GroundRay.visible = false
 	ground_check.add_exception(self)
 
 

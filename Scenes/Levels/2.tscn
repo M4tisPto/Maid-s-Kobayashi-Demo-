@@ -6,13 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://361vd8oymiyk" path="res://Scenes/door.tscn" id="4_35h6i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oynen"]
-size = Vector2(1504, 380)
+size = Vector2(2240, 380)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5n78s"]
 size = Vector2(2728, 2232)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gloo"]
-size = Vector2(1700.5, 605)
+size = Vector2(954, 605)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1wlq"]
 size = Vector2(1051.75, 622)
@@ -38,7 +38,7 @@ height = 176.0
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1040770322]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=575641364]
-position = Vector2(144, 191)
+position = Vector2(512, 191)
 shape = SubResource("RectangleShape2D_oynen")
 debug_color = Color(0.8791077, 0.0003800404, 0.82704955, 0.41960785)
 
@@ -48,7 +48,7 @@ shape = SubResource("RectangleShape2D_5n78s")
 debug_color = Color(0.8791077, 0.0003800404, 0.82704955, 0.41960785)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=946864980]
-position = Vector2(1731.75, 124)
+position = Vector2(2105, 124)
 shape = SubResource("RectangleShape2D_5gloo")
 debug_color = Color(0.8791077, 0.0003800404, 0.82704955, 0.41960785)
 

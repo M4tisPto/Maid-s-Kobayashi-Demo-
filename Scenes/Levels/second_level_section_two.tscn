@@ -2,94 +2,153 @@
 
 [ext_resource type="PackedScene" uid="uid://d2vepttbubyhn" path="res://Scenes/breakable_block.tscn" id="1_6fv0g"]
 [ext_resource type="PackedScene" uid="uid://361vd8oymiyk" path="res://Scenes/door.tscn" id="2_b7p3o"]
+[ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="3_fou6e"]
+[ext_resource type="PackedScene" uid="uid://x1hd24jw4nrd" path="res://Scenes/camera_player.tscn" id="4_tbhvf"]
+[ext_resource type="Script" uid="uid://d2hfd5wvj4ghx" path="res://Scenes/Levels/boss_appearance_range.gd" id="5_tbhvf"]
+[ext_resource type="PackedScene" uid="uid://btuy5qkt4ofla" path="res://Scenes/Enemies/mini_boss.tscn" id="6_bphjj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oynen"]
-size = Vector2(810, 150)
+size = Vector2(1006, 150)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fou6e"]
-size = Vector2(264, 586)
+size = Vector2(264, 346)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3g5v"]
+size = Vector2(417, 750)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tbhvf"]
-size = Vector2(519, 218)
+size = Vector2(759, 150)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bphjj"]
-size = Vector2(518, 602)
+size = Vector2(348, 604)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8bb8"]
-size = Vector2(79, 598)
+size = Vector2(118, 598)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mn6w3"]
-size = Vector2(395, 449)
+size = Vector2(526, 449)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msx4c"]
-size = Vector2(171, 263)
+size = Vector2(189, 477)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nq5t5"]
-size = Vector2(432.5, 1090)
+size = Vector2(870, 1090)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s20a8"]
-size = Vector2(2867, 308.5)
+size = Vector2(3759, 308.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1o6f2"]
+size = Vector2(708, 333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ef7a"]
+size = Vector2(41.75, 632)
 
 [node name="SecondLevelSectionTwo" type="Node2D" unique_id=821136293]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=64350015]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=468308873]
-position = Vector2(34, 75)
+position = Vector2(132, 75)
 shape = SubResource("RectangleShape2D_oynen")
 debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=1337364408]
-position = Vector2(-240, -291)
+position = Vector2(-229, -411)
 shape = SubResource("RectangleShape2D_fou6e")
 debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
 
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D" unique_id=544015257]
+position = Vector2(-424.5, -225)
+shape = SubResource("RectangleShape2D_g3g5v")
+debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=207025375]
-position = Vector2(697.5, 41)
+position = Vector2(1010.5, 75)
 shape = SubResource("RectangleShape2D_tbhvf")
 debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1894421303]
-position = Vector2(1218, 155)
+position = Vector2(1571, 154)
 shape = SubResource("RectangleShape2D_bphjj")
 debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1138943571]
-position = Vector2(1684.5, 153)
+position = Vector2(1977, 153)
 shape = SubResource("RectangleShape2D_i8bb8")
 debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=817213519]
-position = Vector2(1923.5, 225.5)
+position = Vector2(2297, 225.5)
 shape = SubResource("RectangleShape2D_mn6w3")
 debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D" unique_id=138552074]
-position = Vector2(1558.5, 314.5)
+position = Vector2(1832.5, 207.5)
 shape = SubResource("RectangleShape2D_msx4c")
 debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1727100823]
-position = Vector2(2301.25, -90)
+position = Vector2(2968, -90)
 shape = SubResource("RectangleShape2D_nq5t5")
 debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=1830673557]
-position = Vector2(1070.5, -738.25)
+position = Vector2(1516.5, -738.25)
 shape = SubResource("RectangleShape2D_s20a8")
 debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
 
 [node name="Breakable_block" parent="StaticBody2D" unique_id=1262483326 instance=ExtResource("1_6fv0g")]
-position = Vector2(929, -90)
+position = Vector2(1370, -60)
 
 [node name="Breakable_block2" parent="StaticBody2D" unique_id=536669980 instance=ExtResource("1_6fv0g")]
-position = Vector2(1505, -146)
+position = Vector2(1775, -146)
 
 [node name="Breakable_block3" parent="StaticBody2D" unique_id=1072839170 instance=ExtResource("1_6fv0g")]
-position = Vector2(1561, -146)
+position = Vector2(1831, -146)
 
 [node name="Breakable_block4" parent="StaticBody2D" unique_id=1062273940 instance=ExtResource("1_6fv0g")]
-position = Vector2(1617, -146)
+position = Vector2(1887, -146)
 
 [node name="Door" parent="." unique_id=1173476009 instance=ExtResource("2_b7p3o")]
-position = Vector2(1998, -56)
+position = Vector2(2343, -56)
+
+[node name="player" parent="." unique_id=2033633715 instance=ExtResource("3_fou6e")]
+position = Vector2(-160, -2)
+
+[node name="CameraPlayer" parent="player" unique_id=148450751 instance=ExtResource("4_tbhvf")]
+position = Vector2(0, -94.14)
+limit_left = 235
+limit_top = -399
+limit_right = 1023
+limit_bottom = 40
+
+[node name="boss_appearance_range" type="Area2D" parent="." unique_id=659843862]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("5_tbhvf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boss_appearance_range" unique_id=1213704955]
+visible = false
+position = Vector2(621, -183.5)
+shape = SubResource("RectangleShape2D_1o6f2")
+
+[node name="boss_ring_or_smth" type="StaticBody2D" parent="." unique_id=321767410]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boss_ring_or_smth" unique_id=526781928]
+position = Vector2(-115, -306)
+shape = SubResource("RectangleShape2D_0ef7a")
+disabled = true
+debug_color = Color(0.8596722, 0.00069327536, 0.8778854, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="boss_ring_or_smth" unique_id=29838615]
+position = Vector2(1289, -299)
+shape = SubResource("RectangleShape2D_0ef7a")
+disabled = true
+debug_color = Color(0.8596722, 0.00069327536, 0.8778854, 0.41960785)
+
+[node name="CharacterBody2D" parent="." unique_id=397095968 instance=ExtResource("6_bphjj")]
+position = Vector2(973, -104)
+scale = Vector2(2.56, 2.56)
+
+[connection signal="area_entered" from="boss_appearance_range" to="boss_appearance_range" method="_on_area_entered"]
+[connection signal="body_entered" from="boss_appearance_range" to="boss_appearance_range" method="_on_body_entered"]

@@ -32,8 +32,8 @@ shape = SubResource("RectangleShape2D_6njcg")
 debug_color = Color(0.7114401, 0.0017330921, 0.8766763, 0.41960785)
 
 [node name="hitbox" type="Area2D" parent="." unique_id=1579207377]
-collision_layer = 1025
-collision_mask = 1024
+collision_layer = 1029
+collision_mask = 1028
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="hitbox" unique_id=1868836438]
 position = Vector2(0, -14)

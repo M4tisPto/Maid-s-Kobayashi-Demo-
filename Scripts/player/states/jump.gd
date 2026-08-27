@@ -33,10 +33,11 @@ func process_physics(delta: float) -> State:
 		parent.velocity.x = move_toward(parent.velocity.x, 0, move_speed)
 
 
-	# Mecánica de saltos extras (Doble salto)
+
 	if Input.is_action_just_pressed("jump") and parent.jumps_left > 0:
 		AudioController.play_sound("jump")
-		parent.velocity.y = -jump_force * 1.2 # Fuerza fija para evitar tirones acumulativos
+		parent.sophia_animations.play("jump")
+		parent.velocity.y = -jump_force * 1.2
 		parent.jumps_left -= 1
 		print("Total jumps: " + str(parent.jumps_left))
 		

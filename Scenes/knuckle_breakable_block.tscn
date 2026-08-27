@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://u7tuqygaixam"]
+
+[ext_resource type="Script" uid="uid://bacafhc5g8opl" path="res://Scripts/player/Interactions/knuckle_breakable.gd" id="1_snlb7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqjjq"]
+size = Vector2(56, 66)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x7rn8"]
+radius = 49.010204
+
+[sub_resource type="Animation" id="Animation_op2hc"]
+resource_name = "Destroyed"
+length = 0.5
+
+[sub_resource type="Animation" id="Animation_m6bek"]
+resource_name = "Idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jswt2"]
+_data = {
+&"Destroyed": SubResource("Animation_op2hc"),
+&"Idle": SubResource("Animation_m6bek")
+}
+
+[node name="knuckle_breakable_block" type="StaticBody2D" unique_id=317009535]
+script = ExtResource("1_snlb7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1011806017]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=845794236]
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_vqjjq")
+debug_color = Color(0.7114401, 0.0017330921, 0.8766763, 0.41960785)
+
+[node name="hitbox" type="Area2D" parent="." unique_id=610858248]
+collision_layer = 6145
+collision_mask = 6144
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="hitbox" unique_id=1285970792]
+position = Vector2(0, -14)
+shape = SubResource("CircleShape2D_x7rn8")
+debug_color = Color(3.9948522e-06, 0.6498475, 0.13927913, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1416631772]
+libraries/ = SubResource("AnimationLibrary_jswt2")
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

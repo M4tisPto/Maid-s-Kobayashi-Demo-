@@ -14,7 +14,7 @@ var new_direction: int = 0
 
 
 func enter() -> void:
-
+	parent.sophia_animations.play("skid")
 	new_direction = parent.skid_direction
 
 	skid_timer = skid_frames / 60.0

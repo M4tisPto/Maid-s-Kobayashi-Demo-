@@ -32,6 +32,7 @@ func process_physics(delta: float) -> State:
 	parent.move_and_slide()
 	
 	if Input.is_action_just_pressed("jump") and parent.jumps_left > 0:
+		parent.sophia_animations.play("jump")
 		parent.jumps_left -= 1
 		print("Total jumps: " + str(parent.jumps_left))
 		AudioController.play_sound("jump")

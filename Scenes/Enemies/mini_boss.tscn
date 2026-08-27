@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://btuy5qkt4ofla"]
+
+[ext_resource type="Script" uid="uid://bqky2bmagwswe" path="res://Scripts/Enemy/mini_boss.gd" id="1_miexd"]
+[ext_resource type="Texture2D" uid="uid://cykjqvvaf5o0h" path="res://Assets/Sprites/SpriteSheets/pixilart-sprite(3).png" id="2_1dygq"]
+[ext_resource type="Script" uid="uid://b27nslw337hwm" path="res://Scripts/Enemy/mini_boss_hitbox.gd" id="3_osxkp"]
+[ext_resource type="Script" uid="uid://rifijrlixnd2" path="res://Scripts/Enemy/boss_hurtbox.gd" id="4_vxp55"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v032y"]
+atlas = ExtResource("2_1dygq")
+region = Rect2(658, 0, 94, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54goq"]
+atlas = ExtResource("2_1dygq")
+region = Rect2(564, 0, 94, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qbux"]
+atlas = ExtResource("2_1dygq")
+region = Rect2(188, 0, 94, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0trc"]
+atlas = ExtResource("2_1dygq")
+region = Rect2(282, 0, 94, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcb8b"]
+atlas = ExtResource("2_1dygq")
+region = Rect2(376, 0, 94, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kecww"]
+atlas = ExtResource("2_1dygq")
+region = Rect2(470, 0, 94, 94)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oynen"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v032y")
+}],
+"loop": 1,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54goq")
+}],
+"loop": 1,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qbux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0trc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcb8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kecww")
+}],
+"loop": 1,
+"name": &"walkin",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oynen"]
+size = Vector2(54, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wj442"]
+size = Vector2(58, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_delpl"]
+size = Vector2(50, 53)
+
+[node name="mini_boss" type="CharacterBody2D" unique_id=397095968]
+collision_layer = 8
+script = ExtResource("1_miexd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1835240662]
+sprite_frames = SubResource("SpriteFrames_oynen")
+animation = &"walkin"
+frame_progress = 0.021585425
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=2028474557]
+position = Vector2(2, 40)
+shape = SubResource("RectangleShape2D_oynen")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1502245273]
+collision_layer = 128
+collision_mask = 64
+script = ExtResource("3_osxkp")
+
+[node name="collision_hitbox" type="CollisionShape2D" parent="Hitbox" unique_id=1535909273]
+position = Vector2(2, 17.5)
+shape = SubResource("RectangleShape2D_wj442")
+debug_color = Color(0.89129084, 2.7193873e-06, 5.7756904e-07, 0.41960785)
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1640453382]
+collision_layer = 32
+collision_mask = 7172
+script = ExtResource("4_vxp55")
+
+[node name="collision_hurtbox" type="CollisionShape2D" parent="Hurtbox" unique_id=2028021920]
+position = Vector2(2, 21.5)
+shape = SubResource("RectangleShape2D_delpl")
+debug_color = Color(0, 1, 0, 0.41960785)
+
+[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]
