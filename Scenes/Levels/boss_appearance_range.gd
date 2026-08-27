@@ -20,4 +20,5 @@ func _on_body_entered(body: Node2D) -> void:
 		$"../boss_ring_or_smth/CollisionShape2D".set_deferred("disabled", false)
 		$"../boss_ring_or_smth/CollisionShape2D2".set_deferred("disabled", false)
 		$CollisionShape2D.set_deferred("disabled", true)
+
 # then idk how to do that when the mini boss dies all will be back to normal (both lmit camera and alldat)

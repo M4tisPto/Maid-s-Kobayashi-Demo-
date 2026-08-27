@@ -21,38 +21,36 @@ func _physics_process(delta: float) -> void:
 		update_collisions_visibility()
 		
 	if hit_wall_stunned:
-		move_and_slide()
 		return
 		
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	else:
-		velocity.y = 0
 		
+	
 	if is_on_wall() and not hit_wall_stunned:
 		trigger_wall_stun()
 	else:
 		if not hit_wall_stunned:
 			sprite.play("walkin")
+			velocity.x = direction * speed
 		
-	velocity.x = direction * speed
 	move_and_slide()
 
 # bump on wall on opposite direction but goes flying up and hittiing between walls for some reasons
 func trigger_wall_stun() -> void:
 	if hit_wall_stunned:
-		return # Prevent re-triggering while already stunned
+		return 
 		
 	hit_wall_stunned = true
-	direction *= -1 # Flip direction first so we push AWAY from the wall
+	direction *= -1
 	sprite.flip_h = direction == 1
 	
-	velocity.x = direction * 400 # Match normal speed or slight boost
-	velocity.y = -50 # Controlled upward pop
+	velocity.x = direction * 400 
+	velocity.y = -50
 	
 	sprite.play("hurt")
 	
-	await get_tree().create_timer(0.5).timeout # Shorter stun often feels better
+	await get_tree().create_timer(2.5).timeout
 	hit_wall_stunned = false
 
 

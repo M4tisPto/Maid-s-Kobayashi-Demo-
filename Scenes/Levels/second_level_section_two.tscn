@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="3_fou6e"]
 [ext_resource type="PackedScene" uid="uid://x1hd24jw4nrd" path="res://Scenes/camera_player.tscn" id="4_tbhvf"]
 [ext_resource type="Script" uid="uid://d2hfd5wvj4ghx" path="res://Scenes/Levels/boss_appearance_range.gd" id="5_tbhvf"]
-[ext_resource type="PackedScene" uid="uid://btuy5qkt4ofla" path="res://Scenes/Enemies/mini_boss.tscn" id="6_bphjj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oynen"]
 size = Vector2(1006, 150)
@@ -145,10 +144,6 @@ position = Vector2(1289, -299)
 shape = SubResource("RectangleShape2D_0ef7a")
 disabled = true
 debug_color = Color(0.8596722, 0.00069327536, 0.8778854, 0.41960785)
-
-[node name="CharacterBody2D" parent="." unique_id=397095968 instance=ExtResource("6_bphjj")]
-position = Vector2(973, -104)
-scale = Vector2(2.56, 2.56)
 
 [connection signal="area_entered" from="boss_appearance_range" to="boss_appearance_range" method="_on_area_entered"]
 [connection signal="body_entered" from="boss_appearance_range" to="boss_appearance_range" method="_on_body_entered"]
