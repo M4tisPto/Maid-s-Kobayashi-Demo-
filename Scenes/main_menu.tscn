@@ -322,6 +322,7 @@ script = ExtResource("5_opfnp")
 visible = false
 layout_mode = 1
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/Credits_Button" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="settings_menu/Back_Button" to="." method="_on_back_button_pressed"]
 
 [editable path="settings_menu"]

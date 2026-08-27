@@ -48,3 +48,7 @@ func _on_back_button_pressed() -> void:
 	await get_tree().create_timer(0.8).timeout
 	margin_container.visible =true
 	settings_menu.visible = false
+
+
+func _on_credits_button_pressed() -> void:
+	SceneTransition.load_scene("res://Scenes/credits.tscn")

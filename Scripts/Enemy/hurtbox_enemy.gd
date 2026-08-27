@@ -18,18 +18,23 @@ func _on_area_entered(area):
 		take_damage(2)
 		area.queue_free()
 	elif area.is_in_group("player_spin"):
-		
+		HitstopManager.hit_stop_enemy_hurt() 
 		take_damage(2)
 	elif area.is_in_group("knuckle_attack_player"):
+		HitstopManager.hit_stop_enemy_hurt() 
 		take_damage(3)
 	elif area.is_in_group("shockwave_player"):
+		HitstopManager.hit_stop_enemy_hurt() 
 		take_damage(2)
 	elif area.is_in_group("player_attack_combo_1"):
+		HitstopManager.hit_stop_enemy_hurt() 
 
 		take_damage(1)
 	elif area.is_in_group("player_attack_combo_2"):
+		HitstopManager.hit_stop_enemy_hurt() 
 		take_damage(2)
 	elif area.is_in_group("player_attack_combo_3"):
+		HitstopManager.hit_stop_enemy_hurt() 
 		take_damage(3)
 
 func take_damage(ammount: float):

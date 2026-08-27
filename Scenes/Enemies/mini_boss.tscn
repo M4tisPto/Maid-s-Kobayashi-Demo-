@@ -75,6 +75,7 @@ size = Vector2(58, 59)
 size = Vector2(50, 53)
 
 [node name="mini_boss" type="CharacterBody2D" unique_id=397095968]
+scale = Vector2(2.732136, 2.732136)
 collision_layer = 8
 script = ExtResource("1_miexd")
 

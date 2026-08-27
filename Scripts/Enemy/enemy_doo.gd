@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 	if not is_stunned:
 		if is_on_wall() or not ground_check.is_colliding():
 			direction *= -1
-			sprite.flip_h = direction == -1
+			sprite.flip_h = direction == 1
 			update_raycast_direction()
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("knuckle_attack_player"):
