@@ -8,7 +8,6 @@ const STAGGER := 0.06
 @onready var v_box_container: VBoxContainer = $PanelContainer/VBoxContainer
 @onready var settings_menu: Control = $settings_menu
 
-var current_level: int = 2
 
 var _buttons: Array[AnimatedButtonPause] = []
 var _tween: Tween = null
@@ -95,7 +94,7 @@ func _on_resume_button_pressed() -> void:
 func _on_restart_button_pressed() -> void:
 	get_tree().paused = false
 	GameManager.reset_player_data()
-	var level_path := "res://Scenes/Levels/%d.tscn" % current_level
+	var level_path := "res://Scenes/Levels/%d.tscn" % GameManager.current_level
 	DoorTransition.load_scene(level_path)
 
 

@@ -21,15 +21,6 @@ shader_parameter/similarity = 0.4830000229425
 shader_parameter/smoothness = 0.08
 shader_parameter/spill = 0.1
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l88yk"]
-size = Vector2(36.00002, 76.00001)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eg17s"]
-size = Vector2(36.000015, 76.00001)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_auora"]
-size = Vector2(36.000015, 76.00001)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rnac6"]
 size = Vector2(1577, 366)
 
@@ -155,15 +146,6 @@ texture = ExtResource("11_qbk2e")
 [node name="player" parent="." unique_id=2033633715 instance=ExtResource("1_rnac6")]
 visibility_layer = 33
 position = Vector2(86, 6)
-
-[node name="collision_combo_1" parent="player/Flip_container/attack_1" parent_id_path=PackedInt32Array(2033633715, 1071137977) index="0" unique_id=889571797]
-shape = SubResource("RectangleShape2D_l88yk")
-
-[node name="collision_combo_2" parent="player/Flip_container/attack_2" parent_id_path=PackedInt32Array(2033633715, 2946222) index="0" unique_id=287053814]
-shape = SubResource("RectangleShape2D_eg17s")
-
-[node name="collision_combo_3" parent="player/Flip_container/attack_3" parent_id_path=PackedInt32Array(2033633715, 572558253) index="0" unique_id=1066883444]
-shape = SubResource("RectangleShape2D_auora")
 
 [node name="CameraPlayer" parent="player" unique_id=148450751 instance=ExtResource("2_wla3b")]
 position = Vector2(-57, -40)
@@ -329,9 +311,6 @@ layer_0/tile_data = PackedInt32Array(0, 65536, 0, 1, 65536, 0, 2, 65536, 0, 3, 6
 [connection signal="area_entered" from="KillZone" to="KillZone" method="_on_area_entered"]
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
 
-[editable path="player"]
-[editable path="player/arm_state_machine/knuckleblaster_arm"]
-[editable path="player/GUI"]
 [editable path="breakable_blocks/Breakable_block"]
 [editable path="breakable_blocks/Breakable_block2"]
 [editable path="breakable_blocks/Breakable_block3"]

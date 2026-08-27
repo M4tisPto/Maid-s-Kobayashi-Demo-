@@ -4,7 +4,7 @@ var player: Player
 var player_health: int = 25
 var current_arm: String = "base"
 var is_collisions_checked: bool = false
-
+var current_level: int = 1
 func save_player(player: Player) -> void:
 	if not player:
 		return
@@ -54,7 +54,8 @@ func load_arm(player: Player) -> void:
 		_:
 			print("Unknown arm: ", current_arm)
 
-
+func set_current_level(level: int) -> void:
+	current_level = level
 
 func reset_player_data() -> void:
 	player_health = 25

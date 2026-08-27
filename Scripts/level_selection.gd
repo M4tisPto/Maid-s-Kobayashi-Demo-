@@ -27,16 +27,18 @@ func _input(event: InputEvent) -> void:
 		var current_index = $CarouselContainer.selected_index
 		match current_index:
 			0:
-				GameManager.reset_player_data()
 				SceneTransition.load_scene("res://Scenes/Levels/1.tscn")
+				GameManager.reset_player_data()
 				var tween = create_tween()
 				tween.tween_property(AudioController.current_music, "volume_db", -80, 0.8)
+				GameManager.set_current_level(1)
 				await tween.finished
 				AudioController.stop_music()
 			1:
 				SceneTransition.load_scene("res://Scenes/Levels/2.tscn")
 				var tween = create_tween()
 				tween.tween_property(AudioController.current_music, "volume_db", -80, 0.8)
+				GameManager.set_current_level(2)
 				await tween.finished
 				AudioController.stop_music()
 			2:

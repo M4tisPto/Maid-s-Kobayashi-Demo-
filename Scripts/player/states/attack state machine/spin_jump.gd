@@ -10,7 +10,6 @@ func enter():
 	parent.animation_player.play("spin_attack")
 
 func process_physics(delta: float) -> State:
-	print(delta)
 	if parent.is_on_floor() and parent.velocity.y >= 0:
 		
 		return idle_state

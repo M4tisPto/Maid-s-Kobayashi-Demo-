@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://d2s8g5qg2k4df" path="res://Scripts/state_machine/walk.gd" id="14_qpa8y"]
 [ext_resource type="Script" uid="uid://dcllrrh7ts14k" path="res://Scripts/state_machine/attack_state_machine/shoot.gd" id="15_fd4e3"]
 [ext_resource type="Script" uid="uid://dtq4s4fn2pf5m" path="res://Scripts/player/states/attack state machine/spin_jump.gd" id="15_h4iuc"]
+[ext_resource type="Script" uid="uid://yl4soaawvkax" path="res://Scripts/state_machine/skid.gd" id="15_sbwqj"]
 [ext_resource type="Script" uid="uid://cfssw617elq80" path="res://Scripts/player/states/attack state machine/combo_attack_1.gd" id="16_qqcod"]
 [ext_resource type="Script" uid="uid://dcq71cxhslb1f" path="res://Scripts/player/states/attack state machine/combo_attack_2.gd" id="18_8gxox"]
 [ext_resource type="Script" uid="uid://deyh2vc8ij6br" path="res://Scripts/player/arm_manager/arm_state_machine.gd" id="18_l6n3p"]
@@ -1256,11 +1257,12 @@ idle_state = NodePath("../idle")
 move_state = NodePath("../run")
 jump_state = NodePath("../jump")
 
-[node name="run" type="Node" parent="movement_state_machine" unique_id=300475850 node_paths=PackedStringArray("fall_state", "idle_state", "jump_state")]
+[node name="run" type="Node" parent="movement_state_machine" unique_id=300475850 node_paths=PackedStringArray("fall_state", "idle_state", "jump_state", "skid_state")]
 script = ExtResource("6_f1ek2")
 fall_state = NodePath("../fall")
 idle_state = NodePath("../idle")
 jump_state = NodePath("../jump")
+skid_state = NodePath("../skid")
 
 [node name="hurt" type="Node" parent="movement_state_machine" unique_id=1771181796 node_paths=PackedStringArray("idle_state")]
 script = ExtResource("10_ukyrk")
@@ -1271,13 +1273,19 @@ script = ExtResource("10_fd4e3")
 idle_state = NodePath("../idle")
 fall_state = NodePath("../fall")
 
-[node name="walk" type="Node" parent="movement_state_machine" unique_id=795490232 node_paths=PackedStringArray("idle_state", "jump_state", "run_state", "fall_state")]
+[node name="walk" type="Node" parent="movement_state_machine" unique_id=795490232 node_paths=PackedStringArray("idle_state", "jump_state", "fall_state", "run_state")]
 script = ExtResource("14_qpa8y")
 idle_state = NodePath("../idle")
 jump_state = NodePath("../jump")
-run_state = NodePath("../run")
 fall_state = NodePath("../fall")
+run_state = NodePath("../run")
 move_speed = 200.0
+
+[node name="skid" type="Node" parent="movement_state_machine" unique_id=1249623966 node_paths=PackedStringArray("run_state", "idle_state", "fall_state")]
+script = ExtResource("15_sbwqj")
+run_state = NodePath("../run")
+idle_state = NodePath("../run")
+fall_state = NodePath("../fall")
 
 [node name="attack_state_machine" type="Node" parent="." unique_id=446655595 node_paths=PackedStringArray("starting_state")]
 script = ExtResource("12_7dp3o")

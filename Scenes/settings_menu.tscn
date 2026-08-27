@@ -44,10 +44,9 @@ theme_override_constants/tab_separation = 15
 theme_override_fonts/font = ExtResource("1_icv2g")
 theme_override_font_sizes/font_size = 48
 tab_alignment = 1
-current_tab = 4
+current_tab = 0
 
 [node name="options_tabbar_audio" type="TabBar" parent="TabContainer" unique_id=2126431241]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -224,6 +223,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Extra" type="TabBar" parent="TabContainer" unique_id=1936755896]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 4
 
