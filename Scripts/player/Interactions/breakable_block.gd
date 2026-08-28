@@ -22,3 +22,8 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		$hitbox/CollisionShape2D2.visible = false
 		await $AnimationPlayer.animation_finished
 		queue_free()
+	elif area.is_in_group("knuckle_attack_player"):
+		$AnimationPlayer.play("Destroyed")
+		$hitbox/CollisionShape2D2.visible = false
+		await $AnimationPlayer.animation_finished
+		queue_free()
