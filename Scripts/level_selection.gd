@@ -47,7 +47,9 @@ func _input(event: InputEvent) -> void:
 				AudioController.stop_music()
 			_:
 				print("no level encountered")
-
+	if event.is_action_pressed("pause"):
+		SceneTransition.load_scene("res://Scenes/main_menu.tscn")
+		AudioController.stop_music()
 
 func update_label():
 	var detect_index = $CarouselContainer.position_offset_node.get_child($CarouselContainer.selected_index).name

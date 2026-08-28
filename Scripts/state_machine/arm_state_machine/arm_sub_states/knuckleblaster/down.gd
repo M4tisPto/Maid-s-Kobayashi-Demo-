@@ -1,7 +1,7 @@
 extends State
 var arm_animation_player: AnimationPlayer
 @export var jump_boost = 600
-var boost_air = 200
+var boost_air = 600
 func enter() -> void:
 	print("down")
 	arm_animation_player = get_parent().get("anim_shockwave") if get_parent() else null
@@ -12,7 +12,7 @@ func enter() -> void:
 	if parent.is_on_floor():
 		parent.velocity.y = -jump_boost
 	else:
-		parent.velocity.y = -jump_boost + boost_air
+		parent.velocity.y = -jump_boost - boost_air
 	
 	parent.move_and_slide()
 func process_physics(_delta: float) -> State:

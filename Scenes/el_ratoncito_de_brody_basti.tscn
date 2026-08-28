@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://ckjh3rqvef1c1" path="res://Scripts/el_ratoncito_de_brody_basti.gd" id="1_4ugs3"]
 [ext_resource type="PackedScene" uid="uid://235j5m2lm1wu" path="res://3D_Models/ratatin_causa.glb" id="2_kmgg2"]
+[ext_resource type="Script" uid="uid://chugaf2qjdchh" path="res://Scenes/legrab.gd" id="3_kmgg2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oynen"]
+radius = 468.83685
 
 [node name="el_ratoncito_de_brody_basti" type="Node2D" unique_id=1943152917]
 script = ExtResource("1_4ugs3")
@@ -18,7 +22,9 @@ offset_bottom = 40.0
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1788648905]
 transparent_bg = true
+handle_input_locally = false
 size = Vector2i(1024, 1024)
+render_target_update_mode = 4
 
 [node name="ratatin_causa" parent="SubViewportContainer/SubViewport" unique_id=1831351359 instance=ExtResource("2_kmgg2")]
 
@@ -26,3 +32,15 @@ size = Vector2i(1024, 1024)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.6761875, 4.239288, 0.22447348)
 projection = 1
 size = 10.852386
+
+[node name="legrab" type="Area2D" parent="." unique_id=1252822838]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("3_kmgg2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="legrab" unique_id=2061836585]
+position = Vector2(520, 665)
+shape = SubResource("CircleShape2D_oynen")
+
+[connection signal="area_entered" from="legrab" to="." method="_on_legrab_area_entered"]
+[connection signal="body_entered" from="legrab" to="." method="_on_legrab_body_entered"]
