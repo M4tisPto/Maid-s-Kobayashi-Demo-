@@ -36,6 +36,7 @@ func _input(event: InputEvent) -> void:
 				AudioController.stop_music()
 			1:
 				SceneTransition.load_scene("res://Scenes/Levels/2.tscn")
+				GameManager.reset_player_data()
 				var tween = create_tween()
 				tween.tween_property(AudioController.current_music, "volume_db", -80, 0.8)
 				GameManager.set_current_level(2)
