@@ -30,6 +30,8 @@ func process_input(event: InputEvent) -> State:
 		return spín_jump_state
 	
 	if Input.is_action_just_pressed("attack") and (Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left")):
+		# now for some reason, it does ALL combo states in one go instead of doing it one by one hitting the attack button
+		# this didn't happened a week ago
 		return combo_attack
 	
 	if Input.is_action_just_pressed("attack") and Input.is_action_pressed("duck_down") and parent.velocity == Vector2.ZERO:

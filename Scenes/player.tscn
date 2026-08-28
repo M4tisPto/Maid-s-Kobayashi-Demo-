@@ -1237,8 +1237,10 @@ material = SubResource("ShaderMaterial_1o6f2")
 position = Vector2(2.9999998, -40.715)
 scale = Vector2(1.2727273, 1.2727273)
 sprite_frames = SubResource("SpriteFrames_oynen")
-animation = &"skid"
+animation = &"attack_combo_3"
 autoplay = "idle"
+frame = 4
+frame_progress = 1.0
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=1741350484]
 position = Vector2(0, -47)

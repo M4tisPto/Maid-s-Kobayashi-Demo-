@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cpo0ppravbnq3"]
+
+[ext_resource type="PackedScene" uid="uid://361vd8oymiyk" path="res://Scenes/door.tscn" id="1_eeet4"]
+[ext_resource type="PackedScene" uid="uid://di4b3fet5cvsw" path="res://Scenes/player.tscn" id="2_ph5q2"]
+[ext_resource type="PackedScene" uid="uid://x1hd24jw4nrd" path="res://Scenes/camera_player.tscn" id="3_af351"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oumux"]
+size = Vector2(3239, 306)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgyga"]
+size = Vector2(3262, 306)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uff0i"]
+size = Vector2(1730, 497)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eeet4"]
+size = Vector2(2232, 969)
+
+[node name="SecondLevelFinalSection" type="Node2D" unique_id=893413355]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1756856146]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1169918136]
+position = Vector2(643.5, 156)
+shape = SubResource("RectangleShape2D_oumux")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2094420986]
+position = Vector2(655, -501)
+shape = SubResource("RectangleShape2D_kgyga")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=2026892727]
+position = Vector2(-1835, -180.5)
+shape = SubResource("RectangleShape2D_uff0i")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=161642844]
+position = Vector2(2703, -180.5)
+shape = SubResource("RectangleShape2D_eeet4")
+
+[node name="Door" parent="." unique_id=1173476009 instance=ExtResource("1_eeet4")]
+position = Vector2(1318, -80)
+next_section_path = "uid://ch8jevjlibdfr"
+
+[node name="player" parent="." unique_id=2033633715 instance=ExtResource("2_ph5q2")]
+
+[node name="CameraPlayer" parent="player" unique_id=148450751 instance=ExtResource("3_af351")]

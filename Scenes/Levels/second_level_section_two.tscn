@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://d2hfd5wvj4ghx" path="res://Scenes/Levels/boss_appearance_range.gd" id="5_tbhvf"]
 [ext_resource type="PackedScene" uid="uid://cjab5y5fghro" path="res://Scenes/Enemies/enemy_thingi.tscn" id="6_i8bb8"]
 [ext_resource type="PackedScene" uid="uid://d2mvcger531yi" path="res://Scenes/enemy_knuckleblaster.tscn" id="7_mn6w3"]
+[ext_resource type="PackedScene" uid="uid://b3rfmsgs3uhf8" path="res://Scenes/el_ratoncito_de_brody_basti.tscn" id="8_mn6w3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oynen"]
 size = Vector2(1006, 438)
@@ -120,6 +121,7 @@ position = Vector2(2364, -146)
 
 [node name="Door" parent="." unique_id=1173476009 instance=ExtResource("2_b7p3o")]
 position = Vector2(4303, -56)
+next_section_path = "uid://cx44cqi6w250y"
 
 [node name="player" parent="." unique_id=2033633715 instance=ExtResource("3_fou6e")]
 position = Vector2(-160, -2)
@@ -177,6 +179,10 @@ position = Vector2(3421, -314)
 
 [node name="enemy_knuckleblaster" parent="Enemies" unique_id=491960886 instance=ExtResource("7_mn6w3")]
 position = Vector2(4050, -128)
+
+[node name="el_ratoncito_de_brody_basti" parent="." unique_id=1943152917 instance=ExtResource("8_mn6w3")]
+position = Vector2(2234, -179.00002)
+scale = Vector2(0.15602419, 0.15602419)
 
 [connection signal="area_entered" from="boss_appearance_range" to="boss_appearance_range" method="_on_area_entered"]
 [connection signal="body_entered" from="boss_appearance_range" to="boss_appearance_range" method="_on_body_entered"]

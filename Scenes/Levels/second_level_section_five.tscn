@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://dcvwk0gnrxsjb"]
+
+[ext_resource type="Script" uid="uid://c8bbl6uw2wk5j" path="res://Scenes/Levels/kill_zone.gd" id="1_bsv78"]
+[ext_resource type="PackedScene" uid="uid://361vd8oymiyk" path="res://Scenes/door.tscn" id="2_xk1tp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgyga"]
+size = Vector2(1805, 196)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46ydl"]
+size = Vector2(1146, 365)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0m7vj"]
+size = Vector2(1146, 1774)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aldb8"]
+size = Vector2(1900, 227)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2wbu"]
+size = Vector2(2104, 1297)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fdxbf"]
+distance = 32.994926
+
+[node name="second_level_section_five" type="Node2D" unique_id=475637675]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1745318724]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=988934676]
+position = Vector2(-697.5, 97)
+shape = SubResource("RectangleShape2D_kgyga")
+debug_color = Color(0.8836818, 0.00032690406, 0.81426895, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=801047035]
+position = Vector2(782, 12.5)
+shape = SubResource("RectangleShape2D_46ydl")
+debug_color = Color(0.8836818, 0.00032690406, 0.81426895, 0.41960785)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=212978415]
+position = Vector2(-1061, -692)
+shape = SubResource("RectangleShape2D_0m7vj")
+debug_color = Color(0.8836818, 0.00032690406, 0.81426895, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=908735653]
+position = Vector2(2297, 81.5)
+shape = SubResource("RectangleShape2D_aldb8")
+debug_color = Color(0.8836818, 0.00032690406, 0.81426895, 0.41960785)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=2133875320]
+position = Vector2(4464, 81.5)
+shape = SubResource("RectangleShape2D_aldb8")
+debug_color = Color(0.8836818, 0.00032690406, 0.81426895, 0.41960785)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=182252449]
+position = Vector2(5593, -453.5)
+shape = SubResource("RectangleShape2D_l2wbu")
+debug_color = Color(0.8836818, 0.00032690406, 0.81426895, 0.41960785)
+
+[node name="KillZone" type="Area2D" parent="." unique_id=1624866124]
+position = Vector2(2869, 0)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_bsv78")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=2133267458]
+position = Vector2(515, 709)
+scale = Vector2(23.05, 7.88)
+shape = SubResource("WorldBoundaryShape2D_fdxbf")
+
+[node name="Door" parent="." unique_id=1173476009 instance=ExtResource("2_xk1tp")]
+position = Vector2(4448, -87)
+
+[connection signal="area_entered" from="KillZone" to="KillZone" method="_on_area_entered"]
+[connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b6ngq4iu5wl42"
+path="res://.godot/imported/Ecco the Dolphin Sega CD The Vents.mp3-8a363d9bc4d0e1700a14e19cded37198.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Ecco the Dolphin Sega CD The Vents.mp3"
+dest_files=["res://.godot/imported/Ecco the Dolphin Sega CD The Vents.mp3-8a363d9bc4d0e1700a14e19cded37198.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

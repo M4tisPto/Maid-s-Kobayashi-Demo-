@@ -1,5 +1,5 @@
 extends State
-# copy arms
+
 @export var base_state: State
 @export var knuckleblaster_state: State
 
@@ -9,34 +9,46 @@ var next_state: State = null
 
 func enter() -> void:
 	next_state = null
-	timer = 1
-	parent.sophia_animations.process_mode = Node.PROCESS_MODE_ALWAYS
-	print("copy state entered")
+	timer = 1.0
+
 	parent.movement_locked = true
-	parent.sophia_animations.animation_finished.connect(_on_animation_finished, CONNECT_ONE_SHOT)
+	parent.collision_copy.visible = false
+	parent.collision_copy.set_deferred("disabled", true)
+
+	parent.sophia_animations.process_mode = Node.PROCESS_MODE_ALWAYS
+	parent.sophia_animations.animation_finished.connect(
+		_on_animation_finished,
+		CONNECT_ONE_SHOT
+	)
 	parent.sophia_animations.play("copy_start")
-	
+
 
 func exit() -> void:
 	if parent.sophia_animations.animation_finished.is_connected(_on_animation_finished):
 		parent.sophia_animations.animation_finished.disconnect(_on_animation_finished)
+
 	parent.collision_copy.visible = false
-	parent.sophia_animations.play_backwards("copy_start")
 	parent.collision_copy.set_deferred("disabled", true)
+
+	parent.sophia_animations.play_backwards("copy_start")
 	parent.movement_locked = false
-func _on_animation_finished():
-	
-	parent.sophia_animations.play("copy_loop", )
+
+
+func _on_animation_finished() -> void:
+	parent.sophia_animations.play("copy_loop")
 	parent.collision_copy.visible = true
 	parent.collision_copy.set_deferred("disabled", false)
 
+
 func process_physics(delta: float) -> State:
 	timer -= delta
-	print(timer)
+
 	if next_state:
 		return next_state
+
 	if timer <= 0:
 		return base_state
+
 	return null
 
 

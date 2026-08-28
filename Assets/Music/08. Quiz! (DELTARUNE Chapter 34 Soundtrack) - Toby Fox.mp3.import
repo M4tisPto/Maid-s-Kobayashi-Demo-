@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c16jcw6d3jkvl"
+path="res://.godot/imported/08. Quiz! (DELTARUNE Chapter 34 Soundtrack) - Toby Fox.mp3-f6a4bb6638d04e153c0f2c9a79fb0a4d.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/08. Quiz! (DELTARUNE Chapter 34 Soundtrack) - Toby Fox.mp3"
+dest_files=["res://.godot/imported/08. Quiz! (DELTARUNE Chapter 34 Soundtrack) - Toby Fox.mp3-f6a4bb6638d04e153c0f2c9a79fb0a4d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

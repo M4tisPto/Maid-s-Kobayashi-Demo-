@@ -15,13 +15,13 @@
 [ext_resource type="Texture2D" uid="uid://dg1hetwtosht8" path="res://Assets/Sprites/tiles/tile_set_maids_kobayashi.png" id="13_yr5kx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3so4f"]
-size = Vector2(4665, 512)
+size = Vector2(5058, 512)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atqnh"]
 size = Vector2(1494, 62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hs7b6"]
-size = Vector2(544, 342)
+size = Vector2(921, 342)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x0sed"]
 size = Vector2(484, 1160)
@@ -83,7 +83,7 @@ limit_bottom = 369
 [node name="Collisions" type="StaticBody2D" parent="." unique_id=1558429666]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions" unique_id=351032753]
-position = Vector2(1557.5, 255)
+position = Vector2(1754, 255)
 shape = SubResource("RectangleShape2D_3so4f")
 debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
 
@@ -93,7 +93,7 @@ shape = SubResource("RectangleShape2D_atqnh")
 debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Collisions" unique_id=548921879]
-position = Vector2(3633, -147)
+position = Vector2(3821.5, -147)
 shape = SubResource("RectangleShape2D_hs7b6")
 debug_color = Color(0.8262562, 0.0015869671, 0.9545577, 0.41960785)
 

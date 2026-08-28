@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://deocrncn1ldv6" path="res://Scripts/Globals/audio_controller.gd" id="1_t0xn5"]
 [ext_resource type="AudioStream" uid="uid://dknaeqig3pv2g" path="res://Assets/Music/Scooby Doo! Creepy Run theme (HIGH QUALITY).mp3" id="2_t0xn5"]
-[ext_resource type="AudioStream" uid="uid://vnpo20w63kl7" path="res://Assets/Sound Effects/500675__simoneyoh3998__small-jump-for-videogames.wav" id="2_yyma2"]
+[ext_resource type="AudioStream" uid="uid://b6ngq4iu5wl42" path="res://Assets/Music/Ecco the Dolphin Sega CD The Vents.mp3" id="2_uc8ob"]
 [ext_resource type="AudioStream" uid="uid://hxfmjvs83qyp" path="res://Assets/Music/credits.mp3" id="4_ncnt2"]
-[ext_resource type="AudioStream" uid="uid://3g1i34p3bj20" path="res://Assets/Music/what's that smell (sugary spire).mp3" id="4_nqcbu"]
+[ext_resource type="AudioStream" uid="uid://c16jcw6d3jkvl" path="res://Assets/Music/08. Quiz! (DELTARUNE Chapter 34 Soundtrack) - Toby Fox.mp3" id="5_t18y6"]
 [ext_resource type="AudioStream" uid="uid://cdh2ticfeqd5h" path="res://Assets/Sound Effects/Retro 8 bit SFX Pack/344314__musiclegends__powerup24.wav" id="5_ual3u"]
-[ext_resource type="AudioStream" uid="uid://dwvl6k0sqoyh0" path="res://Assets/Sound Effects/level_select.mp3" id="5_uc8ob"]
+[ext_resource type="AudioStream" uid="uid://ca503ac5osfri" path="res://Assets/Sound Effects/se_miifighter_jump01.wav" id="6_uc8ob"]
 [ext_resource type="AudioStream" uid="uid://b4ocag1oxyuub" path="res://Assets/Sound Effects/TalkSounds/test_talksound.ogg" id="6_yyma2"]
 [ext_resource type="AudioStream" uid="uid://ccyg23t7k47ni" path="res://Assets/Sound Effects/733021__geoff-bremner-audio__whip-6.wav" id="8_xxf2r"]
 [ext_resource type="AudioStream" uid="uid://v627ichvppg5" path="res://Assets/Sound Effects/362423__alphatrooper18__explosion1.wav" id="9_xxf2r"]
@@ -21,8 +21,8 @@ script = ExtResource("1_t0xn5")
 [node name="Music" type="Node" parent="." unique_id=2094341803]
 
 [node name="Music_menu" type="AudioStreamPlayer" parent="Music" unique_id=522707309]
-stream = ExtResource("4_nqcbu")
-volume_db = -16.533
+stream = ExtResource("2_uc8ob")
+volume_db = -8.0
 bus = &"Music"
 parameters/looping = true
 
@@ -39,13 +39,13 @@ mix_target = 2
 bus = &"Music"
 
 [node name="Level_Selector" type="AudioStreamPlayer" parent="Music" unique_id=654260284]
-stream = ExtResource("5_uc8ob")
+stream = ExtResource("5_t18y6")
 
 [node name="Sfx" type="Node" parent="." unique_id=1352491733]
 
 [node name="Jump" type="AudioStreamPlayer" parent="Sfx" unique_id=197486431]
-stream = ExtResource("2_yyma2")
-volume_db = -26.037
+stream = ExtResource("6_uc8ob")
+volume_db = -8.0
 pitch_scale = 0.91
 bus = &"Sfx"
 

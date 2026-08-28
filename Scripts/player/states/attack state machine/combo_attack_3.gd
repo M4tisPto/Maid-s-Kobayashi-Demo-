@@ -2,10 +2,10 @@ extends State
 
 @export var idle_state: State
 var animation_finished := false
-var dash_speed = 50
+var dash_speed = 75
 
 func enter() -> void:
-	print("entering combo state")
+	print("entering combo state 3" )
 
 	animation_finished = false
 

@@ -36,6 +36,7 @@ var bullet = preload("res://Scenes/bullet.tscn")
 @onready var collision_combo_2: CollisionShape2D = $Flip_container/attack_2/collision_combo_2
 @onready var collision_combo_3: CollisionShape2D = $Flip_container/attack_3/collision_combo_3
 
+
 var skid_direction: int = 0
 var dash_activated = true
 var movement_locked := false
@@ -72,7 +73,6 @@ var is_dead: bool:
 		return _is_dead
 func _ready() -> void:
 	add_to_group("player")
-
 	movement_state_machine.init(self)
 	attack_state_machine.init(self)
 	arm_state_machine.init(self)

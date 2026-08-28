@@ -33,10 +33,8 @@ func play_sound(sound_name: String):
 	var sound = sfx[sound_name]
 	sound.pitch_scale = 1.0
 
-	# Simplificación de la lógica de pitch aleatorio
-	if sound_name.begins_with("punch") or sound_name.begins_with("talk_"):
+	if sound_name.begins_with("punch") or sound_name.begins_with("talk_") or sound_name.begins_with("jump"):
 		sound.pitch_scale = randf_range(0.95, 1.1)
-
 	sound.play()
 
 func stop_sound(sound_name: String):

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b3rfmsgs3uhf8"]
+
+[ext_resource type="Script" uid="uid://ckjh3rqvef1c1" path="res://Scripts/el_ratoncito_de_brody_basti.gd" id="1_4ugs3"]
+[ext_resource type="PackedScene" uid="uid://235j5m2lm1wu" path="res://3D_Models/ratatin_causa.glb" id="2_kmgg2"]
+
+[node name="el_ratoncito_de_brody_basti" type="Node2D" unique_id=1943152917]
+script = ExtResource("1_4ugs3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=733790278]
+transform = Transform3D(0.78043044, -0.31262133, 0.541476, 0, 0.8660254, 0.5, -0.62524265, -0.39021522, 0.67587256, 0, 0, 0)
+light_energy = 5.8
+shadow_enabled = true
+directional_shadow_max_distance = 1.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=38433398]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1788648905]
+transparent_bg = true
+size = Vector2i(1024, 1024)
+
+[node name="ratatin_causa" parent="SubViewportContainer/SubViewport" unique_id=1831351359 instance=ExtResource("2_kmgg2")]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=259052865]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.6761875, 4.239288, 0.22447348)
+projection = 1
+size = 10.852386

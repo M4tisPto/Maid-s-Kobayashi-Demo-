@@ -36,7 +36,7 @@ offset_right = 920.5
 offset_bottom = -342.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "YOU'RE NOT SUPPOSED TO BE HERE."
+text = "label_yourenotsupposedtobehere"
 label_settings = SubResource("LabelSettings_oynen")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=811940128]
