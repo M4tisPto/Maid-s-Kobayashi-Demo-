@@ -11,6 +11,7 @@ func enter() -> void:
 	print("side")
 	arm_animation_player = get_parent().get("anim_knuckleblaster") if get_parent() else null
 	dash_timer = dash_duration
+	parent.sophia_animations.play("side")
 	var movement = Input.get_axis("move_left", "move_right") 
 	if movement != 0: 
 		dash_direction = sign(movement)

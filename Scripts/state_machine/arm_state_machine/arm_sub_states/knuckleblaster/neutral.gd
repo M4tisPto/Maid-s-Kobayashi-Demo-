@@ -6,6 +6,7 @@ func enter() -> void:
 	print("neutral")
 	arm_animation_player = get_parent().get("anim_knuckleblaster") if get_parent() else null
 	arm_animation_player.play("kuck_neutral")
+	parent.sophia_animations.play("neutral")
 
 
 func process_physics(_delta: float) -> State:

@@ -8,7 +8,7 @@ func enter() -> void:
 	arm_animation_player.play("shockwave_boost")
 	parent.wave_boost -= 1
 	parent.is_wave_boosting = true
-
+	parent.sophia_animations.play("down")
 	if parent.is_on_floor():
 		parent.velocity.y = -jump_boost
 	else:

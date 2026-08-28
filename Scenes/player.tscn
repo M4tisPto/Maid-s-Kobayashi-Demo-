@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://cdqu4q70g563w" path="res://Scripts/player/states/fall.gd" id="5_8erm5"]
 [ext_resource type="Texture2D" uid="uid://cqqwnmq31bdid" path="res://Assets/Sprites/SpriteSheets/spritesheetV2.png" id="5_yh6i2"]
 [ext_resource type="Script" uid="uid://b5pkk4yvwrh78" path="res://Scripts/player/states/move.gd" id="6_f1ek2"]
+[ext_resource type="Texture2D" uid="uid://dnhk08j4nf3qc" path="res://Assets/Sprites/SpriteSheets/pixil-frame-0_16.png" id="7_xwi16"]
 [ext_resource type="Script" uid="uid://bou6ee8ocepy3" path="res://Scripts/player/states/duck.gd" id="10_fd4e3"]
 [ext_resource type="Script" uid="uid://fmurmdiwhdco" path="res://Scripts/player/states/hurt.gd" id="10_ukyrk"]
 [ext_resource type="Script" uid="uid://bpc0j3hy32ggb" path="res://Scripts/state_machine/attack_state_machine/attack_state_machine.gd" id="12_7dp3o"]
@@ -178,6 +179,54 @@ region = Rect2(192, 384, 64, 62)
 [sub_resource type="AtlasTexture" id="AtlasTexture_nuaet"]
 atlas = ExtResource("5_yh6i2")
 region = Rect2(256, 384, 64, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0y64g"]
+atlas = ExtResource("7_xwi16")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ramv3"]
+atlas = ExtResource("7_xwi16")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hseb1"]
+atlas = ExtResource("7_xwi16")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vinow"]
+atlas = ExtResource("7_xwi16")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awsf5"]
+atlas = ExtResource("7_xwi16")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v84ne"]
+atlas = ExtResource("7_xwi16")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pcjl"]
+atlas = ExtResource("7_xwi16")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ath1"]
+atlas = ExtResource("7_xwi16")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgf6i"]
+atlas = ExtResource("7_xwi16")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvt37"]
+atlas = ExtResource("7_xwi16")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kt3hj"]
+atlas = ExtResource("7_xwi16")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jrev"]
+atlas = ExtResource("7_xwi16")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sbwqj"]
 atlas = ExtResource("5_yh6i2")
@@ -448,6 +497,62 @@ animations = [{
 "loop": 0,
 "name": &"jump",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0y64g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ramv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hseb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vinow")
+}],
+"loop": 0,
+"name": &"knuckle_down",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awsf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v84ne")
+}],
+"loop": 0,
+"name": &"knuckle_neutral",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pcjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ath1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgf6i")
+}],
+"loop": 0,
+"name": &"knuckle_side",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvt37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kt3hj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jrev")
+}],
+"loop": 1,
+"name": &"knuckle_up",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1237,10 +1342,8 @@ material = SubResource("ShaderMaterial_1o6f2")
 position = Vector2(2.9999998, -40.715)
 scale = Vector2(1.2727273, 1.2727273)
 sprite_frames = SubResource("SpriteFrames_oynen")
-animation = &"attack_combo_3"
+animation = &"knuckle_neutral"
 autoplay = "idle"
-frame = 4
-frame_progress = 1.0
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=1741350484]
 position = Vector2(0, -47)
