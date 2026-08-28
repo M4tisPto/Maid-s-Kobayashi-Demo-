@@ -51,8 +51,8 @@ position = Vector2(-405, 0)
 [node name="flaoting_enemy" parent="Enemies" unique_id=1916321269 instance=ExtResource("4_ph5q2")]
 position = Vector2(279, -75)
 
-[node name="flaoting_enemy" parent="Enemies/flaoting_enemy" unique_id=1012092779 instance=ExtResource("4_ph5q2")]
-position = Vector2(329, 30)
+[node name="flaoting_enemy2" parent="Enemies" unique_id=1012092779 instance=ExtResource("4_ph5q2")]
+position = Vector2(608, -45)
 
-[node name="flaoting_enemy" parent="Enemies/flaoting_enemy/flaoting_enemy" unique_id=1080956369 instance=ExtResource("4_ph5q2")]
-position = Vector2(345, -52)
+[node name="flaoting_enemy3" parent="Enemies" unique_id=1080956369 instance=ExtResource("4_ph5q2")]
+position = Vector2(953, -97)

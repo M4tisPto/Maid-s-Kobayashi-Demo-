@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4oh5ndshefye"
-path="res://.godot/imported/Icon.png-a4cc56d1f218ced81b41845971a8dd07.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
-source_file="res://Assets/Sprites/Icon.png"
-dest_files=["res://.godot/imported/Icon.png-a4cc56d1f218ced81b41845971a8dd07.ctex"]
+source_file="res://Assets/Sprites/Icon.ico"
 
 [params]
 

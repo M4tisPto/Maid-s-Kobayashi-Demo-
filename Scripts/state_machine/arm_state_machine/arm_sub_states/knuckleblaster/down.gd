@@ -5,10 +5,10 @@ var boost_air = 200
 func enter() -> void:
 	print("down")
 	arm_animation_player = get_parent().get("anim_shockwave") if get_parent() else null
+	
 	arm_animation_player.play("shockwave_boost")
 	parent.wave_boost -= 1
 	parent.is_wave_boosting = true
-	parent.sophia_animations.play("down")
 	if parent.is_on_floor():
 		parent.velocity.y = -jump_boost
 	else:

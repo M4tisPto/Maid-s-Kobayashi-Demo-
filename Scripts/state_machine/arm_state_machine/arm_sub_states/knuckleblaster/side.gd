@@ -11,13 +11,15 @@ func enter() -> void:
 	print("side")
 	arm_animation_player = get_parent().get("anim_knuckleblaster") if get_parent() else null
 	dash_timer = dash_duration
-	parent.sophia_animations.play("side")
+	parent.sophia_animations.play("knuckle_side")
 	var movement = Input.get_axis("move_left", "move_right") 
+	
 	if movement != 0: 
 		dash_direction = sign(movement)
 		parent.facing_direction = dash_direction 
 	else:
 		dash_direction = parent.facing_direction
+		parent.sophia_animations.flip_h = parent.facing_direction
 		
 	if parent.movement_state_machine:
 		parent.movement_state_machine.set_process(false)
