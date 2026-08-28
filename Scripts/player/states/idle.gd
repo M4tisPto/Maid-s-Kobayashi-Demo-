@@ -10,7 +10,7 @@ extends State
 var current_gravity = gravity
 var last_tap_time: float = -1.0
 var last_tap_direction: int = 0
-var double_tap_delay: float = 0.3
+var double_tap_delay: float = 0.4
 func enter() -> void:
 	print("Idle state enter")
 

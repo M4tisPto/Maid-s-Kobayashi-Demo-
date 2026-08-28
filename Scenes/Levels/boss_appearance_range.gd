@@ -85,7 +85,7 @@ func restore_arena() -> void:
 	tween.tween_property(camera_limit, "limit_left", -126, 0.8)
 	tween.tween_property(camera_limit, "limit_top", -607, 0.8)
 	tween.tween_property(camera_limit, "limit_right", 4647, 0.8)
-	tween.tween_property(camera_limit, "limit_bottom", 176, 0.8)
+	tween.tween_property(camera_limit, "limit_bottom", 396, 0.8)
 
 	$"../boss_ring_or_smth/CollisionShape2D".set_deferred("disabled", true)
 	$"../boss_ring_or_smth/CollisionShape2D2".set_deferred("disabled", true)

@@ -13,7 +13,7 @@ options_audio_sfx,Efectos de sonido,Sound effects
 options_language_label_select,Selecciona tu lenguaje,Select a language
 options_btn_back,Volver,Back
 label_level_select,[wave amp 50.0 freq = 2] ¡SELECCIONA UN NIVEL!,[wave amp 50.0 freq = 2] SELECT A LEVEL!
-label_tip_level_select,Presiona ENTER para continuar.,Press ENTER to enter
+label_tip_level_select,Presiona ESPACIO para continuar.,Press SPACE to enter
 label_game_paused,[wave amp=50.0 freq=2.0] ¡PAUSA! [/wave],[wave amp=50.0 freq=2.0] GAME PAUSED![/wave]
 pause_btn_resume,Resumir,Resume
 pause_btn_restart,Reiniciar,Restart

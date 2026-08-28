@@ -25,7 +25,7 @@ size = Vector2(778, 406)
 size = Vector2(827, 604)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8bb8"]
-size = Vector2(984, 598)
+size = Vector2(984, 309)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4wh4e"]
 size = Vector2(570, 258)
@@ -34,7 +34,7 @@ size = Vector2(570, 258)
 size = Vector2(1841, 449)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msx4c"]
-size = Vector2(201.5, 477)
+size = Vector2(555, 133)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nq5t5"]
 size = Vector2(870, 1090)
@@ -78,7 +78,7 @@ shape = SubResource("RectangleShape2D_bphjj")
 debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1138943571]
-position = Vector2(2883, 153)
+position = Vector2(2883, 8.5)
 shape = SubResource("RectangleShape2D_i8bb8")
 debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
 
@@ -93,7 +93,7 @@ shape = SubResource("RectangleShape2D_mn6w3")
 debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D" unique_id=138552074]
-position = Vector2(2317.75, 207.5)
+position = Vector2(2494.5, 379.5)
 shape = SubResource("RectangleShape2D_msx4c")
 debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
 
@@ -111,16 +111,20 @@ debug_color = Color(0.8917331, 0.0002435416, 0.79091454, 0.41960785)
 position = Vector2(1370, -60)
 
 [node name="Breakable_block2" parent="StaticBody2D" unique_id=536669980 instance=ExtResource("1_6fv0g")]
-position = Vector2(2252, -146)
+position = Vector2(2252, 139)
 
 [node name="Breakable_block3" parent="StaticBody2D" unique_id=1072839170 instance=ExtResource("1_6fv0g")]
-position = Vector2(2308, -146)
+position = Vector2(2308, 138)
 
 [node name="Breakable_block4" parent="StaticBody2D" unique_id=1062273940 instance=ExtResource("1_6fv0g")]
-position = Vector2(2364, -146)
+position = Vector2(2364, 139)
 
 [node name="Door" parent="." unique_id=1173476009 instance=ExtResource("2_b7p3o")]
 position = Vector2(4303, -56)
+next_section_path = "uid://cx44cqi6w250y"
+
+[node name="Door2" parent="." unique_id=749274952 instance=ExtResource("2_b7p3o")]
+position = Vector2(2683, 279)
 next_section_path = "uid://cx44cqi6w250y"
 
 [node name="player" parent="." unique_id=2033633715 instance=ExtResource("3_fou6e")]
@@ -131,7 +135,7 @@ position = Vector2(0, -94.14)
 limit_left = -126
 limit_top = -607
 limit_right = 4647
-limit_bottom = 176
+limit_bottom = 396
 
 [node name="boss_appearance_range" type="Area2D" parent="." unique_id=659843862]
 collision_layer = 2
@@ -181,7 +185,7 @@ position = Vector2(3421, -314)
 position = Vector2(4050, -128)
 
 [node name="el_ratoncito_de_brody_basti" parent="." unique_id=1943152917 instance=ExtResource("8_mn6w3")]
-position = Vector2(2234, -179.00002)
+position = Vector2(2234, 172)
 scale = Vector2(0.15602419, 0.15602419)
 
 [connection signal="area_entered" from="boss_appearance_range" to="boss_appearance_range" method="_on_area_entered"]
