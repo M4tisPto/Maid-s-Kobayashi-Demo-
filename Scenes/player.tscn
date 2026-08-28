@@ -211,15 +211,15 @@ region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4pcjl"]
 atlas = ExtResource("7_xwi16")
-region = Rect2(0, 64, 64, 64)
+region = Rect2(64, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ath1"]
 atlas = ExtResource("7_xwi16")
-region = Rect2(64, 64, 64, 64)
+region = Rect2(130, 65, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pgf6i"]
 atlas = ExtResource("7_xwi16")
-region = Rect2(128, 64, 64, 64)
+region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kt3hj"]
 atlas = ExtResource("7_xwi16")
@@ -541,15 +541,25 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4pcjl")
+}],
+"loop": 1,
+"name": &"knuckle_side_dash",
+"speed": 5.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3ath1")
+}],
+"loop": 1,
+"name": &"knuckle_side_punch",
+"speed": 5.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pgf6i")
 }],
 "loop": 0,
-"name": &"knuckle_side",
+"name": &"knuckle_side_start",
 "speed": 15.0
 }, {
 "frames": [{
@@ -1590,7 +1600,7 @@ material = SubResource("ShaderMaterial_1o6f2")
 position = Vector2(2.9999998, -40.715)
 scale = Vector2(1.2727273, 1.2727273)
 sprite_frames = SubResource("SpriteFrames_oynen")
-animation = &"knuckle_neutral"
+animation = &"knuckle_side_start"
 autoplay = "idle"
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=1741350484]

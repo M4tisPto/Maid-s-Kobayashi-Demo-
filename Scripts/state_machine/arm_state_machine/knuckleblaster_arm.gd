@@ -68,11 +68,21 @@ func process_input(event: InputEvent) -> State:
 
 
 func process_physics(delta: float) -> State:
+	# 1. Si hay un sub-estado activo (como side, up, down), delegamos las físicas por completo
+	if current_sub_state:
+		var new_sub = current_sub_state.process_physics(delta)
+		if new_sub == self:
+			current_sub_state.exit()
+			current_sub_state = null
+		elif new_sub:
+			change_sub_state(new_sub)
+		return null
+
+	# 2. Gestión de la carga de la Onda de Choque (Solo si estamos en estado neutro/libre)
 	if Input.is_action_just_pressed("attack"):
 		shockwave_charging = true
 		shockwave_charge = 0.0
 	
-		
 	if shockwave_charging and Input.is_action_pressed("attack"):
 		shockwave_charge += delta
 		
@@ -84,31 +94,26 @@ func process_physics(delta: float) -> State:
 		shockwave_charging = false
 		shockwave_charge = 0.0
 
-	if current_sub_state:
-		var new_sub = current_sub_state.process_physics(delta)
-		if new_sub == self:
-			current_sub_state.exit()
-			current_sub_state = null
-		elif new_sub:
-			change_sub_state(new_sub)
-		return null
-
+	# 3. Transiciones a Sub-Estados de Ataque (Evaluación de Inputs)
 	if Input.is_action_pressed("up") and Input.is_action_just_pressed("attack"):
+		shockwave_charging = false
 		change_sub_state(up)
+		
 	elif Input.is_action_pressed("duck_down") and Input.is_action_just_pressed("attack") and wave_boost > 0:
-			
-			shockwave_charging = false
-			change_sub_state(down)
-			wave_boost -= 1
-	elif Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left"):
-		if Input.is_action_just_pressed("attack") and parent.is_on_floor():
-			
-			side_dash = true
-			can_dash = false
-			change_sub_state(side)
+		shockwave_charging = false
+		change_sub_state(down)
+		wave_boost -= 1
+		
+	elif (Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left")) and Input.is_action_just_pressed("attack"):
+		if parent.is_on_floor():
+			shockwave_charging = false # Cancelamos la carga de la onda
+			change_sub_state(side)     # Side.gd manejará sus propias animaciones y tiempos
 			return null
+			
 	elif Input.is_action_just_pressed("attack"):
 		change_sub_state(neutral)
+		
+	# Recuperación del boost de caída libre
 	if parent.is_on_floor() and current_sub_state != down:
 		wave_boost = 1
 		
