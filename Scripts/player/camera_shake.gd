@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	if player.velocity.x > 0:
 		var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR)
 		tween.tween_property(self, "position", Vector2(130, -100.0), 0.5)
-		tween.parallel().tween_property(self, "zoom", Vector2(1.8, 1.8), 0.5)
+		tween.parallel().tween_property(self, "zoom", Vector2(2, 2), 0.5)
 	#if player.is_copying:
 		#
 		#var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR)

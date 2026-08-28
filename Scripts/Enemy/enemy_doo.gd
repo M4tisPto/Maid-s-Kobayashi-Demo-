@@ -14,6 +14,7 @@ extends CharacterBody2D
 var direction = 1
 var is_stunned = false
 func _ready() -> void:
+	scale = Vector2(1.5, 1.5)
 	update_raycast_direction()
 func _physics_process(delta: float) -> void:
 	if GameManager.is_collisions_checked:
