@@ -1,7 +1,7 @@
 extends Control
 
 @export var scroll_speed: float = 100.0
-const MAX_SCROLL_LIMIT: float = -3100.0
+const MAX_SCROLL_LIMIT: float = -4000.0
 
 func _ready() -> void:
 	AudioController.play_music("credits")

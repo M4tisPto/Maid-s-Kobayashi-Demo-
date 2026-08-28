@@ -1,4 +1,13 @@
-extends State # Drill arm
+extends State 
+# How are you, drill arm?
+#...
+#...
+#...
+
+
+
+
+#I'M DEAD!
 
 @onready var neutral: State = $neutral
 @onready var up: State = $up
