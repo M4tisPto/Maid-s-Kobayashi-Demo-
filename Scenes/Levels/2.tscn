@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://c8bbl6uw2wk5j" path="res://Scenes/Levels/kill_zone.gd" id="3_x46c0"]
 [ext_resource type="PackedScene" uid="uid://361vd8oymiyk" path="res://Scenes/door.tscn" id="4_35h6i"]
 [ext_resource type="PackedScene" uid="uid://cjab5y5fghro" path="res://Scenes/Enemies/enemy_thingi.tscn" id="5_xutwq"]
+[ext_resource type="PackedScene" uid="uid://ro2iph5ib4vv" path="res://Scenes/Enemies/flaoting_enemy.tscn" id="6_x46c0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oynen"]
 size = Vector2(2240, 380)
@@ -108,6 +109,9 @@ position = Vector2(2355, -224.00002)
 
 [node name="enemy_stuff4" parent="Enemies" unique_id=52877783 instance=ExtResource("5_xutwq")]
 position = Vector2(3465.0002, -193.00002)
+
+[node name="flaoting_enemy" parent="Enemies" unique_id=1916321269 instance=ExtResource("6_x46c0")]
+position = Vector2(729, -72)
 
 [connection signal="area_entered" from="KillZone" to="KillZone" method="_on_area_entered"]
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]

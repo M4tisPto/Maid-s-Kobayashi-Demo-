@@ -85,6 +85,7 @@ limit_right = 980
 limit_bottom = 111
 
 [node name="next_section" parent="." unique_id=98758675 instance=ExtResource("3_oitoi")]
+next_section_path = "uid://caargnq8nd3k8"
 
 [node name="CollisionShape2D" parent="next_section" index="0" unique_id=1769846237]
 position = Vector2(-116, -894)

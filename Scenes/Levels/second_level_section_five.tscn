@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c8bbl6uw2wk5j" path="res://Scenes/Levels/kill_zone.gd" id="1_bsv78"]
 [ext_resource type="PackedScene" uid="uid://361vd8oymiyk" path="res://Scenes/door.tscn" id="2_xk1tp"]
+[ext_resource type="PackedScene" uid="uid://cjab5y5fghro" path="res://Scenes/Enemies/enemy_thingi.tscn" id="3_46ydl"]
+[ext_resource type="PackedScene" uid="uid://d2mvcger531yi" path="res://Scenes/enemy_knuckleblaster.tscn" id="4_0m7vj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgyga"]
 size = Vector2(1805, 196)
@@ -68,6 +70,24 @@ shape = SubResource("WorldBoundaryShape2D_fdxbf")
 
 [node name="Door" parent="." unique_id=1173476009 instance=ExtResource("2_xk1tp")]
 position = Vector2(4448, -87)
+next_section_path = "uid://cpo0ppravbnq3"
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1362461887]
+
+[node name="enemy_stuff" parent="Enemies" unique_id=1803778493 instance=ExtResource("3_46ydl")]
+position = Vector2(814, -207)
+
+[node name="enemy_stuff3" parent="Enemies" unique_id=1835223605 instance=ExtResource("3_46ydl")]
+position = Vector2(1722, -87)
+
+[node name="enemy_stuff4" parent="Enemies" unique_id=1626956413 instance=ExtResource("3_46ydl")]
+position = Vector2(2319, -66)
+
+[node name="enemy_stuff2" parent="Enemies" unique_id=266921345 instance=ExtResource("3_46ydl")]
+position = Vector2(1218, -209)
+
+[node name="enemy_knuckleblaster" parent="Enemies" unique_id=491960886 instance=ExtResource("4_0m7vj")]
+position = Vector2(2838, -151)
 
 [connection signal="area_entered" from="KillZone" to="KillZone" method="_on_area_entered"]
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]

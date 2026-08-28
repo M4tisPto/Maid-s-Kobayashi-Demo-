@@ -114,6 +114,7 @@ debug_color = Color(1.6364455e-06, 0.6010665, 0.7019278, 0.41960785)
 
 [node name="Door" parent="." unique_id=1173476009 instance=ExtResource("4_dayed")]
 position = Vector2(2980, -323)
+next_section_path = "uid://dcvwk0gnrxsjb"
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1930735926]
 
